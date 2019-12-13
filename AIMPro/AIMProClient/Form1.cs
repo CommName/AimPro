@@ -17,9 +17,9 @@ namespace AIMProClient
         public Form1()
         {
             InitializeComponent();
-            LoginForm lf = new LoginForm(proxy);
+            LoginForm lf = new LoginForm(proxy,this);
             lf.ShowDialog();
-            this.Close();
+            this.Hide();
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -6,7 +6,8 @@ namespace AIMProLibrary
 {
     public class Querry
     {
-        public void registry (string username, byte[] password) { 
+        public void registry (string username, byte[] password) {
+            
 
         }
 

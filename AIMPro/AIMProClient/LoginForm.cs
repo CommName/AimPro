@@ -14,16 +14,19 @@ namespace AIMProClient
     public partial class LoginForm : Form
     {
         AIMProServerServiceClient proxy;
-        public LoginForm(AIMProServerServiceClient proxy)
+        Form1 f;
+        public LoginForm(AIMProServerServiceClient proxy, Form1 form1)
         {
+            this.f = form1;
             InitializeComponent();
             this.proxy = proxy;
         }
 
         private void signUpLabel_Click(object sender, EventArgs e)
         {
-            SignUpForm sf = new SignUpForm(this.proxy);
+            SignUpForm sf = new SignUpForm(this.proxy,f);
             sf.Show();
+            f.Hide();
             this.Close();
         }
 
@@ -32,7 +35,8 @@ namespace AIMProClient
             if (proxy.login(this.usernameTextBox.Text, Encoding.ASCII.GetBytes(this.passwordTextBox.Text)))
             {
                 MessageBox.Show("Ulazi");
-                MenuForm mf = new MenuForm(proxy);
+                MenuForm mf = new MenuForm(proxy,f);
+                f.Hide();
                 mf.Show();
                 this.Close();
             }

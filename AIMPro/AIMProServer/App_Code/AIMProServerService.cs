@@ -10,11 +10,16 @@ public class AIMProServerService : IAIMProServerService
 {
     public bool login(string username, byte[] pass)
     {
-        return true;
+        DataBaseAPI api = new DataBaseAPI();
+        User user = api.getUser(username);
+        return user.Username == username;
+        //return true;
     }
 
     public bool signUp(string username, byte[] pass)
     {
+        Querry querry = new Querry();
+        querry.registry(username, pass);
         return true;
     }
 }

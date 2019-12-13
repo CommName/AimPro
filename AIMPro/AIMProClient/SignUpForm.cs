@@ -14,18 +14,21 @@ namespace AIMProClient
     public partial class SignUpForm : Form
     {
         AIMProServerServiceClient proxy;
-        public SignUpForm(AIMProServerServiceClient proxy)
+        Form1 f;
+        public SignUpForm(AIMProServerServiceClient proxy,Form1 f)
         {
+            this.f = f;
             this.proxy = proxy;
             InitializeComponent();
         }
 
         private void signUpButton_Click(object sender, EventArgs e)
         {
-            if (proxy.login(this.usernameSignUpTextBox.Text, Encoding.ASCII.GetBytes(this.passwordSignUpTextBox.Text)))
+
+            if (proxy.signUp(this.usernameSignUpTextBox.Text, Encoding.ASCII.GetBytes(this.passwordSignUpTextBox.Text)))
             {
                 MessageBox.Show("Kreira Account");
-                MenuForm mf = new MenuForm(proxy);
+                MenuForm mf = new MenuForm(proxy,f);
                 mf.Show();
                 this.Close();
             }
