@@ -26,8 +26,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AIMProServer", "AIMProServe
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIMProClient", "AIMProClient\AIMProClient.csproj", "{EFF52B07-4F4D-4C5B-8C23-892AF00846BC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9AD8A010-E10C-4F61-B5AC-B2E143D14524} = {9AD8A010-E10C-4F61-B5AC-B2E143D14524}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIMProLibrary", "AIMProLibrary\AIMProLibrary.csproj", "{3442FD92-B6C3-4C53-8338-BBDFA829E6D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AIMProLibrary", "AIMProLibrary\AIMProLibrary.csproj", "{3442FD92-B6C3-4C53-8338-BBDFA829E6D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

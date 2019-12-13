@@ -11,20 +11,13 @@ using AIMProClient.AIMProService;
 
 namespace AIMProClient
 {
-    public partial class Form1 : Form
+    public partial class MenuForm : Form
     {
-        AIMProServerServiceClient proxy = new AIMProServerServiceClient();
-        public Form1()
+        AIMProServerServiceClient proxy;
+        public MenuForm(AIMProServerServiceClient proxy)
         {
+            this.proxy = proxy;
             InitializeComponent();
-            LoginForm lf = new LoginForm(proxy);
-            lf.ShowDialog();
-            this.Close();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-          
         }
     }
 }
