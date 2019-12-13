@@ -15,6 +15,7 @@ namespace AIMProClient
     {
         AIMProServerServiceClient proxy;
         Form1 f;
+        bool flag = false;
         public LoginForm(AIMProServerServiceClient proxy, Form1 form1)
         {
             this.f = form1;
@@ -22,12 +23,12 @@ namespace AIMProClient
             this.proxy = proxy;
         }
 
+       
+
         private void signUpLabel_Click(object sender, EventArgs e)
         {
-            SignUpForm sf = new SignUpForm(this.proxy,f);
-            sf.Show();
-            f.Hide();
-            this.Close();
+            SignUpForm sf = new SignUpForm(this.proxy,this);
+            sf.ShowDialog();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -36,10 +37,16 @@ namespace AIMProClient
             {
                 MessageBox.Show("Ulazi");
                 MenuForm mf = new MenuForm(proxy,f);
-                f.Hide();
                 mf.Show();
+                flag = true;
                 this.Close();
             }
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (flag == false)
+                f.Close();
         }
     }
 }

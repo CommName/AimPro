@@ -17,14 +17,18 @@ namespace AIMProClient
         public Form1()
         {
             InitializeComponent();
-            LoginForm lf = new LoginForm(proxy,this);
-            lf.ShowDialog();
-            this.Hide();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          
+           
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            LoginForm lf = new LoginForm(proxy, this);
+            lf.ShowDialog();
         }
     }
 }

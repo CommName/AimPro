@@ -20,12 +20,16 @@ namespace AIMProClient
             this.proxy = proxy;
             this.f = f;
             InitializeComponent();
-            this.f.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.f.Hide();
+            //this.f.Hide();
+        }
+
+        private void MenuForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            f.Close();
         }
     }
 }

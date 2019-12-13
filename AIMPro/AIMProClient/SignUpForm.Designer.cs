@@ -100,6 +100,8 @@
             this.Controls.Add(this.signUpButton);
             this.Name = "SignUpForm";
             this.Text = "SignUpForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SignUpForm_FormClosing);
+            this.Shown += new System.EventHandler(this.SignUpForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
