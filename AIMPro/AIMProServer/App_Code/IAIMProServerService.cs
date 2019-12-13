@@ -15,5 +15,6 @@ public interface IAIMProServerService
     [OperationContract]
     bool signUp(string username, byte[] pass);
 
-
+    [OperationContract]
+    User getProfile(string username);
 }
