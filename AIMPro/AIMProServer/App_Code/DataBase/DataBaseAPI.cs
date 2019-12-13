@@ -47,7 +47,15 @@ public class DataBaseAPI
 
     public void RemoveUser(User user)
     {
-
+        using(var db = new UserContext())
+        {
+            User deletedUser = db.Users.Where(b => b.Username == user.Username).FirstOrDefault();
+            if (deletedUser == null)
+            {
+                throw new Exception("No user found");
+            }
+            db.Users.Remove(deletedUser);
+        }
     }
 
     public User getUser(string username)
