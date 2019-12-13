@@ -16,14 +16,16 @@ namespace AIMProClient
         AIMProServerServiceClient proxy;
         Form1 f;
         bool flag = false;
+        LoginController controller;
         public LoginForm(AIMProServerServiceClient proxy, Form1 form1)
         {
             this.f = form1;
             InitializeComponent();
+            controller = new LoginController(proxy,f);
+            passwordTextBox.PasswordChar = passwordTextBox.PasswordChar = controller.setMask();
             this.proxy = proxy;
+            errorLabel.Visible = false;
         }
-
-       
 
         private void signUpLabel_Click(object sender, EventArgs e)
         {
@@ -33,13 +35,15 @@ namespace AIMProClient
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (proxy.login(this.usernameTextBox.Text, Encoding.ASCII.GetBytes(this.passwordTextBox.Text)))
+            if (controller.login(this.usernameTextBox.Text, this.passwordTextBox.Text))
             {
-                MessageBox.Show("Ulazi");
-                MenuForm mf = new MenuForm(proxy,f);
-                mf.Show();
                 flag = true;
                 this.Close();
+            }
+            else
+            {
+                errorLabel.Visible = true;
+                errorLabel.Text = controller.errorMessage;
             }
         }
 
@@ -47,6 +51,11 @@ namespace AIMProClient
         {
             if (flag == false)
                 f.Close();
+        }
+
+        private void maskButton_Click(object sender, EventArgs e)
+        {
+            passwordTextBox.PasswordChar = controller.setMask();
         }
     }
 }

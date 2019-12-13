@@ -35,6 +35,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.errorLabel = new System.Windows.Forms.Label();
+            this.maskButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -98,11 +100,32 @@
             this.passwordTextBox.Size = new System.Drawing.Size(100, 20);
             this.passwordTextBox.TabIndex = 7;
             // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Location = new System.Drawing.Point(230, 199);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(130, 13);
+            this.errorLabel.TabIndex = 8;
+            this.errorLabel.Text = "You didn\'t enter valid data";
+            // 
+            // maskButton
+            // 
+            this.maskButton.Location = new System.Drawing.Point(376, 163);
+            this.maskButton.Name = "maskButton";
+            this.maskButton.Size = new System.Drawing.Size(51, 26);
+            this.maskButton.TabIndex = 9;
+            this.maskButton.Text = "Mask";
+            this.maskButton.UseVisualStyleBackColor = true;
+            this.maskButton.Click += new System.EventHandler(this.maskButton_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 309);
+            this.Controls.Add(this.maskButton);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.label4);
@@ -127,5 +150,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Button maskButton;
     }
 }

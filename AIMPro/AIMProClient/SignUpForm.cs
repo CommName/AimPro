@@ -28,15 +28,12 @@ namespace AIMProClient
             if (proxy.signUp(this.usernameSignUpTextBox.Text, Encoding.ASCII.GetBytes(this.passwordSignUpTextBox.Text)))
             {
                 MessageBox.Show("Kreira Account");
-                //MenuForm mf = new MenuForm(proxy,f);
-                //mf.Show();
                 this.Close();
             }
         }
 
         private void SignUpForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // this.Close();
             lf.Show();
         }
 
