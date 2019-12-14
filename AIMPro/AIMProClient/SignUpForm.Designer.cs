@@ -34,11 +34,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.passwordSignUpTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.errorLabel = new System.Windows.Forms.Label();
+            this.maskButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // signUpButton
             // 
-            this.signUpButton.Location = new System.Drawing.Point(251, 195);
+            this.signUpButton.Location = new System.Drawing.Point(251, 207);
             this.signUpButton.Name = "signUpButton";
             this.signUpButton.Size = new System.Drawing.Size(75, 23);
             this.signUpButton.TabIndex = 0;
@@ -87,11 +89,32 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "AIMPro Sign Up Form";
             // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Location = new System.Drawing.Point(217, 171);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(7, 13);
+            this.errorLabel.TabIndex = 6;
+            this.errorLabel.Text = "\r\n";
+            // 
+            // maskButton
+            // 
+            this.maskButton.Location = new System.Drawing.Point(357, 136);
+            this.maskButton.Name = "maskButton";
+            this.maskButton.Size = new System.Drawing.Size(75, 23);
+            this.maskButton.TabIndex = 7;
+            this.maskButton.Text = "Mask";
+            this.maskButton.UseVisualStyleBackColor = true;
+            this.maskButton.Click += new System.EventHandler(this.maskButton_Click);
+            // 
             // SignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 283);
+            this.Controls.Add(this.maskButton);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.passwordSignUpTextBox);
@@ -115,5 +138,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox passwordSignUpTextBox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Button maskButton;
     }
 }

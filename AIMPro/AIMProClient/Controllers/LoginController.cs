@@ -7,15 +7,12 @@ using AIMProClient.AIMProService;
 
 namespace AIMProClient
 {
-    class LoginController
+    public class LoginController
     {
-        AIMProServerServiceClient proxy;
-        bool mask = false;
-        Form1 form1;
+        public bool mask = false;
         public string errorMessage = "";
-        public LoginController(AIMProServerServiceClient proxy,Form1 form1) {
-            this.proxy = proxy;
-            this.form1 = form1;
+        public LoginController() {
+
         }
 
         public char setMask()
@@ -32,15 +29,35 @@ namespace AIMProClient
         public bool login(string username, string password) {
             if (username.Length > 2 && password.Length > 2)
             {
-                if (proxy.login(username, Encoding.ASCII.GetBytes(password)))
+                if (CommunicationLayer.Instance.login(username, Encoding.ASCII.GetBytes(password)))
                 {
-                    MenuForm mf = new MenuForm(proxy, form1);
+
+                    MenuForm mf = new MenuForm();
                     mf.Show();
                     return true;
                 }   
                 else
                 {
                     errorMessage = "There is no such Username/Password combination.";
+                    return false;
+                }
+            }
+            else
+            {
+                errorMessage = "Input data is invalid.";
+                return false;
+            }
+        }
+
+        public bool signUp(string username, string password)
+        {
+            if (username.Length > 2 && password.Length > 2)
+            {
+                if (CommunicationLayer.Instance.signUp(username, Encoding.ASCII.GetBytes(password)))
+                    return true;
+                else
+                {
+                    errorMessage = "That Username/Password combination is already taken.";
                     return false;
                 }
             }

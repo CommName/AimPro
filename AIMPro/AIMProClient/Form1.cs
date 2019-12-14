@@ -13,7 +13,6 @@ namespace AIMProClient
 {
     public partial class Form1 : Form
     {
-        AIMProServerServiceClient proxy = new AIMProServerServiceClient();
         public Form1()
         {
             InitializeComponent();
@@ -21,13 +20,14 @@ namespace AIMProClient
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void Form1_Shown(object sender, EventArgs e)
         {
             this.Visible = false;
-            LoginForm lf = new LoginForm(proxy, this);
+            CommunicationLayer.Instance.mainForm = this;
+            LoginForm lf = new LoginForm();
             lf.ShowDialog();
         }
     }

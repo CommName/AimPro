@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommunicationLayer.cs" />
     <Compile Include="Connected Services\AIMProService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

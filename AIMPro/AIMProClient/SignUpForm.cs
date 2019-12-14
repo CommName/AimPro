@@ -13,23 +13,26 @@ namespace AIMProClient
 {
     public partial class SignUpForm : Form
     {
-        AIMProServerServiceClient proxy;
         LoginForm lf;
-        public SignUpForm(AIMProServerServiceClient proxy, LoginForm lf)
+        LoginController controller;
+        public SignUpForm(LoginForm lf,LoginController controller)
         {
             this.lf = lf;
-            this.proxy = proxy;
+            this.controller = controller;
+            this.controller.mask = false;
             InitializeComponent();
+            this.passwordSignUpTextBox.PasswordChar = this.controller.setMask();
         }
 
         private void signUpButton_Click(object sender, EventArgs e)
         {
-
-            if (proxy.signUp(this.usernameSignUpTextBox.Text, Encoding.ASCII.GetBytes(this.passwordSignUpTextBox.Text)))
+            if (controller.signUp(this.usernameSignUpTextBox.Text, this.passwordSignUpTextBox.Text))
             {
                 MessageBox.Show("Kreira Account");
                 this.Close();
             }
+            else 
+                errorLabel.Text = controller.errorMessage;
         }
 
         private void SignUpForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -40,6 +43,10 @@ namespace AIMProClient
         private void SignUpForm_Shown(object sender, EventArgs e)
         {
             lf.Hide();
+        }
+        private void maskButton_Click(object sender, EventArgs e)
+        {
+            this.passwordSignUpTextBox.PasswordChar=this.controller.setMask();
         }
     }
 }

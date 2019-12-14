@@ -13,23 +13,18 @@ namespace AIMProClient
 {
     public partial class LoginForm : Form
     {
-        AIMProServerServiceClient proxy;
-        Form1 f;
         bool flag = false;
         LoginController controller;
-        public LoginForm(AIMProServerServiceClient proxy, Form1 form1)
+        public LoginForm()
         {
-            this.f = form1;
             InitializeComponent();
-            controller = new LoginController(proxy,f);
+            controller = new LoginController();
             passwordTextBox.PasswordChar = passwordTextBox.PasswordChar = controller.setMask();
-            this.proxy = proxy;
-            errorLabel.Visible = false;
         }
 
         private void signUpLabel_Click(object sender, EventArgs e)
         {
-            SignUpForm sf = new SignUpForm(this.proxy,this);
+            SignUpForm sf = new SignUpForm(this,this.controller);
             sf.ShowDialog();
         }
 
@@ -41,16 +36,13 @@ namespace AIMProClient
                 this.Close();
             }
             else
-            {
-                errorLabel.Visible = true;
-                errorLabel.Text = controller.errorMessage;
-            }
+                errorLabel.Text = controller.errorMessage; 
         }
 
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (flag == false)
-                f.Close();
+                CommunicationLayer.Instance.mainForm.Close();
         }
 
         private void maskButton_Click(object sender, EventArgs e)

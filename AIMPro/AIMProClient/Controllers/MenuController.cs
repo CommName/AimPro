@@ -9,13 +9,9 @@ namespace AIMProClient.Controllers
 {
     class MenuController
     {
-        AIMProServerServiceClient proxy;
         MenuForm menuForm;
-        Form1 form1;
-        public MenuController(AIMProServerServiceClient proxy, MenuForm mf, Form1 form1) {
-            this.proxy = proxy;
+        public MenuController(MenuForm mf) {
             this.menuForm = mf;
-            this.form1 = form1;
         }
     }
 }

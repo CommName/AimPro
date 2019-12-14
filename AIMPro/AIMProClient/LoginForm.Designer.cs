@@ -105,9 +105,9 @@
             this.errorLabel.AutoSize = true;
             this.errorLabel.Location = new System.Drawing.Point(230, 199);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(130, 13);
+            this.errorLabel.Size = new System.Drawing.Size(7, 13);
             this.errorLabel.TabIndex = 8;
-            this.errorLabel.Text = "You didn\'t enter valid data";
+            this.errorLabel.Text = "\r\n";
             // 
             // maskButton
             // 

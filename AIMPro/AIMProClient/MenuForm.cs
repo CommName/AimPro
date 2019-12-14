@@ -14,15 +14,11 @@ namespace AIMProClient
 {
     public partial class MenuForm : Form
     {
-        AIMProServerServiceClient proxy;
-        Form1 f;
         MenuController controller;
-        public MenuForm(AIMProServerServiceClient proxy,Form1 f)
+        public MenuForm()
         {
-            this.proxy = proxy;
-            this.f = f;
             InitializeComponent();
-            controller = new MenuController(proxy,this,f);
+            controller = new MenuController(this);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,7 +28,7 @@ namespace AIMProClient
 
         private void MenuForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            f.Close();
+            CommunicationLayer.Instance.mainForm.Close();
         }
     }
 }
