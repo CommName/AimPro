@@ -35,8 +35,8 @@ namespace AIMProClient
                 return false;
         }
 
-       /* public bool getUser() {
-            proxy
-        }*/
+        public User getUser(string username) {
+            return proxy.getProfile(username);
+        }
     }
 }

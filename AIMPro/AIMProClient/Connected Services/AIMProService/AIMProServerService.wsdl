@@ -4,6 +4,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:51579/AIMProServerService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:51579/AIMProServerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:51579/AIMProServerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAIMProServerService_login_InputMessage">
@@ -18,6 +19,12 @@
   <wsdl:message name="IAIMProServerService_signUp_OutputMessage">
     <wsdl:part name="parameters" element="tns:signUpResponse" />
   </wsdl:message>
+  <wsdl:message name="IAIMProServerService_getProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProfile" />
+  </wsdl:message>
+  <wsdl:message name="IAIMProServerService_getProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProfileResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAIMProServerService">
     <wsdl:operation name="login">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/login" message="tns:IAIMProServerService_login_InputMessage" />
@@ -26,6 +33,10 @@
     <wsdl:operation name="signUp">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/signUp" message="tns:IAIMProServerService_signUp_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/signUpResponse" message="tns:IAIMProServerService_signUp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/getProfile" message="tns:IAIMProServerService_getProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/getProfileResponse" message="tns:IAIMProServerService_getProfile_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAIMProServerService" type="tns:IAIMProServerService">
@@ -41,6 +52,15 @@
     </wsdl:operation>
     <wsdl:operation name="signUp">
       <soap:operation soapAction="http://tempuri.org/IAIMProServerService/signUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProfile">
+      <soap:operation soapAction="http://tempuri.org/IAIMProServerService/getProfile" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

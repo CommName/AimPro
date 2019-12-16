@@ -31,8 +31,8 @@ namespace AIMProClient
             {
                 if (CommunicationLayer.Instance.login(username, Encoding.ASCII.GetBytes(password)))
                 {
-
-                    MenuForm mf = new MenuForm();
+                    User logovaniKorisnik = CommunicationLayer.Instance.getUser(username);
+                    MenuForm mf = new MenuForm(logovaniKorisnik);
                     mf.Show();
                     return true;
                 }   
