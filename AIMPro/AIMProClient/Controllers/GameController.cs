@@ -8,5 +8,6 @@ namespace AIMProClient.Controllers
 {
     public class GameController
     {
+
     }
 }

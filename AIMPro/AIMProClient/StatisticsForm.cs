@@ -40,5 +40,10 @@ namespace AIMProClient
         {
         
         }
+
+        private void dataGridStatistics_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("radi");
+        }
     }
 }
