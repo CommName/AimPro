@@ -183,6 +183,12 @@ namespace AIMProClient.AIMProService {
         private AIMProClient.AIMProService.GameMode GameModeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private AIMProClient.AIMProService.RoomSettings SettingsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -226,6 +232,32 @@ namespace AIMProClient.AIMProService {
                 if ((this.GameModeField.Equals(value) != true)) {
                     this.GameModeField = value;
                     this.RaisePropertyChanged("GameMode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
                 }
             }
         }
@@ -298,6 +330,21 @@ namespace AIMProClient.AIMProService {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         None = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Piercing = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Explosive = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Limited = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Drunk = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Bazooka = 16,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -311,7 +358,16 @@ namespace AIMProClient.AIMProService {
         Duel = 1,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        MultyPlayerShootOUt = 2,
+        MultyPlayerShootOut = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FastShooting = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PreciseShooting = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EndlessCampaign = 16,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -337,6 +393,21 @@ namespace AIMProClient.AIMProService {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         None = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Moving = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Shielded = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Boost = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Negative = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Child = 16,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

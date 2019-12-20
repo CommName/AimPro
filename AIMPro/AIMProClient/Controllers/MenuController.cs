@@ -80,8 +80,12 @@ namespace AIMProClient.Controllers
                 RoomProperties room = new RoomProperties
                 {
                     maxPlayers = 4,
-                    GameMode = GameMode.Duel,
-                    Settings = RoomSettings.None
+                    GameMode = (GameMode)TipIgre,
+                    TargetTypesAllowed = (TargetTypes)TipMete,
+                    CursorType = (CursorType)TipMunicije,
+                    Settings = (RoomSettings)vratiTipSobe(),
+                    Name = sobaName,
+                    Password = sobaCode
                 };
                 CommunicationLayer.Instance.CreateRoom(room);
                 MessageBox.Show("Room created Successfully!", "Notification!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -92,8 +96,12 @@ namespace AIMProClient.Controllers
                 RoomProperties room = new RoomProperties
                 {
                     maxPlayers = 4,
-                    GameMode = GameMode.Duel,
-                    Settings = RoomSettings.None
+                    GameMode = (GameMode)TipIgre,
+                    TargetTypesAllowed=(TargetTypes)TipMete,
+                    CursorType=(CursorType)TipMunicije,
+                    Settings = vratiTipSobe(),
+                    Name=sobaName,
+                    Password=sobaCode
                 };
                 CommunicationLayer.Instance.CreateRoom(room);
                 //TOODO join room and change view
@@ -102,6 +110,12 @@ namespace AIMProClient.Controllers
             else {
                 MessageBox.Show("Invalid Input!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private RoomSettings vratiTipSobe() {
+            if (this.PublicSoba == true)
+                return RoomSettings.None;
+            else
+                return RoomSettings.PasswordProtected;
         }
     }
 }

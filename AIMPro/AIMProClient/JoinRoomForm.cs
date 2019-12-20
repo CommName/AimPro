@@ -27,8 +27,8 @@ namespace AIMProClient
         {
             foreach(RoomState r in room)
             {
-                
-                dataGridView1.Rows.Add(r.Name,r.gameModes.ToString(), r.currentNumberOfPlayers.ToString()+"/"+r.maxNumberOfPlayers.ToString());
+                bool pass = (r.RoomSettings & RoomSettings.PasswordProtected)!=0;
+                dataGridView1.Rows.Add(r.Name,r.gameModes.ToString(), r.currentNumberOfPlayers.ToString()+"/"+r.maxNumberOfPlayers.ToString(), pass);
             }
         }
 

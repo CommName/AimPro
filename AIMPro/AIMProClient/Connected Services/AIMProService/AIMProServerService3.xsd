@@ -5,6 +5,8 @@
     <xs:sequence>
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="CursorType" type="q1:CursorType" />
       <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GameMode" type="q2:GameMode" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Settings" type="q3:RoomSettings" />
       <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="TargetTypesAllowed" type="q4:TargetTypes" />
       <xs:element minOccurs="0" name="maxPlayers" type="xs:int" />

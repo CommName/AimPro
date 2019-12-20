@@ -67,82 +67,52 @@ namespace AIMProClient
 
         private void movingChb_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.movingChb.Checked == true)
-                this.controller.TipMete = this.controller.TipMete + 1;
-            else
-                this.controller.TipMete = this.controller.TipMete - 1;
+                this.controller.TipMete = this.controller.TipMete ^ 1;
         }
 
         private void shieldChb_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.shieldChb.Checked == true)
-                this.controller.TipMete = this.controller.TipMete+ 2;
-            else
-                this.controller.TipMete = this.controller.TipMete- 2;
+            this.controller.TipMete = this.controller.TipMete ^ 2;
         }
 
         private void boostChb_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.boostChb.Checked == true)
-                this.controller.TipMete = this.controller.TipMete+ 4;
-            else
-                this.controller.TipMete = this.controller.TipMete- 4;
+            this.controller.TipMete = this.controller.TipMete ^ 4;
         }
 
         private void navigateCb_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.navigateCb.Checked == true)
-                this.controller.TipMete = this.controller.TipMete+ 8;
-            else
-                this.controller.TipMete = this.controller.TipMete- 8;
+            this.controller.TipMete = this.controller.TipMete ^ 8;
         }
 
         private void childChb_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.childChb.Checked == true)
-                this.controller.TipMete = this.controller.TipMete+ 16;
-            else
-                this.controller.TipMete = this.controller.TipMete- 16;
+            this.controller.TipMete = this.controller.TipMete ^ 16;
         }
 
         private void piercingChb_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.piercingChb.Checked == true)
-                this.controller.TipMunicije = this.controller.TipMunicije+ 1;
-            else
-                this.controller.TipMunicije = this.controller.TipMunicije- 1;
+            this.controller.TipMete = this.controller.TipMunicije ^ 1;
         }
 
         private void explosiveChb_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.explosiveChb.Checked == true)
-                this.controller.TipMunicije = this.controller.TipMunicije+ 2;
-            else
-                this.controller.TipMunicije = this.controller.TipMunicije- 2;
+            this.controller.TipMete = this.controller.TipMunicije ^ 2;
         }
 
         private void limitedChb_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.limitedChb.Checked == true)
-                this.controller.TipMunicije = this.controller.TipMunicije+ 4;
-            else
-                this.controller.TipMunicije = this.controller.TipMunicije- 4;
+            this.controller.TipMete = this.controller.TipMunicije ^ 4;
         }
 
         private void drunkChb_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.drunkChb.Checked == true)
-                this.controller.TipMunicije = this.controller.TipMunicije+ 8;
-            else
-                this.controller.TipMunicije = this.controller.TipMunicije- 8;
+            this.controller.TipMete = this.controller.TipMunicije ^ 8;
         }
 
         private void bazookaChb_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.bazookaChb.Checked == true)
-                this.controller.TipMunicije = this.controller.TipMunicije+ 16;
-            else
-                this.controller.TipMunicije = this.controller.TipMunicije- 16;
+            this.controller.TipMete = this.controller.TipMunicije ^ 16;
         }
 
         private void createBtn_Click(object sender, EventArgs e)

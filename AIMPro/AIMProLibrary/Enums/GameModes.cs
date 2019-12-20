@@ -4,5 +4,8 @@ public enum GameMode
 {
     None = 0,
     Duel = 1,
-    MultyPlayerShootOUt =  2 << 0
+    MultyPlayerShootOut =  2,
+    FastShooting= 4,
+    PreciseShooting=8,
+    EndlessCampaign=16
 }
