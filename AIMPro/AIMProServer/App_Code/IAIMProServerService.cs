@@ -17,4 +17,6 @@ public interface IAIMProServerService
 
     [OperationContract]
     User getProfile(string username);
+    [OperationContract]
+    List< User> getProfiles();
 }

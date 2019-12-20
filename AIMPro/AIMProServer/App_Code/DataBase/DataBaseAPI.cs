@@ -67,6 +67,18 @@ public class DataBaseAPI
         }
     }
 
+    public List<User> getUsers()
+    {
+        using (var db = new UserContext())
+        {
+            return db.Users.Select(x=>x).ToList();
+
+        }
+    }
+
+
+
+
     public User getUserWithoutHistory(string username)
     {
         using (var db = new UserContext())

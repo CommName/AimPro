@@ -26,4 +26,10 @@ public class AIMProServerService : IAIMProServerService
         querry.registry(username, pass);
         return true;
     }
+
+    public List<User> getProfiles()
+    {
+        Querry querry = new Querry();
+        return querry.getUsers();
+    }
 }

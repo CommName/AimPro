@@ -37,5 +37,10 @@ public class Querry
         return api.getUser(username);
     }
 
+    public List<User> getUsers()
+    {
+        return api.getUsers();
+    }
+
 
 }
