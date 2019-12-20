@@ -167,6 +167,303 @@ namespace AIMProClient.AIMProService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RoomProperties", Namespace="http://schemas.datacontract.org/2004/07/AIMProLibrary")]
+    [System.SerializableAttribute()]
+    public partial class RoomProperties : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AIMProClient.AIMProService.CursorType CursorTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AIMProClient.AIMProService.GameMode GameModeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AIMProClient.AIMProService.RoomSettings SettingsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AIMProClient.AIMProService.TargetTypes TargetTypesAllowedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int maxPlayersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] seedField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AIMProClient.AIMProService.CursorType CursorType {
+            get {
+                return this.CursorTypeField;
+            }
+            set {
+                if ((this.CursorTypeField.Equals(value) != true)) {
+                    this.CursorTypeField = value;
+                    this.RaisePropertyChanged("CursorType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AIMProClient.AIMProService.GameMode GameMode {
+            get {
+                return this.GameModeField;
+            }
+            set {
+                if ((this.GameModeField.Equals(value) != true)) {
+                    this.GameModeField = value;
+                    this.RaisePropertyChanged("GameMode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AIMProClient.AIMProService.RoomSettings Settings {
+            get {
+                return this.SettingsField;
+            }
+            set {
+                if ((this.SettingsField.Equals(value) != true)) {
+                    this.SettingsField = value;
+                    this.RaisePropertyChanged("Settings");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AIMProClient.AIMProService.TargetTypes TargetTypesAllowed {
+            get {
+                return this.TargetTypesAllowedField;
+            }
+            set {
+                if ((this.TargetTypesAllowedField.Equals(value) != true)) {
+                    this.TargetTypesAllowedField = value;
+                    this.RaisePropertyChanged("TargetTypesAllowed");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int maxPlayers {
+            get {
+                return this.maxPlayersField;
+            }
+            set {
+                if ((this.maxPlayersField.Equals(value) != true)) {
+                    this.maxPlayersField = value;
+                    this.RaisePropertyChanged("maxPlayers");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] seed {
+            get {
+                return this.seedField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.seedField, value) != true)) {
+                    this.seedField = value;
+                    this.RaisePropertyChanged("seed");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CursorType", Namespace="http://schemas.datacontract.org/2004/07/")]
+    public enum CursorType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 0,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GameMode", Namespace="http://schemas.datacontract.org/2004/07/")]
+    public enum GameMode : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Duel = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MultyPlayerShootOUt = 2,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RoomSettings", Namespace="http://schemas.datacontract.org/2004/07/")]
+    public enum RoomSettings : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Hidden = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PasswordProtected = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EloRestricted = 8,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TargetTypes", Namespace="http://schemas.datacontract.org/2004/07/")]
+    public enum TargetTypes : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 0,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RoomState", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class RoomState : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AIMProClient.AIMProService.RoomSettings RoomSettingsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int currentNumberOfPlayersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AIMProClient.AIMProService.GameMode gameModesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int maxNumberOfPlayersField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AIMProClient.AIMProService.RoomSettings RoomSettings {
+            get {
+                return this.RoomSettingsField;
+            }
+            set {
+                if ((this.RoomSettingsField.Equals(value) != true)) {
+                    this.RoomSettingsField = value;
+                    this.RaisePropertyChanged("RoomSettings");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int currentNumberOfPlayers {
+            get {
+                return this.currentNumberOfPlayersField;
+            }
+            set {
+                if ((this.currentNumberOfPlayersField.Equals(value) != true)) {
+                    this.currentNumberOfPlayersField = value;
+                    this.RaisePropertyChanged("currentNumberOfPlayers");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AIMProClient.AIMProService.GameMode gameModes {
+            get {
+                return this.gameModesField;
+            }
+            set {
+                if ((this.gameModesField.Equals(value) != true)) {
+                    this.gameModesField = value;
+                    this.RaisePropertyChanged("gameModes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int maxNumberOfPlayers {
+            get {
+                return this.maxNumberOfPlayersField;
+            }
+            set {
+                if ((this.maxNumberOfPlayersField.Equals(value) != true)) {
+                    this.maxNumberOfPlayersField = value;
+                    this.RaisePropertyChanged("maxNumberOfPlayers");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AIMProService.IAIMProServerService")]
     public interface IAIMProServerService {
@@ -188,6 +485,24 @@ namespace AIMProClient.AIMProService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfile", ReplyAction="http://tempuri.org/IAIMProServerService/getProfileResponse")]
         System.Threading.Tasks.Task<AIMProClient.AIMProService.User> getProfileAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/createRoom", ReplyAction="http://tempuri.org/IAIMProServerService/createRoomResponse")]
+        void createRoom(AIMProClient.AIMProService.RoomProperties settings);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/createRoom", ReplyAction="http://tempuri.org/IAIMProServerService/createRoomResponse")]
+        System.Threading.Tasks.Task createRoomAsync(AIMProClient.AIMProService.RoomProperties settings);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/joinRoom", ReplyAction="http://tempuri.org/IAIMProServerService/joinRoomResponse")]
+        void joinRoom(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/joinRoom", ReplyAction="http://tempuri.org/IAIMProServerService/joinRoomResponse")]
+        System.Threading.Tasks.Task joinRoomAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/GetRooms", ReplyAction="http://tempuri.org/IAIMProServerService/GetRoomsResponse")]
+        System.Collections.Generic.List<AIMProClient.AIMProService.RoomState> GetRooms();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/GetRooms", ReplyAction="http://tempuri.org/IAIMProServerService/GetRoomsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.RoomState>> GetRoomsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -239,6 +554,30 @@ namespace AIMProClient.AIMProService {
         
         public System.Threading.Tasks.Task<AIMProClient.AIMProService.User> getProfileAsync(string username) {
             return base.Channel.getProfileAsync(username);
+        }
+        
+        public void createRoom(AIMProClient.AIMProService.RoomProperties settings) {
+            base.Channel.createRoom(settings);
+        }
+        
+        public System.Threading.Tasks.Task createRoomAsync(AIMProClient.AIMProService.RoomProperties settings) {
+            return base.Channel.createRoomAsync(settings);
+        }
+        
+        public void joinRoom(int id) {
+            base.Channel.joinRoom(id);
+        }
+        
+        public System.Threading.Tasks.Task joinRoomAsync(int id) {
+            return base.Channel.joinRoomAsync(id);
+        }
+        
+        public System.Collections.Generic.List<AIMProClient.AIMProService.RoomState> GetRooms() {
+            return base.Channel.GetRooms();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.RoomState>> GetRoomsAsync() {
+            return base.Channel.GetRoomsAsync();
         }
     }
 }

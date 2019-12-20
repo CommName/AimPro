@@ -76,6 +76,14 @@ namespace AIMProClient.Controllers
             else if (PublicSoba == false && sobaName != "" && sobaName.Length > 3 && sobaCode != "" && sobaCode.Length>3 && TipIgre != 0)
             {
                 MessageBox.Show("Kreira privatnu sobu" + sobaName + " code : " + sobaCode);
+                RoomProperties room = new RoomProperties
+                {
+                    maxPlayers = 4,
+                    GameMode = GameMode.Duel,
+                    Settings = RoomSettings.None
+                };
+                CommunicationLayer.Instance.CreateRoom(room);
+                //TOODO join room and change view
                 MessageBox.Show("Room created Successfully!", "Notification!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else {

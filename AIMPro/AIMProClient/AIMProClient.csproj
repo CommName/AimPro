@@ -152,6 +152,9 @@
     <EmbeddedResource Include="SignUpForm.resx">
       <DependentUpon>SignUpForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Connected Services\AIMProService\AIMProClient.AIMProService.RoomState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\AIMProService\AIMProClient.AIMProService.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -163,6 +166,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\AIMProService\AIMProServerService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AIMProService\AIMProServerService3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">

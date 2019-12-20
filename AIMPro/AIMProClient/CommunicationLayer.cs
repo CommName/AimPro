@@ -38,5 +38,15 @@ namespace AIMProClient
         public User getUser(string username) {
             return proxy.getProfile(username);
         }
+
+        public void CreateRoom(RoomProperties prop)
+        {
+            proxy.createRoom(prop);
+        }
+
+        public List<RoomState> GetRooms()
+        {
+            return proxy.GetRooms();
+        }
     }
 }

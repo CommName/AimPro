@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AIMProClient.AIMProService;
 
 namespace AIMProClient
 {
@@ -19,6 +20,12 @@ namespace AIMProClient
             InitializeComponent();
             this.controller = controller;
         }
+
+        public void RefreshTable(List<RoomState> room)
+        {
+
+        }
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

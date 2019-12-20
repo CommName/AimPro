@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:51579/AIMProServerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="User">
     <xs:sequence>
       <xs:element minOccurs="0" name="Elo" type="xs:int" />
@@ -22,4 +23,62 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Matches" nillable="true" type="tns:Matches" />
+  <xs:simpleType name="CursorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CursorType" nillable="true" type="tns:CursorType" />
+  <xs:simpleType name="GameMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Duel" />
+      <xs:enumeration value="MultyPlayerShootOUt" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GameMode" nillable="true" type="tns:GameMode" />
+  <xs:simpleType name="RoomSettings">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Hidden" />
+      <xs:enumeration value="PasswordProtected">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EloRestricted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RoomSettings" nillable="true" type="tns:RoomSettings" />
+  <xs:simpleType name="TargetTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TargetTypes" nillable="true" type="tns:TargetTypes" />
+  <xs:complexType name="ArrayOfRoomState">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RoomState" nillable="true" type="tns:RoomState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoomState" nillable="true" type="tns:ArrayOfRoomState" />
+  <xs:complexType name="RoomState">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoomSettings" type="tns:RoomSettings" />
+      <xs:element minOccurs="0" name="currentNumberOfPlayers" type="xs:int" />
+      <xs:element minOccurs="0" name="gameModes" type="tns:GameMode" />
+      <xs:element minOccurs="0" name="maxNumberOfPlayers" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoomState" nillable="true" type="tns:RoomState" />
 </xs:schema>
