@@ -60,13 +60,8 @@ namespace AIMProClient.Controllers
 
         public void generisiStatistiku()
         {
-
-
-
             List<User> users = CommunicationLayer.Instance.getUsers();
-
             StatisticsForm sf = new StatisticsForm(this, users);
-
             sf.ShowDialog();
         }
 

@@ -15,9 +15,6 @@ namespace AIMProClient
     public partial class StatisticsForm : Form
     {
         MenuController controller;
-        BindingSource binding;
-
-
         List<User> users;
 
 
@@ -25,25 +22,28 @@ namespace AIMProClient
         {
             InitializeComponent();
             this.controller = controller;
-
-            binding = new BindingSource();
-            users = users;
-
-
-            binding.DataSource = users;
-           dataGridStatistics.AutoGenerateColumns = false;
-            dataGridStatistics.DataSource = binding;
-
+            this.users = users;
+            ShowTable(users);
         }
 
-        private void StatisticsForm_Load(object sender, EventArgs e)
+        public void ShowTable(List<User> users)
         {
-        
+            int rank = 0;
+            foreach (User user in users)
+            {
+               dataGridStatistics.Rows.Add(++rank, user.Username,user.Elo, null,null);
+            }
         }
 
-        private void dataGridStatistics_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void dataGridStatistics_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show("radi");
+            if (e.RowIndex != -1 && e.ColumnIndex==5)
+            {
+                ProfileForm pf = new ProfileForm(users[e.RowIndex]);
+                pf.ShowDialog();
+            }
+
         }
     }
 }

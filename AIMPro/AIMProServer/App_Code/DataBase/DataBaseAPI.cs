@@ -71,7 +71,7 @@ public class DataBaseAPI
     {
         using (var db = new UserContext())
         {
-            return db.Users.Select(x=>x).ToList();
+            return db.Users.Select(x=>x).OrderByDescending(x=>x.Elo).Take(100).ToList();
 
         }
     }

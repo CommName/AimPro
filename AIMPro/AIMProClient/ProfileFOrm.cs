@@ -19,6 +19,9 @@ namespace AIMProClient
             InitializeComponent();
             this.korisnik = korisnik;
             korisnikLabel.Text = this.korisnik.Username;
+            lblElo.Text = this.korisnik.Elo.ToString();
+
+
         }
     }
 }
