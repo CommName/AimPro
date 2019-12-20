@@ -4,14 +4,30 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using AIMProLibrary;
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "AIMProServerService" in code, svc and config file together.
 public class AIMProServerService : IAIMProServerService
 {
+    public void createRoom(RoomProperties settings)
+    {
+        RoomDispatcher.Instance.CreateRoom(settings,null);
+    }
+
     public User getProfile(string username)
     {
         Querry querry = new Querry();
         return querry.getUser(username);
+    }
+
+    public List<RoomState> GetRooms()
+    {
+        return RoomDispatcher.Instance.getRooms();
+    }
+
+    public void joinRoom(int id)
+    {
+        RoomDispatcher.Instance.JoinRoom(id,null);
     }
 
     public bool login(string username, byte[] pass)

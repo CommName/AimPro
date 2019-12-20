@@ -46,8 +46,7 @@ public class RoomDispatcher
 
     public void CreateRoom(RoomProperties settings, object subscirber)
     {
-        RoomFactory fact = new RoomFactory();
-        this.Rooms.Add(fact.CreateRoom());
+        this.Rooms.Add(new Room(settings));
     }
 
     public void WatchRoom(int Roomid , object subscriber)
@@ -63,15 +62,15 @@ public class RoomDispatcher
         //TODO THROW EXCEPTION ROOM NOT FOUND
     }
 
-    public List<RoomProperties> getRooms()
+    public List<RoomState> getRooms()
     {
-        List<RoomProperties> rooms = new List<RoomProperties>();
+        List<RoomState> rooms = new List<RoomState>();
 
         foreach(Room r in this.Rooms)
         {
-            if (!r.RoomPropertes.Hidden)
+            if ((r.RoomPropertes.Settings & RoomSettings.Hidden) == 0)
             {
-                rooms.Add(r.RoomPropertes);
+                rooms.Add(r.RoomState);
             }
         }
 

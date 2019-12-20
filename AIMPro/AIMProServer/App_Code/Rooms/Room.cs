@@ -48,6 +48,20 @@ public class Room
 
     }
 
+    public RoomState RoomState
+    {
+        get
+        {
+            RoomState roomstate = new RoomState();
+            RoomState.ID = this.id;
+            RoomState.gameModes = this.RoomPropertes.GameMode;
+            RoomState.Name = "";
+            RoomState.maxNumberOfPlayers = this.RoomPropertes.maxPlayers;
+            RoomState.currentNumberOfPlayers = this.players.Count;
+            return roomstate;
+        }
+    }
+
     public void SetJoinFunction()
     {
         this.join = new PublicJoin(this);
