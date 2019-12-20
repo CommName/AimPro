@@ -61,9 +61,15 @@ namespace AIMProClient.Controllers
         public void generisiStatistiku()
         {
 
-            StatisticsForm sf = new StatisticsForm();
+
+
+            List<User> users = CommunicationLayer.Instance.getUsers();
+
+            StatisticsForm sf = new StatisticsForm(this, users);
+
             sf.ShowDialog();
         }
+
         public void validirajKreiranjeSobe(string sobaName,string sobaCode) {
             MessageBox.Show("Igra"+TipIgre.ToString());
             MessageBox.Show("MEta"+TipMete.ToString());
@@ -71,6 +77,13 @@ namespace AIMProClient.Controllers
             if (PublicSoba == true && sobaName != "" && sobaName.Length>3 && TipIgre!=0)
             {
                 MessageBox.Show("Kreira javnu sobu" + sobaName);
+                RoomProperties room = new RoomProperties
+                {
+                    maxPlayers = 4,
+                    GameMode = GameMode.Duel,
+                    Settings = RoomSettings.None
+                };
+                CommunicationLayer.Instance.CreateRoom(room);
                 MessageBox.Show("Room created Successfully!", "Notification!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (PublicSoba == false && sobaName != "" && sobaName.Length > 3 && sobaCode != "" && sobaCode.Length>3 && TipIgre != 0)

@@ -44,6 +44,12 @@
   <wsdl:message name="IAIMProServerService_GetRooms_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetRoomsResponse" />
   </wsdl:message>
+  <wsdl:message name="IAIMProServerService_getProfiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProfiles" />
+  </wsdl:message>
+  <wsdl:message name="IAIMProServerService_getProfiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProfilesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAIMProServerService">
     <wsdl:operation name="login">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/login" message="tns:IAIMProServerService_login_InputMessage" />
@@ -68,6 +74,10 @@
     <wsdl:operation name="GetRooms">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/GetRooms" message="tns:IAIMProServerService_GetRooms_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/GetRoomsResponse" message="tns:IAIMProServerService_GetRooms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProfiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/getProfiles" message="tns:IAIMProServerService_getProfiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/getProfilesResponse" message="tns:IAIMProServerService_getProfiles_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAIMProServerService" type="tns:IAIMProServerService">
@@ -119,6 +129,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetRooms">
       <soap:operation soapAction="http://tempuri.org/IAIMProServerService/GetRooms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProfiles">
+      <soap:operation soapAction="http://tempuri.org/IAIMProServerService/getProfiles" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

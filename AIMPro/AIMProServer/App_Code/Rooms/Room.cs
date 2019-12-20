@@ -21,7 +21,7 @@ public class Room
 
     //GETERS
     public int ID { get { return id; } }
-    public RoomProperties RoomPropertes { get { return RoomPropertes; } }
+    public RoomProperties RoomPropertes { get { return roomProperties; } }
 
 
 
@@ -53,11 +53,11 @@ public class Room
         get
         {
             RoomState roomstate = new RoomState();
-            RoomState.ID = this.id;
-            RoomState.gameModes = this.RoomPropertes.GameMode;
-            RoomState.Name = "";
-            RoomState.maxNumberOfPlayers = this.RoomPropertes.maxPlayers;
-            RoomState.currentNumberOfPlayers = this.players.Count;
+            roomstate.ID = this.id;
+            roomstate.gameModes = this.RoomPropertes.GameMode;
+            roomstate.Name = "";
+            roomstate.maxNumberOfPlayers = this.RoomPropertes.maxPlayers;
+            roomstate.currentNumberOfPlayers = this.players.Count;
             return roomstate;
         }
     }

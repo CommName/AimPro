@@ -503,6 +503,12 @@ namespace AIMProClient.AIMProService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/GetRooms", ReplyAction="http://tempuri.org/IAIMProServerService/GetRoomsResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.RoomState>> GetRoomsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfiles", ReplyAction="http://tempuri.org/IAIMProServerService/getProfilesResponse")]
+        System.Collections.Generic.List<AIMProClient.AIMProService.User> getProfiles();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfiles", ReplyAction="http://tempuri.org/IAIMProServerService/getProfilesResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.User>> getProfilesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -578,6 +584,14 @@ namespace AIMProClient.AIMProService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.RoomState>> GetRoomsAsync() {
             return base.Channel.GetRoomsAsync();
+        }
+        
+        public System.Collections.Generic.List<AIMProClient.AIMProService.User> getProfiles() {
+            return base.Channel.getProfiles();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.User>> getProfilesAsync() {
+            return base.Channel.getProfilesAsync();
         }
     }
 }

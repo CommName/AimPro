@@ -27,4 +27,7 @@ public interface IAIMProServerService
 
     [OperationContract]
     List<RoomState> GetRooms();
+
+    [OperationContract]
+    List< User> getProfiles();
 }

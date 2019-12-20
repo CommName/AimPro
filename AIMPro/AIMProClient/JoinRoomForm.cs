@@ -19,11 +19,17 @@ namespace AIMProClient
         {
             InitializeComponent();
             this.controller = controller;
+            dataGridView1.Rows.Add("Ovo");
+            RefreshTable(CommunicationLayer.Instance.GetRooms());
         }
 
         public void RefreshTable(List<RoomState> room)
         {
-
+            foreach(RoomState r in room)
+            {
+                
+                dataGridView1.Rows.Add(r.ID.ToString());
+            }
         }
 
 

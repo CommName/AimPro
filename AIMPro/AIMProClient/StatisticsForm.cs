@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AIMProClient.AIMProService;
+using AIMProClient.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,36 @@ namespace AIMProClient
 {
     public partial class StatisticsForm : Form
     {
-        public StatisticsForm()
+        MenuController controller;
+        BindingSource binding;
+
+
+        List<User> users;
+
+
+        public StatisticsForm( MenuController controller, List<User> users )
         {
             InitializeComponent();
+            this.controller = controller;
+
+            binding = new BindingSource();
+            users = users;
+
+
+            binding.DataSource = users;
+          //  dataGridStatistics.AutoGenerateColumns = false;
+            dataGridStatistics.DataSource = binding;
+
+        }
+
+        private void StatisticsForm_Load(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void dataGridStatistics_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("radi");
         }
     }
 }
