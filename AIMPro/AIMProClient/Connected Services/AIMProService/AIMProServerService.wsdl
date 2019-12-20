@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:51579/AIMProServerService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:51579/AIMProServerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:51579/AIMProServerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
+      <xsd:import schemaLocation="http://localhost:51579/AIMProServerService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AIMProLibrary" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAIMProServerService_login_InputMessage">
@@ -25,6 +26,24 @@
   <wsdl:message name="IAIMProServerService_getProfile_OutputMessage">
     <wsdl:part name="parameters" element="tns:getProfileResponse" />
   </wsdl:message>
+  <wsdl:message name="IAIMProServerService_createRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:createRoom" />
+  </wsdl:message>
+  <wsdl:message name="IAIMProServerService_createRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAIMProServerService_joinRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:joinRoom" />
+  </wsdl:message>
+  <wsdl:message name="IAIMProServerService_joinRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:joinRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAIMProServerService_GetRooms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRooms" />
+  </wsdl:message>
+  <wsdl:message name="IAIMProServerService_GetRooms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoomsResponse" />
+  </wsdl:message>
   <wsdl:message name="IAIMProServerService_getProfiles_InputMessage">
     <wsdl:part name="parameters" element="tns:getProfiles" />
   </wsdl:message>
@@ -43,6 +62,18 @@
     <wsdl:operation name="getProfile">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/getProfile" message="tns:IAIMProServerService_getProfile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/getProfileResponse" message="tns:IAIMProServerService_getProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/createRoom" message="tns:IAIMProServerService_createRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/createRoomResponse" message="tns:IAIMProServerService_createRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="joinRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/joinRoom" message="tns:IAIMProServerService_joinRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/joinRoomResponse" message="tns:IAIMProServerService_joinRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRooms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/GetRooms" message="tns:IAIMProServerService_GetRooms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/GetRoomsResponse" message="tns:IAIMProServerService_GetRooms_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getProfiles">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/getProfiles" message="tns:IAIMProServerService_getProfiles_InputMessage" />
@@ -71,6 +102,33 @@
     </wsdl:operation>
     <wsdl:operation name="getProfile">
       <soap:operation soapAction="http://tempuri.org/IAIMProServerService/getProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createRoom">
+      <soap:operation soapAction="http://tempuri.org/IAIMProServerService/createRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="joinRoom">
+      <soap:operation soapAction="http://tempuri.org/IAIMProServerService/joinRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRooms">
+      <soap:operation soapAction="http://tempuri.org/IAIMProServerService/GetRooms" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

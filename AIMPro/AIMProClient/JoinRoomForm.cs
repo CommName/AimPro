@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AIMProClient.AIMProService;
 
 namespace AIMProClient
 {
@@ -19,7 +20,18 @@ namespace AIMProClient
             InitializeComponent();
             this.controller = controller;
             dataGridView1.Rows.Add("Ovo");
+            RefreshTable(CommunicationLayer.Instance.GetRooms());
         }
+
+        public void RefreshTable(List<RoomState> room)
+        {
+            foreach(RoomState r in room)
+            {
+                
+                dataGridView1.Rows.Add(r.ID.ToString());
+            }
+        }
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
