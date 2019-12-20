@@ -19,8 +19,7 @@ namespace AIMProClient
         {
             InitializeComponent();
             this.controller = controller;
-          
-            RefreshTable(CommunicationLayer.Instance.GetRooms());
+            RefreshTable(controller.getRooms());
         }
 
         public void RefreshTable(List<RoomState> room)
@@ -36,9 +35,17 @@ namespace AIMProClient
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 4) {
+                
                 MessageBox.Show("Oce da joinuje " + e.RowIndex + " sobu.");
+                this.controller.pokreniLobby(e.RowIndex);
             }
             
+        }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            this.dataGridView1.Rows.Clear();
+            this.RefreshTable(controller.getRooms());
         }
     }
 }

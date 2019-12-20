@@ -1,4 +1,4 @@
-﻿
+﻿[System.Flags]
 public enum TargetTypes
 {
     None= 0,

@@ -1,4 +1,4 @@
-﻿
+﻿[System.Flags]
 public enum RoomSettings { 
     None = 0,
     Hidden = 1,

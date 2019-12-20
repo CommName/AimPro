@@ -1,5 +1,5 @@
 ﻿
-
+[System.Flags]
 public enum CursorType {
     None = 0,
     Piercing=1,

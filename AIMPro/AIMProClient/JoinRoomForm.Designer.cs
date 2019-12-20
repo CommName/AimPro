@@ -36,6 +36,7 @@
             this.Players = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PasswordProtected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Join = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.refreshBtn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -107,11 +108,22 @@
             this.Join.Text = "Join";
             this.Join.UseColumnTextForButtonValue = true;
             // 
+            // refreshBtn
+            // 
+            this.refreshBtn.Location = new System.Drawing.Point(647, 14);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(75, 23);
+            this.refreshBtn.TabIndex = 7;
+            this.refreshBtn.Text = "Refresh";
+            this.refreshBtn.UseVisualStyleBackColor = true;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            // 
             // JoinRoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 515);
+            this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Name = "JoinRoomForm";
@@ -133,5 +145,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Players;
         private System.Windows.Forms.DataGridViewCheckBoxColumn PasswordProtected;
         private System.Windows.Forms.DataGridViewButtonColumn Join;
+        private System.Windows.Forms.Button refreshBtn;
     }
 }
