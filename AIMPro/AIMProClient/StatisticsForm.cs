@@ -31,7 +31,7 @@ namespace AIMProClient
 
 
             binding.DataSource = users;
-          //  dataGridStatistics.AutoGenerateColumns = false;
+           dataGridStatistics.AutoGenerateColumns = false;
             dataGridStatistics.DataSource = binding;
 
         }

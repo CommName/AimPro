@@ -19,7 +19,7 @@ namespace AIMProClient
         {
             InitializeComponent();
             this.controller = controller;
-            dataGridView1.Rows.Add("Ovo");
+          
             RefreshTable(CommunicationLayer.Instance.GetRooms());
         }
 
@@ -28,7 +28,7 @@ namespace AIMProClient
             foreach(RoomState r in room)
             {
                 
-                dataGridView1.Rows.Add(r.ID.ToString());
+                dataGridView1.Rows.Add(r.Name,r.gameModes.ToString(), r.currentNumberOfPlayers.ToString()+"/"+r.maxNumberOfPlayers.ToString());
             }
         }
 
