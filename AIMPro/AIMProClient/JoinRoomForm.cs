@@ -28,7 +28,8 @@ namespace AIMProClient
             foreach(RoomState r in room)
             {
                 
-                dataGridView1.Rows.Add(r.ID.ToString());
+                dataGridView1.Rows.Add(r.Name);
+
             }
         }
 

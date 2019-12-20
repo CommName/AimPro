@@ -55,7 +55,7 @@ public class Room
             RoomState roomstate = new RoomState();
             roomstate.ID = this.id;
             roomstate.gameModes = this.RoomPropertes.GameMode;
-            roomstate.Name = "";
+            roomstate.Name = this.roomProperties.Name;
             roomstate.maxNumberOfPlayers = this.RoomPropertes.maxPlayers;
             roomstate.currentNumberOfPlayers = this.players.Count;
             return roomstate;

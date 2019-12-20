@@ -26,12 +26,19 @@ namespace AIMProLibrary
         [DataMember]
         public RoomSettings Settings { get; set; }
 
+        [DataMember]
+        public string Name { get; set; }
+
+        [DataMember]
+        public string Password { get; set; }
+
         public RoomProperties()
         {
             this.GameMode = GameMode.None;
             this.TargetTypesAllowed = TargetTypes.None;
             this.CursorType = CursorType.None;
             this.Settings = RoomSettings.None;
+            this.Name = "Proba";
         }
 
     }
