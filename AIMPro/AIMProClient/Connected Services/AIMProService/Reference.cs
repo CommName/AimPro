@@ -325,6 +325,7 @@ namespace AIMProClient.AIMProService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="CursorType", Namespace="http://schemas.datacontract.org/2004/07/")]
     public enum CursorType : int {
         
@@ -348,6 +349,7 @@ namespace AIMProClient.AIMProService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="GameMode", Namespace="http://schemas.datacontract.org/2004/07/")]
     public enum GameMode : int {
         
@@ -371,6 +373,7 @@ namespace AIMProClient.AIMProService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="RoomSettings", Namespace="http://schemas.datacontract.org/2004/07/")]
     public enum RoomSettings : int {
         
@@ -388,6 +391,7 @@ namespace AIMProClient.AIMProService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="TargetTypes", Namespace="http://schemas.datacontract.org/2004/07/")]
     public enum TargetTypes : int {
         

@@ -53,5 +53,9 @@ namespace AIMProClient
             return proxy.getProfiles();
         }
 
+        public bool authenticatePrivateRoom(string password,RoomState roomState) {//IMPLEMENT
+            return true;
+        }
+
     }
 }

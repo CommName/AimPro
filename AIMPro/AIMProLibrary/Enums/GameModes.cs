@@ -1,5 +1,5 @@
 ﻿
-
+[System.Flags]
 public enum GameMode
 {
     None = 0,
