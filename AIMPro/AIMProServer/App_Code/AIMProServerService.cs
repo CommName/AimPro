@@ -7,6 +7,7 @@ using System.Text;
 using AIMProLibrary;
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "AIMProServerService" in code, svc and config file together.
+[ServiceBehavior(InstanceContextMode =InstanceContextMode.PerSession)]
 public class AIMProServerService : IAIMProServerService
 {
     public void createRoom(RoomProperties settings)
@@ -47,5 +48,10 @@ public class AIMProServerService : IAIMProServerService
     {
         Querry querry = new Querry();
         return querry.getUsers();
+    }
+    int i = 0;
+    public int debug()
+    {
+        return i++;
     }
 }

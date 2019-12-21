@@ -584,6 +584,12 @@ namespace AIMProClient.AIMProService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfiles", ReplyAction="http://tempuri.org/IAIMProServerService/getProfilesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.User>> getProfilesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/debug", ReplyAction="http://tempuri.org/IAIMProServerService/debugResponse")]
+        int debug();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/debug", ReplyAction="http://tempuri.org/IAIMProServerService/debugResponse")]
+        System.Threading.Tasks.Task<int> debugAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -667,6 +673,14 @@ namespace AIMProClient.AIMProService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.User>> getProfilesAsync() {
             return base.Channel.getProfilesAsync();
+        }
+        
+        public int debug() {
+            return base.Channel.debug();
+        }
+        
+        public System.Threading.Tasks.Task<int> debugAsync() {
+            return base.Channel.debugAsync();
         }
     }
 }

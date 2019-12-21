@@ -30,4 +30,7 @@ public interface IAIMProServerService
 
     [OperationContract]
     List< User> getProfiles();
+
+    [OperationContract]
+    int debug();
 }
