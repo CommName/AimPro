@@ -1,5 +1,6 @@
 ﻿using AIMProLibrary;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,24 +15,47 @@ public class Room
     protected int id;
     protected byte[] password;
     protected RoomProperties roomProperties;
-    protected List<Object> players;
-    protected List<Object> observers;
+    protected List<string> players;
+    protected List<string> observers;
     protected bool gameStarted;
     protected JoinFunction join;
+
+    protected Hashtable playersDone;
 
     //GETERS
     public int ID { get { return id; } }
     public RoomProperties RoomPropertes { get { return roomProperties; } }
 
 
+    void startGame()
+    {
+        if (gameStarted)
+            return;
+        gameStarted = true;
+        playersDone = new Hashtable();
+        foreach(string username in players)
+        {
+            //hash table
+        }
+
+    }
+
+    public void submitNumberOfHits(string username, int numbOfHits)
+    {
+        Matches match = new Matches();
+        match.NumberOfHits = numbOfHits;
+        match.TotalNumberOfTargets = this.roomProperties.numberOfTargets;
+        DataBaseAPI database = new DataBaseAPI();
+        database.AddUserMatch(username, match);
+    }
 
     //Construcots
     public Room()
     {
         this.id = lastId++;
         password = null;
-        players = new List<object>();
-        observers = new List<object>();
+        players = new List<string>();
+        observers = new List<string>();
         gameStarted = false;
         this.join = null;
 
@@ -79,14 +103,20 @@ public class Room
 
     }
 
-    public bool JoinRoom(Object player)
+    public bool JoinRoom(string player)
     {
         return this.join.joinRoom(player);
     }
 
-    public bool SpectateRoom(Object spec)
+    public bool SpectateRoom(string spec)
     {
         return this.join.joinObservers(spec);
+    }
+
+    public void LeaveRoom(string player)
+    {
+        this.players.Remove(player);
+        this.observers.Remove(player);
     }
 
     public abstract class JoinFunction
@@ -110,32 +140,26 @@ public class Room
         }
 
 
-        public virtual bool joinRoom(Object player)
+        public virtual bool joinRoom(string player)
         {
             if(room.players.Count >= this.room.roomProperties.maxPlayers)
             {
                 return false;
             }
             this.room.players.Add(player);
+            joinObservers(player);
             if(room.players.Count >= this.room.roomProperties.maxPlayers)
             {
-                room.gameStarted = true;
-                //TODO notify everyone gmae has started
+                room.startGame();
             }
             return true;
         }
 
-        public virtual bool joinObservers(Object player)
+        public virtual bool joinObservers(string player)
         {
             this.room.observers.Add(player);
             return true;
         }
-    }
-
-
-    public class Observer
-    {
-
     }
 
 }

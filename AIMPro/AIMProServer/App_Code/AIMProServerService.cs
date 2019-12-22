@@ -10,8 +10,13 @@ using AIMProLibrary;
 [ServiceBehavior(InstanceContextMode =InstanceContextMode.PerSession)]
 public class AIMProServerService : IAIMProServerService
 {
+    string username = "";
     public void createRoom(RoomProperties settings)
     {
+        if (username == "")
+        {
+            throw new FaultException<Exception>(new Exception("You need to login first!"));
+        }
         RoomDispatcher.Instance.CreateRoom(settings,null);
     }
 
@@ -28,13 +33,49 @@ public class AIMProServerService : IAIMProServerService
 
     public void joinRoom(int id)
     {
-        RoomDispatcher.Instance.JoinRoom(id,null);
+        if (username == "")
+        {
+            throw new FaultException<Exception>(new Exception("You need to login first!"));
+        }
+        RoomDispatcher.Instance.JoinRoom(id,username);
+    }
+
+    public void submitNumberOfHits(int idRoom, int numberOfhits)
+    {
+        if (username == "")
+        {
+            throw new FaultException<Exception>(new Exception("You need to login first!"));
+        }
+        RoomDispatcher.Instance.SubmitResut(idRoom, username, numberOfhits);
+    }
+
+    public void spectateRomm(int id)
+    {
+        if (username == "")
+        {
+            throw new FaultException<Exception>(new Exception("You need to login first!"));
+        }
+        RoomDispatcher.Instance.WatchRoom(id, username);
+    }
+
+    public void leaveRoom()
+    {
+        if (username == "")
+        {
+            throw new FaultException<Exception>(new Exception("You need to login first!"));
+        }
+        RoomDispatcher.Instance.LeaveRoom(username);
     }
 
     public bool login(string username, byte[] pass)
     {
         Querry querry = new Querry();
-        return querry.login(username, pass);
+        if(querry.login(username, pass))
+        {
+            this.username = username;
+            return true;
+        }
+        return false;
     }
 
     public bool signUp(string username, byte[] pass)
@@ -49,9 +90,5 @@ public class AIMProServerService : IAIMProServerService
         Querry querry = new Querry();
         return querry.getUsers();
     }
-    int i = 0;
-    public int debug()
-    {
-        return i++;
-    }
+
 }

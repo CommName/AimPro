@@ -53,6 +53,11 @@ namespace AIMProClient
             return proxy.getProfiles();
         }
 
+        public void submitResult(int roomID, int numberOfHits)
+        {
+            proxy.submitNumberOfHits(roomID, numberOfHits);
+        }
+
         public bool authenticatePrivateRoom(string password,RoomState roomState) {//IMPLEMENT
             return true;
         }

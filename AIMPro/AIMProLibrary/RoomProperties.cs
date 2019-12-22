@@ -32,12 +32,16 @@ namespace AIMProLibrary
         [DataMember]
         public string Password { get; set; }
 
+        [DataMember]
+        public int numberOfTargets { get; set; }
+        
         public RoomProperties()
         {
             this.GameMode = GameMode.None;
             this.TargetTypesAllowed = TargetTypes.None;
             this.CursorType = CursorType.None;
             this.Settings = RoomSettings.None;
+            this.numberOfTargets = 20;
             this.Name = "Proba";
         }
 

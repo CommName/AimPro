@@ -425,7 +425,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_debug_Input_policy">
+  <wsp:Policy wsu:Id="AIMProServerService_submitNumberOfHits_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -448,7 +448,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_debug_output_policy">
+  <wsp:Policy wsu:Id="AIMProServerService_submitNumberOfHits_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -521,11 +521,11 @@
   <wsdl:message name="IAIMProServerService_getProfiles_OutputMessage">
     <wsdl:part name="parameters" element="tns:getProfilesResponse" />
   </wsdl:message>
-  <wsdl:message name="IAIMProServerService_debug_InputMessage">
-    <wsdl:part name="parameters" element="tns:debug" />
+  <wsdl:message name="IAIMProServerService_submitNumberOfHits_InputMessage">
+    <wsdl:part name="parameters" element="tns:submitNumberOfHits" />
   </wsdl:message>
-  <wsdl:message name="IAIMProServerService_debug_OutputMessage">
-    <wsdl:part name="parameters" element="tns:debugResponse" />
+  <wsdl:message name="IAIMProServerService_submitNumberOfHits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:submitNumberOfHitsResponse" />
   </wsdl:message>
   <wsdl:portType name="IAIMProServerService">
     <wsdl:operation name="login">
@@ -556,9 +556,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/getProfiles" message="tns:IAIMProServerService_getProfiles_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/getProfilesResponse" message="tns:IAIMProServerService_getProfiles_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="debug">
-      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/debug" message="tns:IAIMProServerService_debug_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/debugResponse" message="tns:IAIMProServerService_debug_OutputMessage" />
+    <wsdl:operation name="submitNumberOfHits">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/submitNumberOfHits" message="tns:IAIMProServerService_submitNumberOfHits_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/submitNumberOfHitsResponse" message="tns:IAIMProServerService_submitNumberOfHits_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="AIMProServerService" type="tns:IAIMProServerService">
@@ -641,14 +641,14 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="debug">
-      <soap12:operation soapAction="http://tempuri.org/IAIMProServerService/debug" style="document" />
+    <wsdl:operation name="submitNumberOfHits">
+      <soap12:operation soapAction="http://tempuri.org/IAIMProServerService/submitNumberOfHits" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#AIMProServerService_debug_Input_policy" />
+        <wsp:PolicyReference URI="#AIMProServerService_submitNumberOfHits_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#AIMProServerService_debug_output_policy" />
+        <wsp:PolicyReference URI="#AIMProServerService_submitNumberOfHits_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

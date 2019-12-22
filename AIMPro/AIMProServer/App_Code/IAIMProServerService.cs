@@ -32,5 +32,8 @@ public interface IAIMProServerService
     List< User> getProfiles();
 
     [OperationContract]
-    int debug();
+    void submitNumberOfHits(int idRoom, int numberOfhits);
+
+
+
 }

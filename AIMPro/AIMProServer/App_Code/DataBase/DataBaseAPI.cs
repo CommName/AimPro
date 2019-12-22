@@ -76,7 +76,15 @@ public class DataBaseAPI
         }
     }
 
-
+    public void AddUserMatch(string username, Matches match)
+    {
+        using (var db = new UserContext())
+        {
+            User user =  db.Users.Where(b => b.Username == username).Include(b => b.MatchHistory).FirstOrDefault();
+            user.MatchHistory.Add(match);
+            db.SaveChanges();
+        }
+    }
 
 
     public User getUserWithoutHistory(string username)

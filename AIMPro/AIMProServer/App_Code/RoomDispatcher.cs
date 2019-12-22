@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 using AIMProLibrary;
 
@@ -32,7 +33,21 @@ public class RoomDispatcher
 
     }
 
-    public bool JoinRoom(int Roomid, object subscriber)
+    public void SubmitResut(int Roomid, string username, int numberOfHits)
+    {
+        foreach (Room r in Rooms)
+        {
+            if (r.ID == Roomid)
+            {
+                r.submitNumberOfHits(username, numberOfHits);
+                return;
+            }
+        }
+        throw new FaultException<Exception>(new Exception("Room could not be found!"));
+    }
+
+
+    public bool JoinRoom(int Roomid, string subscriber)
     {
         foreach(Room r in Rooms)
         {
@@ -44,12 +59,17 @@ public class RoomDispatcher
         return false;
     }
 
-    public void CreateRoom(RoomProperties settings, object subscirber)
+    public void CreateRoom(RoomProperties settings, string subscirber)
     {
         this.Rooms.Add(new Room(settings));
     }
 
-    public void WatchRoom(int Roomid , object subscriber)
+    public void LeaveRoom(string player)
+    {
+        
+    }
+
+    public void WatchRoom(int Roomid , string subscriber)
     {
         foreach (Room r in Rooms)
         {

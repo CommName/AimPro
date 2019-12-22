@@ -94,16 +94,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="debug">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="debugResponse">
+  <xs:element name="submitNumberOfHits">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="debugResult" type="xs:int" />
+        <xs:element minOccurs="0" name="idRoom" type="xs:int" />
+        <xs:element minOccurs="0" name="numberOfhits" type="xs:int" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="submitNumberOfHitsResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>
