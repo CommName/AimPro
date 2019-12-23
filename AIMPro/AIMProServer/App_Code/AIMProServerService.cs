@@ -12,7 +12,7 @@ public class AIMProServerService : IAIMProServerService
 {
     string username = "";
 
-    public Object getCallBack()
+    public ICallBackPlayer getCallBack()
     {
         return null;
     }

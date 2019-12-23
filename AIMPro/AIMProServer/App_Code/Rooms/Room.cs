@@ -10,18 +10,36 @@ using System.Web;
 /// </summary>
 public class Room
 {
-
+    //Atributes
     protected static int lastId = 0; //TODO change id to string 
     protected int id;
     protected byte[] password;
+    protected bool gameStarted;
     protected RoomProperties roomProperties;
     protected Dictionary<string, Shooter> players;
-    protected bool gameStarted;
+    protected Subscriber subscriber;
+
+    //Strategy
     protected JoinFunction join;
-   
+    protected GameLogic gamelogic;
+
     //GETERS
-    public int ID { get { return id; } }
+    public int ID{ get { return id; } }
     public RoomProperties RoomPropertes { get { return roomProperties; } }
+    public RoomState RoomState
+    {
+        get
+        {
+            RoomState roomstate = new RoomState();
+            roomstate.ID = this.id;
+            roomstate.gameModes = this.RoomPropertes.GameMode;
+            roomstate.RoomSettings = this.RoomPropertes.Settings;
+            roomstate.Name = this.roomProperties.Name;
+            roomstate.maxNumberOfPlayers = this.RoomPropertes.maxPlayers;
+            roomstate.currentNumberOfPlayers = this.players.Count;
+            return roomstate;
+        }
+    }
 
     void startGame()
     {
@@ -33,6 +51,9 @@ public class Room
     public void submitHit(string username, int x, int y)
     {
         //TODO Call game logic to check if it hitted or not
+        if (!gameStarted)
+            return;
+
         saveResults(username);
     }
 
@@ -44,6 +65,7 @@ public class Room
         password = null;
         gameStarted = false;
         this.join = null;
+        this.subscriber = new Subscriber();
 
     }
 
@@ -54,8 +76,9 @@ public class Room
         {
             lock (results)
             {
-                if (!results.done) // Can't write same 
+                if (!results.done) 
                 {
+                    //TODO add new atributes
                     results.done = true;
                     Matches match = new Matches();
                     match.NumberOfHits = results.numberOfHits; 
@@ -79,20 +102,6 @@ public class Room
 
     }
 
-    public RoomState RoomState
-    {
-        get
-        {
-            RoomState roomstate = new RoomState();
-            roomstate.ID = this.id;
-            roomstate.gameModes = this.RoomPropertes.GameMode;
-            roomstate.RoomSettings = this.RoomPropertes.Settings;
-            roomstate.Name = this.roomProperties.Name;
-            roomstate.maxNumberOfPlayers = this.RoomPropertes.maxPlayers;
-            roomstate.currentNumberOfPlayers = this.players.Count;
-            return roomstate;
-        }
-    }
 
     public void SetJoinFunction()
     {
@@ -110,15 +119,15 @@ public class Room
 
     }
 
-    public bool JoinRoom(string player, Object callback)
+    public bool JoinRoom(string player, ICallBackPlayer callback)
     {
         return this.join.joinRoom(player, callback);
     }
 
-
     public void LeaveRoom(string player)
     {
         this.players.Remove(player);
+        this.subscriber.PlayersInTheRoom(players);
     }
 
     public abstract class JoinFunction
@@ -135,14 +144,13 @@ public class Room
         {
             this.room = room;
         }
-
         public JoinFunction(JoinFunction parent)
         {
             this.parent = parent;
         }
 
 
-        public virtual bool joinRoom(string player, Object callback)
+        public virtual bool joinRoom(string player, ICallBackPlayer callback)
         {
             lock (this.room)
             {
@@ -159,6 +167,7 @@ public class Room
                 {
                     room.startGame();
                 }
+                room.subscriber.PlayersInTheRoom(room.players);
                 return true;
             }
         }

@@ -13,6 +13,6 @@ public class Shooter
     public int numberOfHits = 1;
     public int numbeerOfMisses = 1;
     public bool done = false;
-    public Object callback; //Null when he left the room
+    public ICallBackPlayer callback; //Null when he left the room
 
  }

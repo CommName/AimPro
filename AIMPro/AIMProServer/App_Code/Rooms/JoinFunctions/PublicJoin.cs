@@ -18,5 +18,12 @@ public class PublicJoin : Room.JoinFunction
 
     }
 
+    public override bool joinRoom(string player, ICallBackPlayer callback)
+    {
+        if (this.parent == null)
+            return base.joinRoom(player, callback);
+        else
+            return this.parent.joinRoom(player, callback);
+    }
 
 }

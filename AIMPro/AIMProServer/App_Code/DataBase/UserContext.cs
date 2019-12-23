@@ -13,6 +13,7 @@ public class UserContext : DbContext
 
     public UserContext()
     {
+        Database.SetInitializer<UserContext>(new DropCreateDatabaseIfModelChanges<UserContext>());
         //
         // TODO: Add constructor logic here
         //

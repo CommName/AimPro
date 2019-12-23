@@ -49,7 +49,7 @@ public class RoomDispatcher
     }
 
 
-    public bool JoinRoom(int Roomid, string username, object callback)
+    public bool JoinRoom(int Roomid, string username, ICallBackPlayer callback)
     {
 
         LeaveRoom(username);
@@ -73,7 +73,7 @@ public class RoomDispatcher
         }
     }
 
-    public void CreateRoom(RoomProperties settings, string username, object callback)
+    public void CreateRoom(RoomProperties settings, string username, ICallBackPlayer callback)
     {
         Room newroom = new Room(settings);
         this.Rooms.Add(newroom.ID , newroom);
