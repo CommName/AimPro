@@ -15,50 +15,57 @@ public class Room
     protected int id;
     protected byte[] password;
     protected RoomProperties roomProperties;
-    protected List<string> players;
-    protected List<string> observers;
+    protected Dictionary<string, Shooter> players;
     protected bool gameStarted;
     protected JoinFunction join;
-
-    protected Hashtable playersDone;
-
+   
     //GETERS
     public int ID { get { return id; } }
     public RoomProperties RoomPropertes { get { return roomProperties; } }
-
 
     void startGame()
     {
         if (gameStarted)
             return;
         gameStarted = true;
-        playersDone = new Hashtable();
-        foreach(string username in players)
-        {
-            //hash table
-        }
-
     }
 
-    public void submitNumberOfHits(string username, int numbOfHits)
+    public void submitHit(string username, int x, int y)
     {
-        Matches match = new Matches();
-        match.NumberOfHits = numbOfHits;
-        match.TotalNumberOfTargets = this.roomProperties.numberOfTargets;
-        DataBaseAPI database = new DataBaseAPI();
-        database.AddUserMatch(username, match);
+        //TODO Call game logic to check if it hitted or not
+        saveResults(username);
     }
 
     //Construcots
     public Room()
     {
         this.id = lastId++;
+        this.players = new Dictionary<string, Shooter>();
         password = null;
-        players = new List<string>();
-        observers = new List<string>();
         gameStarted = false;
         this.join = null;
 
+    }
+
+    public void saveResults(string username)
+    {
+        Shooter results;
+        if(this.players.TryGetValue(username,out results))
+        {
+            lock (results)
+            {
+                if (!results.done) // Can't write same 
+                {
+                    results.done = true;
+                    Matches match = new Matches();
+                    match.NumberOfHits = results.numberOfHits; 
+                    match.TotalNumberOfTargets = results.numberOfHits+results.numbeerOfMisses;
+                    DataBaseAPI database = new DataBaseAPI();
+                    database.AddUserMatch(username, match);
+                }
+            }
+
+        }
     }
 
     public Room(RoomProperties properties) : this()
@@ -103,20 +110,15 @@ public class Room
 
     }
 
-    public bool JoinRoom(string player)
+    public bool JoinRoom(string player, Object callback)
     {
-        return this.join.joinRoom(player);
+        return this.join.joinRoom(player, callback);
     }
 
-    public bool SpectateRoom(string spec)
-    {
-        return this.join.joinObservers(spec);
-    }
 
     public void LeaveRoom(string player)
     {
         this.players.Remove(player);
-        this.observers.Remove(player);
     }
 
     public abstract class JoinFunction
@@ -140,26 +142,27 @@ public class Room
         }
 
 
-        public virtual bool joinRoom(string player)
+        public virtual bool joinRoom(string player, Object callback)
         {
-            if(room.players.Count >= this.room.roomProperties.maxPlayers)
+            lock (this.room)
             {
-                return false;
+                if (room.players.Count >= this.room.roomProperties.maxPlayers)
+                {
+                    return false;
+                }
+
+                Shooter newshoter = new Shooter();
+                newshoter.username = player;
+                newshoter.callback = callback; 
+                this.room.players.Add(player,newshoter);
+                if (room.players.Count >= this.room.roomProperties.maxPlayers)
+                {
+                    room.startGame();
+                }
+                return true;
             }
-            this.room.players.Add(player);
-            joinObservers(player);
-            if(room.players.Count >= this.room.roomProperties.maxPlayers)
-            {
-                room.startGame();
-            }
-            return true;
         }
 
-        public virtual bool joinObservers(string player)
-        {
-            this.room.observers.Add(player);
-            return true;
-        }
     }
 
 }

@@ -601,11 +601,11 @@ namespace AIMProClient.AIMProService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfiles", ReplyAction="http://tempuri.org/IAIMProServerService/getProfilesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.User>> getProfilesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/submitNumberOfHits", ReplyAction="http://tempuri.org/IAIMProServerService/submitNumberOfHitsResponse")]
-        void submitNumberOfHits(int idRoom, int numberOfhits);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/submitHit", ReplyAction="http://tempuri.org/IAIMProServerService/submitHitResponse")]
+        void submitHit(int x, int y);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/submitNumberOfHits", ReplyAction="http://tempuri.org/IAIMProServerService/submitNumberOfHitsResponse")]
-        System.Threading.Tasks.Task submitNumberOfHitsAsync(int idRoom, int numberOfhits);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/submitHit", ReplyAction="http://tempuri.org/IAIMProServerService/submitHitResponse")]
+        System.Threading.Tasks.Task submitHitAsync(int x, int y);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -691,12 +691,12 @@ namespace AIMProClient.AIMProService {
             return base.Channel.getProfilesAsync();
         }
         
-        public void submitNumberOfHits(int idRoom, int numberOfhits) {
-            base.Channel.submitNumberOfHits(idRoom, numberOfhits);
+        public void submitHit(int x, int y) {
+            base.Channel.submitHit(x, y);
         }
         
-        public System.Threading.Tasks.Task submitNumberOfHitsAsync(int idRoom, int numberOfhits) {
-            return base.Channel.submitNumberOfHitsAsync(idRoom, numberOfhits);
+        public System.Threading.Tasks.Task submitHitAsync(int x, int y) {
+            return base.Channel.submitHitAsync(x, y);
         }
     }
 }

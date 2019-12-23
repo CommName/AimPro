@@ -425,7 +425,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_submitNumberOfHits_Input_policy">
+  <wsp:Policy wsu:Id="AIMProServerService_submitHit_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -448,7 +448,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_submitNumberOfHits_output_policy">
+  <wsp:Policy wsu:Id="AIMProServerService_submitHit_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -521,11 +521,11 @@
   <wsdl:message name="IAIMProServerService_getProfiles_OutputMessage">
     <wsdl:part name="parameters" element="tns:getProfilesResponse" />
   </wsdl:message>
-  <wsdl:message name="IAIMProServerService_submitNumberOfHits_InputMessage">
-    <wsdl:part name="parameters" element="tns:submitNumberOfHits" />
+  <wsdl:message name="IAIMProServerService_submitHit_InputMessage">
+    <wsdl:part name="parameters" element="tns:submitHit" />
   </wsdl:message>
-  <wsdl:message name="IAIMProServerService_submitNumberOfHits_OutputMessage">
-    <wsdl:part name="parameters" element="tns:submitNumberOfHitsResponse" />
+  <wsdl:message name="IAIMProServerService_submitHit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:submitHitResponse" />
   </wsdl:message>
   <wsdl:portType name="IAIMProServerService">
     <wsdl:operation name="login">
@@ -556,9 +556,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/getProfiles" message="tns:IAIMProServerService_getProfiles_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/getProfilesResponse" message="tns:IAIMProServerService_getProfiles_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="submitNumberOfHits">
-      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/submitNumberOfHits" message="tns:IAIMProServerService_submitNumberOfHits_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/submitNumberOfHitsResponse" message="tns:IAIMProServerService_submitNumberOfHits_OutputMessage" />
+    <wsdl:operation name="submitHit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/submitHit" message="tns:IAIMProServerService_submitHit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/submitHitResponse" message="tns:IAIMProServerService_submitHit_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="AIMProServerService" type="tns:IAIMProServerService">
@@ -641,14 +641,14 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="submitNumberOfHits">
-      <soap12:operation soapAction="http://tempuri.org/IAIMProServerService/submitNumberOfHits" style="document" />
+    <wsdl:operation name="submitHit">
+      <soap12:operation soapAction="http://tempuri.org/IAIMProServerService/submitHit" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#AIMProServerService_submitNumberOfHits_Input_policy" />
+        <wsp:PolicyReference URI="#AIMProServerService_submitHit_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#AIMProServerService_submitNumberOfHits_output_policy" />
+        <wsp:PolicyReference URI="#AIMProServerService_submitHit_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -659,7 +659,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:51579/AIMProServerService.svc</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-3UH99LP\CommName</Upn>
+          <Upn>DESKTOP-OJMGQG0\CommName</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

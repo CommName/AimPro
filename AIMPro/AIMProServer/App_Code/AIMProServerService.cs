@@ -11,13 +11,18 @@ using AIMProLibrary;
 public class AIMProServerService : IAIMProServerService
 {
     string username = "";
+
+    public Object getCallBack()
+    {
+        return null;
+    }
     public void createRoom(RoomProperties settings)
     {
         if (username == "")
         {
             throw new FaultException<Exception>(new Exception("You need to login first!"));
         }
-        RoomDispatcher.Instance.CreateRoom(settings,null);
+        RoomDispatcher.Instance.CreateRoom(settings,username,getCallBack());
     }
 
     public User getProfile(string username)
@@ -37,26 +42,18 @@ public class AIMProServerService : IAIMProServerService
         {
             throw new FaultException<Exception>(new Exception("You need to login first!"));
         }
-        RoomDispatcher.Instance.JoinRoom(id,username);
+        RoomDispatcher.Instance.JoinRoom(id,username,getCallBack());
     }
 
-    public void submitNumberOfHits(int idRoom, int numberOfhits)
+    public void submitHit(int x, int y)
     {
         if (username == "")
         {
             throw new FaultException<Exception>(new Exception("You need to login first!"));
         }
-        RoomDispatcher.Instance.SubmitResut(idRoom, username, numberOfhits);
+        RoomDispatcher.Instance.SubmitHit(username,x,y);
     }
 
-    public void spectateRomm(int id)
-    {
-        if (username == "")
-        {
-            throw new FaultException<Exception>(new Exception("You need to login first!"));
-        }
-        RoomDispatcher.Instance.WatchRoom(id, username);
-    }
 
     public void leaveRoom()
     {

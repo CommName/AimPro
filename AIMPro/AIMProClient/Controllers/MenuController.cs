@@ -89,7 +89,7 @@ namespace AIMProClient.Controllers
                 udjiULobby(i);
             }
             //TEST LAYER
-            CommunicationLayer.Instance.submitResult(i, 4);
+            CommunicationLayer.Instance.submitHit(3, 4);
             
         }
 

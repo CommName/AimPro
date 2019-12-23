@@ -32,7 +32,7 @@ public interface IAIMProServerService
     List< User> getProfiles();
 
     [OperationContract]
-    void submitNumberOfHits(int idRoom, int numberOfhits);
+    void submitHit(int x, int y);
 
 
 
