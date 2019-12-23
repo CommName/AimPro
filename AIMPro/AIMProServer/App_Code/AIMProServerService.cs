@@ -51,13 +51,14 @@ public class AIMProServerService : IAIMProServerService
 
     public Profile getProfileStatistics(string username)
     {
-        throw new NotImplementedException();
+       
         Querry querry = new Querry();
-        //return querry.getProfileStatistics(username);
+        return querry.getProfile(username);
     }
 
     public List<MatchStatistics> getProfileMatchHistory(string  username)
     {
-        throw new NotImplementedException();
+        Querry querry = new Querry();
+        return querry.getProfileHistory(username);
     }
 }

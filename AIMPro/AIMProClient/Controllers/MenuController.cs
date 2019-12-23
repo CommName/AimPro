@@ -43,12 +43,12 @@ namespace AIMProClient.Controllers
 
         internal List<MatchStatistics> getUserMatchHistory(string username)
         {
-            throw new NotImplementedException();
+           return CommunicationLayer.Instance.getUserMatchHistory(username);
         }
 
         internal Profile getProfile(string username)
         {
-            throw new NotImplementedException();
+            return CommunicationLayer.Instance.getProfileStatistics(username);
         }
 
 

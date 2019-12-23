@@ -12,7 +12,7 @@ public class MatchStatistics
 {
 
     [DataMember]
-    public string TypeOfGame { get; set; }
+    public int TypeOfGame { get; set; }
 
     [DataMember]
     public int NumberOfMiss { get; set; }

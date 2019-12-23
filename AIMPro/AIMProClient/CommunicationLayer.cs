@@ -58,7 +58,7 @@ namespace AIMProClient
         }
 
 
-        public Profile getUserStatistics(string username)
+        public Profile getProfileStatistics(string username)
         {
             return proxy.getProfileStatistics(username);
         }
