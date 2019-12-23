@@ -101,6 +101,8 @@ namespace AIMProClient.Controllers
             else {//public room
                 udjiULobby(i);
             }
+            //TEST LAYER
+            CommunicationLayer.Instance.submitHit(3, 4);
             
         }
 
@@ -128,7 +130,9 @@ namespace AIMProClient.Controllers
                     CursorType = vratiTipMunicije(),
                     Settings = vratiTipSobe(),
                     Name = sobaName,
-                    Password = sobaCode
+                    Password = sobaCode,
+                    numberOfTargets = 8
+                    
                 };
                 CommunicationLayer.Instance.CreateRoom(room);
                 MessageBox.Show("Room created Successfully!", "Notification!", MessageBoxButtons.OK, MessageBoxIcon.Information);

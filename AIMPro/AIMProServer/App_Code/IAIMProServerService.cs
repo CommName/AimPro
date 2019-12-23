@@ -38,10 +38,8 @@ public interface IAIMProServerService
     [OperationContract]
     List<MatchStatistics> getProfileMatchHistory(string username);
 
-
-
-
-
+    [OperationContract]
+    void submitHit(int x, int y);
 
 
 

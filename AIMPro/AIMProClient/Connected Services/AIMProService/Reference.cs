@@ -246,6 +246,9 @@ namespace AIMProClient.AIMProService {
         private int maxPlayersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int numberOfTargetsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private byte[] seedField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -345,6 +348,19 @@ namespace AIMProClient.AIMProService {
                 if ((this.maxPlayersField.Equals(value) != true)) {
                     this.maxPlayersField = value;
                     this.RaisePropertyChanged("maxPlayers");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int numberOfTargets {
+            get {
+                return this.numberOfTargetsField;
+            }
+            set {
+                if ((this.numberOfTargetsField.Equals(value) != true)) {
+                    this.numberOfTargetsField = value;
+                    this.RaisePropertyChanged("numberOfTargets");
                 }
             }
         }
@@ -963,6 +979,7 @@ namespace AIMProClient.AIMProService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfiles", ReplyAction="http://tempuri.org/IAIMProServerService/getProfilesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.User>> getProfilesAsync();
         
+
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfileStatistics", ReplyAction="http://tempuri.org/IAIMProServerService/getProfileStatisticsResponse")]
         AIMProClient.AIMProService.Profile getProfileStatistics(string username);
         
@@ -974,6 +991,13 @@ namespace AIMProClient.AIMProService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfileMatchHistory", ReplyAction="http://tempuri.org/IAIMProServerService/getProfileMatchHistoryResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.MatchStatistics>> getProfileMatchHistoryAsync(string username);
+
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/submitHit", ReplyAction="http://tempuri.org/IAIMProServerService/submitHitResponse")]
+        void submitHit(int x, int y);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/submitHit", ReplyAction="http://tempuri.org/IAIMProServerService/submitHitResponse")]
+        System.Threading.Tasks.Task submitHitAsync(int x, int y);
+
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1059,6 +1083,7 @@ namespace AIMProClient.AIMProService {
             return base.Channel.getProfilesAsync();
         }
         
+
         public AIMProClient.AIMProService.Profile getProfileStatistics(string username) {
             return base.Channel.getProfileStatistics(username);
         }
@@ -1073,6 +1098,14 @@ namespace AIMProClient.AIMProService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.MatchStatistics>> getProfileMatchHistoryAsync(string username) {
             return base.Channel.getProfileMatchHistoryAsync(username);
+        }
+
+        public void submitHit(int x, int y) {
+            base.Channel.submitHit(x, y);
+        }
+        
+        public System.Threading.Tasks.Task submitHitAsync(int x, int y) {
+            return base.Channel.submitHitAsync(x, y);
         }
     }
 }
