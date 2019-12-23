@@ -40,7 +40,9 @@ namespace AIMProClient
         {
             if (e.RowIndex != -1 && e.ColumnIndex==5)
             {
-                ProfileForm pf = new ProfileForm(users[e.RowIndex]);
+                List<MatchStatistics> pomMatchStatistics = this.controller.getUserMatchHistory(users[e.RowIndex].Username);
+                Profile pomProfile = this.controller.getProfile(users[e.RowIndex].Username);
+                ProfileForm pf = new ProfileForm(pomProfile,pomMatchStatistics);
                 pf.ShowDialog();
             }
 

@@ -50,6 +50,18 @@
   <wsdl:message name="IAIMProServerService_getProfiles_OutputMessage">
     <wsdl:part name="parameters" element="tns:getProfilesResponse" />
   </wsdl:message>
+  <wsdl:message name="IAIMProServerService_getProfileStatistics_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProfileStatistics" />
+  </wsdl:message>
+  <wsdl:message name="IAIMProServerService_getProfileStatistics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProfileStatisticsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAIMProServerService_getProfileMatchHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProfileMatchHistory" />
+  </wsdl:message>
+  <wsdl:message name="IAIMProServerService_getProfileMatchHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProfileMatchHistoryResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAIMProServerService">
     <wsdl:operation name="login">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/login" message="tns:IAIMProServerService_login_InputMessage" />
@@ -78,6 +90,14 @@
     <wsdl:operation name="getProfiles">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/getProfiles" message="tns:IAIMProServerService_getProfiles_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/getProfilesResponse" message="tns:IAIMProServerService_getProfiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProfileStatistics">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/getProfileStatistics" message="tns:IAIMProServerService_getProfileStatistics_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/getProfileStatisticsResponse" message="tns:IAIMProServerService_getProfileStatistics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProfileMatchHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/getProfileMatchHistory" message="tns:IAIMProServerService_getProfileMatchHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/getProfileMatchHistoryResponse" message="tns:IAIMProServerService_getProfileMatchHistory_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAIMProServerService" type="tns:IAIMProServerService">
@@ -138,6 +158,24 @@
     </wsdl:operation>
     <wsdl:operation name="getProfiles">
       <soap:operation soapAction="http://tempuri.org/IAIMProServerService/getProfiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProfileStatistics">
+      <soap:operation soapAction="http://tempuri.org/IAIMProServerService/getProfileStatistics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProfileMatchHistory">
+      <soap:operation soapAction="http://tempuri.org/IAIMProServerService/getProfileMatchHistory" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

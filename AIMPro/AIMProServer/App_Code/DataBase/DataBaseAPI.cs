@@ -45,6 +45,31 @@ public class DataBaseAPI
         }
     }
 
+    internal Profile getProfileStatistics(string username)
+    {
+        throw new NotImplementedException();
+        /*
+        Profile user = new Profile();
+        user.Username = username;
+        User userPom = new User();
+        using (var db = new UserContext())
+        {
+            userPom = db.Users.Where(b => b.Username == user.Username).FirstOrDefault();
+            user.Elo = userPom.Elo;
+            user.MatchCount = db.Matches.Count(b => b.UserId == userPom.ID);
+            user.TotalHits=db.Matches.Where(b=>b.UserId==userPom.ID).Sum(i=>i.t)
+
+            
+        }*/
+
+    }
+
+    internal List<MatchStatistics> GetMatchHistory(string username) {
+        throw new NotImplementedException();
+        
+    }
+
+
     public void RemoveUser(User user)
     {
         using(var db = new UserContext())
@@ -75,8 +100,6 @@ public class DataBaseAPI
 
         }
     }
-
-
 
 
     public User getUserWithoutHistory(string username)

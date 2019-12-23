@@ -40,7 +40,18 @@ namespace AIMProClient.Controllers
             get { return this.publicSoba; }
             set { this.publicSoba = value; }
         }
-    
+
+        internal List<MatchStatistics> getUserMatchHistory(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal Profile getProfile(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+
         public MenuController(MenuForm mf, User logovaniKorisnik) {
             this.menuForm = mf;
             this.logovaniKorisnik = logovaniKorisnik;
@@ -48,7 +59,9 @@ namespace AIMProClient.Controllers
 
         public void otvoriProfil()
         {
-            ProfileForm pf = new ProfileForm(this.logovaniKorisnik);
+            Profile pomProfile = getProfile(this.logovaniKorisnik.Username);
+            List<MatchStatistics> pomListMatchHistory = getUserMatchHistory(this.logovaniKorisnik.Username);
+            ProfileForm pf = new ProfileForm(pomProfile, pomListMatchHistory);
             pf.ShowDialog();
         }
 

@@ -30,4 +30,19 @@ public interface IAIMProServerService
 
     [OperationContract]
     List< User> getProfiles();
+
+
+    [OperationContract]
+    Profile getProfileStatistics(string username);
+
+    [OperationContract]
+    List<MatchStatistics> getProfileMatchHistory(string username);
+
+
+
+
+
+
+
+
 }

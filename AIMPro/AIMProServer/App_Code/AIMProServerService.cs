@@ -48,4 +48,16 @@ public class AIMProServerService : IAIMProServerService
         Querry querry = new Querry();
         return querry.getUsers();
     }
+
+    public Profile getProfileStatistics(string username)
+    {
+        throw new NotImplementedException();
+        Querry querry = new Querry();
+        //return querry.getProfileStatistics(username);
+    }
+
+    public List<MatchStatistics> getProfileMatchHistory(string  username)
+    {
+        throw new NotImplementedException();
+    }
 }

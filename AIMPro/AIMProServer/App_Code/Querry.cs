@@ -42,5 +42,13 @@ public class Querry
         return api.getUsers();
     }
 
+    internal Profile getProfile(string  username)
+    {
+        return api.getProfileStatistics(username);
+    }
+
+    internal List<MatchStatistics> getProfileHistory(string username) {
+        return api.GetMatchHistory(username);
+    }
 
 }
