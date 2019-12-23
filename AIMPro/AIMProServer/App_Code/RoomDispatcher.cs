@@ -35,6 +35,11 @@ public class RoomDispatcher
         PlayersRoom = new Dictionary<string, Room>();
     }
 
+    public void DeleteEmptyRoom(int roomId)
+    {
+        Rooms.Remove(roomId);
+    }
+
     public void SubmitHit(string username, int x, int y)
     {
         Room room;
@@ -47,6 +52,7 @@ public class RoomDispatcher
             throw new FaultException<Exception>(new Exception("Room could not be found!"));
         }
     }
+
 
 
     public bool JoinRoom(int Roomid, string username, ICallBackPlayer callback)
@@ -86,8 +92,11 @@ public class RoomDispatcher
 
         if (PlayersRoom.TryGetValue(username, out room))
         {
-            room.LeaveRoom(username);
-            PlayersRoom[username] = null;
+            if (room!=null)
+            {
+                room.LeaveRoom(username);
+                PlayersRoom[username] = null;
+            }
         }
     }
         //TODO THROW EXCEPTION ROOM NOT FOUND
@@ -97,7 +106,7 @@ public class RoomDispatcher
         List<RoomState> rooms = new List<RoomState>();
         foreach(Room r in this.Rooms.Values)
         {
-            if ((r.RoomPropertes.Settings & RoomSettings.Hidden) == 0)
+            if ((r.RoomPropertes.Settings & RoomSettings.Hidden) == 0 && !r.GameStarted)
             {
                 rooms.Add(r.RoomState);
             }

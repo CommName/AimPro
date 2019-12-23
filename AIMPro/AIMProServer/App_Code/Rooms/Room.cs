@@ -40,6 +40,7 @@ public class Room
             return roomstate;
         }
     }
+    public bool GameStarted { get { return gameStarted; } }
 
     void startGame()
     {
@@ -48,13 +49,24 @@ public class Room
         gameStarted = true;
     }
 
+    public void FinishGame()
+    {
+        Dictionary<string, Shooter> copy = new Dictionary<string, Shooter>(players);
+        foreach(var player in copy)
+        {
+            RoomDispatcher.Instance.LeaveRoom(player.Value.username);
+        }
+        RoomDispatcher.Instance.DeleteEmptyRoom(this.id);
+    }
+
     public void submitHit(string username, int x, int y)
     {
-        //TODO Call game logic to check if it hitted or not
-        if (!gameStarted)
-            return;
-
-        saveResults(username);
+        //if (!gameStarted)
+        //    return;
+        this.gamelogic = new TestGame();
+        this.gamelogic.room = this;
+        this.gamelogic.players = this.players;
+        this.gamelogic.submitHit(username, x, y);
     }
 
     //Construcots
@@ -69,27 +81,7 @@ public class Room
 
     }
 
-    public void saveResults(string username)
-    {
-        Shooter results;
-        if(this.players.TryGetValue(username,out results))
-        {
-            lock (results)
-            {
-                if (!results.done) 
-                {
-                    //TODO add new atributes
-                    results.done = true;
-                    Matches match = new Matches();
-                    match.NumberOfHits = results.numberOfHits; 
-                    match.TotalNumberOfTargets = results.numberOfHits+results.numbeerOfMisses;
-                    DataBaseAPI database = new DataBaseAPI();
-                    database.AddUserMatch(username, match);
-                }
-            }
-
-        }
-    }
+   
 
     public Room(RoomProperties properties) : this()
     {
@@ -167,8 +159,9 @@ public class Room
                 {
                     room.startGame();
                 }
-                room.subscriber.PlayersInTheRoom(room.players);
+
                 return true;
+                room.subscriber.PlayersInTheRoom(room.players);
             }
         }
 
