@@ -69,17 +69,15 @@ public class DataBaseAPI
             profile.TotalHits = db.UserMatch.Where(b => b.UserId == user.ID).Sum(i => i.NumHits);
             profile.TotalMiss = db.UserMatch.Where(b => b.UserId == user.ID).Sum(i => i.NumMiss);
             profile.HitRatio = profile.TotalHits / (profile.TotalHits + profile.TotalMiss);
-            //  profile.NumberDuel = db.UserMatch.Count(b => b.UserId == user.ID && b.MatchId == db.Matches.Where(u => u.TypeOfMatch == 1).Select(k => k.ID));
+         
+            profile.NumberDuel = db.UserMatch.Join(db.Matches, um => um.MatchId, m => m.ID, (um, m) => new { umObj = um, mObj = m }).Where(u => u.mObj.TypeOfMatch == 1).Where(y=>y.umObj.UserId==user.ID).Count(i=>true);
 
-            profile.NumberDuel = 0;
-            profile.NumberEndless = 0;
-            profile.NumberFast = 0;
-            profile.NumberFFA = 0;
-            profile.NumberPrecise = 0;
+            profile.NumberEndless = db.UserMatch.Join(db.Matches, um => um.MatchId, m => m.ID, (um, m) => new { umObj = um, mObj = m }).Where(u => u.mObj.TypeOfMatch == 16).Where(y => y.umObj.UserId == user.ID).Count(i => true);
 
+            profile.NumberFast = db.UserMatch.Join(db.Matches, um => um.MatchId, m => m.ID, (um, m) => new { umObj = um, mObj = m }).Where(u => u.mObj.TypeOfMatch == 4).Where(y => y.umObj.UserId == user.ID).Count(i => true);
+            profile.NumberFFA = db.UserMatch.Join(db.Matches, um => um.MatchId, m => m.ID, (um, m) => new { umObj = um, mObj = m }).Where(u => u.mObj.TypeOfMatch == 2).Where(y => y.umObj.UserId == user.ID).Count(i => true);
+            profile.NumberPrecise = db.UserMatch.Join(db.Matches, um => um.MatchId, m => m.ID, (um, m) => new { umObj = um, mObj = m }).Where(u => u.mObj.TypeOfMatch == 8).Where(y => y.umObj.UserId == user.ID).Count(i => true); ;
 
-            //profile.MatchCount = db.Matches.Count(b => b.UserId == userPom.ID);
-            //user.TotalHits=db.Matches.Where(b=>b.UserId==userPom.ID).Sum(i=>i.t)
 
 
         }
