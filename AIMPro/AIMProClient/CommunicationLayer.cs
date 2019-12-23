@@ -62,5 +62,17 @@ namespace AIMProClient
             return true;
         }
 
+
+        public Profile getProfileStatistics(string username)
+        {
+            return proxy.getProfileStatistics(username);
+        }
+
+
+        public List<MatchStatistics> getUserMatchHistory(string username)
+        {
+            return proxy.getProfileMatchHistory(username);
+           
+        }
     }
 }

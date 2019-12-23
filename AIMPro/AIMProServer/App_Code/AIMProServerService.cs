@@ -88,4 +88,18 @@ public class AIMProServerService : IAIMProServerService
         return querry.getUsers();
     }
 
+
+    public Profile getProfileStatistics(string username)
+    {
+       
+        Querry querry = new Querry();
+        return querry.getProfile(username);
+    }
+
+    public List<MatchStatistics> getProfileMatchHistory(string  username)
+    {
+        Querry querry = new Querry();
+        return querry.getProfileHistory(username);
+    }
+
 }

@@ -31,6 +31,13 @@ public interface IAIMProServerService
     [OperationContract]
     List< User> getProfiles();
 
+
+    [OperationContract]
+    Profile getProfileStatistics(string username);
+
+    [OperationContract]
+    List<MatchStatistics> getProfileMatchHistory(string username);
+
     [OperationContract]
     void submitHit(int x, int y);
 

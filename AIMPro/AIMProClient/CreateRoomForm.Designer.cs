@@ -32,37 +32,35 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nameTxtBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.duelRb = new System.Windows.Forms.RadioButton();
-            this.multyPlayerRb = new System.Windows.Forms.RadioButton();
-            this.fastRb = new System.Windows.Forms.RadioButton();
-            this.preciseRb = new System.Windows.Forms.RadioButton();
             this.endlessRb = new System.Windows.Forms.RadioButton();
+            this.preciseRb = new System.Windows.Forms.RadioButton();
+            this.fastRb = new System.Windows.Forms.RadioButton();
+            this.multyPlayerRb = new System.Windows.Forms.RadioButton();
+            this.duelRb = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.publicRb = new System.Windows.Forms.RadioButton();
-            this.privateRb = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.codeTxtBox = new System.Windows.Forms.TextBox();
             this.codePanel = new System.Windows.Forms.Panel();
+            this.codeTxtBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.privateRb = new System.Windows.Forms.RadioButton();
+            this.publicRb = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.movingChb = new System.Windows.Forms.CheckBox();
-            this.shieldChb = new System.Windows.Forms.CheckBox();
-            this.boostChb = new System.Windows.Forms.CheckBox();
-            this.navigateCb = new System.Windows.Forms.CheckBox();
-            this.piercingChb = new System.Windows.Forms.CheckBox();
-            this.explosiveChb = new System.Windows.Forms.CheckBox();
-            this.limitedChb = new System.Windows.Forms.CheckBox();
-            this.drunkChb = new System.Windows.Forms.CheckBox();
-            this.childChb = new System.Windows.Forms.CheckBox();
             this.bazookaChb = new System.Windows.Forms.CheckBox();
+            this.drunkChb = new System.Windows.Forms.CheckBox();
+            this.limitedChb = new System.Windows.Forms.CheckBox();
+            this.piercingChb = new System.Windows.Forms.CheckBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.childChb = new System.Windows.Forms.CheckBox();
+            this.navigateCb = new System.Windows.Forms.CheckBox();
+            this.boostChb = new System.Windows.Forms.CheckBox();
+            this.shieldChb = new System.Windows.Forms.CheckBox();
             this.createBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.codePanel.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -105,41 +103,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Type of Game";
             // 
-            // duelRb
+            // endlessRb
             // 
-            this.duelRb.AutoSize = true;
-            this.duelRb.Location = new System.Drawing.Point(47, 51);
-            this.duelRb.Name = "duelRb";
-            this.duelRb.Size = new System.Drawing.Size(47, 17);
-            this.duelRb.TabIndex = 0;
-            this.duelRb.TabStop = true;
-            this.duelRb.Text = "Duel";
-            this.duelRb.UseVisualStyleBackColor = true;
-            this.duelRb.CheckedChanged += new System.EventHandler(this.duelRb_CheckedChanged);
-            // 
-            // multyPlayerRb
-            // 
-            this.multyPlayerRb.AutoSize = true;
-            this.multyPlayerRb.Location = new System.Drawing.Point(47, 74);
-            this.multyPlayerRb.Name = "multyPlayerRb";
-            this.multyPlayerRb.Size = new System.Drawing.Size(125, 17);
-            this.multyPlayerRb.TabIndex = 1;
-            this.multyPlayerRb.TabStop = true;
-            this.multyPlayerRb.Text = "MultyPlayer Shoot-off";
-            this.multyPlayerRb.UseVisualStyleBackColor = true;
-            this.multyPlayerRb.CheckedChanged += new System.EventHandler(this.multyPlayerRb_CheckedChanged);
-            // 
-            // fastRb
-            // 
-            this.fastRb.AutoSize = true;
-            this.fastRb.Location = new System.Drawing.Point(47, 97);
-            this.fastRb.Name = "fastRb";
-            this.fastRb.Size = new System.Drawing.Size(90, 17);
-            this.fastRb.TabIndex = 2;
-            this.fastRb.TabStop = true;
-            this.fastRb.Text = "Fast Shooting";
-            this.fastRb.UseVisualStyleBackColor = true;
-            this.fastRb.CheckedChanged += new System.EventHandler(this.fastRb_CheckedChanged);
+            this.endlessRb.AutoSize = true;
+            this.endlessRb.Location = new System.Drawing.Point(47, 143);
+            this.endlessRb.Name = "endlessRb";
+            this.endlessRb.Size = new System.Drawing.Size(112, 17);
+            this.endlessRb.TabIndex = 4;
+            this.endlessRb.TabStop = true;
+            this.endlessRb.Text = "Endless Campaign";
+            this.endlessRb.UseVisualStyleBackColor = true;
+            this.endlessRb.CheckedChanged += new System.EventHandler(this.endlessRb_CheckedChanged);
             // 
             // preciseRb
             // 
@@ -153,17 +127,41 @@
             this.preciseRb.UseVisualStyleBackColor = true;
             this.preciseRb.CheckedChanged += new System.EventHandler(this.preciseRb_CheckedChanged);
             // 
-            // endlessRb
+            // fastRb
             // 
-            this.endlessRb.AutoSize = true;
-            this.endlessRb.Location = new System.Drawing.Point(47, 143);
-            this.endlessRb.Name = "endlessRb";
-            this.endlessRb.Size = new System.Drawing.Size(112, 17);
-            this.endlessRb.TabIndex = 4;
-            this.endlessRb.TabStop = true;
-            this.endlessRb.Text = "Endless Campaign";
-            this.endlessRb.UseVisualStyleBackColor = true;
-            this.endlessRb.CheckedChanged += new System.EventHandler(this.endlessRb_CheckedChanged);
+            this.fastRb.AutoSize = true;
+            this.fastRb.Location = new System.Drawing.Point(47, 97);
+            this.fastRb.Name = "fastRb";
+            this.fastRb.Size = new System.Drawing.Size(90, 17);
+            this.fastRb.TabIndex = 2;
+            this.fastRb.TabStop = true;
+            this.fastRb.Text = "Fast Shooting";
+            this.fastRb.UseVisualStyleBackColor = true;
+            this.fastRb.CheckedChanged += new System.EventHandler(this.fastRb_CheckedChanged);
+            // 
+            // multyPlayerRb
+            // 
+            this.multyPlayerRb.AutoSize = true;
+            this.multyPlayerRb.Location = new System.Drawing.Point(47, 74);
+            this.multyPlayerRb.Name = "multyPlayerRb";
+            this.multyPlayerRb.Size = new System.Drawing.Size(125, 17);
+            this.multyPlayerRb.TabIndex = 1;
+            this.multyPlayerRb.TabStop = true;
+            this.multyPlayerRb.Text = "MultyPlayer Shoot-off";
+            this.multyPlayerRb.UseVisualStyleBackColor = true;
+            this.multyPlayerRb.CheckedChanged += new System.EventHandler(this.multyPlayerRb_CheckedChanged);
+            // 
+            // duelRb
+            // 
+            this.duelRb.AutoSize = true;
+            this.duelRb.Location = new System.Drawing.Point(47, 51);
+            this.duelRb.Name = "duelRb";
+            this.duelRb.Size = new System.Drawing.Size(47, 17);
+            this.duelRb.TabIndex = 0;
+            this.duelRb.TabStop = true;
+            this.duelRb.Text = "Duel";
+            this.duelRb.UseVisualStyleBackColor = true;
+            this.duelRb.CheckedChanged += new System.EventHandler(this.duelRb_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -177,17 +175,30 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Type of Room";
             // 
-            // publicRb
+            // codePanel
             // 
-            this.publicRb.AutoSize = true;
-            this.publicRb.Location = new System.Drawing.Point(34, 46);
-            this.publicRb.Name = "publicRb";
-            this.publicRb.Size = new System.Drawing.Size(54, 17);
-            this.publicRb.TabIndex = 0;
-            this.publicRb.TabStop = true;
-            this.publicRb.Text = "Public";
-            this.publicRb.UseVisualStyleBackColor = true;
-            this.publicRb.CheckedChanged += new System.EventHandler(this.publicRb_CheckedChanged);
+            this.codePanel.Controls.Add(this.codeTxtBox);
+            this.codePanel.Controls.Add(this.label3);
+            this.codePanel.Location = new System.Drawing.Point(26, 111);
+            this.codePanel.Name = "codePanel";
+            this.codePanel.Size = new System.Drawing.Size(173, 59);
+            this.codePanel.TabIndex = 5;
+            // 
+            // codeTxtBox
+            // 
+            this.codeTxtBox.Location = new System.Drawing.Point(35, 26);
+            this.codeTxtBox.Name = "codeTxtBox";
+            this.codeTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.codeTxtBox.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(116, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Enter Your Room Code";
             // 
             // privateRb
             // 
@@ -201,30 +212,17 @@
             this.privateRb.UseVisualStyleBackColor = true;
             this.privateRb.CheckedChanged += new System.EventHandler(this.privateRb_CheckedChanged);
             // 
-            // label3
+            // publicRb
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Enter Your Room Code";
-            // 
-            // codeTxtBox
-            // 
-            this.codeTxtBox.Location = new System.Drawing.Point(35, 26);
-            this.codeTxtBox.Name = "codeTxtBox";
-            this.codeTxtBox.Size = new System.Drawing.Size(100, 20);
-            this.codeTxtBox.TabIndex = 3;
-            // 
-            // codePanel
-            // 
-            this.codePanel.Controls.Add(this.codeTxtBox);
-            this.codePanel.Controls.Add(this.label3);
-            this.codePanel.Location = new System.Drawing.Point(26, 111);
-            this.codePanel.Name = "codePanel";
-            this.codePanel.Size = new System.Drawing.Size(173, 59);
-            this.codePanel.TabIndex = 5;
+            this.publicRb.AutoSize = true;
+            this.publicRb.Location = new System.Drawing.Point(34, 46);
+            this.publicRb.Name = "publicRb";
+            this.publicRb.Size = new System.Drawing.Size(54, 17);
+            this.publicRb.TabIndex = 0;
+            this.publicRb.TabStop = true;
+            this.publicRb.Text = "Public";
+            this.publicRb.UseVisualStyleBackColor = true;
+            this.publicRb.CheckedChanged += new System.EventHandler(this.publicRb_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -237,26 +235,11 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Type of Targets and Ammo";
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.childChb);
-            this.groupBox4.Controls.Add(this.navigateCb);
-            this.groupBox4.Controls.Add(this.boostChb);
-            this.groupBox4.Controls.Add(this.shieldChb);
-            this.groupBox4.Controls.Add(this.movingChb);
-            this.groupBox4.Location = new System.Drawing.Point(22, 45);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(178, 146);
-            this.groupBox4.TabIndex = 6;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Targets";
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.bazookaChb);
             this.groupBox5.Controls.Add(this.drunkChb);
             this.groupBox5.Controls.Add(this.limitedChb);
-            this.groupBox5.Controls.Add(this.explosiveChb);
             this.groupBox5.Controls.Add(this.piercingChb);
             this.groupBox5.Location = new System.Drawing.Point(222, 45);
             this.groupBox5.Name = "groupBox5";
@@ -265,49 +248,38 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Ammo";
             // 
-            // movingChb
+            // bazookaChb
             // 
-            this.movingChb.AutoSize = true;
-            this.movingChb.Location = new System.Drawing.Point(7, 24);
-            this.movingChb.Name = "movingChb";
-            this.movingChb.Size = new System.Drawing.Size(61, 17);
-            this.movingChb.TabIndex = 0;
-            this.movingChb.Text = "Moving";
-            this.movingChb.UseVisualStyleBackColor = true;
-            this.movingChb.CheckedChanged += new System.EventHandler(this.movingChb_CheckedChanged);
+            this.bazookaChb.AutoSize = true;
+            this.bazookaChb.Location = new System.Drawing.Point(15, 99);
+            this.bazookaChb.Name = "bazookaChb";
+            this.bazookaChb.Size = new System.Drawing.Size(68, 17);
+            this.bazookaChb.TabIndex = 5;
+            this.bazookaChb.Text = "Bazooka";
+            this.bazookaChb.UseVisualStyleBackColor = true;
+            this.bazookaChb.CheckedChanged += new System.EventHandler(this.bazookaChb_CheckedChanged);
             // 
-            // shieldChb
+            // drunkChb
             // 
-            this.shieldChb.AutoSize = true;
-            this.shieldChb.Location = new System.Drawing.Point(7, 46);
-            this.shieldChb.Name = "shieldChb";
-            this.shieldChb.Size = new System.Drawing.Size(67, 17);
-            this.shieldChb.TabIndex = 1;
-            this.shieldChb.Text = "Shielded";
-            this.shieldChb.UseVisualStyleBackColor = true;
-            this.shieldChb.CheckedChanged += new System.EventHandler(this.shieldChb_CheckedChanged);
+            this.drunkChb.AutoSize = true;
+            this.drunkChb.Location = new System.Drawing.Point(15, 76);
+            this.drunkChb.Name = "drunkChb";
+            this.drunkChb.Size = new System.Drawing.Size(55, 17);
+            this.drunkChb.TabIndex = 4;
+            this.drunkChb.Text = "Drunk";
+            this.drunkChb.UseVisualStyleBackColor = true;
+            this.drunkChb.CheckedChanged += new System.EventHandler(this.drunkChb_CheckedChanged);
             // 
-            // boostChb
+            // limitedChb
             // 
-            this.boostChb.AutoSize = true;
-            this.boostChb.Location = new System.Drawing.Point(7, 66);
-            this.boostChb.Name = "boostChb";
-            this.boostChb.Size = new System.Drawing.Size(92, 17);
-            this.boostChb.TabIndex = 2;
-            this.boostChb.Text = "Boost Targets";
-            this.boostChb.UseVisualStyleBackColor = true;
-            this.boostChb.CheckedChanged += new System.EventHandler(this.boostChb_CheckedChanged);
-            // 
-            // navigateCb
-            // 
-            this.navigateCb.AutoSize = true;
-            this.navigateCb.Location = new System.Drawing.Point(7, 89);
-            this.navigateCb.Name = "navigateCb";
-            this.navigateCb.Size = new System.Drawing.Size(108, 17);
-            this.navigateCb.TabIndex = 3;
-            this.navigateCb.Text = "Negative Targets";
-            this.navigateCb.UseVisualStyleBackColor = true;
-            this.navigateCb.CheckedChanged += new System.EventHandler(this.navigateCb_CheckedChanged);
+            this.limitedChb.AutoSize = true;
+            this.limitedChb.Location = new System.Drawing.Point(15, 52);
+            this.limitedChb.Name = "limitedChb";
+            this.limitedChb.Size = new System.Drawing.Size(59, 17);
+            this.limitedChb.TabIndex = 3;
+            this.limitedChb.Text = "Limited";
+            this.limitedChb.UseVisualStyleBackColor = true;
+            this.limitedChb.CheckedChanged += new System.EventHandler(this.limitedChb_CheckedChanged);
             // 
             // piercingChb
             // 
@@ -320,43 +292,23 @@
             this.piercingChb.UseVisualStyleBackColor = true;
             this.piercingChb.CheckedChanged += new System.EventHandler(this.piercingChb_CheckedChanged);
             // 
-            // explosiveChb
+            // groupBox4
             // 
-            this.explosiveChb.AutoSize = true;
-            this.explosiveChb.Location = new System.Drawing.Point(15, 46);
-            this.explosiveChb.Name = "explosiveChb";
-            this.explosiveChb.Size = new System.Drawing.Size(71, 17);
-            this.explosiveChb.TabIndex = 2;
-            this.explosiveChb.Text = "Explosive";
-            this.explosiveChb.UseVisualStyleBackColor = true;
-            this.explosiveChb.CheckedChanged += new System.EventHandler(this.explosiveChb_CheckedChanged);
-            // 
-            // limitedChb
-            // 
-            this.limitedChb.AutoSize = true;
-            this.limitedChb.Location = new System.Drawing.Point(15, 69);
-            this.limitedChb.Name = "limitedChb";
-            this.limitedChb.Size = new System.Drawing.Size(59, 17);
-            this.limitedChb.TabIndex = 3;
-            this.limitedChb.Text = "Limited";
-            this.limitedChb.UseVisualStyleBackColor = true;
-            this.limitedChb.CheckedChanged += new System.EventHandler(this.limitedChb_CheckedChanged);
-            // 
-            // drunkChb
-            // 
-            this.drunkChb.AutoSize = true;
-            this.drunkChb.Location = new System.Drawing.Point(15, 89);
-            this.drunkChb.Name = "drunkChb";
-            this.drunkChb.Size = new System.Drawing.Size(55, 17);
-            this.drunkChb.TabIndex = 4;
-            this.drunkChb.Text = "Drunk";
-            this.drunkChb.UseVisualStyleBackColor = true;
-            this.drunkChb.CheckedChanged += new System.EventHandler(this.drunkChb_CheckedChanged);
+            this.groupBox4.Controls.Add(this.childChb);
+            this.groupBox4.Controls.Add(this.navigateCb);
+            this.groupBox4.Controls.Add(this.boostChb);
+            this.groupBox4.Controls.Add(this.shieldChb);
+            this.groupBox4.Location = new System.Drawing.Point(22, 45);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(178, 146);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Targets";
             // 
             // childChb
             // 
             this.childChb.AutoSize = true;
-            this.childChb.Location = new System.Drawing.Point(7, 112);
+            this.childChb.Location = new System.Drawing.Point(6, 99);
             this.childChb.Name = "childChb";
             this.childChb.Size = new System.Drawing.Size(88, 17);
             this.childChb.TabIndex = 4;
@@ -364,16 +316,38 @@
             this.childChb.UseVisualStyleBackColor = true;
             this.childChb.CheckedChanged += new System.EventHandler(this.childChb_CheckedChanged);
             // 
-            // bazookaChb
+            // navigateCb
             // 
-            this.bazookaChb.AutoSize = true;
-            this.bazookaChb.Location = new System.Drawing.Point(15, 112);
-            this.bazookaChb.Name = "bazookaChb";
-            this.bazookaChb.Size = new System.Drawing.Size(68, 17);
-            this.bazookaChb.TabIndex = 5;
-            this.bazookaChb.Text = "Bazooka";
-            this.bazookaChb.UseVisualStyleBackColor = true;
-            this.bazookaChb.CheckedChanged += new System.EventHandler(this.bazookaChb_CheckedChanged);
+            this.navigateCb.AutoSize = true;
+            this.navigateCb.Location = new System.Drawing.Point(6, 76);
+            this.navigateCb.Name = "navigateCb";
+            this.navigateCb.Size = new System.Drawing.Size(108, 17);
+            this.navigateCb.TabIndex = 3;
+            this.navigateCb.Text = "Negative Targets";
+            this.navigateCb.UseVisualStyleBackColor = true;
+            this.navigateCb.CheckedChanged += new System.EventHandler(this.navigateCb_CheckedChanged);
+            // 
+            // boostChb
+            // 
+            this.boostChb.AutoSize = true;
+            this.boostChb.Location = new System.Drawing.Point(7, 52);
+            this.boostChb.Name = "boostChb";
+            this.boostChb.Size = new System.Drawing.Size(92, 17);
+            this.boostChb.TabIndex = 2;
+            this.boostChb.Text = "Boost Targets";
+            this.boostChb.UseVisualStyleBackColor = true;
+            this.boostChb.CheckedChanged += new System.EventHandler(this.boostChb_CheckedChanged);
+            // 
+            // shieldChb
+            // 
+            this.shieldChb.AutoSize = true;
+            this.shieldChb.Location = new System.Drawing.Point(7, 24);
+            this.shieldChb.Name = "shieldChb";
+            this.shieldChb.Size = new System.Drawing.Size(67, 17);
+            this.shieldChb.TabIndex = 1;
+            this.shieldChb.Text = "Shielded";
+            this.shieldChb.UseVisualStyleBackColor = true;
+            this.shieldChb.CheckedChanged += new System.EventHandler(this.shieldChb_CheckedChanged);
             // 
             // createBtn
             // 
@@ -406,10 +380,10 @@
             this.codePanel.ResumeLayout(false);
             this.codePanel.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,14 +411,12 @@
         private System.Windows.Forms.CheckBox bazookaChb;
         private System.Windows.Forms.CheckBox drunkChb;
         private System.Windows.Forms.CheckBox limitedChb;
-        private System.Windows.Forms.CheckBox explosiveChb;
         private System.Windows.Forms.CheckBox piercingChb;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox childChb;
         private System.Windows.Forms.CheckBox navigateCb;
         private System.Windows.Forms.CheckBox boostChb;
         private System.Windows.Forms.CheckBox shieldChb;
-        private System.Windows.Forms.CheckBox movingChb;
         private System.Windows.Forms.Button createBtn;
     }
 }

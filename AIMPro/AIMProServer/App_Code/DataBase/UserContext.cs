@@ -11,6 +11,8 @@ public class UserContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<Matches> Matches { get; set; }
 
+    public DbSet<UserMatch> UserMatch { get; set; }
+
     public UserContext()
     {
         Database.SetInitializer<UserContext>(new DropCreateDatabaseIfModelChanges<UserContext>());
@@ -18,4 +20,6 @@ public class UserContext : DbContext
         // TODO: Add constructor logic here
         //
     }
+
+
 }

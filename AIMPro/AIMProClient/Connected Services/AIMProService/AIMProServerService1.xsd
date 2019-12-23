@@ -94,6 +94,34 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+
+  <xs:element name="getProfileStatistics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProfileStatisticsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getProfileStatisticsResult" nillable="true" type="q5:Profile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProfileMatchHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProfileMatchHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getProfileMatchHistoryResult" nillable="true" type="q6:ArrayOfMatchStatistics" />
+      </xs:sequence>
+      
   <xs:element name="submitHit">
     <xs:complexType>
       <xs:sequence>
@@ -105,6 +133,7 @@
   <xs:element name="submitHitResponse">
     <xs:complexType>
       <xs:sequence />
+
     </xs:complexType>
   </xs:element>
 </xs:schema>
