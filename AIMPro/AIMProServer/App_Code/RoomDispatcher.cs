@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 using AIMProLibrary;
 
@@ -10,7 +11,9 @@ using AIMProLibrary;
 public class RoomDispatcher
 {
 
-    protected List<Room> Rooms;
+    protected Dictionary<int ,Room> Rooms;
+    protected Dictionary<string, Room> PlayersRoom;
+
 
     protected static object locker = false;
     protected static RoomDispatcher instance = null;
@@ -28,52 +31,86 @@ public class RoomDispatcher
     }
     public RoomDispatcher()
     {
-        Rooms = new List<Room>();
-
+        Rooms = new Dictionary<int, Room>();
+        PlayersRoom = new Dictionary<string, Room>();
     }
 
-    public bool JoinRoom(int Roomid, object subscriber)
+    public void DeleteEmptyRoom(int roomId)
     {
-        foreach(Room r in Rooms)
+        Rooms.Remove(roomId);
+    }
+
+    public void SubmitHit(string username, int x, int y)
+    {
+        Room room;
+        if(PlayersRoom.TryGetValue(username,out room))
         {
-            if(r.ID == Roomid)
+            room.submitHit(username, x, y);
+        }
+        else
+        {
+            throw new FaultException<Exception>(new Exception("Room could not be found!"));
+        }
+    }
+
+
+
+    public bool JoinRoom(int Roomid, string username, ICallBackPlayer callback)
+    {
+
+        LeaveRoom(username);
+        Room room;
+        if (Rooms.TryGetValue(Roomid, out room))
+        {
+
+            if(room.JoinRoom(username, callback))
             {
-                return r.JoinRoom(subscriber);
+                PlayersRoom[username] = room;
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
-        return false;
-    }
-
-    public void CreateRoom(RoomProperties settings, object subscirber)
-    {
-        this.Rooms.Add(new Room(settings));
-    }
-
-    public void WatchRoom(int Roomid , object subscriber)
-    {
-        foreach (Room r in Rooms)
+        else
         {
-            if (r.ID == Roomid)
+            throw new FaultException<Exception>(new Exception("Room could not be found!"));
+        }
+    }
+
+    public void CreateRoom(RoomProperties settings, string username, ICallBackPlayer callback)
+    {
+        Room newroom = new Room(settings);
+        this.Rooms.Add(newroom.ID , newroom);
+        this.JoinRoom(newroom.ID, username, callback);
+    }
+
+    public void LeaveRoom(string username)
+    {
+        Room room;
+
+        if (PlayersRoom.TryGetValue(username, out room))
+        {
+            if (room!=null)
             {
-                r.SpectateRoom(subscriber);
-                return;
+                room.LeaveRoom(username);
+                PlayersRoom[username] = null;
             }
         }
+    }
         //TODO THROW EXCEPTION ROOM NOT FOUND
-    }
 
     public List<RoomState> getRooms()
     {
         List<RoomState> rooms = new List<RoomState>();
-
-        foreach(Room r in this.Rooms)
+        foreach(Room r in this.Rooms.Values)
         {
-            if ((r.RoomPropertes.Settings & RoomSettings.Hidden) == 0)
+            if ((r.RoomPropertes.Settings & RoomSettings.Hidden) == 0 && !r.GameStarted)
             {
                 rooms.Add(r.RoomState);
             }
         }
-
         return rooms;
     }
 }

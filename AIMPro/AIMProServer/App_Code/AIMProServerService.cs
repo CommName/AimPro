@@ -7,11 +7,22 @@ using System.Text;
 using AIMProLibrary;
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "AIMProServerService" in code, svc and config file together.
+[ServiceBehavior(InstanceContextMode =InstanceContextMode.PerSession)]
 public class AIMProServerService : IAIMProServerService
 {
+    string username = "";
+
+    public ICallBackPlayer getCallBack()
+    {
+        return null;
+    }
     public void createRoom(RoomProperties settings)
     {
-        RoomDispatcher.Instance.CreateRoom(settings,null);
+        if (username == "")
+        {
+            throw new FaultException<Exception>(new Exception("You need to login first!"));
+        }
+        RoomDispatcher.Instance.CreateRoom(settings,username,getCallBack());
     }
 
     public User getProfile(string username)
@@ -27,13 +38,41 @@ public class AIMProServerService : IAIMProServerService
 
     public void joinRoom(int id)
     {
-        RoomDispatcher.Instance.JoinRoom(id,null);
+        if (username == "")
+        {
+            throw new FaultException<Exception>(new Exception("You need to login first!"));
+        }
+        RoomDispatcher.Instance.JoinRoom(id,username,getCallBack());
+    }
+
+    public void submitHit(int x, int y)
+    {
+        if (username == "")
+        {
+            throw new FaultException<Exception>(new Exception("You need to login first!"));
+        }
+        RoomDispatcher.Instance.SubmitHit(username,x,y);
+    }
+
+
+    public void leaveRoom()
+    {
+        if (username == "")
+        {
+            throw new FaultException<Exception>(new Exception("You need to login first!"));
+        }
+        RoomDispatcher.Instance.LeaveRoom(username);
     }
 
     public bool login(string username, byte[] pass)
     {
         Querry querry = new Querry();
-        return querry.login(username, pass);
+        if(querry.login(username, pass))
+        {
+            this.username = username;
+            return true;
+        }
+        return false;
     }
 
     public bool signUp(string username, byte[] pass)
@@ -49,6 +88,7 @@ public class AIMProServerService : IAIMProServerService
         return querry.getUsers();
     }
 
+
     public Profile getProfileStatistics(string username)
     {
        
@@ -61,4 +101,5 @@ public class AIMProServerService : IAIMProServerService
         Querry querry = new Querry();
         return querry.getProfileHistory(username);
     }
+
 }
