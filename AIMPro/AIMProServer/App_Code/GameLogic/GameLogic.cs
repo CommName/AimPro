@@ -21,25 +21,31 @@ public abstract class GameLogic
     public abstract void submitHit(string username, int x, int y);
 
 
-    public void saveResults(string username)
+    public void saveResults()
     {
-        Shooter results;
-        if (this.players.TryGetValue(username, out results))
-        {
-            lock (results)
+        lock (players) {
+            Matches newMatch = new Matches();
+            newMatch.TypeOfMatch = (int)this.room.RoomPropertes.GameMode;
+            DataBaseAPI db = new DataBaseAPI();
+            List<Tuple<User, UserMatch>> usersAndReuslts = new List<Tuple<User, UserMatch>>();
+            foreach(var player in players)
             {
-                if (!results.done)
-                {
-                    //TODO add new atributes
-                    results.done = true;
-                    Matches match = new Matches();
-                    match.NumberOfHits = results.numberOfHits;
-                    match.TotalNumberOfTargets = results.numberOfHits + results.numbeerOfMisses;
-                    DataBaseAPI database = new DataBaseAPI();
-                    database.AddUserMatch(username, match);
-                }
+                User user = db.getUser(player.Value.username);
+                UserMatch match = new UserMatch();
+                match.Match = newMatch;
+                match.NumHits = player.Value.numberOfHits;
+                match.NumMiss = player.Value.numbeerOfMisses;
+                match.Points = 100;
+                match.Rank = 1;
+                match.User = user;
+
+                usersAndReuslts.Add(new Tuple<User, UserMatch>(user, match));
+
             }
 
+            db.UpdateUsers(usersAndReuslts, newMatch);
+
+        
         }
     }
 

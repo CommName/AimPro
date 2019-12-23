@@ -25,27 +25,23 @@ public class DataBaseAPI
         }
     }
 
-    public void UpdateUsers(List<User> users, Matches match)
+    public void UpdateUsers(List<Tuple<User,UserMatch>> usersAndResults, Matches match)
     {
         
         using(var db = new UserContext())
         {
             db.Matches.Add(match);
-            foreach (User user in users) {
+            foreach (var userAndMatch in usersAndResults) {
 
-                User oldUser = db.Users.Where(b => b.Username == user.Username).Include(b => b.MatchHistory).FirstOrDefault();
+                User oldUser = db.Users.Where(b => b.Username == userAndMatch.Item1.Username).Include(b => b.MatchHistory).FirstOrDefault();
                 if (oldUser == null)
                 {
                     throw new Exception("User not found");
                 }
-                oldUser.Username = user.Username;
-                oldUser.Password = user.Password;
-                oldUser.Elo = user.Elo;
-
-                foreach (UserMatch match1 in user.MatchHistory)
-                {
-                    oldUser.MatchHistory.Add(match1);
-                }
+                oldUser.Elo = userAndMatch.Item1.Elo;
+                userAndMatch.Item2.User = oldUser;
+                oldUser.MatchHistory.Add(userAndMatch.Item2);
+                db.UserMatch.Add(userAndMatch.Item2);
             }
 
             db.SaveChanges();

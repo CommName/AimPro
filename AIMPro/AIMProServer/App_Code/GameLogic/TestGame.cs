@@ -35,6 +35,7 @@ public class TestGame :GameLogic
         {
             this.players[username].numbeerOfMisses--;
         }
+        this.saveResults();
         room.FinishGame();
     }
 }
