@@ -4,6 +4,7 @@
   <xs:complexType name="User">
     <xs:sequence>
       <xs:element minOccurs="0" name="Elo" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
       <xs:element minOccurs="0" name="MatchHistory" nillable="true" type="tns:ArrayOfMatches" />
       <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -19,7 +20,9 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="ID" type="xs:int" />
       <xs:element minOccurs="0" name="NumberOfHits" type="xs:int" />
-      <xs:element minOccurs="0" name="TotalNumberOfTargets" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberOfMiss" type="xs:int" />
+      <xs:element minOccurs="0" name="TypeOfMatch" type="xs:int" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Matches" nillable="true" type="tns:Matches" />
@@ -224,4 +227,37 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+  <xs:complexType name="Profile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Elo" type="xs:int" />
+      <xs:element minOccurs="0" name="HitRatio" type="xs:double" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="MatchCount" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberDuel" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberEndless" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberFFA" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberFast" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberPrecise" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalHits" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalMiss" type="xs:int" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Profile" nillable="true" type="tns:Profile" />
+  <xs:complexType name="ArrayOfMatchStatistics">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MatchStatistics" nillable="true" type="tns:MatchStatistics" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMatchStatistics" nillable="true" type="tns:ArrayOfMatchStatistics" />
+  <xs:complexType name="MatchStatistics">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchRank" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberOfHits" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberOfMiss" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberOfPoints" type="xs:int" />
+      <xs:element minOccurs="0" name="TypeOfGame" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MatchStatistics" nillable="true" type="tns:MatchStatistics" />
 </xs:schema>

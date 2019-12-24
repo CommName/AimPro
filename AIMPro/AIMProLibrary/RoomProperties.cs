@@ -32,6 +32,7 @@ namespace AIMProLibrary
         [DataMember]
         public string Password { get; set; }
 
+        
         public RoomProperties()
         {
             this.GameMode = GameMode.None;

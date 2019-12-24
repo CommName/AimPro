@@ -40,7 +40,18 @@ namespace AIMProClient.Controllers
             get { return this.publicSoba; }
             set { this.publicSoba = value; }
         }
-    
+
+        internal List<MatchStatistics> getUserMatchHistory(string username)
+        {
+           return CommunicationLayer.Instance.getUserMatchHistory(username);
+        }
+
+        internal Profile getProfile(string username)
+        {
+            return CommunicationLayer.Instance.getProfileStatistics(username);
+        }
+
+
         public MenuController(MenuForm mf, User logovaniKorisnik) {
             this.menuForm = mf;
             this.logovaniKorisnik = logovaniKorisnik;
@@ -48,7 +59,9 @@ namespace AIMProClient.Controllers
 
         public void otvoriProfil()
         {
-            ProfileForm pf = new ProfileForm(this.logovaniKorisnik);
+            Profile pomProfile = getProfile(this.logovaniKorisnik.Username);
+            List<MatchStatistics> pomListMatchHistory = getUserMatchHistory(this.logovaniKorisnik.Username);
+            ProfileForm pf = new ProfileForm(pomProfile, pomListMatchHistory);
             pf.ShowDialog();
         }
 
@@ -88,6 +101,8 @@ namespace AIMProClient.Controllers
             else {//public room
                 udjiULobby(i);
             }
+            //TEST LAYER
+            CommunicationLayer.Instance.submitHit(3, 4);
             
         }
 
@@ -115,7 +130,9 @@ namespace AIMProClient.Controllers
                     CursorType = vratiTipMunicije(),
                     Settings = vratiTipSobe(),
                     Name = sobaName,
-                    Password = sobaCode
+                    Password = sobaCode,
+                    numberOfTargets = 8
+                    
                 };
                 CommunicationLayer.Instance.CreateRoom(room);
                 MessageBox.Show("Room created Successfully!", "Notification!", MessageBoxButtons.OK, MessageBoxIcon.Information);

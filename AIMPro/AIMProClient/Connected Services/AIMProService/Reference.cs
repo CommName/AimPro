@@ -26,6 +26,9 @@ namespace AIMProClient.AIMProService {
         private int EloField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<AIMProClient.AIMProService.Matches> MatchHistoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -50,6 +53,19 @@ namespace AIMProClient.AIMProService {
                 if ((this.EloField.Equals(value) != true)) {
                     this.EloField = value;
                     this.RaisePropertyChanged("Elo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
                 }
             }
         }
@@ -106,7 +122,13 @@ namespace AIMProClient.AIMProService {
         private int NumberOfHitsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TotalNumberOfTargetsField;
+        private int NumberOfMissField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TypeOfMatchField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -145,14 +167,40 @@ namespace AIMProClient.AIMProService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TotalNumberOfTargets {
+        public int NumberOfMiss {
             get {
-                return this.TotalNumberOfTargetsField;
+                return this.NumberOfMissField;
             }
             set {
-                if ((this.TotalNumberOfTargetsField.Equals(value) != true)) {
-                    this.TotalNumberOfTargetsField = value;
-                    this.RaisePropertyChanged("TotalNumberOfTargets");
+                if ((this.NumberOfMissField.Equals(value) != true)) {
+                    this.NumberOfMissField = value;
+                    this.RaisePropertyChanged("NumberOfMiss");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TypeOfMatch {
+            get {
+                return this.TypeOfMatchField;
+            }
+            set {
+                if ((this.TypeOfMatchField.Equals(value) != true)) {
+                    this.TypeOfMatchField = value;
+                    this.RaisePropertyChanged("TypeOfMatch");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
                 }
             }
         }
@@ -196,6 +244,9 @@ namespace AIMProClient.AIMProService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int maxPlayersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int numberOfTargetsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private byte[] seedField;
@@ -297,6 +348,19 @@ namespace AIMProClient.AIMProService {
                 if ((this.maxPlayersField.Equals(value) != true)) {
                     this.maxPlayersField = value;
                     this.RaisePropertyChanged("maxPlayers");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int numberOfTargets {
+            get {
+                return this.numberOfTargetsField;
+            }
+            set {
+                if ((this.numberOfTargetsField.Equals(value) != true)) {
+                    this.numberOfTargetsField = value;
+                    this.RaisePropertyChanged("numberOfTargets");
                 }
             }
         }
@@ -539,6 +603,336 @@ namespace AIMProClient.AIMProService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Profile", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class Profile : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EloField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double HitRatioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MatchCountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberDuelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberEndlessField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberFFAField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberFastField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberPreciseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalHitsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalMissField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Elo {
+            get {
+                return this.EloField;
+            }
+            set {
+                if ((this.EloField.Equals(value) != true)) {
+                    this.EloField = value;
+                    this.RaisePropertyChanged("Elo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double HitRatio {
+            get {
+                return this.HitRatioField;
+            }
+            set {
+                if ((this.HitRatioField.Equals(value) != true)) {
+                    this.HitRatioField = value;
+                    this.RaisePropertyChanged("HitRatio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MatchCount {
+            get {
+                return this.MatchCountField;
+            }
+            set {
+                if ((this.MatchCountField.Equals(value) != true)) {
+                    this.MatchCountField = value;
+                    this.RaisePropertyChanged("MatchCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumberDuel {
+            get {
+                return this.NumberDuelField;
+            }
+            set {
+                if ((this.NumberDuelField.Equals(value) != true)) {
+                    this.NumberDuelField = value;
+                    this.RaisePropertyChanged("NumberDuel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumberEndless {
+            get {
+                return this.NumberEndlessField;
+            }
+            set {
+                if ((this.NumberEndlessField.Equals(value) != true)) {
+                    this.NumberEndlessField = value;
+                    this.RaisePropertyChanged("NumberEndless");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumberFFA {
+            get {
+                return this.NumberFFAField;
+            }
+            set {
+                if ((this.NumberFFAField.Equals(value) != true)) {
+                    this.NumberFFAField = value;
+                    this.RaisePropertyChanged("NumberFFA");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumberFast {
+            get {
+                return this.NumberFastField;
+            }
+            set {
+                if ((this.NumberFastField.Equals(value) != true)) {
+                    this.NumberFastField = value;
+                    this.RaisePropertyChanged("NumberFast");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumberPrecise {
+            get {
+                return this.NumberPreciseField;
+            }
+            set {
+                if ((this.NumberPreciseField.Equals(value) != true)) {
+                    this.NumberPreciseField = value;
+                    this.RaisePropertyChanged("NumberPrecise");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalHits {
+            get {
+                return this.TotalHitsField;
+            }
+            set {
+                if ((this.TotalHitsField.Equals(value) != true)) {
+                    this.TotalHitsField = value;
+                    this.RaisePropertyChanged("TotalHits");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalMiss {
+            get {
+                return this.TotalMissField;
+            }
+            set {
+                if ((this.TotalMissField.Equals(value) != true)) {
+                    this.TotalMissField = value;
+                    this.RaisePropertyChanged("TotalMiss");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Username {
+            get {
+                return this.UsernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MatchStatistics", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class MatchStatistics : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MatchRankField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberOfHitsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberOfMissField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberOfPointsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeOfGameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MatchRank {
+            get {
+                return this.MatchRankField;
+            }
+            set {
+                if ((this.MatchRankField.Equals(value) != true)) {
+                    this.MatchRankField = value;
+                    this.RaisePropertyChanged("MatchRank");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumberOfHits {
+            get {
+                return this.NumberOfHitsField;
+            }
+            set {
+                if ((this.NumberOfHitsField.Equals(value) != true)) {
+                    this.NumberOfHitsField = value;
+                    this.RaisePropertyChanged("NumberOfHits");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumberOfMiss {
+            get {
+                return this.NumberOfMissField;
+            }
+            set {
+                if ((this.NumberOfMissField.Equals(value) != true)) {
+                    this.NumberOfMissField = value;
+                    this.RaisePropertyChanged("NumberOfMiss");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumberOfPoints {
+            get {
+                return this.NumberOfPointsField;
+            }
+            set {
+                if ((this.NumberOfPointsField.Equals(value) != true)) {
+                    this.NumberOfPointsField = value;
+                    this.RaisePropertyChanged("NumberOfPoints");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TypeOfGame {
+            get {
+                return this.TypeOfGameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeOfGameField, value) != true)) {
+                    this.TypeOfGameField = value;
+                    this.RaisePropertyChanged("TypeOfGame");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AIMProService.IAIMProServerService")]
     public interface IAIMProServerService {
@@ -584,6 +978,26 @@ namespace AIMProClient.AIMProService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfiles", ReplyAction="http://tempuri.org/IAIMProServerService/getProfilesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.User>> getProfilesAsync();
+        
+
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfileStatistics", ReplyAction="http://tempuri.org/IAIMProServerService/getProfileStatisticsResponse")]
+        AIMProClient.AIMProService.Profile getProfileStatistics(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfileStatistics", ReplyAction="http://tempuri.org/IAIMProServerService/getProfileStatisticsResponse")]
+        System.Threading.Tasks.Task<AIMProClient.AIMProService.Profile> getProfileStatisticsAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfileMatchHistory", ReplyAction="http://tempuri.org/IAIMProServerService/getProfileMatchHistoryResponse")]
+        System.Collections.Generic.List<AIMProClient.AIMProService.MatchStatistics> getProfileMatchHistory(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfileMatchHistory", ReplyAction="http://tempuri.org/IAIMProServerService/getProfileMatchHistoryResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.MatchStatistics>> getProfileMatchHistoryAsync(string username);
+
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/submitHit", ReplyAction="http://tempuri.org/IAIMProServerService/submitHitResponse")]
+        void submitHit(int x, int y);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/submitHit", ReplyAction="http://tempuri.org/IAIMProServerService/submitHitResponse")]
+        System.Threading.Tasks.Task submitHitAsync(int x, int y);
+
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -667,6 +1081,31 @@ namespace AIMProClient.AIMProService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.User>> getProfilesAsync() {
             return base.Channel.getProfilesAsync();
+        }
+        
+
+        public AIMProClient.AIMProService.Profile getProfileStatistics(string username) {
+            return base.Channel.getProfileStatistics(username);
+        }
+        
+        public System.Threading.Tasks.Task<AIMProClient.AIMProService.Profile> getProfileStatisticsAsync(string username) {
+            return base.Channel.getProfileStatisticsAsync(username);
+        }
+        
+        public System.Collections.Generic.List<AIMProClient.AIMProService.MatchStatistics> getProfileMatchHistory(string username) {
+            return base.Channel.getProfileMatchHistory(username);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.MatchStatistics>> getProfileMatchHistoryAsync(string username) {
+            return base.Channel.getProfileMatchHistoryAsync(username);
+        }
+
+        public void submitHit(int x, int y) {
+            base.Channel.submitHit(x, y);
+        }
+        
+        public System.Threading.Tasks.Task submitHitAsync(int x, int y) {
+            return base.Channel.submitHitAsync(x, y);
         }
     }
 }

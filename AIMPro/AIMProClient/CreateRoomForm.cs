@@ -66,13 +66,7 @@ namespace AIMProClient
                 this.controller.TipIgre = 16;
         }
 
-        private void movingChb_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.movingChb.Checked == true)
-                this.controller.TipMete += 1;
-            else
-                this.controller.TipMete -= 1;
-        }
+    
 
         private void shieldChb_CheckedChanged(object sender, EventArgs e)
         {
@@ -114,13 +108,6 @@ namespace AIMProClient
                 this.controller.TipMunicije -= 1;
         }
 
-        private void explosiveChb_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.explosiveChb.Checked == true)
-                this.controller.TipMunicije += 2;
-            else
-                this.controller.TipMunicije -= 2;
-        }
 
         private void limitedChb_CheckedChanged(object sender, EventArgs e)
         {

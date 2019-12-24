@@ -34,7 +34,7 @@ namespace AIMProClient
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4) {
+            if (e.ColumnIndex == 4 && e.RowIndex != -1 ) {
                 
                 MessageBox.Show("Oce da joinuje " + e.RowIndex + " sobu.");
                 this.controller.pokreniLobby(e.RowIndex);
