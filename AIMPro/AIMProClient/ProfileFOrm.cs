@@ -23,13 +23,16 @@ namespace AIMProClient
             korisnikLabel.Text = this.korisnik.Username;
             lblElo.Text = this.korisnik.Elo.ToString();
             lblHitRatio.Text = this.korisnik.HitRatio.ToString();
+
             lblTotalTargerHits.Text = this.korisnik.TotalHits.ToString();
+
             lblTotalTargetMiss.Text = this.korisnik.TotalMiss.ToString();
             lblDuel.Text = this.korisnik.NumberDuel.ToString();
             lblMulti.Text = this.korisnik.NumberFFA.ToString();
             lblEndLess.Text= this.korisnik.NumberEndless.ToString();
             lblFastShooting.Text= this.korisnik.NumberFast.ToString();
             lblPreciseShooting.Text = this.korisnik.NumberPrecise.ToString();
+            lblTotalMatch.Text = this.korisnik.MatchCount.ToString();
             this.FillTable();
 
         }
@@ -37,9 +40,23 @@ namespace AIMProClient
         {
             foreach (MatchStatistics mS in this.matchHistory)
             {
-                dataGridProfileStatistics.Rows.Add(mS.TypeOfGame.ToString(), mS.MatchRank.ToString(), mS.NumberOfPoints.ToString(), mS.NumberOfHits.ToString(), mS.NumberOfMiss.ToString());
+                dataGridProfileStatistics.Rows.Add(kastujEnum(mS.TypeOfGame), mS.MatchRank.ToString(), mS.NumberOfPoints.ToString(), mS.NumberOfHits.ToString(), mS.NumberOfMiss.ToString());
             }
         }
+
+        private string kastujEnum(string tipIgre) {
+            if (tipIgre == "1")
+                return "Duel";
+            else if (tipIgre == "2")
+                return "MultiPlayer FFA";
+            else if (tipIgre == "3")
+                return "Fast Shooting";
+            else if (tipIgre == "4")
+                return "Precise Shooting";
+            else
+                return "Endless Campaign";
+        }
+
     }
 
 

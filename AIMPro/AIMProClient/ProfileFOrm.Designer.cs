@@ -38,7 +38,6 @@
             this.lblTotalTargerHits = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblTotalTargetMiss = new System.Windows.Forms.Label();
-            this.lblTotalTargetHits = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblEndLess = new System.Windows.Forms.Label();
@@ -58,6 +57,8 @@
             this.Points = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hits = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Miss = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblTotalMatch = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProfileStatistics)).BeginInit();
@@ -134,7 +135,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblTotalTargetMiss);
-            this.groupBox1.Controls.Add(this.lblTotalTargetHits);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.lblTotalTargerHits);
@@ -147,7 +147,7 @@
             this.groupBox1.Size = new System.Drawing.Size(200, 166);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "0";
+            this.groupBox1.Text = "User statistics";
             // 
             // lblTotalTargetMiss
             // 
@@ -157,15 +157,6 @@
             this.lblTotalTargetMiss.Size = new System.Drawing.Size(41, 13);
             this.lblTotalTargetMiss.TabIndex = 11;
             this.lblTotalTargetMiss.Text = "label10";
-            // 
-            // lblTotalTargetHits
-            // 
-            this.lblTotalTargetHits.AutoSize = true;
-            this.lblTotalTargetHits.Location = new System.Drawing.Point(96, 99);
-            this.lblTotalTargetHits.Name = "lblTotalTargetHits";
-            this.lblTotalTargetHits.Size = new System.Drawing.Size(41, 13);
-            this.lblTotalTargetHits.TabIndex = 10;
-            this.lblTotalTargetHits.Text = "label10";
             // 
             // label9
             // 
@@ -178,6 +169,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblTotalMatch);
+            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.lblEndLess);
             this.groupBox2.Controls.Add(this.lblPreciseShooting);
             this.groupBox2.Controls.Add(this.lblFastShooting);
@@ -190,7 +183,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(264, 82);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(237, 166);
+            this.groupBox2.Size = new System.Drawing.Size(237, 182);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Matchs played in rooms";
@@ -339,6 +332,24 @@
             this.Miss.Name = "Miss";
             this.Miss.ReadOnly = true;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(22, 166);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(34, 13);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Total:";
+            // 
+            // lblTotalMatch
+            // 
+            this.lblTotalMatch.AutoSize = true;
+            this.lblTotalMatch.Location = new System.Drawing.Point(62, 166);
+            this.lblTotalMatch.Name = "lblTotalMatch";
+            this.lblTotalMatch.Size = new System.Drawing.Size(41, 13);
+            this.lblTotalMatch.TabIndex = 11;
+            this.lblTotalMatch.Text = "label12";
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,7 +397,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblTotalTargetMiss;
-        private System.Windows.Forms.Label lblTotalTargetHits;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dataGridProfileStatistics;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeOfGame;
@@ -394,5 +404,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Points;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hits;
         private System.Windows.Forms.DataGridViewTextBoxColumn Miss;
+        private System.Windows.Forms.Label lblTotalMatch;
+        private System.Windows.Forms.Label label11;
     }
 }

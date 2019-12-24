@@ -34,9 +34,9 @@ public class UserMatch
  
 
  
-    public int Points { get; set; }
-    public int NumHits { get; set; }
-    public int NumMiss { get; set; }
+    public int? Points { get; set; }
+    public int? NumHits { get; set; }
+    public int? NumMiss { get; set; }
     public int Rank { get; set; }
 
 

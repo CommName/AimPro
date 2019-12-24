@@ -61,10 +61,16 @@ public class DataBaseAPI
             user = db.Users.Where(b => b.Username == username).FirstOrDefault();
             profile.Username = user.Username;
             profile.Elo = user.Elo;
+           
             profile.MatchCount = db.UserMatch.Count(b => b.UserId == user.ID);
-            profile.TotalHits = db.UserMatch.Where(b => b.UserId == user.ID).Sum(i => i.NumHits);
-            profile.TotalMiss = db.UserMatch.Where(b => b.UserId == user.ID).Sum(i => i.NumMiss);
-            profile.HitRatio = profile.TotalHits / (profile.TotalHits + profile.TotalMiss);
+
+           
+            profile.TotalHits = db.UserMatch.Where(b => b.UserId == user.ID).Sum(i => i.NumHits).GetValueOrDefault(0); ;
+            profile.TotalMiss = db.UserMatch.Where(b => b.UserId == user.ID).Sum(i => i.NumMiss).GetValueOrDefault(0);
+            if (profile.TotalMiss != 0)
+                profile.HitRatio = profile.TotalHits / (profile.TotalHits + profile.TotalMiss);
+            else
+                profile.HitRatio = 0;
          
             profile.NumberDuel = db.UserMatch.Join(db.Matches, um => um.MatchId, m => m.ID, (um, m) => new { umObj = um, mObj = m }).Where(u => u.mObj.TypeOfMatch == 1).Where(y=>y.umObj.UserId==user.ID).Count(i=>true);
 
@@ -92,10 +98,10 @@ public class DataBaseAPI
             foreach(UserMatch m in listUserHistory)
             {
                 MatchStatistics match = new MatchStatistics();
-                match.MatchRank = m.Rank;
-                match.NumberOfHits = m.NumHits;
-                match.NumberOfMiss = m.NumMiss;
-                match.NumberOfPoints = m.Points;
+                match.MatchRank =(int) m.Rank;
+                match.NumberOfHits = (int)m.NumHits;
+                match.NumberOfMiss = (int)m.NumMiss;
+                match.NumberOfPoints = (int)m.Points;
                 match.TypeOfGame = db.Matches.Where(n => n.ID == m.MatchId).Select(i => i.TypeOfMatch).FirstOrDefault();
                 matchStatistics.Add(match);
 
