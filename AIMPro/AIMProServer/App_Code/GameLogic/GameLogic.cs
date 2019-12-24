@@ -26,6 +26,9 @@ public abstract class GameLogic
         lock (players) {
             Matches newMatch = new Matches();
             newMatch.TypeOfMatch = (int)this.room.RoomPropertes.GameMode;
+            newMatch.GameSeed = this.room.RoomPropertes.seed;
+            newMatch.TargetsUsed = (int)this.room.RoomPropertes.TargetTypesAllowed;
+            newMatch.CursorUsed = (int)this.room.RoomPropertes.CursorType;
             DataBaseAPI db = new DataBaseAPI();
             List<Tuple<User, UserMatch>> usersAndReuslts = new List<Tuple<User, UserMatch>>();
             foreach(var player in players)

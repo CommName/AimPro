@@ -12,5 +12,8 @@ public class Matches
     public int ID { get; set; }
     public ICollection<UserMatch> UserCollection  { get; set; }
     public int TypeOfMatch { get; set; }
+    public byte[] GameSeed { get; set; }
+    public int TargetsUsed { get; set; }
+    public int CursorUsed { get; set; }
 
 }
