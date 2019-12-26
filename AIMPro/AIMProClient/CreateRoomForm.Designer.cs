@@ -55,6 +55,7 @@
             this.boostChb = new System.Windows.Forms.CheckBox();
             this.shieldChb = new System.Windows.Forms.CheckBox();
             this.createBtn = new System.Windows.Forms.Button();
+            this.backBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.codePanel.SuspendLayout();
@@ -66,7 +67,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(435, 26);
+            this.label1.Location = new System.Drawing.Point(435, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 13);
             this.label1.TabIndex = 0;
@@ -76,7 +77,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(301, 69);
+            this.label2.Location = new System.Drawing.Point(300, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 1;
@@ -84,7 +85,7 @@
             // 
             // nameTxtBox
             // 
-            this.nameTxtBox.Location = new System.Drawing.Point(397, 66);
+            this.nameTxtBox.Location = new System.Drawing.Point(396, 50);
             this.nameTxtBox.Name = "nameTxtBox";
             this.nameTxtBox.Size = new System.Drawing.Size(179, 20);
             this.nameTxtBox.TabIndex = 2;
@@ -96,7 +97,7 @@
             this.groupBox1.Controls.Add(this.fastRb);
             this.groupBox1.Controls.Add(this.multyPlayerRb);
             this.groupBox1.Controls.Add(this.duelRb);
-            this.groupBox1.Location = new System.Drawing.Point(481, 111);
+            this.groupBox1.Location = new System.Drawing.Point(483, 87);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(223, 209);
             this.groupBox1.TabIndex = 3;
@@ -168,7 +169,7 @@
             this.groupBox2.Controls.Add(this.codePanel);
             this.groupBox2.Controls.Add(this.privateRb);
             this.groupBox2.Controls.Add(this.publicRb);
-            this.groupBox2.Location = new System.Drawing.Point(710, 111);
+            this.groupBox2.Location = new System.Drawing.Point(712, 87);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(210, 209);
             this.groupBox2.TabIndex = 4;
@@ -228,7 +229,7 @@
             // 
             this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Location = new System.Drawing.Point(22, 111);
+            this.groupBox3.Location = new System.Drawing.Point(24, 87);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(437, 209);
             this.groupBox3.TabIndex = 5;
@@ -351,7 +352,7 @@
             // 
             // createBtn
             // 
-            this.createBtn.Location = new System.Drawing.Point(593, 64);
+            this.createBtn.Location = new System.Drawing.Point(592, 48);
             this.createBtn.Name = "createBtn";
             this.createBtn.Size = new System.Drawing.Size(79, 23);
             this.createBtn.TabIndex = 6;
@@ -359,11 +360,22 @@
             this.createBtn.UseVisualStyleBackColor = true;
             this.createBtn.Click += new System.EventHandler(this.createBtn_Click);
             // 
+            // backBtn
+            // 
+            this.backBtn.Location = new System.Drawing.Point(847, 311);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(75, 23);
+            this.backBtn.TabIndex = 7;
+            this.backBtn.Text = "Back";
+            this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
             // CreateRoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 347);
+            this.ClientSize = new System.Drawing.Size(948, 348);
+            this.Controls.Add(this.backBtn);
             this.Controls.Add(this.createBtn);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -372,7 +384,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CreateRoomForm";
-            this.Text = "CreateRoomForm";
+            this.Text = "Create Room";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -418,5 +430,6 @@
         private System.Windows.Forms.CheckBox boostChb;
         private System.Windows.Forms.CheckBox shieldChb;
         private System.Windows.Forms.Button createBtn;
+        private System.Windows.Forms.Button backBtn;
     }
 }

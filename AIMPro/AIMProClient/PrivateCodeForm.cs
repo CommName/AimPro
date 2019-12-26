@@ -21,6 +21,10 @@ namespace AIMProClient
             this.controller = menuController;
             index = i;
             InitializeComponent();
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.ActiveControl = textBox1;
         }
 
         private void enterBtn_Click(object sender, EventArgs e)
@@ -36,6 +40,19 @@ namespace AIMProClient
             {
                 MessageBox.Show("Invalid Input!","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                enterBtn_Click(sender, e);
+            }
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

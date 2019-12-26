@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.backBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -40,14 +41,26 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Game Lobby";
             // 
+            // backBtn
+            // 
+            this.backBtn.Location = new System.Drawing.Point(703, 415);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(85, 23);
+            this.backBtn.TabIndex = 1;
+            this.backBtn.Text = "Leave Lobby";
+            this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
             // LobbyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.backBtn);
             this.Controls.Add(this.label1);
             this.Name = "LobbyForm";
-            this.Text = "LobbyForm";
+            this.Text = "Lobby";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LobbyForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -56,5 +69,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button backBtn;
     }
 }

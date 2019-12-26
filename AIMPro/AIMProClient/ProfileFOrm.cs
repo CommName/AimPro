@@ -18,6 +18,9 @@ namespace AIMProClient
         public ProfileForm(Profile korisnik ,List<MatchStatistics> matchHistory)
         {
             InitializeComponent();
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.korisnik = korisnik;
             this.matchHistory = matchHistory;
             korisnikLabel.Text = this.korisnik.Username;
@@ -49,14 +52,18 @@ namespace AIMProClient
                 return "Duel";
             else if (tipIgre == "2")
                 return "MultiPlayer FFA";
-            else if (tipIgre == "3")
-                return "Fast Shooting";
             else if (tipIgre == "4")
+                return "Fast Shooting";
+            else if (tipIgre == "8")
                 return "Precise Shooting";
             else
                 return "Endless Campaign";
         }
 
+        private void backBtn_Click(object sender, EventArgs e)
+        { 
+            this.Close();
+        }
     }
 
 

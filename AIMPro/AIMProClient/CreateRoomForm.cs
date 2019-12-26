@@ -21,6 +21,10 @@ namespace AIMProClient
             InitializeComponent();
             this.codePanel.Visible = false;
             this.controller.setCreateRoom(this);
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.ActiveControl = nameTxtBox;
         }
 
         private void privateRb_CheckedChanged(object sender, EventArgs e)
@@ -65,8 +69,6 @@ namespace AIMProClient
             if (this.endlessRb.Checked == true)
                 this.controller.TipIgre = 16;
         }
-
-    
 
         private void shieldChb_CheckedChanged(object sender, EventArgs e)
         {
@@ -139,6 +141,11 @@ namespace AIMProClient
             {
                 this.Close();
             }
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

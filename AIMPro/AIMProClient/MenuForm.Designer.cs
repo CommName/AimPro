@@ -33,6 +33,8 @@
             this.profileButton = new System.Windows.Forms.Button();
             this.statisticsButton = new System.Windows.Forms.Button();
             this.joinRoomButton = new System.Windows.Forms.Button();
+            this.logoutBtn = new System.Windows.Forms.Button();
+            this.exitBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // welcomeLabel
@@ -84,18 +86,40 @@
             this.joinRoomButton.UseVisualStyleBackColor = true;
             this.joinRoomButton.Click += new System.EventHandler(this.joinRoomButton_Click);
             // 
+            // logoutBtn
+            // 
+            this.logoutBtn.Location = new System.Drawing.Point(631, 144);
+            this.logoutBtn.Name = "logoutBtn";
+            this.logoutBtn.Size = new System.Drawing.Size(75, 23);
+            this.logoutBtn.TabIndex = 6;
+            this.logoutBtn.Text = "Logout";
+            this.logoutBtn.UseVisualStyleBackColor = true;
+            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
+            // 
+            // exitBtn
+            // 
+            this.exitBtn.Location = new System.Drawing.Point(713, 415);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(75, 23);
+            this.exitBtn.TabIndex = 7;
+            this.exitBtn.Text = "Exit Game";
+            this.exitBtn.UseVisualStyleBackColor = true;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.exitBtn);
+            this.Controls.Add(this.logoutBtn);
             this.Controls.Add(this.joinRoomButton);
             this.Controls.Add(this.statisticsButton);
             this.Controls.Add(this.profileButton);
             this.Controls.Add(this.createRoomButton);
             this.Controls.Add(this.welcomeLabel);
             this.Name = "MenuForm";
-            this.Text = "MenuForm";
+            this.Text = "Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -109,5 +133,7 @@
         private System.Windows.Forms.Button profileButton;
         private System.Windows.Forms.Button statisticsButton;
         private System.Windows.Forms.Button joinRoomButton;
+        private System.Windows.Forms.Button logoutBtn;
+        private System.Windows.Forms.Button exitBtn;
     }
 }

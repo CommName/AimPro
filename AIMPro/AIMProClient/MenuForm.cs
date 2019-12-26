@@ -14,6 +14,7 @@ namespace AIMProClient
 {
     public partial class MenuForm : Form
     {
+        public bool exitApp = true;
         MenuController controller;
         public MenuForm(User logovaniKorisnik)
         {
@@ -24,7 +25,8 @@ namespace AIMProClient
 
         private void MenuForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            CommunicationLayer.Instance.mainForm.Close();
+            if(exitApp)
+            FormLayer.Instance.mainForm.Close();
         }
 
         private void profileButton_Click(object sender, EventArgs e)
@@ -45,6 +47,16 @@ namespace AIMProClient
         private void statisticsButton_Click(object sender, EventArgs e)
         {
             this.controller.generisiStatistiku();
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            this.controller.logout();
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

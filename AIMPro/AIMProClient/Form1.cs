@@ -26,8 +26,9 @@ namespace AIMProClient
         private void Form1_Shown(object sender, EventArgs e)
         {
             this.Visible = false;
-            CommunicationLayer.Instance.mainForm = this;
+            FormLayer.Instance.mainForm = this;
             LoginForm lf = new LoginForm();
+            FormLayer.Instance.loginForm = lf;
             lf.ShowDialog();
         }
     }

@@ -31,21 +31,29 @@ namespace AIMProClient
             }
         }
 
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4 && e.RowIndex != -1 ) {
-                
-                MessageBox.Show("Oce da joinuje " + e.RowIndex + " sobu.");
+            if (e.ColumnIndex == 4 && e.RowIndex != -1 )
+            {
                 this.controller.pokreniLobby(e.RowIndex);
             }
-            
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
             this.dataGridView1.Rows.Clear();
             this.RefreshTable(controller.getRooms());
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            this.controller.enterMenuFormFromJoin();
+            this.Close();
+        }
+
+        private void JoinRoomForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }

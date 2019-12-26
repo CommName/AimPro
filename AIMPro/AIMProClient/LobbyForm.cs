@@ -19,5 +19,16 @@ namespace AIMProClient
             InitializeComponent();
             this.controller = menuController;
         }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            this.controller.leaveLobby();
+            this.Close();
+        }
+
+        private void LobbyForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
     }
 }

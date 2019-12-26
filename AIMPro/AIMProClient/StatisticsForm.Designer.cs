@@ -35,16 +35,20 @@
             this.HitRatio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalTargetHits = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.viewProfile = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label1 = new System.Windows.Forms.Label();
+            this.backBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStatistics)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridStatistics
             // 
             this.dataGridStatistics.AllowUserToAddRows = false;
+            this.dataGridStatistics.AllowUserToDeleteRows = false;
+            this.dataGridStatistics.AllowUserToResizeColumns = false;
+            this.dataGridStatistics.AllowUserToResizeRows = false;
             this.dataGridStatistics.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridStatistics.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataGridStatistics.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dataGridStatistics.BackgroundColor = System.Drawing.Color.AntiqueWhite;
+            this.dataGridStatistics.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridStatistics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridStatistics.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Rank,
@@ -53,10 +57,10 @@
             this.HitRatio,
             this.TotalTargetHits,
             this.viewProfile});
-            this.dataGridStatistics.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridStatistics.Location = new System.Drawing.Point(0, 36);
+            this.dataGridStatistics.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridStatistics.Location = new System.Drawing.Point(0, 0);
             this.dataGridStatistics.Name = "dataGridStatistics";
-            this.dataGridStatistics.Size = new System.Drawing.Size(800, 414);
+            this.dataGridStatistics.Size = new System.Drawing.Size(822, 448);
             this.dataGridStatistics.TabIndex = 0;
             this.dataGridStatistics.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridStatistics_CellClick);
             // 
@@ -107,31 +111,29 @@
             this.viewProfile.Text = "View profile";
             this.viewProfile.UseColumnTextForButtonValue = true;
             // 
-            // label1
+            // backBtn
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(372, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Statistics";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.backBtn.Location = new System.Drawing.Point(0, 416);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(822, 32);
+            this.backBtn.TabIndex = 2;
+            this.backBtn.Text = "Back";
+            this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // StatisticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(822, 448);
+            this.Controls.Add(this.backBtn);
             this.Controls.Add(this.dataGridStatistics);
             this.Name = "StatisticsForm";
-            this.Text = "Statistics";
+            this.Text = "Leaderboard";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStatistics)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -144,6 +146,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn HitRatio;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalTargetHits;
         private System.Windows.Forms.DataGridViewButtonColumn viewProfile;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button backBtn;
     }
 }

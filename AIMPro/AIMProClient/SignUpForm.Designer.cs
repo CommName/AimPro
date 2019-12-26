@@ -36,13 +36,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.errorLabel = new System.Windows.Forms.Label();
             this.maskButton = new System.Windows.Forms.Button();
+            this.backBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // signUpButton
             // 
-            this.signUpButton.Location = new System.Drawing.Point(251, 207);
+            this.signUpButton.Location = new System.Drawing.Point(126, 172);
             this.signUpButton.Name = "signUpButton";
-            this.signUpButton.Size = new System.Drawing.Size(75, 23);
+            this.signUpButton.Size = new System.Drawing.Size(106, 23);
             this.signUpButton.TabIndex = 0;
             this.signUpButton.Text = "Sign Up";
             this.signUpButton.UseVisualStyleBackColor = true;
@@ -50,15 +51,16 @@
             // 
             // usernameSignUpTextBox
             // 
-            this.usernameSignUpTextBox.Location = new System.Drawing.Point(226, 88);
+            this.usernameSignUpTextBox.Location = new System.Drawing.Point(126, 73);
             this.usernameSignUpTextBox.Name = "usernameSignUpTextBox";
             this.usernameSignUpTextBox.Size = new System.Drawing.Size(100, 20);
             this.usernameSignUpTextBox.TabIndex = 1;
+            this.usernameSignUpTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usernameSignUpTextBox_KeyDown);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(157, 91);
+            this.label1.Location = new System.Drawing.Point(57, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 2;
@@ -67,7 +69,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(157, 141);
+            this.label2.Location = new System.Drawing.Point(57, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 4;
@@ -75,24 +77,25 @@
             // 
             // passwordSignUpTextBox
             // 
-            this.passwordSignUpTextBox.Location = new System.Drawing.Point(226, 138);
+            this.passwordSignUpTextBox.Location = new System.Drawing.Point(126, 123);
             this.passwordSignUpTextBox.Name = "passwordSignUpTextBox";
             this.passwordSignUpTextBox.Size = new System.Drawing.Size(100, 20);
             this.passwordSignUpTextBox.TabIndex = 3;
+            this.passwordSignUpTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordSignUpTextBox_KeyDown);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(217, 26);
+            this.label3.Location = new System.Drawing.Point(133, 30);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 13);
+            this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "AIMPro Sign Up Form";
+            this.label3.Text = "AIMPro Sign Up";
             // 
             // errorLabel
             // 
             this.errorLabel.AutoSize = true;
-            this.errorLabel.Location = new System.Drawing.Point(217, 171);
+            this.errorLabel.Location = new System.Drawing.Point(117, 156);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(7, 13);
             this.errorLabel.TabIndex = 6;
@@ -100,19 +103,30 @@
             // 
             // maskButton
             // 
-            this.maskButton.Location = new System.Drawing.Point(357, 136);
+            this.maskButton.Location = new System.Drawing.Point(240, 121);
             this.maskButton.Name = "maskButton";
-            this.maskButton.Size = new System.Drawing.Size(75, 23);
+            this.maskButton.Size = new System.Drawing.Size(47, 23);
             this.maskButton.TabIndex = 7;
             this.maskButton.Text = "Mask";
             this.maskButton.UseVisualStyleBackColor = true;
             this.maskButton.Click += new System.EventHandler(this.maskButton_Click);
             // 
+            // backBtn
+            // 
+            this.backBtn.Location = new System.Drawing.Point(263, 203);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(75, 23);
+            this.backBtn.TabIndex = 8;
+            this.backBtn.Text = "Back";
+            this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
             // SignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 283);
+            this.ClientSize = new System.Drawing.Size(350, 238);
+            this.Controls.Add(this.backBtn);
             this.Controls.Add(this.maskButton);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.label3);
@@ -122,7 +136,7 @@
             this.Controls.Add(this.usernameSignUpTextBox);
             this.Controls.Add(this.signUpButton);
             this.Name = "SignUpForm";
-            this.Text = "SignUpForm";
+            this.Text = "Sign Up";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SignUpForm_FormClosing);
             this.Shown += new System.EventHandler(this.SignUpForm_Shown);
             this.ResumeLayout(false);
@@ -140,5 +154,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.Button maskButton;
+        private System.Windows.Forms.Button backBtn;
     }
 }

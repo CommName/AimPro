@@ -10,7 +10,6 @@ namespace AIMProClient
     public class CommunicationLayer
     {
         public AIMProServerServiceClient proxy;
-        public Form1 mainForm;
         protected static CommunicationLayer instance = null;
 
         public static CommunicationLayer Instance {
@@ -62,17 +61,18 @@ namespace AIMProClient
             return true;
         }
 
-
         public Profile getProfileStatistics(string username)
         {
             return proxy.getProfileStatistics(username);
         }
 
-
         public List<MatchStatistics> getUserMatchHistory(string username)
         {
             return proxy.getProfileMatchHistory(username);
-           
+        }
+
+        public void notifyServerOfLogout(string username) { 
+
         }
     }
 }

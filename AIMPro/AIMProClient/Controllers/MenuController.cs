@@ -22,6 +22,15 @@ namespace AIMProClient.Controllers
         {
             get { return this.listaMogucihSoba; }
         }
+
+        internal void leaveLobby()
+        {
+            JoinRoomForm jrf = new JoinRoomForm(this);
+            FormLayer.Instance.joinRoomForm = jrf;
+            FormLayer.Instance.lobbyForm.Close();
+            jrf.Show();
+        }
+
         public int TipIgre {
             get {return this.tipIgre; }
             set {this.tipIgre=value; }
@@ -73,6 +82,8 @@ namespace AIMProClient.Controllers
 
         public void udjiUSobu()
         {
+            menuForm.exitApp = false;
+            FormLayer.Instance.menuForm.Close();
             JoinRoomForm jrf = new JoinRoomForm(this);
             jrf.ShowDialog();
         }
@@ -98,12 +109,10 @@ namespace AIMProClient.Controllers
                 PrivateCodeForm pcf = new PrivateCodeForm(this,i);
                 pcf.ShowDialog();
             }
-            else {//public room
+            else //public room
                 udjiULobby(i);
-            }
             //TEST LAYER
             CommunicationLayer.Instance.submitHit(3, 4);
-            
         }
 
         public bool authPassword(string pass, RoomState roomState) {
@@ -112,16 +121,18 @@ namespace AIMProClient.Controllers
 
         public void udjiULobby (int i) {
             LobbyForm lf = new LobbyForm(this, listaMogucihSoba[i]);
-            lf.ShowDialog();
+            FormLayer.Instance.lobbyForm = lf;
+            if (FormLayer.Instance.joinRoomForm != null)
+            {
+                FormLayer.Instance.joinRoomForm.Close();
+                FormLayer.Instance.joinRoomForm = null;
+            }
+            lf.Show();
         }
 
         public bool validirajKreiranjeSobe(string sobaName,string sobaCode) {
-            MessageBox.Show("Igra"+TipIgre.ToString());
-            MessageBox.Show("MEta"+TipMete.ToString());
-            MessageBox.Show("Municija"+TipMunicije.ToString());
             if (PublicSoba == true && sobaName != "" && sobaName.Length>3 && TipIgre!=0)
             {
-                MessageBox.Show("Kreira javnu sobu" + sobaName);
                 RoomProperties room = new RoomProperties
                 {
                     maxPlayers = 4,
@@ -136,13 +147,11 @@ namespace AIMProClient.Controllers
                 };
                 CommunicationLayer.Instance.CreateRoom(room);
                 MessageBox.Show("Room created Successfully!", "Notification!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ////createRoomForm.Close();
-               // udjiUSobu();
+                enterJoinRoomFromCreate();
                 return true;
             }
             else if (PublicSoba == false && sobaName != "" && sobaName.Length > 3 && sobaCode != "" && sobaCode.Length>3 && TipIgre != 0)
             {
-                MessageBox.Show("Kreira privatnu sobu" + sobaName + " code : " + sobaCode);
                 RoomProperties room = new RoomProperties
                 {
                     maxPlayers = 4,
@@ -154,10 +163,8 @@ namespace AIMProClient.Controllers
                     Password=sobaCode
                 };
                 CommunicationLayer.Instance.CreateRoom(room);
-                //TOODO join room and change view
                 MessageBox.Show("Room created Successfully!", "Notification!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //createRoomForm.Close();
-                //udjiUSobu();
+                enterJoinRoomFromCreate();
                 return true;
             }
             else {
@@ -228,6 +235,34 @@ namespace AIMProClient.Controllers
                 TipMunicije -= 1;
             }
             return municija;
+        }
+
+        public void logout() 
+        {
+            CommunicationLayer.Instance.notifyServerOfLogout(this.logovaniKorisnik.Username);//obavesti server o logoutu , ta metoda nije implementovana
+            menuForm.exitApp = false;
+            menuForm.Close();
+            FormLayer.Instance.menuForm = null;
+            LoginForm lf = new LoginForm();
+            FormLayer.Instance.loginForm = lf;
+            lf.Show();
+        }
+        private void enterJoinRoomFromCreate()
+        {
+            JoinRoomForm jrf = new JoinRoomForm(this);
+            FormLayer.Instance.joinRoomForm = jrf;
+            FormLayer.Instance.createRoomForm = null;
+            FormLayer.Instance.menuForm.exitApp = false;
+            FormLayer.Instance.menuForm.Close();
+            jrf.Show();
+        }
+
+        public void enterMenuFormFromJoin()
+        {
+            MenuForm mf = new MenuForm(this.logovaniKorisnik);
+            FormLayer.Instance.menuForm = mf;
+            FormLayer.Instance.joinRoomForm = null;
+            mf.Show();
         }
     }
 }

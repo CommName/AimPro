@@ -25,15 +25,12 @@ namespace AIMProClient
             mask = !mask;
             return c;
         }
-
         public bool login(string username, string password) {
             if (username.Length > 2 && password.Length > 2)
             {
                 if (CommunicationLayer.Instance.login(username, Encoding.ASCII.GetBytes(password)))
                 {
-                    User logovaniKorisnik = CommunicationLayer.Instance.getUser(username);
-                    MenuForm mf = new MenuForm(logovaniKorisnik);
-                    mf.Show();
+                    openMenuForm(username);
                     return true;
                 }   
                 else
@@ -48,7 +45,6 @@ namespace AIMProClient
                 return false;
             }
         }
-
         public bool signUp(string username, string password)
         {
             if (username.Length > 2 && password.Length > 2)
@@ -66,6 +62,15 @@ namespace AIMProClient
                 errorMessage = "Input data is invalid.";
                 return false;
             }
+        }
+        public void openMenuForm(string username) 
+        {
+            FormLayer.Instance.loginForm.flag = true;
+            FormLayer.Instance.loginForm.Close();
+            User logovaniKorisnik = CommunicationLayer.Instance.getUser(username);
+            MenuForm mf = new MenuForm(logovaniKorisnik);
+            FormLayer.Instance.menuForm = mf;
+            mf.Show();
         }
     }
 }
