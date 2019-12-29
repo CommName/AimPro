@@ -16,7 +16,7 @@ public abstract class GameLogic
 
     public abstract void start();
 
-    public abstract void pause();
+    public abstract int getEarnedElo(string username);
 
     public abstract void submitHit(string username, int x, int y);
 
@@ -34,6 +34,7 @@ public abstract class GameLogic
             foreach(var player in players)
             {
                 User user = db.getUser(player.Value.username);
+                user.Elo += getEarnedElo(user.Username);
                 UserMatch match = new UserMatch();
                 match.Match = newMatch;
                 match.NumHits = player.Value.numberOfHits;

@@ -15,9 +15,9 @@ public class TestGame :GameLogic
         //
     }
 
-    public override void pause()
+    public override int getEarnedElo(string username)
     {
-        throw new NotImplementedException();
+        return 10;
     }
 
     public override void start()
