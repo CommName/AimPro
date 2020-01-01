@@ -40,6 +40,19 @@ public class RoomDispatcher
         Rooms.Remove(roomId);
     }
 
+    public void startGame(string username)
+    {
+        Room room;
+
+        if (PlayersRoom.TryGetValue(username, out room))
+        {
+            if (room != null)
+            {
+                room.startGame(username);
+            }
+        }
+    }
+
     public void SubmitHit(string username, int x, int y)
     {
         Room room;

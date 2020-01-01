@@ -12,6 +12,13 @@ public class AIMProServerService : IAIMProServerService
 {
     string username = "";
 
+    private void checkIfLoggedIn()
+    {
+        if (username == "")
+        {
+            throw new FaultException<Exception>(new Exception("You need to login first!"));
+        }
+    }
 
     public ICallBackPlayer getCallBack()
     {
@@ -19,10 +26,7 @@ public class AIMProServerService : IAIMProServerService
     }
     public void createRoom(RoomProperties settings)
     {
-        if (username == "")
-        {
-            throw new FaultException<Exception>(new Exception("You need to login first!"));
-        }
+        checkIfLoggedIn();
         RoomDispatcher.Instance.CreateRoom(settings,username,getCallBack());
     }
 
@@ -39,29 +43,20 @@ public class AIMProServerService : IAIMProServerService
 
     public void joinRoom(int id)
     {
-        if (username == "")
-        {
-            throw new FaultException<Exception>(new Exception("You need to login first!"));
-        }
+        checkIfLoggedIn();
         RoomDispatcher.Instance.JoinRoom(id,username,getCallBack());
     }
 
     public void submitHit(int x, int y)
     {
-        if (username == "")
-        {
-            throw new FaultException<Exception>(new Exception("You need to login first!"));
-        }
+        checkIfLoggedIn();
         RoomDispatcher.Instance.SubmitHit(username,x,y);
     }
 
 
     public void leaveRoom()
     {
-        if (username == "")
-        {
-            throw new FaultException<Exception>(new Exception("You need to login first!"));
-        }
+        checkIfLoggedIn();
         RoomDispatcher.Instance.LeaveRoom(username);
     }
 
@@ -115,6 +110,7 @@ public class AIMProServerService : IAIMProServerService
 
     public void startGame()
     {
-        throw new NotImplementedException();
+        checkIfLoggedIn();
+        RoomDispatcher.Instance.startGame(username);
     }
 }
