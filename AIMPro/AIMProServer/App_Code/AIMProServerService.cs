@@ -12,9 +12,10 @@ public class AIMProServerService : IAIMProServerService
 {
     string username = "";
 
+
     public ICallBackPlayer getCallBack()
     {
-        return null;
+        return OperationContext.Current.GetCallbackChannel<ICallBackPlayer>();
     }
     public void createRoom(RoomProperties settings)
     {

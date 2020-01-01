@@ -30,7 +30,7 @@ public class Target
 
 
 
-    public void TryToHit(Shooter player, int x, int y)
+    public bool TryToHit(Shooter player, int x, int y)
     {
         if (isInCircle(x, y))
         {
@@ -38,7 +38,9 @@ public class Target
                 activeTargets.Remove(this);
             }
             player.points += this.pointsWorth;
+            return true;
         }
+        return false;
     }
 
 }

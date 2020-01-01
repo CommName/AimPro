@@ -7,7 +7,7 @@ using System.Text;
 using AIMProLibrary;
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IAIMProServerService" in both code and config file together.
-[ServiceContract]
+[ServiceContract (CallbackContract = typeof (ICallBackPlayer))]
 public interface IAIMProServerService
 {
     [OperationContract]

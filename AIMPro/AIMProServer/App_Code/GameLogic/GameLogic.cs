@@ -14,6 +14,8 @@ public abstract class GameLogic
     public Object[] targets { get; set; }
     public TargetTypes TargetTypesAllowed { get; set; }
 
+    public TargetFactory targetFactory { get; set; }
+
     public abstract void start();
 
     public abstract int getEarnedElo(string username);
