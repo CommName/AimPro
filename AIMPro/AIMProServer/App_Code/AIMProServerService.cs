@@ -90,6 +90,7 @@ public class AIMProServerService : IAIMProServerService
     }
 
 
+
     public Profile getProfileStatistics(string username)
     {
        
@@ -103,4 +104,17 @@ public class AIMProServerService : IAIMProServerService
         return querry.getProfileHistory(username);
     }
 
+    public void logout()
+    {
+        if (this.username != "")
+        {
+            leaveRoom();
+            this.username = "";
+        }
+    }
+
+    public void startGame()
+    {
+        throw new NotImplementedException();
+    }
 }

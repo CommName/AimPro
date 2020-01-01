@@ -14,6 +14,12 @@ public interface IAIMProServerService
     bool login(string username, byte[] pass);
 
     [OperationContract]
+    void logout();
+
+    [OperationContract]
+    void startGame();
+
+    [OperationContract]
     bool signUp(string username, byte[] pass);
 
     [OperationContract]
