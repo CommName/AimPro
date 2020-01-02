@@ -72,6 +72,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\LobbyController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="CreateRoomForm.cs">
       <SubType>Form</SubType>
@@ -245,6 +246,27 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oko12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\signupp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nazadd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

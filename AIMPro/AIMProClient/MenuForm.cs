@@ -19,6 +19,9 @@ namespace AIMProClient
         public MenuForm(User logovaniKorisnik)
         {
             InitializeComponent();
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             controller = new MenuController(this,logovaniKorisnik);
             welcomeLabel.Text += logovaniKorisnik.Username+", time for shooting!";
         }

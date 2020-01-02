@@ -71,7 +71,7 @@ namespace AIMProClient
             return proxy.getProfileMatchHistory(username);
         }
 
-        public void notifyServerOfLogout(string username) { 
+        public void Logout() { 
 
         }
     }

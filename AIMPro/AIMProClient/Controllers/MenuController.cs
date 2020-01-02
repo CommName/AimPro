@@ -239,7 +239,7 @@ namespace AIMProClient.Controllers
 
         public void logout() 
         {
-            CommunicationLayer.Instance.notifyServerOfLogout(this.logovaniKorisnik.Username);//obavesti server o logoutu , ta metoda nije implementovana
+            CommunicationLayer.Instance.Logout();//obavesti server o logoutu , ta metoda nije implementovana
             menuForm.exitApp = false;
             menuForm.Close();
             FormLayer.Instance.menuForm = null;

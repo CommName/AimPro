@@ -13,20 +13,28 @@ namespace AIMProClient
 {
     public partial class LobbyForm : Form
     {
-        MenuController controller;
+        MenuController menuController;
+        LobbyController lobbyController;
         public LobbyForm(MenuController menuController, AIMProService.RoomState roomState)
         {
             InitializeComponent();
-            this.controller = menuController;
+            this.menuController = menuController;
+            LobbyController lobbyController = new LobbyController(this);
+            this.lobbyController = lobbyController;
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            this.controller.leaveLobby();
+            this.menuController.leaveLobby();
             this.Close();
         }
 
         private void LobbyForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void shieldChckBox_CheckedChanged(object sender, EventArgs e)
         {
 
         }
