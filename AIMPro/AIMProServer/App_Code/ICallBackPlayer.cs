@@ -7,10 +7,12 @@ using System.Web;
 public interface ICallBackPlayer
 {
     void PlayersInTheRoom(List<string> players);
-    void RemoveTarget(Object target);
-    void AddTarget(Object target);
+
+    void updateTargets(List<Target> targets);
 
     void GameStarted();
+
+    void GameStops();
 
     void GameStats();
 

@@ -42,9 +42,11 @@ public class Room
     }
     public bool GameStarted { get { return gameStarted; } }
 
-    void startGame()
+    public void startGame(string username)
     {
         if (gameStarted)
+            return;
+        if (username != this.players.First().Key)
             return;
         gameStarted = true;
     }
@@ -61,8 +63,8 @@ public class Room
 
     public void submitHit(string username, int x, int y)
     {
-        //if (!gameStarted)
-        //    return;
+        if (!gameStarted)
+            return;
         this.gamelogic = new TestGame();
         this.gamelogic.room = this;
         this.gamelogic.players = this.players;
@@ -119,7 +121,14 @@ public class Room
     public void LeaveRoom(string player)
     {
         this.players.Remove(player);
-        this.subscriber.PlayersInTheRoom(players);
+        if (this.players.Count == 0)
+        {
+            FinishGame();
+        }
+        else
+        {
+            this.subscriber.PlayersInTheRoom(players);
+        }
     }
 
     public abstract class JoinFunction
@@ -155,10 +164,6 @@ public class Room
                 newshoter.username = player;
                 newshoter.callback = callback; 
                 this.room.players.Add(player,newshoter);
-                if (room.players.Count >= this.room.roomProperties.maxPlayers)
-                {
-                    room.startGame();
-                }
 
                 return true;
                 room.subscriber.PlayersInTheRoom(room.players);

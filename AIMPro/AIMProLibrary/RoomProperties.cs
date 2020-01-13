@@ -9,7 +9,7 @@ namespace AIMProLibrary
     public class RoomProperties
     {
         [DataMember]
-        public byte[] seed { get; set; }
+        public int seed { get; set; }
         
         [DataMember]
         public GameMode GameMode { get; set; }
