@@ -25,6 +25,11 @@ namespace AIMProClient
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.ActiveControl = nameTxtBox;
+            this.publicRb.Checked = true;
+            this.multyPlayerRb.Checked = true;
+            this.nameTxtBox.Text = "My Room";
+            this.controller.PublicSoba = true;
+            this.controller.TipIgre = 2;
         }
 
         private void privateRb_CheckedChanged(object sender, EventArgs e)
