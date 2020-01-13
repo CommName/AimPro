@@ -20,7 +20,6 @@ public class Room
     protected Subscriber subscriber;
 
     //Strategy
-    protected JoinFunction join;
     protected GameLogic gamelogic;
 
     //GETERS
@@ -100,7 +99,6 @@ public class Room
         this.players = new Dictionary<string, Shooter>();
         password = null;
         gameStarted = false;
-        this.join = null;
         this.subscriber = new Subscriber();
 
     }
@@ -114,30 +112,38 @@ public class Room
         {
             //Set password
         }
-        SetJoinFunction();
-
-    }
-
-
-    public void SetJoinFunction()
-    {
-        this.join = new PublicJoin(this);
-
-        if((this.RoomPropertes.Settings & RoomSettings.PasswordProtected)!=0)
-        {
-            this.join = new PublicJoin(this.join);
-        }
-
-        if ((this.RoomPropertes.Settings & RoomSettings.EloRestricted) != 0)
-        {
-            this.join = new PublicJoin(this.join);
-        }
 
     }
 
     public bool JoinRoom(string player, ICallBackPlayer callback)
     {
-        return this.join.joinRoom(player, callback);
+
+        
+        lock (players)
+        {
+            if ((this.RoomPropertes.Settings & RoomSettings.PasswordProtected) != 0)
+            {
+                //Password check
+            }
+
+            if ((this.RoomPropertes.Settings & RoomSettings.EloRestricted) != 0)
+            {
+                //Elo check
+            }
+            if (players.Count >= this.roomProperties.maxPlayers)
+            {
+                return false;
+            }
+
+            Shooter newshoter = new Shooter();
+            newshoter.username = player;
+            newshoter.callback = callback;
+            players.Add(player, newshoter);
+
+            subscriber.PlayersInTheRoom(players);
+            return true;
+
+        }
     }
 
     public void LeaveRoom(string player)
@@ -153,45 +159,5 @@ public class Room
         }
     }
 
-    public abstract class JoinFunction
-    {
-        public Room room = null;
-        public JoinFunction parent = null;
-
-        public JoinFunction()
-        {
-            room = null;
-            parent = null;
-        }
-        public JoinFunction(Room room)
-        {
-            this.room = room;
-        }
-        public JoinFunction(JoinFunction parent)
-        {
-            this.parent = parent;
-        }
-
-
-        public virtual bool joinRoom(string player, ICallBackPlayer callback)
-        {
-            lock (this.room)
-            {
-                if (room.players.Count >= this.room.roomProperties.maxPlayers)
-                {
-                    return false;
-                }
-
-                Shooter newshoter = new Shooter();
-                newshoter.username = player;
-                newshoter.callback = callback; 
-                this.room.players.Add(player,newshoter);
-
-                return true;
-                room.subscriber.PlayersInTheRoom(room.players);
-            }
-        }
-
-    }
 
 }
