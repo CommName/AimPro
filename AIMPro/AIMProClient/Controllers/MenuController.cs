@@ -142,7 +142,6 @@ namespace AIMProClient.Controllers
                     Settings = vratiTipSobe(),
                     Name = sobaName,
                     Password = sobaCode,
-                    numberOfTargets = 8
                     
                 };
                 CommunicationLayer.Instance.CreateRoom(room);

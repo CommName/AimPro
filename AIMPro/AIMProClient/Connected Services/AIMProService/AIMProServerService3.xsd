@@ -10,8 +10,7 @@
       <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Settings" type="q3:RoomSettings" />
       <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="TargetTypesAllowed" type="q4:TargetTypes" />
       <xs:element minOccurs="0" name="maxPlayers" type="xs:int" />
-      <xs:element minOccurs="0" name="numberOfTargets" type="xs:int" />
-      <xs:element minOccurs="0" name="seed" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="seed" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="RoomProperties" nillable="true" type="tns:RoomProperties" />

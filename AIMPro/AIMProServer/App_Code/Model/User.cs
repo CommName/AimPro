@@ -18,7 +18,7 @@ public class User
 
     public byte[] Password { get; set; }
 
-   
+   [DataMember]
     public int Elo { get; set; }
 
     

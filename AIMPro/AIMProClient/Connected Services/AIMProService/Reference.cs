@@ -26,12 +26,6 @@ namespace AIMProClient.AIMProService {
         private int EloField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<AIMProClient.AIMProService.Matches> MatchHistoryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UsernameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -58,32 +52,6 @@ namespace AIMProClient.AIMProService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID {
-            get {
-                return this.IDField;
-            }
-            set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<AIMProClient.AIMProService.Matches> MatchHistory {
-            get {
-                return this.MatchHistoryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MatchHistoryField, value) != true)) {
-                    this.MatchHistoryField = value;
-                    this.RaisePropertyChanged("MatchHistory");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Username {
             get {
                 return this.UsernameField;
@@ -92,115 +60,6 @@ namespace AIMProClient.AIMProService {
                 if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
                     this.UsernameField = value;
                     this.RaisePropertyChanged("Username");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Matches", Namespace="http://schemas.datacontract.org/2004/07/")]
-    [System.SerializableAttribute()]
-    public partial class Matches : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int NumberOfHitsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int NumberOfMissField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TypeOfMatchField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UserIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID {
-            get {
-                return this.IDField;
-            }
-            set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int NumberOfHits {
-            get {
-                return this.NumberOfHitsField;
-            }
-            set {
-                if ((this.NumberOfHitsField.Equals(value) != true)) {
-                    this.NumberOfHitsField = value;
-                    this.RaisePropertyChanged("NumberOfHits");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int NumberOfMiss {
-            get {
-                return this.NumberOfMissField;
-            }
-            set {
-                if ((this.NumberOfMissField.Equals(value) != true)) {
-                    this.NumberOfMissField = value;
-                    this.RaisePropertyChanged("NumberOfMiss");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TypeOfMatch {
-            get {
-                return this.TypeOfMatchField;
-            }
-            set {
-                if ((this.TypeOfMatchField.Equals(value) != true)) {
-                    this.TypeOfMatchField = value;
-                    this.RaisePropertyChanged("TypeOfMatch");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UserId {
-            get {
-                return this.UserIdField;
-            }
-            set {
-                if ((this.UserIdField.Equals(value) != true)) {
-                    this.UserIdField = value;
-                    this.RaisePropertyChanged("UserId");
                 }
             }
         }
@@ -246,10 +105,7 @@ namespace AIMProClient.AIMProService {
         private int maxPlayersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int numberOfTargetsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] seedField;
+        private int seedField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -353,25 +209,12 @@ namespace AIMProClient.AIMProService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int numberOfTargets {
-            get {
-                return this.numberOfTargetsField;
-            }
-            set {
-                if ((this.numberOfTargetsField.Equals(value) != true)) {
-                    this.numberOfTargetsField = value;
-                    this.RaisePropertyChanged("numberOfTargets");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] seed {
+        public int seed {
             get {
                 return this.seedField;
             }
             set {
-                if ((object.ReferenceEquals(this.seedField, value) != true)) {
+                if ((this.seedField.Equals(value) != true)) {
                     this.seedField = value;
                     this.RaisePropertyChanged("seed");
                 }
@@ -846,7 +689,7 @@ namespace AIMProClient.AIMProService {
         private int NumberOfPointsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TypeOfGameField;
+        private int TypeOfGameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -911,12 +754,12 @@ namespace AIMProClient.AIMProService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TypeOfGame {
+        public int TypeOfGame {
             get {
                 return this.TypeOfGameField;
             }
             set {
-                if ((object.ReferenceEquals(this.TypeOfGameField, value) != true)) {
+                if ((this.TypeOfGameField.Equals(value) != true)) {
                     this.TypeOfGameField = value;
                     this.RaisePropertyChanged("TypeOfGame");
                 }
@@ -942,6 +785,18 @@ namespace AIMProClient.AIMProService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/login", ReplyAction="http://tempuri.org/IAIMProServerService/loginResponse")]
         System.Threading.Tasks.Task<bool> loginAsync(string username, byte[] pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/logout", ReplyAction="http://tempuri.org/IAIMProServerService/logoutResponse")]
+        void logout();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/logout", ReplyAction="http://tempuri.org/IAIMProServerService/logoutResponse")]
+        System.Threading.Tasks.Task logoutAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/startGame", ReplyAction="http://tempuri.org/IAIMProServerService/startGameResponse")]
+        void startGame();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/startGame", ReplyAction="http://tempuri.org/IAIMProServerService/startGameResponse")]
+        System.Threading.Tasks.Task startGameAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/signUp", ReplyAction="http://tempuri.org/IAIMProServerService/signUpResponse")]
         bool signUp(string username, byte[] pass);
@@ -979,7 +834,6 @@ namespace AIMProClient.AIMProService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfiles", ReplyAction="http://tempuri.org/IAIMProServerService/getProfilesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.User>> getProfilesAsync();
         
-
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfileStatistics", ReplyAction="http://tempuri.org/IAIMProServerService/getProfileStatisticsResponse")]
         AIMProClient.AIMProService.Profile getProfileStatistics(string username);
         
@@ -991,13 +845,12 @@ namespace AIMProClient.AIMProService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfileMatchHistory", ReplyAction="http://tempuri.org/IAIMProServerService/getProfileMatchHistoryResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.MatchStatistics>> getProfileMatchHistoryAsync(string username);
-
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/submitHit", ReplyAction="http://tempuri.org/IAIMProServerService/submitHitResponse")]
         void submitHit(int x, int y);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/submitHit", ReplyAction="http://tempuri.org/IAIMProServerService/submitHitResponse")]
         System.Threading.Tasks.Task submitHitAsync(int x, int y);
-
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1033,6 +886,22 @@ namespace AIMProClient.AIMProService {
         
         public System.Threading.Tasks.Task<bool> loginAsync(string username, byte[] pass) {
             return base.Channel.loginAsync(username, pass);
+        }
+        
+        public void logout() {
+            base.Channel.logout();
+        }
+        
+        public System.Threading.Tasks.Task logoutAsync() {
+            return base.Channel.logoutAsync();
+        }
+        
+        public void startGame() {
+            base.Channel.startGame();
+        }
+        
+        public System.Threading.Tasks.Task startGameAsync() {
+            return base.Channel.startGameAsync();
         }
         
         public bool signUp(string username, byte[] pass) {
@@ -1083,7 +952,6 @@ namespace AIMProClient.AIMProService {
             return base.Channel.getProfilesAsync();
         }
         
-
         public AIMProClient.AIMProService.Profile getProfileStatistics(string username) {
             return base.Channel.getProfileStatistics(username);
         }
@@ -1099,7 +967,7 @@ namespace AIMProClient.AIMProService {
         public System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.MatchStatistics>> getProfileMatchHistoryAsync(string username) {
             return base.Channel.getProfileMatchHistoryAsync(username);
         }
-
+        
         public void submitHit(int x, int y) {
             base.Channel.submitHit(x, y);
         }

@@ -47,14 +47,14 @@ namespace AIMProClient
             }
         }
 
-        private string kastujEnum(string tipIgre) {
-            if (tipIgre == "1")
+        private string kastujEnum(int tipIgre) {
+            if (tipIgre == 1)
                 return "Duel";
-            else if (tipIgre == "2")
+            else if (tipIgre == 2)
                 return "MultiPlayer FFA";
-            else if (tipIgre == "4")
+            else if (tipIgre == 4)
                 return "Fast Shooting";
-            else if (tipIgre == "8")
+            else if (tipIgre == 8)
                 return "Precise Shooting";
             else
                 return "Endless Campaign";

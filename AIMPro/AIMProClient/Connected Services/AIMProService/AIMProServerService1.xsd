@@ -17,6 +17,26 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="logout">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="logoutResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="startGame">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="startGameResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="signUp">
     <xs:complexType>
       <xs:sequence>
@@ -94,7 +114,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-
   <xs:element name="getProfileStatistics">
     <xs:complexType>
       <xs:sequence>
@@ -121,7 +140,8 @@
       <xs:sequence>
         <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getProfileMatchHistoryResult" nillable="true" type="q6:ArrayOfMatchStatistics" />
       </xs:sequence>
-      
+    </xs:complexType>
+  </xs:element>
   <xs:element name="submitHit">
     <xs:complexType>
       <xs:sequence>
@@ -133,7 +153,6 @@
   <xs:element name="submitHitResponse">
     <xs:complexType>
       <xs:sequence />
-
     </xs:complexType>
   </xs:element>
 </xs:schema>
