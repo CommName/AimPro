@@ -24,6 +24,7 @@
     <MetadataSource Address="http://localhost:51579/AIMProServerService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="AIMProServerService4.xsd" MetadataType="Schema" ID="b5d1e1cd-24d9-4255-bbf1-745b6e46d86a" SourceId="1" SourceUrl="http://localhost:51579/AIMProServerService.svc?xsd=xsd4" />
     <MetadataFile FileName="AIMProServerService2.xsd" MetadataType="Schema" ID="3ccf8a57-0dca-41e4-8348-fdd2cc6a45af" SourceId="1" SourceUrl="http://localhost:51579/AIMProServerService.svc?xsd=xsd2" />
     <MetadataFile FileName="AIMProServerService.xsd" MetadataType="Schema" ID="589d063d-404b-4164-a85d-22ee9ac8c2f1" SourceId="1" SourceUrl="http://localhost:51579/AIMProServerService.svc?xsd=xsd1" />
     <MetadataFile FileName="AIMProServerService.disco" MetadataType="Disco" ID="d7335fa5-5fe7-4f4d-b079-e7ec90aa4b30" SourceId="1" SourceUrl="http://localhost:51579/AIMProServerService.svc?disco" />

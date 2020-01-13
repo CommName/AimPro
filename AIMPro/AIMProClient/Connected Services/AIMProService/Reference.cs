@@ -776,8 +776,101 @@ namespace AIMProClient.AIMProService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Target", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class Target : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int radiusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AIMProClient.AIMProService.TargetTypes typeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int xField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int yField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int radius {
+            get {
+                return this.radiusField;
+            }
+            set {
+                if ((this.radiusField.Equals(value) != true)) {
+                    this.radiusField = value;
+                    this.RaisePropertyChanged("radius");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AIMProClient.AIMProService.TargetTypes type {
+            get {
+                return this.typeField;
+            }
+            set {
+                if ((this.typeField.Equals(value) != true)) {
+                    this.typeField = value;
+                    this.RaisePropertyChanged("type");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int x {
+            get {
+                return this.xField;
+            }
+            set {
+                if ((this.xField.Equals(value) != true)) {
+                    this.xField = value;
+                    this.RaisePropertyChanged("x");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int y {
+            get {
+                return this.yField;
+            }
+            set {
+                if ((this.yField.Equals(value) != true)) {
+                    this.yField = value;
+                    this.RaisePropertyChanged("y");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AIMProService.IAIMProServerService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AIMProService.IAIMProServerService", CallbackContract=typeof(AIMProClient.AIMProService.IAIMProServerServiceCallback))]
     public interface IAIMProServerService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/login", ReplyAction="http://tempuri.org/IAIMProServerService/loginResponse")]
@@ -854,30 +947,53 @@ namespace AIMProClient.AIMProService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IAIMProServerServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/PlayersInTheRoom", ReplyAction="http://tempuri.org/IAIMProServerService/PlayersInTheRoomResponse")]
+        void PlayersInTheRoom(System.Collections.Generic.List<string> players);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/updateTargets", ReplyAction="http://tempuri.org/IAIMProServerService/updateTargetsResponse")]
+        void updateTargets(System.Collections.Generic.List<AIMProClient.AIMProService.Target> targets);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/GameStarted", ReplyAction="http://tempuri.org/IAIMProServerService/GameStartedResponse")]
+        void GameStarted();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/GameStops", ReplyAction="http://tempuri.org/IAIMProServerService/GameStopsResponse")]
+        void GameStops();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/GameStats", ReplyAction="http://tempuri.org/IAIMProServerService/GameStatsResponse")]
+        void GameStats();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/EarnedPoints", ReplyAction="http://tempuri.org/IAIMProServerService/EarnedPointsResponse")]
+        void EarnedPoints(int points);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IAIMProServerServiceChannel : AIMProClient.AIMProService.IAIMProServerService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AIMProServerServiceClient : System.ServiceModel.ClientBase<AIMProClient.AIMProService.IAIMProServerService>, AIMProClient.AIMProService.IAIMProServerService {
+    public partial class AIMProServerServiceClient : System.ServiceModel.DuplexClientBase<AIMProClient.AIMProService.IAIMProServerService>, AIMProClient.AIMProService.IAIMProServerService {
         
-        public AIMProServerServiceClient() {
+        public AIMProServerServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public AIMProServerServiceClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public AIMProServerServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public AIMProServerServiceClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public AIMProServerServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public AIMProServerServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public AIMProServerServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public AIMProServerServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public AIMProServerServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public bool login(string username, byte[] pass) {

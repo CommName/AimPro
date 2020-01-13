@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CallBackPlayer.cs" />
     <Compile Include="CommunicationLayer.cs" />
     <Compile Include="Connected Services\AIMProService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -210,6 +211,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\AIMProService\AIMProServerService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AIMProService\AIMProServerService4.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />

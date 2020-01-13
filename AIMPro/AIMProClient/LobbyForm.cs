@@ -14,7 +14,7 @@ namespace AIMProClient
     public partial class LobbyForm : Form
     {
         MenuController menuController;
-        LobbyController lobbyController;
+        public LobbyController lobbyController;
         public LobbyForm(MenuController menuController, AIMProService.RoomState roomState)
         {
             InitializeComponent();
@@ -38,5 +38,46 @@ namespace AIMProClient
         {
 
         }
+
+        public void osveziPrikazUsera(List<string> listaUsera) {
+                int brojac = 0;
+                bool[] flags = { false, false, false, false };
+                foreach (string user in listaUsera) {
+                    flags[brojac++] = true;
+                }
+                groupBoxOnOff(flags);
+                osveziUsers(listaUsera);
+        }
+        private void groupBoxOnOff(bool[] niz) {
+                player1GroupBox.Visible = niz[0];
+                player2GroupBox.Visible = niz[1];
+                player3GroupBox.Visible = niz[2];
+                player4GroupBox.Visible = niz[3];
+        }
+        private void osveziUsers(List<string> nizUsera) {
+            if (nizUsera.Count == 1)
+            {
+                p1UsernameLbl.Text = nizUsera[0];
+            }
+            if (nizUsera.Count == 2)
+            {
+                p1UsernameLbl.Text = nizUsera[0];
+                p2UsernameLbl.Text = nizUsera[1];
+            }
+            if (nizUsera.Count == 3)
+            {
+                p1UsernameLbl.Text = nizUsera[0];
+                p2UsernameLbl.Text = nizUsera[1];
+                p3UsernameLbl.Text = nizUsera[2];
+            }
+            else if (nizUsera.Count == 4)
+            {
+                p1UsernameLbl.Text = nizUsera[0];
+                p2UsernameLbl.Text = nizUsera[1];
+                p3UsernameLbl.Text = nizUsera[2];
+                p4UsernameLbl.Text = nizUsera[3];
+            }
+        }
+        
     }
 }

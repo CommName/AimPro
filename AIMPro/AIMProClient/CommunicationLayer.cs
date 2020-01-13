@@ -4,20 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AIMProClient.AIMProService;
+using System.ServiceModel;
 
 namespace AIMProClient
 {
     public class CommunicationLayer
     {
         public AIMProServerServiceClient proxy;
+        
         protected static CommunicationLayer instance = null;
 
         public static CommunicationLayer Instance {
-            get { if (instance == null) instance = new CommunicationLayer(); return instance;  }
+            get { if (instance == null) instance = new CommunicationLayer(); return instance; }
         }
-  
+
         protected CommunicationLayer() {
-            proxy = new AIMProServerServiceClient();
+             InstanceContext instanceContext = new InstanceContext(new CallBackPlayer());
+             proxy = new AIMProServerServiceClient(instanceContext);
+           // proxy = new AIMProServerServiceClient();
         }
 
         public bool login(string username, byte[] password) {
@@ -54,10 +58,10 @@ namespace AIMProClient
 
         public void submitHit(int x, int y)
         {
-            proxy.submitHit(x,y);
+            proxy.submitHit(x, y);
         }
 
-        public bool authenticatePrivateRoom(string password,RoomState roomState) {//IMPLEMENT
+        public bool authenticatePrivateRoom(string password, RoomState roomState) {//IMPLEMENT
             return true;
         }
 
@@ -71,8 +75,20 @@ namespace AIMProClient
             return proxy.getProfileMatchHistory(username);
         }
 
-        public void Logout() { 
+        public void Logout()
+        {
+            this.proxy.logout();
+        }
+
+        public void playersInRoom(List<string> listaUsera)
+        {
 
         }
+
+        /*public void updateTargets(List<Tar>) 
+        {
+
+        }*/
+
     }
 }

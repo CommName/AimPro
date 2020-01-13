@@ -146,7 +146,7 @@ namespace AIMProClient.Controllers
                 };
                 CommunicationLayer.Instance.CreateRoom(room);
                 MessageBox.Show("Room created Successfully!", "Notification!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                enterJoinRoomFromCreate();
+                enterLobbyRoomFromCreate();
                 return true;
             }
             else if (PublicSoba == false && sobaName != "" && sobaName.Length > 3 && sobaCode != "" && sobaCode.Length>3 && TipIgre != 0)
@@ -163,7 +163,7 @@ namespace AIMProClient.Controllers
                 };
                 CommunicationLayer.Instance.CreateRoom(room);
                 MessageBox.Show("Room created Successfully!", "Notification!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                enterJoinRoomFromCreate();
+                enterLobbyRoomFromCreate();
                 return true;
             }
             else {
@@ -246,14 +246,14 @@ namespace AIMProClient.Controllers
             FormLayer.Instance.loginForm = lf;
             lf.Show();
         }
-        private void enterJoinRoomFromCreate()
+        private void enterLobbyRoomFromCreate()
         {
-            JoinRoomForm jrf = new JoinRoomForm(this);
-            FormLayer.Instance.joinRoomForm = jrf;
+            LobbyForm lf = new LobbyForm(this,null);
+            FormLayer.Instance.lobbyForm = lf;
             FormLayer.Instance.createRoomForm = null;
             FormLayer.Instance.menuForm.exitApp = false;
             FormLayer.Instance.menuForm.Close();
-            jrf.Show();
+            lf.Show();
         }
 
         public void enterMenuFormFromJoin()
