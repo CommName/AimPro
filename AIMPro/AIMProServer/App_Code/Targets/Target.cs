@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Web;
 
 /// <summary>
@@ -10,13 +11,22 @@ using System.Web;
 /// updated targets that player can see (from list<target> active targets)
 /// IT IS NOT RESPONCIBLE TO ADD NEXT TARGET FROM QUEUE
 /// </summary>
+/// 
+
+[DataContract]
 public class Target
 {
-    public int radius;
-    public int x;
-    public int y;
-    public List<Target> activeTargets;
-    public int pointsWorth;
+    [DataMember]
+    public int radius { get; set; }
+    [DataMember]
+    public int x { get; set; }
+    [DataMember]
+    public int y { get; set; }
+    [DataMember]
+    public TargetTypes type { get; set; }
+
+    public List<Target> activeTargets { get; set; }
+    public int pointsWorth { get; set; }
 
     public bool isInCircle(int x, int y)
     {
