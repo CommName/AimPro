@@ -12,12 +12,11 @@ using System.Web;
 /// </summary>
 public class Target
 {
-    protected int radius;
-    protected TargetTypes type;
-    protected int x;
-    protected int y;
-    protected List<Target> activeTargets;
-    protected int pointsWorth;
+    public int radius;
+    public int x;
+    public int y;
+    public List<Target> activeTargets;
+    public int pointsWorth;
 
     public bool isInCircle(int x, int y)
     {
@@ -34,9 +33,7 @@ public class Target
     {
         if (isInCircle(x, y))
         {
-            lock (activeTargets) {
-                activeTargets.Remove(this);
-            }
+            activeTargets.Remove(this);
             player.points += this.pointsWorth;
             return true;
         }

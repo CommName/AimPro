@@ -11,16 +11,19 @@ public abstract class GameLogic
 
     public Room room { get; set; }
     public Dictionary<string, Shooter> players { get; set; }
-    public Object[] targets { get; set; }
+    public List<Target> targets { get; set; }
     public TargetTypes TargetTypesAllowed { get; set; }
 
     public TargetFactory targetFactory { get; set; }
+
+    public Subscriber publisher { get; set; }
 
     public abstract void start();
 
     public abstract int getEarnedElo(string username);
 
     public abstract void submitHit(string username, int x, int y);
+
 
 
     public void saveResults()

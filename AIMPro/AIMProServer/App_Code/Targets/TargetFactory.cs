@@ -8,8 +8,10 @@ using System.Web;
 /// </summary>
 public class TargetFactory
 {
-    Random random;
-
+    public Random random;
+    public List<Target> actieTargets;
+    public int winSizeX = 1000;
+    public int winSzieY =  1000;
     public TargetFactory()
     {
         //
@@ -17,11 +19,15 @@ public class TargetFactory
         //
     }
 
-    Target getNextTarget()
+    public Target getNextTarget()
     {
         Target newTarget;
 
         newTarget = new Target();
+        newTarget.activeTargets = actieTargets;
+        newTarget.radius = 10;
+        newTarget.x = random.Next() % winSizeX;
+        newTarget.y = random.Next() % winSzieY;
 
         return newTarget;
     }

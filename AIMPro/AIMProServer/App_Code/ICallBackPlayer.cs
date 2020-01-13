@@ -12,6 +12,8 @@ public interface ICallBackPlayer
 
     void GameStarted();
 
+    void GameStops();
+
     void GameStats();
 
     //Everytime it hits it sends how mutch points player has earned

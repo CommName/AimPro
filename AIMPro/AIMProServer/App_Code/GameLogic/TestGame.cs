@@ -15,6 +15,8 @@ public class TestGame :GameLogic
         //
     }
 
+
+
     public override int getEarnedElo(string username)
     {
         return 10;
