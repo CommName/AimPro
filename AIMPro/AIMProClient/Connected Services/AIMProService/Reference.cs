@@ -927,6 +927,12 @@ namespace AIMProClient.AIMProService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfiles", ReplyAction="http://tempuri.org/IAIMProServerService/getProfilesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.User>> getProfilesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/leaveRoom", ReplyAction="http://tempuri.org/IAIMProServerService/leaveRoomResponse")]
+        void leaveRoom();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/leaveRoom", ReplyAction="http://tempuri.org/IAIMProServerService/leaveRoomResponse")]
+        System.Threading.Tasks.Task leaveRoomAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfileStatistics", ReplyAction="http://tempuri.org/IAIMProServerService/getProfileStatisticsResponse")]
         AIMProClient.AIMProService.Profile getProfileStatistics(string username);
         
@@ -1066,6 +1072,14 @@ namespace AIMProClient.AIMProService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.User>> getProfilesAsync() {
             return base.Channel.getProfilesAsync();
+        }
+        
+        public void leaveRoom() {
+            base.Channel.leaveRoom();
+        }
+        
+        public System.Threading.Tasks.Task leaveRoomAsync() {
+            return base.Channel.leaveRoomAsync();
         }
         
         public AIMProClient.AIMProService.Profile getProfileStatistics(string username) {

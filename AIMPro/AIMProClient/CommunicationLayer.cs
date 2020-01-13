@@ -10,7 +10,7 @@ namespace AIMProClient
 {
     public class CommunicationLayer
     {
-        public AIMProServerServiceClient proxy;
+        AIMProServerServiceClient proxy;
         
         protected static CommunicationLayer instance = null;
 
@@ -80,15 +80,15 @@ namespace AIMProClient
             this.proxy.logout();
         }
 
-        public void playersInRoom(List<string> listaUsera)
+        public void leaveLobby()
         {
-
+            this.proxy.leaveRoom();
         }
 
-        /*public void updateTargets(List<Tar>) 
+        public void userReady()
         {
-
-        }*/
+            this.proxy.startGame();
+        }
 
     }
 }
