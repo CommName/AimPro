@@ -35,6 +35,7 @@ public class Target
 
     public Target()
     {
+
     }
 
 
@@ -45,6 +46,8 @@ public class Target
         {
             activeTargets.Remove(this);
             player.points += this.pointsWorth;
+            player.numberOfHits++;
+            player.callback.EarnedPoints(pointsWorth);
             return true;
         }
         return false;

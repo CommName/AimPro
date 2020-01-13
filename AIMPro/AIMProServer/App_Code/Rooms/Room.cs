@@ -49,6 +49,9 @@ public class Room
         if (username != this.players.First().Key)
             return;
         gameStarted = true;
+
+        this.gamelogic.room = this;
+        this.gamelogic.players = this.players;
     }
 
     public void FinishGame()
@@ -65,9 +68,6 @@ public class Room
     {
         if (!gameStarted)
             return;
-        this.gamelogic = new TestGame();
-        this.gamelogic.room = this;
-        this.gamelogic.players = this.players;
         this.gamelogic.submitHit(username, x, y);
     }
 

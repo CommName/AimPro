@@ -23,7 +23,30 @@ public class FFAGameMode : GameLogic
 
     public override int getEarnedElo(string username)
     {
-        return 0;
+        //FIDE ratings system applied just insted of 4 matches it's applaid for 4 players
+        int earnedElo = 0;
+        int numberOfPlayers = 0;
+        Shooter shooter = players[username];
+        DataBaseAPI api = new DataBaseAPI();
+        foreach(var player in players)
+        {
+            if(player.Key != username)
+            {
+                User user = api.getUserWithoutHistory(player.Key);
+                int delta = 400 + user.Elo;
+                if (shooter.points > player.Value.points)
+                {
+                    earnedElo += delta;
+                }
+                else
+                {
+                    earnedElo -= delta;
+                }
+            }
+            numberOfPlayers++;
+        }
+
+        return earnedElo/numberOfPlayers;
     }
 
     public override void start()
@@ -71,10 +94,11 @@ public class FFAGameMode : GameLogic
                         targets.Add(targetFactory.getNextTarget());
                     }
                     publisher.UpdateTargets(targets);
-                    break;
+                    return;
                 }
 
             }
+            player.numbeerOfMisses++;
         }
     }
 }
