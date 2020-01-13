@@ -46,12 +46,34 @@ public class Room
     {
         if (gameStarted)
             return;
-        if (username != this.players.First().Key)
-            return;
+
+        players[username].ready = true;
+
+        //Proverava da li su svi spremni
+        foreach(var player in players)
+        {
+            if (!player.Value.ready)
+                return;
+        }
+
         gameStarted = true;
+
+        if (roomProperties.seed==0)
+        {
+            roomProperties.seed = Environment.TickCount;
+        }
+        
+
+        switch (this.RoomPropertes.GameMode)
+        {
+            case GameMode.Duel: 
+            case GameMode.MultyPlayerShootOut: 
+                { this.gamelogic = new MultyPlayerShootOut();  break; }
+        }
 
         this.gamelogic.room = this;
         this.gamelogic.players = this.players;
+        this.gamelogic.start();
     }
 
     public void FinishGame()

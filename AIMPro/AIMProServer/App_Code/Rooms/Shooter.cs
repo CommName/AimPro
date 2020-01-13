@@ -12,7 +12,7 @@ public class Shooter
     public int points = 0;
     public int numberOfHits = 1;
     public int numbeerOfMisses = 1;
-    public bool done = false;
+    public bool ready = false;
     public ICallBackPlayer callback; //Null when he left the room
 
  }

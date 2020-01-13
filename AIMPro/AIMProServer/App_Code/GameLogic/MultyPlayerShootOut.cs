@@ -7,12 +7,12 @@ using System.Web;
 /// <summary>
 /// Summary description for FFAGameMode
 /// </summary>
-public class FFAGameMode : GameLogic
+public class MultyPlayerShootOut : GameLogic
 {
     Timer timer;
 
     const int maxNumberOfTargetsAtTheSameTime = 10;
-    public FFAGameMode()
+    public MultyPlayerShootOut()
     {
         targetFactory = new TargetFactory();
         targetFactory.random = new Random(room.RoomPropertes.seed);
