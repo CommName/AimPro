@@ -25,11 +25,15 @@ namespace AIMProClient.Controllers
 
         internal void leaveLobby()
         {
-            JoinRoomForm jrf = new JoinRoomForm(this);
-            FormLayer.Instance.joinRoomForm = jrf;
-            FormLayer.Instance.lobbyForm.Close();
-            jrf.Show();
+            FormLayer.Instance.lobbyForm.Hide();
+            if (FormLayer.Instance.joinRoomForm == null)
+            {
+                FormLayer.Instance.joinRoomForm = new JoinRoomForm(this);
+            }
             CommunicationLayer.Instance.leaveLobby();
+            getRooms();
+            FormLayer.Instance.joinRoomForm.Show();
+            FormLayer.Instance.joinRoomForm.RefreshTable(ListaMogucihSoba);
         }
 
         public int TipIgre {
@@ -111,9 +115,10 @@ namespace AIMProClient.Controllers
                 pcf.ShowDialog();
             }
             else //public room
+            {
                 udjiULobby(i);
-            //TEST LAYER
-            CommunicationLayer.Instance.submitHit(3, 4);
+                CommunicationLayer.Instance.joinRoom(listaMogucihSoba[i].ID);
+            }
         }
 
         public bool authPassword(string pass, RoomState roomState) {
@@ -121,14 +126,11 @@ namespace AIMProClient.Controllers
         }
 
         public void udjiULobby (int i) {
-            LobbyForm lf = new LobbyForm(this, listaMogucihSoba[i]);
-            FormLayer.Instance.lobbyForm = lf;
             if (FormLayer.Instance.joinRoomForm != null)
             {
-                FormLayer.Instance.joinRoomForm.Close();
-                FormLayer.Instance.joinRoomForm = null;
+                FormLayer.Instance.joinRoomForm.Hide();
             }
-            lf.Show();
+            FormLayer.Instance.lobbyForm.Show();
         }
 
         public bool validirajKreiranjeSobe(string sobaName,string sobaCode) {
@@ -249,12 +251,10 @@ namespace AIMProClient.Controllers
         }
         private void enterLobbyRoomFromCreate()
         {
-            LobbyForm lf = new LobbyForm(this,null);
-            FormLayer.Instance.lobbyForm = lf;
             FormLayer.Instance.createRoomForm = null;
             FormLayer.Instance.menuForm.exitApp = false;
             FormLayer.Instance.menuForm.Close();
-            lf.Show();
+            FormLayer.Instance.lobbyForm.Show();
         }
 
         public void enterMenuFormFromJoin()

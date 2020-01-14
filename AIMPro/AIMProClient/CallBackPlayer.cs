@@ -35,7 +35,7 @@ public class CallBackPlayer : IAIMProServerServiceCallback
 
     public void PlayersInTheRoom(List<string> players)
     {
-        //FormLayer.Instance.lobbyForm.lobbyController.preuzmiLobbyUsere(players);
+        FormLayer.Instance.lobbyForm.lobbyController.preuzmiLobbyUsere(players);
     }
 
     public void updateTargets(List<Target> targets)

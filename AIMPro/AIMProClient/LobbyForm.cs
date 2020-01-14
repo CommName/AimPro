@@ -27,7 +27,7 @@ namespace AIMProClient
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.menuController.leaveLobby();
-            this.Close();
+            this.Hide();
         }
 
         private void LobbyForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -40,6 +40,20 @@ namespace AIMProClient
 
         }
 
+        delegate void osveziPrikazUseraDgt(List<string> listaUsera);
+
+        public void refreshUsers(List<string> listaUsera) {
+            if (this.InvokeRequired)
+            {
+                osveziPrikazUseraDgt d = new osveziPrikazUseraDgt(osveziPrikazUsera);
+                this.Invoke(d, new object[] { listaUsera });
+            }
+            else
+            {
+                osveziPrikazUsera(listaUsera);
+            }
+        }
+
         public void osveziPrikazUsera(List<string> listaUsera) {
                 int brojac = 0;
                 bool[] flags = { false, false, false, false };
@@ -48,8 +62,8 @@ namespace AIMProClient
                 }
                 groupBoxOnOff(flags);
                 osveziUsers(listaUsera);
-            if (listaUsera.Count >= 4)
-                this.readyBtn.Enabled = true;
+                if (listaUsera.Count >= 4)
+                    this.readyBtn.Enabled = true;
         }
         private void groupBoxOnOff(bool[] niz) {
                 player1GroupBox.Visible = niz[0];
@@ -85,6 +99,11 @@ namespace AIMProClient
         private void readyBtn_Click(object sender, EventArgs e)
         {
             this.lobbyController.userReady();
+        }
+
+        private void LobbyForm_Shown(object sender, EventArgs e)
+        {
+            this.osveziPrikazUsera(this.lobbyController.trenutniUseri);
         }
     }
 }

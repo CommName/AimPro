@@ -15,7 +15,7 @@ namespace AIMProClient.Controllers
         }
         public void preuzmiLobbyUsere(List<string> lobbyUsers) {
             this.trenutniUseri = lobbyUsers;
-            this.lobbyForm.osveziPrikazUsera(trenutniUseri);
+            this.lobbyForm.refreshUsers(trenutniUseri);
         }
 
         internal void userReady()

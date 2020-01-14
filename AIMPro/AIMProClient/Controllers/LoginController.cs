@@ -50,7 +50,10 @@ namespace AIMProClient
             if (username.Length > 2 && password.Length > 2)
             {
                 if (CommunicationLayer.Instance.signUp(username, Encoding.ASCII.GetBytes(password)))
+                {
+                    CommunicationLayer.Instance.login(username, Encoding.ASCII.GetBytes(password));
                     return true;
+                }
                 else
                 {
                     errorMessage = "That Username/Password combination is already taken.";
