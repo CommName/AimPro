@@ -115,6 +115,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="leaveRoom">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="leaveRoomResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="getProfileStatistics">
     <xs:complexType>
       <xs:sequence>

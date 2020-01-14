@@ -38,6 +38,8 @@ public interface IAIMProServerService
     [OperationContract]
     List< User> getProfiles();
 
+    [OperationContract]
+    void leaveRoom();
 
     [OperationContract]
     Profile getProfileStatistics(string username);
@@ -47,7 +49,5 @@ public interface IAIMProServerService
 
     [OperationContract]
     void submitHit(int x, int y);
-
-
 
 }

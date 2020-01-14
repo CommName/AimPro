@@ -9,13 +9,18 @@ namespace AIMProClient.Controllers
     public class LobbyController
     {
         LobbyForm lobbyForm;
-        List<string> trenutniUseri = new List<string>();
+        public List<string> trenutniUseri = new List<string>();
         public LobbyController(LobbyForm lf) {
             this.lobbyForm = lf;
         }
         public void preuzmiLobbyUsere(List<string> lobbyUsers) {
             this.trenutniUseri = lobbyUsers;
             this.lobbyForm.osveziPrikazUsera(trenutniUseri);
+        }
+
+        internal void userReady()
+        {
+            CommunicationLayer.Instance.userReady();
         }
     }
 }

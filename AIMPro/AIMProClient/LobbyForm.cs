@@ -21,6 +21,7 @@ namespace AIMProClient
             this.menuController = menuController;
             LobbyController lobbyController = new LobbyController(this);
             this.lobbyController = lobbyController;
+            this.readyBtn.Enabled = false;
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -47,6 +48,8 @@ namespace AIMProClient
                 }
                 groupBoxOnOff(flags);
                 osveziUsers(listaUsera);
+            if (listaUsera.Count >= 4)
+                this.readyBtn.Enabled = true;
         }
         private void groupBoxOnOff(bool[] niz) {
                 player1GroupBox.Visible = niz[0];
@@ -78,6 +81,10 @@ namespace AIMProClient
                 p4UsernameLbl.Text = nizUsera[3];
             }
         }
-        
+
+        private void readyBtn_Click(object sender, EventArgs e)
+        {
+            this.lobbyController.userReady();
+        }
     }
 }
