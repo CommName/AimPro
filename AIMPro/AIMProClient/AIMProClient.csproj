@@ -188,6 +188,7 @@
     <EmbeddedResource Include="StatisticsForm.resx">
       <DependentUpon>StatisticsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Connected Services\AIMProService\AIMProClient.AIMProService.MatchStatistics.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

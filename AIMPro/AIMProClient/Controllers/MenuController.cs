@@ -90,6 +90,7 @@ namespace AIMProClient.Controllers
             menuForm.exitApp = false;
             FormLayer.Instance.menuForm.Close();
             JoinRoomForm jrf = new JoinRoomForm(this);
+            FormLayer.Instance.joinRoomForm = jrf;
             jrf.ShowDialog();
         }
 
@@ -117,6 +118,7 @@ namespace AIMProClient.Controllers
             else //public room
             {
                 udjiULobby(i);
+                //FormLayer.Instance.joinRoomForm.Close();
                 CommunicationLayer.Instance.joinRoom(listaMogucihSoba[i].ID);
             }
         }
