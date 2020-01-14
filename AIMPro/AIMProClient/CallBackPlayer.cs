@@ -6,7 +6,7 @@ using AIMProClient.AIMProService;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using  AIMProClient;
-
+using System.Windows.Forms;
 
 /// <summary>
 /// Summary description for CallBackPlayer
@@ -35,7 +35,7 @@ public class CallBackPlayer : IAIMProServerServiceCallback
 
     public void PlayersInTheRoom(List<string> players)
     {
-        FormLayer.Instance.lobbyForm.lobbyController.preuzmiLobbyUsere(players);
+        //FormLayer.Instance.lobbyForm.lobbyController.preuzmiLobbyUsere(players);
     }
 
     public void updateTargets(List<Target> targets)

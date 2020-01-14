@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Timers;
 using System.Web;
 
@@ -53,18 +54,23 @@ public class Subscriber
 
     public void PlayersInTheRoom(Dictionary<string, Shooter> players)
     {
-        lock (locker)
+        Thread send = new Thread(() =>
         {
-            List<string> playersInTheRoom = new List<string>();
-            foreach(var player in players)
+            lock (locker)
             {
-                playersInTheRoom.Add(player.Value.username);
+                List<string> playersInTheRoom = new List<string>();
+                foreach (var player in players)
+                {
+                    playersInTheRoom.Add(player.Value.username);
+                }
+                foreach (var player in players)
+                {
+                    player.Value.callback.PlayersInTheRoom(playersInTheRoom);
+                }
             }
-            foreach(var player in players)
-            {
-                player.Value.callback.PlayersInTheRoom(playersInTheRoom);
-            }
-        }
+        });
+
+        send.Start();
 
     }
 
