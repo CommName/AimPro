@@ -29,7 +29,6 @@ namespace AIMProClient.Controllers
             FormLayer.Instance.joinRoomForm = jrf;
             FormLayer.Instance.lobbyForm.Close();
             jrf.Show();
-            CommunicationLayer.Instance.leaveLobby();
         }
 
         public int TipIgre {

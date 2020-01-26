@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.naslovLbl = new System.Windows.Forms.Label();
             this.player1GroupBox = new System.Windows.Forms.GroupBox();
             this.p1HitRatioLbl = new System.Windows.Forms.Label();
             this.p1EloLbl = new System.Windows.Forms.Label();
@@ -96,15 +96,15 @@
             this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // naslovLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(480, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome to imesobe Lobby";
+            this.naslovLbl.AutoSize = true;
+            this.naslovLbl.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.naslovLbl.Location = new System.Drawing.Point(480, 18);
+            this.naslovLbl.Name = "naslovLbl";
+            this.naslovLbl.Size = new System.Drawing.Size(221, 21);
+            this.naslovLbl.TabIndex = 0;
+            this.naslovLbl.Text = "Welcome to imesobe Lobby";
             // 
             // player1GroupBox
             // 
@@ -698,7 +698,7 @@
             this.Controls.Add(this.player2GroupBox);
             this.Controls.Add(this.player1GroupBox);
             this.Controls.Add(this.backBtn);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.naslovLbl);
             this.Name = "LobbyForm";
             this.Text = "Lobby";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LobbyForm_FormClosing);
@@ -723,7 +723,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label naslovLbl;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.GroupBox player1GroupBox;
         private System.Windows.Forms.GroupBox player2GroupBox;
