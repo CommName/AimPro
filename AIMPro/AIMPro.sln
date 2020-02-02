@@ -1,16 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.960
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AIMProServer", "AIMProServer\", "{9AD8A010-E10C-4F61-B5AC-B2E143D14524}"
 	ProjectSection(WebsiteProperties) = preProject
-<<<<<<< HEAD
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
-		ProjectReferences = "{3442fd92-b6c3-4c53-8338-bbdfa829e6d2}|AIMProLibrary.dll;"
-=======
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
->>>>>>> master
+		ProjectReferences = "{3442fd92-b6c3-4c53-8338-bbdfa829e6d2}|AIMProLibrary.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_51579"
 		Debug.AspNetCompiler.PhysicalPath = "AIMProServer\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51579\"

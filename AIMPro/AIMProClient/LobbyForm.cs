@@ -14,26 +14,34 @@ namespace AIMProClient
 {
     public partial class LobbyForm : Form
     {
+        public bool appClose = true;
         MenuController menuController;
         public LobbyController lobbyController;
+        GameController gameController;
         public LobbyForm(MenuController menuController, AIMProService.RoomState roomState)
         {
             InitializeComponent();
             this.menuController = menuController;
             LobbyController lobbyController = new LobbyController(this);
             this.lobbyController = lobbyController;
-            this.readyBtn.Enabled = false;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            //this.readyBtn.Enabled = false;
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.menuController.leaveLobby();
-            //this.Close();
+            this.appClose = false;
+            this.Hide();
         }
 
         private void LobbyForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            CommunicationLayer.Instance.leaveLobby();
+            this.menuController.leaveLobbyAndGame();
+            if (this.appClose == true)
+                FormLayer.Instance.mainForm.Close();
         }
 
         private void shieldChckBox_CheckedChanged(object sender, EventArgs e)
@@ -41,15 +49,18 @@ namespace AIMProClient
 
         }
 
-        public void osveziLobbyMetainfo(RoomState roomState) {
-            this.playersNeededLbl.Text = roomState.maxNumberOfPlayers.ToString();
-            this.nameOfLobbyLbl.Text = roomState.Name;
-            this.naslovLbl.Text = "Welcome to " + roomState.Name + " Lobby.";
-            this.typeOfGameLbl.Text = lobbyController.kastujEnum((int)roomState.gameModes);
-            if (roomState.RoomSettings == 0)
-                privateChckBox.Checked = false;
+        delegate void osveziPrikazUseraDgt(List<string> listaUsera);
+
+        public void refreshUsers(List<string> listaUsera) {
+            if (this.InvokeRequired)
+            {
+                osveziPrikazUseraDgt d = new osveziPrikazUseraDgt(osveziPrikazUsera);
+                this.Invoke(d, new object[] { listaUsera });
+            }
             else
-                privateChckBox.Checked = true;
+            {
+                osveziPrikazUsera(listaUsera);
+            }
         }
 
         public void osveziPrikazUsera(List<string> listaUsera) {
@@ -60,8 +71,7 @@ namespace AIMProClient
                 }
                 groupBoxOnOff(flags);
                 osveziUsers(listaUsera);
-                playersInLobbyLbl.Text = listaUsera.Count.ToString();
-                if (listaUsera.Count >= 4)
+                if (listaUsera.Count >= 2)
                     this.readyBtn.Enabled = true;
         }
         private void groupBoxOnOff(bool[] niz) {
@@ -98,22 +108,13 @@ namespace AIMProClient
         private void readyBtn_Click(object sender, EventArgs e)
         {
             // this.lobbyController.userReady();
-            loadGameView();
+            gameController = new GameController(this);
+            gameController.loadGameView();
         }
 
-        private void loadGameView()
+        private void LobbyForm_Shown(object sender, EventArgs e)
         {
-            this.Controls.Clear();
-            resizeForm();
-        }
-
-        private void resizeForm()
-        {
-            Rectangle screen = Screen.PrimaryScreen.WorkingArea;
-            int w = Width >= screen.Width ? screen.Width : (screen.Width + Width) / 2;
-            int h = Height >= screen.Height ? screen.Height : (screen.Height + Height) / 2;
-            this.Location = new Point((screen.Width - w) / 2, (screen.Height - h) / 2);
-            this.Size = new Size(w, h);
+            this.osveziPrikazUsera(this.lobbyController.trenutniUseri);
         }
     }
 }

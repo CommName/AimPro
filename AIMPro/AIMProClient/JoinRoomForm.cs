@@ -24,7 +24,8 @@ namespace AIMProClient
 
         public void RefreshTable(List<RoomState> room)
         {
-            foreach(RoomState r in room)
+            this.dataGridView1.Rows.Clear();
+            foreach (RoomState r in room)
             {
                 bool pass = (r.RoomSettings & RoomSettings.PasswordProtected)!=0;
                 dataGridView1.Rows.Add(r.Name,r.gameModes.ToString(), r.currentNumberOfPlayers.ToString()+"/"+r.maxNumberOfPlayers.ToString(), pass);
@@ -41,19 +42,18 @@ namespace AIMProClient
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            this.dataGridView1.Rows.Clear();
             this.RefreshTable(controller.getRooms());
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            this.controller.enterMenuFormFromJoin();
+            //this.controller.enterMenuFormFromJoin();
             this.Close();
         }
 
         private void JoinRoomForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            this.controller.enterMenuFormFromJoin();
         }
     }
 }

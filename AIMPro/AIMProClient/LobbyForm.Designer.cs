@@ -702,6 +702,7 @@
             this.Name = "LobbyForm";
             this.Text = "Lobby";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LobbyForm_FormClosing);
+            this.Shown += new System.EventHandler(this.LobbyForm_Shown);
             this.player1GroupBox.ResumeLayout(false);
             this.player1GroupBox.PerformLayout();
             this.player2GroupBox.ResumeLayout(false);

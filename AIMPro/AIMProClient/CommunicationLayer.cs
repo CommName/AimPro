@@ -90,5 +90,10 @@ namespace AIMProClient
             this.proxy.startGame();
         }
 
+        public void joinRoom(int idSobe)
+        {
+            this.proxy.joinRoom(idSobe);
+        }
+
     }
 }

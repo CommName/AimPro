@@ -6,7 +6,7 @@ using AIMProClient.AIMProService;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using  AIMProClient;
-
+using System.Windows.Forms;
 
 /// <summary>
 /// Summary description for CallBackPlayer

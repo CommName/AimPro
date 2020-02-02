@@ -24,6 +24,7 @@ namespace AIMProClient
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             controller = new MenuController(this,logovaniKorisnik);
             welcomeLabel.Text += logovaniKorisnik.Username+", time for shooting!";
+            FormLayer.Instance.lobbyForm = new LobbyForm(controller,null);
         }
 
         private void MenuForm_FormClosing(object sender, FormClosingEventArgs e)
