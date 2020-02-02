@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using AutoMapper;
+
 
 /// <summary>
 /// Summary description for DataBaseAPI
@@ -9,12 +11,24 @@ using System.Web;
 using System.Data.Entity;
 public class DataBaseAPI
 {
+    IMapper mapper;
     public DataBaseAPI()
     {
-        //
-        // TODO: Add constructor logic here
-        //
+       
+        var configuration = new MapperConfiguration(cfg =>
+        {
+            cfg.CreateMap<UserMatch, MatchStatistics>()
+             .ForMember(dest => dest.MatchRank, opt => opt.MapFrom(src => src.Rank))
+             .ForMember(dest => dest.NumberOfHits, opt => opt.MapFrom(src => src.NumHits))
+             .ForMember(dest => dest.NumberOfMiss, opt => opt.MapFrom(src => src.NumMiss))
+             .ForMember(dest => dest.NumberOfPoints, opt => opt.MapFrom(src => src.Points));
+
+        });
+       // configuration.AssertConfigurationIsValid();
+        mapper = configuration.CreateMapper();
+
     }
+   
 
     public void AddUser(User newUser)
     {
@@ -95,13 +109,17 @@ public class DataBaseAPI
             int userId = db.Users.Where(k => k.Username == username).Select(i => i.ID).FirstOrDefault();
 
           List <UserMatch> listUserHistory = db.UserMatch.Where(k => k.UserId == userId).ToList();
-            foreach(UserMatch m in listUserHistory)
+           
+
+            foreach (UserMatch m in listUserHistory)
             {
-                MatchStatistics match = new MatchStatistics();
-                match.MatchRank =(int) m.Rank;
-                match.NumberOfHits = (int)m.NumHits;
-                match.NumberOfMiss = (int)m.NumMiss;
-                match.NumberOfPoints = (int)m.Points;
+
+                // MatchStatistics match = new MatchStatistics();
+                //  match.MatchRank =(int) m.Rank;
+                // match.NumberOfHits = (int)m.NumHits;
+                // match.NumberOfMiss = (int)m.NumMiss;
+                // match.NumberOfPoints = (int)m.Points;
+                MatchStatistics match = mapper.Map<MatchStatistics>(m);
                 match.TypeOfGame = db.Matches.Where(n => n.ID == m.MatchId).Select(i => i.TypeOfMatch).FirstOrDefault();
                 matchStatistics.Add(match);
 
