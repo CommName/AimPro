@@ -9,6 +9,8 @@ namespace AIMProClient.DrawingStrategy
 {
     interface ICursorDrawing
     {
-        abstract void CrtajNisan(Graphics g,int cursorX,int cursorY, Color boja); 
+        //abstract 
+        
+            void CrtajNisan(Graphics g,int cursorX,int cursorY, Color boja); 
     }
 }

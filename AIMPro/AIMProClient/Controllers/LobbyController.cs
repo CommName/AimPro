@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AIMProClient.AIMProService;
 
 namespace AIMProClient.Controllers
 {
     public class LobbyController
     {
         LobbyForm lobbyForm;
-        public List<string> trenutniUseri = new List<string>();
+        public List<Shooter> trenutniUseri = new List<Shooter>();
         public LobbyController(LobbyForm lf) {
             this.lobbyForm = lf;
         }
-        public void preuzmiLobbyUsere(List<string> lobbyUsers) {
+        public void preuzmiLobbyUsere(List<Shooter> lobbyUsers) {
             this.trenutniUseri = lobbyUsers;
             this.lobbyForm.refreshUsers(trenutniUseri);
         }

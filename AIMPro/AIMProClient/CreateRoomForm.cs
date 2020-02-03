@@ -27,7 +27,7 @@ namespace AIMProClient
             this.ActiveControl = nameTxtBox;
             this.publicRb.Checked = true;
             this.multyPlayerRb.Checked = true;
-            this.nameTxtBox.Text = "My Room";
+            this.nameTxtBox.Text = this.controller.getUser.Username+" 's room";
             this.controller.PublicSoba = true;
             this.controller.TipIgre = 2;
         }

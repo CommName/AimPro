@@ -52,6 +52,10 @@ namespace AIMProClient.Controllers
         private void gameCanvas_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
             Graphics g = e.Graphics;
+
+            double unitx = canvas.Width/1000.0;
+            double unity = canvas.Height/1000.0;
+
             if (targets != null)
             {
                 foreach (Target t in targets)
@@ -66,9 +70,9 @@ namespace AIMProClient.Controllers
                         default:
                         case TargetTypes.None: { crtacMeta = new RegularTarget(); break; };
                     }
-                    crtacMeta.x = t.x;
-                    crtacMeta.y = t.y;
-                    crtacMeta.r = t.radius;
+                    crtacMeta.x =(int) (t.x *unitx) ;
+                    crtacMeta.y = (int)(t.y *unity);
+                     crtacMeta.r = t.radius;
                     crtacMeta.CrtajMetu(g);
                 }
             }
@@ -78,7 +82,12 @@ namespace AIMProClient.Controllers
 
         private void gameCanvas_Click(object sender, EventArgs e) {
             MessageBox.Show(string.Format("X: {0} Y: {1}", cursorX, cursorY)+ "First target is at: "+targets.First().x.ToString() +" "+targets.First().y.ToString());
-            CommunicationLayer.Instance.submitHit(cursorX, cursorY);
+            double pomx= 1000.0 / canvas.Width;
+            double pomy = 1000.0 / canvas.Height;
+            int toSendX =(int) (cursorX * pomx);
+            int toSendY = (int)(cursorY * pomy);
+            CommunicationLayer.Instance.submitHit(toSendX, toSendY);
+            // CommunicationLayer.Instance.submitHit(cursorX, cursorY);
         }
 
         private void gameCanvas_MouseEnter(object sender, System.EventArgs e){

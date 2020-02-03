@@ -59,6 +59,11 @@ namespace AIMProClient.Controllers
             set { this.publicSoba = value; }
         }
 
+        public User getUser
+        {
+            get { return this.logovaniKorisnik; }
+        }
+
         internal List<MatchStatistics> getUserMatchHistory(string username)
         {
            return CommunicationLayer.Instance.getUserMatchHistory(username);
