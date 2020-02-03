@@ -35,9 +35,9 @@ public class CallBackPlayer : IAIMProServerServiceCallback
         MessageBox.Show("Kraj igre");
     }
 
-    public void PlayersInTheRoom(List<string> players)
+    public void PlayersInTheRoom(List<Shooter> players)
     {
-        FormLayer.Instance.lobbyForm.lobbyController.preuzmiLobbyUsere(players);
+        //FormLayer.Instance.lobbyForm.lobbyController.preuzmiLobbyUsere(players);
     }
 
     public void updateTargets(List<Target> targets)

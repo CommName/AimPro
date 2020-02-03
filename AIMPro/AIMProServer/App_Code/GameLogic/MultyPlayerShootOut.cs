@@ -27,13 +27,11 @@ public class MultyPlayerShootOut : GameLogic
         int earnedElo = 0;
         int numberOfPlayers = 0;
         Shooter shooter = players[username];
-        DataBaseAPI api = new DataBaseAPI();
         foreach(var player in players)
         {
             if(player.Key != username)
             {
-                User user = api.getUserWithoutHistory(player.Key);
-                int delta = 400 + user.Elo;
+                int delta = 400 + player.Value.elo;
                 if (shooter.points > player.Value.points)
                 {
                     earnedElo += delta;

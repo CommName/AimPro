@@ -707,7 +707,6 @@
       <xsd:import schemaLocation="http://localhost:51579/AIMProServerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:51579/AIMProServerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
       <xsd:import schemaLocation="http://localhost:51579/AIMProServerService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AIMProLibrary" />
-      <xsd:import schemaLocation="http://localhost:51579/AIMProServerService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAIMProServerService_login_InputMessage">

@@ -66,10 +66,10 @@ public class Subscriber
         {
             lock (locker)
             {
-                List<string> playersInTheRoom = new List<string>();
+                List<Shooter> playersInTheRoom = new List<Shooter>();
                 foreach (var player in players)
                 {
-                    playersInTheRoom.Add(player.Value.username);
+                    playersInTheRoom.Add(player.Value);
                 }
                 foreach (var player in players)
                 {

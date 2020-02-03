@@ -34,9 +34,10 @@ public abstract class GameLogic
             newMatch.GameSeed = this.room.RoomPropertes.seed;
             newMatch.TargetsUsed = (int)this.room.RoomPropertes.TargetTypesAllowed;
             newMatch.CursorUsed = (int)this.room.RoomPropertes.CursorType;
-            DataBaseAPI db = new DataBaseAPI();
             List<Tuple<User, UserMatch>> usersAndReuslts = new List<Tuple<User, UserMatch>>();
-            foreach(var player in players)
+
+            DataBaseAPI db = new DataBaseAPI();
+            foreach (var player in players)
             {
                 User user = db.getUser(player.Value.username);
                 user.Elo += getEarnedElo(user.Username);

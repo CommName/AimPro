@@ -778,6 +778,131 @@ namespace AIMProClient.AIMProService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Shooter", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class Shooter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int eloField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int numbeerOfMissesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int numberOfHitsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int pointsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool readyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string usernameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int elo {
+            get {
+                return this.eloField;
+            }
+            set {
+                if ((this.eloField.Equals(value) != true)) {
+                    this.eloField = value;
+                    this.RaisePropertyChanged("elo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int numbeerOfMisses {
+            get {
+                return this.numbeerOfMissesField;
+            }
+            set {
+                if ((this.numbeerOfMissesField.Equals(value) != true)) {
+                    this.numbeerOfMissesField = value;
+                    this.RaisePropertyChanged("numbeerOfMisses");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int numberOfHits {
+            get {
+                return this.numberOfHitsField;
+            }
+            set {
+                if ((this.numberOfHitsField.Equals(value) != true)) {
+                    this.numberOfHitsField = value;
+                    this.RaisePropertyChanged("numberOfHits");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int points {
+            get {
+                return this.pointsField;
+            }
+            set {
+                if ((this.pointsField.Equals(value) != true)) {
+                    this.pointsField = value;
+                    this.RaisePropertyChanged("points");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ready {
+            get {
+                return this.readyField;
+            }
+            set {
+                if ((this.readyField.Equals(value) != true)) {
+                    this.readyField = value;
+                    this.RaisePropertyChanged("ready");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string username {
+            get {
+                return this.usernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.usernameField, value) != true)) {
+                    this.usernameField = value;
+                    this.RaisePropertyChanged("username");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Target", Namespace="http://schemas.datacontract.org/2004/07/")]
     [System.SerializableAttribute()]
     public partial class Target : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -956,7 +1081,7 @@ namespace AIMProClient.AIMProService {
     public interface IAIMProServerServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/PlayersInTheRoom")]
-        void PlayersInTheRoom(System.Collections.Generic.List<string> players);
+        void PlayersInTheRoom(System.Collections.Generic.List<AIMProClient.AIMProService.Shooter> players);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/updateTargets")]
         void updateTargets(System.Collections.Generic.List<AIMProClient.AIMProService.Target> targets);

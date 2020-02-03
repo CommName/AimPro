@@ -8,7 +8,7 @@ using System.ServiceModel;
 public interface ICallBackPlayer
 {
     [OperationContract(IsOneWay = true)]
-    void PlayersInTheRoom(List<string> players);
+    void PlayersInTheRoom(List<Shooter> players);
 
     [OperationContract(IsOneWay = true)]
     void updateTargets(List<Target> targets);

@@ -135,9 +135,14 @@ public class Room
                 return false;
             }
 
+            DataBaseAPI db = new DataBaseAPI();
+            User user = db.getUser(player);
+
             Shooter newshoter = new Shooter();
             newshoter.username = player;
             newshoter.callback = callback;
+            newshoter.elo = user.Elo;
+
             players.Add(player, newshoter);
 
             subscriber.PlayersInTheRoom(players);
