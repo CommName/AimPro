@@ -46,10 +46,18 @@ public class Subscriber
 
     public void UpdateTargets(List<Target> targets, List<Shooter> players)
     {
-        foreach(Shooter shooter in players)
+        Thread targetsender = new Thread(() =>
         {
-            shooter.callback.updateTargets(targets);
-        }
+            lock (locker)
+            {
+                foreach (Shooter shooter in players)
+                {
+                    shooter.callback.updateTargets(targets);
+                }
+            }
+        });
+
+        targetsender.Start();
     }
 
     public void PlayersInTheRoom(Dictionary<string, Shooter> players)

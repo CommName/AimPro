@@ -172,53 +172,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_logout_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="AIMProServerService_startGame_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_startGame_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -356,53 +310,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_createRoom_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="AIMProServerService_joinRoom_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_joinRoom_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -540,29 +448,6 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_leaveRoom_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="AIMProServerService_getProfileStatistics_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -678,53 +563,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_submitHit_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="AIMProServerService_PlayersInTheRoom_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_PlayersInTheRoom_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -770,53 +609,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_updateTargets_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="AIMProServerService_GameStarted_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_GameStarted_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -862,53 +655,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_GameStops_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="AIMProServerService_GameStats_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_GameStats_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -954,29 +701,6 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="AIMProServerService_EarnedPoints_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:51579/AIMProServerService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -995,14 +719,8 @@
   <wsdl:message name="IAIMProServerService_logout_InputMessage">
     <wsdl:part name="parameters" element="tns:logout" />
   </wsdl:message>
-  <wsdl:message name="IAIMProServerService_logout_OutputMessage">
-    <wsdl:part name="parameters" element="tns:logoutResponse" />
-  </wsdl:message>
   <wsdl:message name="IAIMProServerService_startGame_InputMessage">
     <wsdl:part name="parameters" element="tns:startGame" />
-  </wsdl:message>
-  <wsdl:message name="IAIMProServerService_startGame_OutputMessage">
-    <wsdl:part name="parameters" element="tns:startGameResponse" />
   </wsdl:message>
   <wsdl:message name="IAIMProServerService_signUp_InputMessage">
     <wsdl:part name="parameters" element="tns:signUp" />
@@ -1019,14 +737,8 @@
   <wsdl:message name="IAIMProServerService_createRoom_InputMessage">
     <wsdl:part name="parameters" element="tns:createRoom" />
   </wsdl:message>
-  <wsdl:message name="IAIMProServerService_createRoom_OutputMessage">
-    <wsdl:part name="parameters" element="tns:createRoomResponse" />
-  </wsdl:message>
   <wsdl:message name="IAIMProServerService_joinRoom_InputMessage">
     <wsdl:part name="parameters" element="tns:joinRoom" />
-  </wsdl:message>
-  <wsdl:message name="IAIMProServerService_joinRoom_OutputMessage">
-    <wsdl:part name="parameters" element="tns:joinRoomResponse" />
   </wsdl:message>
   <wsdl:message name="IAIMProServerService_GetRooms_InputMessage">
     <wsdl:part name="parameters" element="tns:GetRooms" />
@@ -1043,9 +755,6 @@
   <wsdl:message name="IAIMProServerService_leaveRoom_InputMessage">
     <wsdl:part name="parameters" element="tns:leaveRoom" />
   </wsdl:message>
-  <wsdl:message name="IAIMProServerService_leaveRoom_OutputMessage">
-    <wsdl:part name="parameters" element="tns:leaveRoomResponse" />
-  </wsdl:message>
   <wsdl:message name="IAIMProServerService_getProfileStatistics_InputMessage">
     <wsdl:part name="parameters" element="tns:getProfileStatistics" />
   </wsdl:message>
@@ -1061,44 +770,23 @@
   <wsdl:message name="IAIMProServerService_submitHit_InputMessage">
     <wsdl:part name="parameters" element="tns:submitHit" />
   </wsdl:message>
-  <wsdl:message name="IAIMProServerService_submitHit_OutputMessage">
-    <wsdl:part name="parameters" element="tns:submitHitResponse" />
-  </wsdl:message>
   <wsdl:message name="IAIMProServerService_PlayersInTheRoom_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:PlayersInTheRoom" />
-  </wsdl:message>
-  <wsdl:message name="IAIMProServerService_PlayersInTheRoom_InputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:PlayersInTheRoomResponse" />
   </wsdl:message>
   <wsdl:message name="IAIMProServerService_updateTargets_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:updateTargets" />
   </wsdl:message>
-  <wsdl:message name="IAIMProServerService_updateTargets_InputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:updateTargetsResponse" />
-  </wsdl:message>
   <wsdl:message name="IAIMProServerService_GameStarted_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:GameStarted" />
-  </wsdl:message>
-  <wsdl:message name="IAIMProServerService_GameStarted_InputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:GameStartedResponse" />
   </wsdl:message>
   <wsdl:message name="IAIMProServerService_GameStops_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:GameStops" />
   </wsdl:message>
-  <wsdl:message name="IAIMProServerService_GameStops_InputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:GameStopsResponse" />
-  </wsdl:message>
   <wsdl:message name="IAIMProServerService_GameStats_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:GameStats" />
   </wsdl:message>
-  <wsdl:message name="IAIMProServerService_GameStats_InputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:GameStatsResponse" />
-  </wsdl:message>
   <wsdl:message name="IAIMProServerService_EarnedPoints_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:EarnedPoints" />
-  </wsdl:message>
-  <wsdl:message name="IAIMProServerService_EarnedPoints_InputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:EarnedPointsResponse" />
   </wsdl:message>
   <wsdl:portType name="IAIMProServerService">
     <wsdl:operation name="login">
@@ -1107,11 +795,9 @@
     </wsdl:operation>
     <wsdl:operation name="logout">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/logout" message="tns:IAIMProServerService_logout_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/logoutResponse" message="tns:IAIMProServerService_logout_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="startGame">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/startGame" message="tns:IAIMProServerService_startGame_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/startGameResponse" message="tns:IAIMProServerService_startGame_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="signUp">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/signUp" message="tns:IAIMProServerService_signUp_InputMessage" />
@@ -1123,11 +809,9 @@
     </wsdl:operation>
     <wsdl:operation name="createRoom">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/createRoom" message="tns:IAIMProServerService_createRoom_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/createRoomResponse" message="tns:IAIMProServerService_createRoom_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="joinRoom">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/joinRoom" message="tns:IAIMProServerService_joinRoom_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/joinRoomResponse" message="tns:IAIMProServerService_joinRoom_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetRooms">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/GetRooms" message="tns:IAIMProServerService_GetRooms_InputMessage" />
@@ -1139,7 +823,6 @@
     </wsdl:operation>
     <wsdl:operation name="leaveRoom">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/leaveRoom" message="tns:IAIMProServerService_leaveRoom_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/leaveRoomResponse" message="tns:IAIMProServerService_leaveRoom_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getProfileStatistics">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/getProfileStatistics" message="tns:IAIMProServerService_getProfileStatistics_InputMessage" />
@@ -1151,31 +834,24 @@
     </wsdl:operation>
     <wsdl:operation name="submitHit">
       <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/submitHit" message="tns:IAIMProServerService_submitHit_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/submitHitResponse" message="tns:IAIMProServerService_submitHit_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="PlayersInTheRoom">
       <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/PlayersInTheRoom" message="tns:IAIMProServerService_PlayersInTheRoom_OutputCallbackMessage" />
-      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/PlayersInTheRoomResponse" message="tns:IAIMProServerService_PlayersInTheRoom_InputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="updateTargets">
       <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/updateTargets" message="tns:IAIMProServerService_updateTargets_OutputCallbackMessage" />
-      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/updateTargetsResponse" message="tns:IAIMProServerService_updateTargets_InputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="GameStarted">
       <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/GameStarted" message="tns:IAIMProServerService_GameStarted_OutputCallbackMessage" />
-      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/GameStartedResponse" message="tns:IAIMProServerService_GameStarted_InputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="GameStops">
       <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/GameStops" message="tns:IAIMProServerService_GameStops_OutputCallbackMessage" />
-      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/GameStopsResponse" message="tns:IAIMProServerService_GameStops_InputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="GameStats">
       <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/GameStats" message="tns:IAIMProServerService_GameStats_OutputCallbackMessage" />
-      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/GameStatsResponse" message="tns:IAIMProServerService_GameStats_InputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="EarnedPoints">
       <wsdl:output wsaw:Action="http://tempuri.org/IAIMProServerService/EarnedPoints" message="tns:IAIMProServerService_EarnedPoints_OutputCallbackMessage" />
-      <wsdl:input wsaw:Action="http://tempuri.org/IAIMProServerService/EarnedPointsResponse" message="tns:IAIMProServerService_EarnedPoints_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="AIMProServerService" type="tns:IAIMProServerService">
@@ -1198,10 +874,6 @@
         <wsp:PolicyReference URI="#AIMProServerService_logout_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#AIMProServerService_logout_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="startGame">
       <soap12:operation soapAction="http://tempuri.org/IAIMProServerService/startGame" style="document" />
@@ -1209,10 +881,6 @@
         <wsp:PolicyReference URI="#AIMProServerService_startGame_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#AIMProServerService_startGame_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="signUp">
       <soap12:operation soapAction="http://tempuri.org/IAIMProServerService/signUp" style="document" />
@@ -1242,10 +910,6 @@
         <wsp:PolicyReference URI="#AIMProServerService_createRoom_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#AIMProServerService_createRoom_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="joinRoom">
       <soap12:operation soapAction="http://tempuri.org/IAIMProServerService/joinRoom" style="document" />
@@ -1253,10 +917,6 @@
         <wsp:PolicyReference URI="#AIMProServerService_joinRoom_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#AIMProServerService_joinRoom_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetRooms">
       <soap12:operation soapAction="http://tempuri.org/IAIMProServerService/GetRooms" style="document" />
@@ -1286,10 +946,6 @@
         <wsp:PolicyReference URI="#AIMProServerService_leaveRoom_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#AIMProServerService_leaveRoom_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getProfileStatistics">
       <soap12:operation soapAction="http://tempuri.org/IAIMProServerService/getProfileStatistics" style="document" />
@@ -1319,17 +975,9 @@
         <wsp:PolicyReference URI="#AIMProServerService_submitHit_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#AIMProServerService_submitHit_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="PlayersInTheRoom">
       <soap12:operation soapAction="http://tempuri.org/IAIMProServerService/PlayersInTheRoom" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#AIMProServerService_PlayersInTheRoom_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#AIMProServerService_PlayersInTheRoom_output_policy" />
         <soap12:body use="literal" />
@@ -1337,10 +985,6 @@
     </wsdl:operation>
     <wsdl:operation name="updateTargets">
       <soap12:operation soapAction="http://tempuri.org/IAIMProServerService/updateTargets" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#AIMProServerService_updateTargets_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#AIMProServerService_updateTargets_output_policy" />
         <soap12:body use="literal" />
@@ -1348,10 +992,6 @@
     </wsdl:operation>
     <wsdl:operation name="GameStarted">
       <soap12:operation soapAction="http://tempuri.org/IAIMProServerService/GameStarted" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#AIMProServerService_GameStarted_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#AIMProServerService_GameStarted_output_policy" />
         <soap12:body use="literal" />
@@ -1359,10 +999,6 @@
     </wsdl:operation>
     <wsdl:operation name="GameStops">
       <soap12:operation soapAction="http://tempuri.org/IAIMProServerService/GameStops" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#AIMProServerService_GameStops_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#AIMProServerService_GameStops_output_policy" />
         <soap12:body use="literal" />
@@ -1370,10 +1006,6 @@
     </wsdl:operation>
     <wsdl:operation name="GameStats">
       <soap12:operation soapAction="http://tempuri.org/IAIMProServerService/GameStats" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#AIMProServerService_GameStats_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#AIMProServerService_GameStats_output_policy" />
         <soap12:body use="literal" />
@@ -1381,10 +1013,6 @@
     </wsdl:operation>
     <wsdl:operation name="EarnedPoints">
       <soap12:operation soapAction="http://tempuri.org/IAIMProServerService/EarnedPoints" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#AIMProServerService_EarnedPoints_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#AIMProServerService_EarnedPoints_output_policy" />
         <soap12:body use="literal" />
@@ -1397,7 +1025,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:51579/AIMProServerService.svc</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>LAPTOP-R43VDJQS\38162</Upn>
+          <Upn>DESKTOP-3UH99LP\CommName</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

@@ -10,14 +10,14 @@ namespace AIMProClient.DrawingStrategy
 {
     class SplitTarget : ITargetDrawing
     {
-        public override void CrtajMetu(Graphics g, int x, int y, int r, Color boja)
+        public override void CrtajMetu(Graphics g)
         {
-            base.CrtajMetu(g, x, y, r, boja);
-            CrtajSplit(g, x, y, r, boja);
+            base.CrtajMetu(g);
+            CrtajSplit(g);
         }
-        private void CrtajSplit(Graphics g, int x, int y, int r, Color boja)
+        private void CrtajSplit(Graphics g)
         {
-            Brush brush = new SolidBrush(generisiInverznuBoju(boja));
+            Brush brush = new SolidBrush(generisiInverznuBoju());
             int duzina = (5 * r) / 3;
             FontFamily fontFamily = new FontFamily("Arial");
             Font font = new Font(fontFamily, duzina, FontStyle.Bold, GraphicsUnit.Pixel);

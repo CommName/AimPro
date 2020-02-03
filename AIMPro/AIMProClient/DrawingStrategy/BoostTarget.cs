@@ -10,15 +10,19 @@ namespace AIMProClient.DrawingStrategy
 {
     class BoostTarget : ITargetDrawing
     {
-        public override void CrtajMetu(Graphics g, int x, int y, int r, Color boja)
+        public BoostTarget() : base()
         {
-            base.CrtajMetu(g,x,y,r,boja);
-            CrtajPlus(g, x, y, r, boja);
+            this.boja = Color.FromArgb(0, 0, 255);
+        }
+        public override void CrtajMetu(Graphics g)
+        {
+            base.CrtajMetu(g);
+            CrtajPlus(g);
         }
 
-        private void CrtajPlus(Graphics g, int x, int y, int r, Color boja)
+        private void CrtajPlus(Graphics g)
         {
-            Pen greenPen = new Pen(generisiInverznuBoju(boja), r / 4);
+            Pen greenPen = new Pen(generisiInverznuBoju(), r / 4);
             greenPen.Alignment = PenAlignment.Center;
             int duzina = r / 2;
             g.DrawLine(greenPen, x, y - duzina, x, y + duzina);

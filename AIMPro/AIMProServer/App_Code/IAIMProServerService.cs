@@ -14,10 +14,10 @@ public interface IAIMProServerService
     [OperationContract]
     bool login(string username, byte[] pass);
 
-    [OperationContract]
+    [OperationContract(IsOneWay = true)]
     void logout();
 
-    [OperationContract]
+    [OperationContract(IsOneWay = true)]
     void startGame();
 
     [OperationContract]
@@ -26,10 +26,10 @@ public interface IAIMProServerService
     [OperationContract]
     User getProfile(string username);
 
-    [OperationContract]
+    [OperationContract(IsOneWay = true)]
     void createRoom(RoomProperties settings);
 
-    [OperationContract]
+    [OperationContract(IsOneWay = true)]
     void joinRoom(int id);
 
     [OperationContract]
@@ -38,7 +38,7 @@ public interface IAIMProServerService
     [OperationContract]
     List< User> getProfiles();
 
-    [OperationContract]
+    [OperationContract(IsOneWay = true)]
     void leaveRoom();
 
     [OperationContract]
@@ -47,7 +47,7 @@ public interface IAIMProServerService
     [OperationContract]
     List<MatchStatistics> getProfileMatchHistory(string username);
 
-    [OperationContract]
+    [OperationContract(IsOneWay = true)]
     void submitHit(int x, int y);
 
 }

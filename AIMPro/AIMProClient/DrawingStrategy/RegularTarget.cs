@@ -10,9 +10,13 @@ namespace AIMProClient.DrawingStrategy
 {
     class RegularTarget : ITargetDrawing
     {
-        public override void CrtajMetu(Graphics g, int x, int y, int r, Color boja)
+        public RegularTarget() : base()
         {
-            base.CrtajMetu(g,x,y,r,boja);
+            this.boja = Color.FromArgb(255, 0, 0);
+        }
+        public override void CrtajMetu(Graphics g)
+        {
+            base.CrtajMetu(g);
         }
     }
 }

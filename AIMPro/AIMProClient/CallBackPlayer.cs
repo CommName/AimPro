@@ -15,22 +15,24 @@ public class CallBackPlayer : IAIMProServerServiceCallback
 {
     public void EarnedPoints(int points)
     {
-        throw new NotImplementedException();
+        
     }
 
     public void GameStarted()
     {
-        throw new NotImplementedException();
+        //Call game view
+
+        MessageBox.Show("Pocetak igre");
     }
 
     public void GameStats()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     public void GameStops()
     {
-        throw new NotImplementedException();
+        MessageBox.Show("Kraj igre");
     }
 
     public void PlayersInTheRoom(List<string> players)
@@ -40,7 +42,8 @@ public class CallBackPlayer : IAIMProServerServiceCallback
 
     public void updateTargets(List<Target> targets)
     {
-        throw new NotImplementedException();
+        FormLayer.Instance.lobbyForm.gameController.targets = targets;
+        FormLayer.Instance.lobbyForm.gameController.canvas.Invalidate();
     }
 }
 

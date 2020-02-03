@@ -17,12 +17,15 @@ namespace AIMProClient.Controllers
     public class GameController
     {
         LobbyForm lobbyForm;
-        PictureBox canvas;
+        public PictureBox canvas;
         int cursorX = 0;
         int cursorY = 0;
         ICursorDrawing nisan = null;
         ITargetDrawing crtacMeta = null;
         Color bojaNisana;
+
+        public List<Target> targets;
+
         public GameController(LobbyForm lf) {
             this.lobbyForm = lf;
         }
@@ -49,21 +52,33 @@ namespace AIMProClient.Controllers
         private void gameCanvas_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            crtacMeta = new RegularTarget();
-            crtacMeta.CrtajMetu(g, 200, 300, 30, Color.FromArgb(255, 0, 0));
-            crtacMeta = new ShieldTarget();
-            crtacMeta.CrtajMetu(g, 400, 200, 30, Color.FromArgb(255, 255, 0));
-            crtacMeta = new BoostTarget();
-            crtacMeta.CrtajMetu(g, 60, 80, 25, Color.FromArgb(0, 0, 255));
-            crtacMeta = new NegativeTarget();
-            crtacMeta.CrtajMetu(g, 600, 100, 30, Color.FromArgb(221, 160, 221));
-            crtacMeta = new SplitTarget();
-            crtacMeta.CrtajMetu(g, 100, 500, 20, Color.FromArgb(255, 140, 105));
+            if (targets != null)
+            {
+                foreach (Target t in targets)
+                {
+                    switch (t.type)
+                    {
+                        case TargetTypes.Shielded: { crtacMeta = new ShieldTarget(); break; };
+                        case TargetTypes.Boost: { crtacMeta = new BoostTarget(); break; };
+                        case TargetTypes.Negative: { crtacMeta = new NegativeTarget(); break; };
+                        case TargetTypes.Child: { crtacMeta = new SplitTarget(); break; };
+
+                        default:
+                        case TargetTypes.None: { crtacMeta = new RegularTarget(); break; };
+                    }
+                    crtacMeta.x = t.x;
+                    crtacMeta.y = t.y;
+                    crtacMeta.r = t.radius;
+                    crtacMeta.CrtajMetu(g);
+                }
+            }
+            
             nisan.CrtajNisan(g,cursorX,cursorY,bojaNisana);
         }
 
         private void gameCanvas_Click(object sender, EventArgs e) {
-            MessageBox.Show(string.Format("X: {0} Y: {1}", cursorX, cursorY));
+            MessageBox.Show(string.Format("X: {0} Y: {1}", cursorX, cursorY)+ "First target is at: "+targets.First().x.ToString() +" "+targets.First().y.ToString());
+            CommunicationLayer.Instance.submitHit(cursorX, cursorY);
         }
 
         private void gameCanvas_MouseEnter(object sender, System.EventArgs e){

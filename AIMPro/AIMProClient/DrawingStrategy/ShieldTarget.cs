@@ -10,10 +10,19 @@ namespace AIMProClient.DrawingStrategy
 {
     class ShieldTarget : ITargetDrawing
     {
-        public override void CrtajMetu(Graphics g, int x, int y, int r, Color boja)
+        public ShieldTarget() : base()
         {
-            base.CrtajMetu(g, x, y, (r * 5) / 4, Color.FromArgb(192, 192, 192));
-            base.CrtajMetu(g,x,y,r,boja);
+            this.boja = Color.FromArgb(255, 255, 0);
+        }
+        public override void CrtajMetu(Graphics g)
+        {
+            RegularTarget okvir = new RegularTarget();
+            okvir.x = x;
+            okvir.y = y;
+            okvir.r = (r * 5) / 4;
+            okvir.boja = Color.FromArgb(192, 192, 192);
+            okvir.CrtajMetu(g);
+            base.CrtajMetu(g);
         }
     }
 }

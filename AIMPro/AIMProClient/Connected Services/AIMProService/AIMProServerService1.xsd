@@ -23,17 +23,7 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="logoutResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="startGame">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="startGameResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -74,21 +64,11 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="createRoomResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="joinRoom">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="joinRoomResponse">
-    <xs:complexType>
-      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="GetRooms">
@@ -116,11 +96,6 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="leaveRoom">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="leaveRoomResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -161,21 +136,11 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="submitHitResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="PlayersInTheRoom">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="players" nillable="true" type="q7:ArrayOfstring" />
       </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="PlayersInTheRoomResponse">
-    <xs:complexType>
-      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="updateTargets">
@@ -185,17 +150,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="updateTargetsResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GameStarted">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GameStartedResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -205,17 +160,7 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GameStopsResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GameStats">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GameStatsResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -225,11 +170,6 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="points" type="xs:int" />
       </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="EarnedPointsResponse">
-    <xs:complexType>
-      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

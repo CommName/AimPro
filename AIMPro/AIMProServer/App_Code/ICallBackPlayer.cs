@@ -7,22 +7,22 @@ using System.ServiceModel;
 [ServiceContract]
 public interface ICallBackPlayer
 {
-    [OperationContract]
+    [OperationContract(IsOneWay = true)]
     void PlayersInTheRoom(List<string> players);
 
-    [OperationContract]
+    [OperationContract(IsOneWay = true)]
     void updateTargets(List<Target> targets);
 
-    [OperationContract]
+    [OperationContract(IsOneWay = true)]
     void GameStarted();
 
-    [OperationContract]
+    [OperationContract(IsOneWay = true)]
     void GameStops();
 
-    [OperationContract]
+    [OperationContract(IsOneWay = true)]
     void GameStats();
 
-    [OperationContract]
+    [OperationContract(IsOneWay = true)]
     //Everytime it hits it sends how mutch points player has earned
     void EarnedPoints(int points); 
 

@@ -879,16 +879,16 @@ namespace AIMProClient.AIMProService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/login", ReplyAction="http://tempuri.org/IAIMProServerService/loginResponse")]
         System.Threading.Tasks.Task<bool> loginAsync(string username, byte[] pass);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/logout", ReplyAction="http://tempuri.org/IAIMProServerService/logoutResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/logout")]
         void logout();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/logout", ReplyAction="http://tempuri.org/IAIMProServerService/logoutResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/logout")]
         System.Threading.Tasks.Task logoutAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/startGame", ReplyAction="http://tempuri.org/IAIMProServerService/startGameResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/startGame")]
         void startGame();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/startGame", ReplyAction="http://tempuri.org/IAIMProServerService/startGameResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/startGame")]
         System.Threading.Tasks.Task startGameAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/signUp", ReplyAction="http://tempuri.org/IAIMProServerService/signUpResponse")]
@@ -903,16 +903,16 @@ namespace AIMProClient.AIMProService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfile", ReplyAction="http://tempuri.org/IAIMProServerService/getProfileResponse")]
         System.Threading.Tasks.Task<AIMProClient.AIMProService.User> getProfileAsync(string username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/createRoom", ReplyAction="http://tempuri.org/IAIMProServerService/createRoomResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/createRoom")]
         void createRoom(AIMProClient.AIMProService.RoomProperties settings);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/createRoom", ReplyAction="http://tempuri.org/IAIMProServerService/createRoomResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/createRoom")]
         System.Threading.Tasks.Task createRoomAsync(AIMProClient.AIMProService.RoomProperties settings);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/joinRoom", ReplyAction="http://tempuri.org/IAIMProServerService/joinRoomResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/joinRoom")]
         void joinRoom(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/joinRoom", ReplyAction="http://tempuri.org/IAIMProServerService/joinRoomResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/joinRoom")]
         System.Threading.Tasks.Task joinRoomAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/GetRooms", ReplyAction="http://tempuri.org/IAIMProServerService/GetRoomsResponse")]
@@ -927,10 +927,10 @@ namespace AIMProClient.AIMProService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfiles", ReplyAction="http://tempuri.org/IAIMProServerService/getProfilesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.User>> getProfilesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/leaveRoom", ReplyAction="http://tempuri.org/IAIMProServerService/leaveRoomResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/leaveRoom")]
         void leaveRoom();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/leaveRoom", ReplyAction="http://tempuri.org/IAIMProServerService/leaveRoomResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/leaveRoom")]
         System.Threading.Tasks.Task leaveRoomAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfileStatistics", ReplyAction="http://tempuri.org/IAIMProServerService/getProfileStatisticsResponse")]
@@ -945,32 +945,32 @@ namespace AIMProClient.AIMProService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfileMatchHistory", ReplyAction="http://tempuri.org/IAIMProServerService/getProfileMatchHistoryResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.MatchStatistics>> getProfileMatchHistoryAsync(string username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/submitHit", ReplyAction="http://tempuri.org/IAIMProServerService/submitHitResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/submitHit")]
         void submitHit(int x, int y);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/submitHit", ReplyAction="http://tempuri.org/IAIMProServerService/submitHitResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/submitHit")]
         System.Threading.Tasks.Task submitHitAsync(int x, int y);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IAIMProServerServiceCallback {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/PlayersInTheRoom", ReplyAction="http://tempuri.org/IAIMProServerService/PlayersInTheRoomResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/PlayersInTheRoom")]
         void PlayersInTheRoom(System.Collections.Generic.List<string> players);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/updateTargets", ReplyAction="http://tempuri.org/IAIMProServerService/updateTargetsResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/updateTargets")]
         void updateTargets(System.Collections.Generic.List<AIMProClient.AIMProService.Target> targets);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/GameStarted", ReplyAction="http://tempuri.org/IAIMProServerService/GameStartedResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/GameStarted")]
         void GameStarted();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/GameStops", ReplyAction="http://tempuri.org/IAIMProServerService/GameStopsResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/GameStops")]
         void GameStops();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/GameStats", ReplyAction="http://tempuri.org/IAIMProServerService/GameStatsResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/GameStats")]
         void GameStats();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/EarnedPoints", ReplyAction="http://tempuri.org/IAIMProServerService/EarnedPointsResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/EarnedPoints")]
         void EarnedPoints(int points);
     }
     

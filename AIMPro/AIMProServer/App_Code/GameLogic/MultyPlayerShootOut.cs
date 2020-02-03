@@ -15,7 +15,7 @@ public class MultyPlayerShootOut : GameLogic
     public MultyPlayerShootOut()
     {
         targetFactory = new TargetFactory();
-        targetFactory.random = new Random(room.RoomPropertes.seed);
+        targetFactory.random = new Random(/*room.RoomPropertes.seed*/);
         targets = new List<Target>();
         publisher = new Subscriber();
 
@@ -55,17 +55,17 @@ public class MultyPlayerShootOut : GameLogic
         {
             targets.Add(this.targetFactory.getNextTarget());
         }
-        Subscriber subscriber = new Subscriber();
+        publisher = new Subscriber();
         List<Shooter> shooter = new List<Shooter>();
         foreach(var player in players)
         {
             shooter.Add(player.Value);
         }
-        subscriber.subscribers = shooter;
-        subscriber.UpdateTargets(targets);
-        subscriber.NotifyGameStart();
+        publisher.subscribers = shooter;
+        publisher.UpdateTargets(targets);
+        publisher.NotifyGameStart();
 
-        timer = new Timer(1000 * 60 * 10);
+        timer = new Timer(1000 * 60 * 1);
         timer.Elapsed += gameEnds;
         timer.Start();
 

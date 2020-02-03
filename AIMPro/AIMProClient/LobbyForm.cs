@@ -17,7 +17,7 @@ namespace AIMProClient
         public bool appClose = true;
         MenuController menuController;
         public LobbyController lobbyController;
-        GameController gameController;
+        public GameController gameController;
         public LobbyForm(MenuController menuController, AIMProService.RoomState roomState)
         {
             InitializeComponent();
@@ -109,6 +109,7 @@ namespace AIMProClient
         {
             // this.lobbyController.userReady();
             gameController = new GameController(this);
+            CommunicationLayer.Instance.userReady();
             gameController.loadGameView();
         }
 

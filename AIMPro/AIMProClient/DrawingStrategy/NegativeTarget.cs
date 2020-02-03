@@ -10,15 +10,19 @@ namespace AIMProClient.DrawingStrategy
 {
     class NegativeTarget : ITargetDrawing
     {
-        public override void CrtajMetu(Graphics g, int x, int y, int r, Color boja)
+        public NegativeTarget() :base()
         {
-            base.CrtajMetu(g,x,y,r,boja);
-            CrtajMinus(g, x, y, r, boja);
+            this.boja = Color.FromArgb(221, 160, 221);
+        }
+        public override void CrtajMetu(Graphics g)
+        {
+            base.CrtajMetu(g);
+            CrtajMinus(g);
         }
 
-        private void CrtajMinus(Graphics g, int x, int y, int r, Color boja)
+        private void CrtajMinus(Graphics g)
         {
-            Pen greenPen = new Pen(generisiInverznuBoju(boja), r / 4);
+            Pen greenPen = new Pen(generisiInverznuBoju(), r / 4);
             greenPen.Alignment = PenAlignment.Center;
             int duzina = r / 2;
             g.DrawLine(greenPen, x - duzina, y, x + duzina, y);
