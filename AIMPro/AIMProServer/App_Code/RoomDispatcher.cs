@@ -58,7 +58,8 @@ public class RoomDispatcher
         Room room;
         if(PlayersRoom.TryGetValue(username,out room))
         {
-            //room.submitHit(username, x, y);
+            if(room!=null)
+                room.submitHit(username, x, y);
         }
         else
         {

@@ -14,9 +14,10 @@ public class MultyPlayerShootOut : GameLogic
     const int maxNumberOfTargetsAtTheSameTime = 10;
     public MultyPlayerShootOut()
     {
+        targets = new List<Target>();
         targetFactory = new TargetFactory();
         targetFactory.random = new Random(/*room.RoomPropertes.seed*/);
-        targets = new List<Target>();
+        targetFactory.actieTargets = this.targets;
         publisher = new Subscriber();
 
     }

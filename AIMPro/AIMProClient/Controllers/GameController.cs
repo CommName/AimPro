@@ -81,13 +81,11 @@ namespace AIMProClient.Controllers
         }
 
         private void gameCanvas_Click(object sender, EventArgs e) {
-            MessageBox.Show(string.Format("X: {0} Y: {1}", cursorX, cursorY)+ "First target is at: "+targets.First().x.ToString() +" "+targets.First().y.ToString());
             double pomx= 1000.0 / canvas.Width;
             double pomy = 1000.0 / canvas.Height;
             int toSendX =(int) (cursorX * pomx);
             int toSendY = (int)(cursorY * pomy);
             CommunicationLayer.Instance.submitHit(toSendX, toSendY);
-            // CommunicationLayer.Instance.submitHit(cursorX, cursorY);
         }
 
         private void gameCanvas_MouseEnter(object sender, System.EventArgs e){
