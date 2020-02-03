@@ -15,7 +15,7 @@ public class CallBackPlayer : IAIMProServerServiceCallback
 {
     public void EarnedPoints(int points)
     {
-        
+        //MessageBox.Show(points.ToString());
     }
 
     public void GameStarted()
