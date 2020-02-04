@@ -46,7 +46,7 @@ public class Room
         if (gameStarted)
             return;
 
-        players[username].ready = true;
+        players[username].ready = !players[username].ready;
         subscriber.PlayersInTheRoom(players);
 
         
@@ -163,6 +163,10 @@ public class Room
         }
         else
         {
+            foreach (var pl in players)
+            {
+                pl.Value.ready = false;
+            }
             this.subscriber.PlayersInTheRoom(players);
         }
     }
