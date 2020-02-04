@@ -25,5 +25,10 @@ namespace AIMProClient.Crosshairs
         {
             CommunicationLayer.Instance.submitHit(x, y);
         }
+
+        public bool isInCircle(int x, int y, int x1, int y1, int radius)
+        {
+            return (((x - x1) * (x -x1) + (y - y1) * (y - y1)) < radius * radius);
+        }
     }
 }
