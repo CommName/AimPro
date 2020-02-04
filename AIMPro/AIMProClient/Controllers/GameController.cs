@@ -18,13 +18,19 @@ namespace AIMProClient.Controllers
     {
         LobbyForm lobbyForm;
         public PictureBox canvas;
+        Label scoreLabel;
+        Label naslov;
+        Timer timer;
         int cursorX = 0;
         int cursorY = 0;
+        int Score = 0;
         ICursorDrawing nisan = null;
         ITargetDrawing crtacMeta = null;
         Color bojaNisana;
-
         public List<Target> targets;
+        Color[] nizBoja = { Color.FromArgb(255, 0, 0), Color.FromArgb(155, 255, 80), Color.FromArgb(0, 0, 205), Color.FromArgb(255, 150, 170), Color.FromArgb(15, 70, 240) };
+        int indexBoja = 0;
+
 
         public GameController(LobbyForm lf) {
             this.lobbyForm = lf;
@@ -40,13 +46,18 @@ namespace AIMProClient.Controllers
         }
 
         public void resizeForm() {
+            this.lobbyForm.MinimizeBox = true;
+            this.lobbyForm.MaximizeBox = true;
+            this.lobbyForm.FormBorderStyle = FormBorderStyle.Sizable;
             lobbyForm.WindowState = FormWindowState.Maximized;
             lobbyForm.Location = new Point(0, 0);
+            lobbyForm.Text = "AimPRO Game";
         }
 
         public void loadGameControlls() {
             generateCanvas();
             generateNaslov();
+            generisiScoreLabelu();
         }
 
         private void gameCanvas_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
@@ -85,6 +96,8 @@ namespace AIMProClient.Controllers
             double pomy = 1000.0 / canvas.Height;
             int toSendX =(int) (cursorX * pomx);
             int toSendY = (int)(cursorY * pomy);
+            updateScore(100, nizBoja[indexBoja]);
+            indexBoja = (indexBoja + 1) % 5;
             CommunicationLayer.Instance.submitHit(toSendX, toSendY);
         }
 
@@ -119,8 +132,8 @@ namespace AIMProClient.Controllers
 
         private void generateCanvas() {
             PictureBox gameCanvas = new PictureBox();
-            gameCanvas.Location = new Point(30, 40);
-            gameCanvas.Size = new Size(lobbyForm.Width - 80, lobbyForm.Height - 120);
+            gameCanvas.Location = new Point(10, 10);
+            gameCanvas.Size = new Size(lobbyForm.Width-35 , lobbyForm.Height - 90);
             gameCanvas.BackColor = Color.White;
             gameCanvas.Paint += new PaintEventHandler(this.gameCanvas_Paint);
             gameCanvas.Click += new EventHandler(gameCanvas_Click);
@@ -136,8 +149,60 @@ namespace AIMProClient.Controllers
             Label naslov = new Label();
             naslov.Text = "Tip Igre";
             naslov.Font = new Font("Modern No. 20", 18, FontStyle.Underline);
-            naslov.Location = new Point(lobbyForm.Width / 2, 5);
+            naslov.Location = new Point(lobbyForm.Width / 6, lobbyForm.Height - 80);
+            this.naslov = naslov;
             lobbyForm.Controls.Add(naslov);
+        }
+
+        private void generisiScoreLabelu() {
+            Label score = new Label();
+            score.Text = "Score : " + Score.ToString() + " ";
+            score.Font = new Font("Modern No. 20", 20, FontStyle.Underline);
+            score.Location = new Point(lobbyForm.Width - lobbyForm.Width / 5, lobbyForm.Height - 80);
+            scoreLabel = score;
+            lobbyForm.Controls.Add(score);
+        }
+
+        private void generisiTimer() {
+            if (timer != null){
+                timer.Stop();
+            }
+            Timer scoreTimer = new Timer();
+            scoreTimer.Interval = 2000;
+            scoreTimer.Tick += TickHandler;
+            scoreTimer.Start();
+            timer = scoreTimer;
+        }
+
+        private void TickHandler(object sender, EventArgs e)
+        {
+            scoreLabel.Hide();
+            this.timer.Stop();
+            this.timer = null;
+        }
+
+        private void updateScore(int noviScore, Color boja){
+            this.Score = noviScore;
+            scoreLabel.Show();
+            scoreLabel.Text = "Score : " + Score.ToString() + " ";
+            scoreLabel.ForeColor = boja;
+            generisiTimer();
+        }
+
+        internal void resizeEvent(object sender, EventArgs e)
+        {
+            if (this.canvas != null)
+            {
+                canvas.Size = new Size(lobbyForm.Width - 35, lobbyForm.Height - 80);
+                scoreLabel.Location = new Point(lobbyForm.Width - lobbyForm.Width / 3, lobbyForm.Height - 72);
+                naslov.Location = new Point(lobbyForm.Width / 6, lobbyForm.Height - 72);
+                canvas.Invalidate();
+            }
+        }
+
+        public void krajIgre() {
+            MessageBox.Show("Kraj igre");
+            this.lobbyForm.Controls.Clear();
         }
     }
 }

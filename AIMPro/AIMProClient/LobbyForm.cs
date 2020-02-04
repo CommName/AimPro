@@ -23,6 +23,7 @@ namespace AIMProClient
             InitializeComponent();
             this.menuController = menuController;
             LobbyController lobbyController = new LobbyController(this);
+            gameController = new GameController(this);
             this.lobbyController = lobbyController;
             this.MinimizeBox = false;
             this.MaximizeBox = false;
@@ -166,6 +167,11 @@ namespace AIMProClient
         private void LobbyForm_Shown(object sender, EventArgs e)
         {
             this.osveziPrikazUsera(this.lobbyController.trenutniUseri);
+        }
+
+        private void LobbyForm_Resize(object sender, EventArgs e)
+        {
+            this.gameController.resizeEvent(sender,e);
         }
     }
 }

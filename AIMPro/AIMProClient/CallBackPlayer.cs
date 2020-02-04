@@ -32,7 +32,7 @@ public class CallBackPlayer : IAIMProServerServiceCallback
 
     public void GameStops()
     {
-        MessageBox.Show("Kraj igre");
+        FormLayer.Instance.lobbyForm.gameController.krajIgre();
     }
 
     public void PlayersInTheRoom(List<Shooter> players)
