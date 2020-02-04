@@ -8,16 +8,22 @@ using System.Web;
 /// </summary>
 public class TargetFactory
 {
-    public Random random;
-    public List<Target> actieTargets;
-    public int winSizeX = 1000;
-    public int winSzieY =  1000;
+    public Random random { get; set; }
+    public List<Target> actieTargets { get; set; }
+    public const int winSizeX = 1000;
+    public const int winSzieY =  1000;
+
+    public TargetTypes TargetTypesAllowed { get; set; }
+
+
     public TargetFactory()
     {
         //
         // TODO: Add constructor logic here
         //
     }
+
+ 
 
     protected TargetTypes CastSNumerToTargetType(int number)
     {
