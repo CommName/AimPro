@@ -184,6 +184,7 @@ namespace AIMProClient.Controllers
 
         private void TickHandler(object sender, EventArgs e)
         {
+            if(scoreLabel!=null)
             scoreLabel.Hide();
             this.timer.Stop();
             this.timer = null;
@@ -220,6 +221,11 @@ namespace AIMProClient.Controllers
                 if(lobbyView[i].Name != "readyBtn")
                 lobbyForm.Controls.Add(lobbyView[i]);
             }
+            Button b = new Button();
+            b.Location = new Point(450, 450);
+            b.Text = "Kraj";
+            b.Click += (s, e) => { this.lobbyForm.f(); };
+            this.lobbyForm.Controls.Add(b);
             this.lobbyForm.Invalidate();
         }
     }

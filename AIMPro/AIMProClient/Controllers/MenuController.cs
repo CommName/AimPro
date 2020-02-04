@@ -30,18 +30,14 @@ namespace AIMProClient.Controllers
             {
                 FormLayer.Instance.joinRoomForm = new JoinRoomForm(this);
             }
-            if (leaving)
-            {
+            //if (leaving)
+            //{
                 CommunicationLayer.Instance.leaveLobby();
                 getRooms();
-            }
-            MessageBox.Show("1");
+           // }
             FormLayer.Instance.joinRoomForm.ideUMenu = false;
-            MessageBox.Show("2");
             FormLayer.Instance.joinRoomForm.Show();
-            MessageBox.Show("3");
             FormLayer.Instance.joinRoomForm.RefreshTable(ListaMogucihSoba);
-            MessageBox.Show("4");
         }
 
         internal void leaveLobbyAndGame() {

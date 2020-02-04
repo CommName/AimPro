@@ -19,6 +19,7 @@ namespace AIMProClient
         public LobbyController lobbyController;
         public GameController gameController;
         public bool gameNotEnd = true;
+        public bool readyClick = false;
         public LobbyForm(MenuController menuController, AIMProService.RoomState roomState)
         {
             InitializeComponent();
@@ -32,8 +33,15 @@ namespace AIMProClient
             //this.readyBtn.Enabled = false;
         }
 
+        public void f() {
+            this.menuController.leaveLobby(gameNotEnd);
+            this.appClose = false;
+            this.Hide();
+        }
+
         private void backBtn_Click(object sender, EventArgs e)
         {
+            
             this.menuController.leaveLobby(gameNotEnd);
             this.appClose = false;
             this.Hide();
@@ -54,14 +62,17 @@ namespace AIMProClient
         delegate void osveziPrikazUseraDgt(List<Shooter> listaUsera);
 
         public void refreshUsers(List<Shooter> listaUsera) {
-            if (this.InvokeRequired)
+            if (readyClick == false)
             {
-                osveziPrikazUseraDgt d = new osveziPrikazUseraDgt(osveziPrikazUsera);
-                this.Invoke(d, new object[] { listaUsera });
-            }
-            else
-            {
-                osveziPrikazUsera(listaUsera);
+                if (this.InvokeRequired)
+                {
+                    osveziPrikazUseraDgt d = new osveziPrikazUseraDgt(osveziPrikazUsera);
+                    this.Invoke(d, new object[] { listaUsera });
+                }
+                else
+                {
+                    osveziPrikazUsera(listaUsera);
+                }
             }
         }
 
@@ -159,6 +170,7 @@ namespace AIMProClient
 
         private void readyBtn_Click(object sender, EventArgs e)
         {
+            this.readyClick = true;
             for (int i = 0; i < this.Controls.Count; i++)
             {
                 this.gameController.lobbyView.Add(this.Controls[i]);
