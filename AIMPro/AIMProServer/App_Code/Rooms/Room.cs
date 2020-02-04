@@ -65,6 +65,7 @@ public class Room
 
         switch (this.RoomPropertes.GameMode)
         {
+            case GameMode.EndlessCampaign: { this.gamelogic = new EndlessCamp(roomProperties.seed); break; }
             case GameMode.FastShooting: { this.gamelogic = new FastShooting(roomProperties.seed); break; }
             case GameMode.Duel: 
             case GameMode.MultyPlayerShootOut: 

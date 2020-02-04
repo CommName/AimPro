@@ -63,6 +63,12 @@ public abstract class GameLogic
     protected void gameEnds(object sender, ElapsedEventArgs e)
     {
         timer.Stop();
+        FinishGame();
+    }
+
+    public virtual void FinishGame()
+    {
+
         publisher.NotifyGameStoped();
         saveResults();
         this.room.FinishGame();
