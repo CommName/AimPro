@@ -32,6 +32,7 @@ public class Target
     public List<Target> activeTargets { get; set; }
     public int pointsWorth { get; set; }
 
+    
     public bool isInCircle(int x, int y)
     {
         return (((x - this.x) * (x - this.x) + (y-this.y)*(y-this.y))< radius * radius);
