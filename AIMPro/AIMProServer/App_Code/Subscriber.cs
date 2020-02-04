@@ -52,7 +52,14 @@ public class Subscriber
             {
                 foreach (Shooter shooter in players)
                 {
-                    shooter.callback.updateTargets(targets);
+                    try
+                    {
+                        shooter.callback.updateTargets(targets);
+                    }
+                    catch(Exception e)
+                    {
+
+                    }
                 }
             }
         });
@@ -69,11 +76,20 @@ public class Subscriber
                 List<Shooter> playersInTheRoom = new List<Shooter>();
                 foreach (var player in players)
                 {
+
                     playersInTheRoom.Add(player.Value);
                 }
                 foreach (var player in players)
                 {
-                    player.Value.callback.PlayersInTheRoom(playersInTheRoom);
+                    try
+                    {
+                        player.Value.callback.PlayersInTheRoom(playersInTheRoom);
+                    }
+                    catch (Exception e)
+                    {
+                        //Remove him from the room
+                        RoomDispatcher.Instance.LeaveRoom(player.Key);
+                    }
                 }
             }
         });

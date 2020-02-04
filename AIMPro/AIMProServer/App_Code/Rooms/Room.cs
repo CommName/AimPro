@@ -46,9 +46,10 @@ public class Room
         if (gameStarted)
             return;
 
-        players[username].ready = true;
+        players[username].ready = !players[username].ready;
+        subscriber.PlayersInTheRoom(players);
 
-        //Proverava da li su svi spremni
+        
         foreach(var player in players)
         {
             if (!player.Value.ready)
@@ -65,6 +66,8 @@ public class Room
 
         switch (this.RoomPropertes.GameMode)
         {
+            case GameMode.EndlessCampaign: { this.gamelogic = new EndlessCamp(roomProperties.seed); break; }
+            case GameMode.FastShooting: { this.gamelogic = new FastShooting(roomProperties.seed); break; }
             case GameMode.Duel: 
             case GameMode.MultyPlayerShootOut: 
                 { this.gamelogic = new MultyPlayerShootOut();  break; }
@@ -160,6 +163,10 @@ public class Room
         }
         else
         {
+            foreach (var pl in players)
+            {
+                pl.Value.ready = false;
+            }
             this.subscriber.PlayersInTheRoom(players);
         }
     }
