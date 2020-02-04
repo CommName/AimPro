@@ -39,22 +39,19 @@ public class TargetFactory
         Target newTarget;
 
 
-        TargetTypes typeOfNewTarget = CastSNumerToTargetType(random.Next(0, 5));
+        TargetTypes typeOfNewTarget = CastSNumerToTargetType(random.Next(0, 6));
 
         switch (typeOfNewTarget)
         {
             case TargetTypes.None: { newTarget = new Target(); break; }
-            case TargetTypes.Moving: { newTarget = new Target(); break; }
-            case TargetTypes.Shielded: { newTarget = new Target(); break; }
-            case TargetTypes.Boost: { newTarget = new Target(); break; }
-            case TargetTypes.Negative: { newTarget = new Target(); break; };
-            case TargetTypes.Child: { newTarget = new Target(); break; }
+            case TargetTypes.Shielded: { newTarget = new ShieldedTarget(); break; }
+            case TargetTypes.Boost: { newTarget = new BoostTarget(); break; }
+            case TargetTypes.Negative: { newTarget = new NegativeTargets(); break; };
+            case TargetTypes.Child: { newTarget = new ChildTargets(random); break; }
             default: { { newTarget = new Target(); break; } }
         }
-
         newTarget.type = typeOfNewTarget;
         newTarget.activeTargets = actieTargets;
-        newTarget.radius = 10;
         newTarget.x = random.Next() % winSizeX;
         newTarget.y = random.Next() % winSzieY;
 
