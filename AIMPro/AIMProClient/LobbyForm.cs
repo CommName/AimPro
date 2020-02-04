@@ -130,7 +130,8 @@ namespace AIMProClient
         }
         private void osveziUsers(List<Shooter> nizUsera) {
 
-            for(int i =0; i < nizUsera.Count; i++)
+            nizUsera.Sort((a, b) => (a.points.CompareTo(b.points)));
+            for (int i =0; i < nizUsera.Count; i++)
             {
                 usernames[i].Text = nizUsera[i].username;
                 eloLabel[i].Text = nizUsera[i].elo.ToString();
