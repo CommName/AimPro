@@ -10,61 +10,68 @@ using System.Web;
 public class MultyPlayerShootOut : GameLogic
 {
     
+    public List<Target> targets { get; set; }
+    public TargetFactory targetFactory { get; set; }
+
     const int maxNumberOfTargetsAtTheSameTime = 10;
-    public MultyPlayerShootOut()
+    public MultyPlayerShootOut(int seed = 0 )
     {
         targets = new List<Target>();
         targetFactory = new TargetFactory();
-        targetFactory.random = new Random(/*room.RoomPropertes.seed*/);
+        this.seed = seed;
+        if (this.seed != 0)
+        {
+            targetFactory.random = new Random(this.seed);
+        }
+        else
+        {
+            targetFactory.random = new Random();
+        }
         targetFactory.actieTargets = this.targets;
         publisher = new Subscriber();
 
     }
 
-    public override int getEarnedElo(string username)
-    {
-        //FIDE ratings system applied just insted of 4 matches it's applaid for 4 players
-        int earnedElo = 0;
-        int numberOfPlayers = 0;
-        Shooter shooter = players[username];
-        foreach(var player in players)
-        {
-            if(player.Key != username)
-            {
-                int delta = 400 + player.Value.elo;
-                if (shooter.points > player.Value.points)
-                {
-                    earnedElo += delta;
-                }
-                else
-                {
-                    earnedElo -= delta;
-                }
-            }
-            numberOfPlayers++;
-        }
 
-        return earnedElo/numberOfPlayers;
+    public MultyPlayerShootOut(MultyPlayerShootOut copy)
+    {
+        targets = new List<Target>(copy.targets);
+        TargetTypesAllowed = copy.TargetTypesAllowed;
+        players = new Dictionary<string, Shooter>(copy.players);
+
+        this.seed = copy.seed;
+        this.TargetTypesAllowed = copy.TargetTypesAllowed;
+        this.publisher = copy.publisher;
+
+        //Target factory
+        targetFactory = new TargetFactory();
+        targetFactory.actieTargets = this.targets;
+        targetFactory.random = new Random(this.seed);
+        targetFactory.TargetTypesAllowed = copy.TargetTypesAllowed;
     }
+
+ 
 
     public override void start()
     {
-        while(targets.Count < maxNumberOfTargetsAtTheSameTime)
+
+        initPublisher();
+        fillTagets();
+        publisher.NotifyGameStart();
+        timer.Start();
+
+    }
+
+   
+
+    public void fillTagets()
+    {
+        while (targets.Count < maxNumberOfTargetsAtTheSameTime)
         {
             targets.Add(this.targetFactory.getNextTarget());
         }
-        publisher = new Subscriber();
-        List<Shooter> shooter = new List<Shooter>();
-        foreach(var player in players)
-        {
-            shooter.Add(player.Value);
-        }
-        publisher.subscribers = shooter;
+
         publisher.UpdateTargets(targets);
-        publisher.NotifyGameStart();
-
-        timer.Start();
-
     }
 
 
@@ -77,11 +84,7 @@ public class MultyPlayerShootOut : GameLogic
             {
                 if (t.TryToHit(player, x, y))
                 {
-                    while (targets.Count < maxNumberOfTargetsAtTheSameTime)
-                    {
-                        targets.Add(targetFactory.getNextTarget());
-                    }
-                    publisher.UpdateTargets(targets);
+                    fillTagets();
                     return;
                 }
 

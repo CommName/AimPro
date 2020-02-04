@@ -8,10 +8,14 @@ using System.Web;
 /// </summary>
 public class TargetFactory
 {
-    public Random random;
-    public List<Target> actieTargets;
-    public int winSizeX = 1000;
-    public int winSzieY =  1000;
+    public Random random { get; set; }
+    public List<Target> actieTargets { get; set; }
+    public const int winSizeX = 1000;
+    public const int winSzieY =  1000;
+
+    public TargetTypes TargetTypesAllowed { get; set; }
+
+
     public TargetFactory()
     {
         //
@@ -19,18 +23,27 @@ public class TargetFactory
         //
     }
 
+ 
+
     protected TargetTypes CastSNumerToTargetType(int number)
     {
+        TargetTypes ret;
         switch (number)
         {
-            case 0: return TargetTypes.None;
-            case 1: return TargetTypes.Moving;
-            case 2: return TargetTypes.Shielded;
-            case 3: return TargetTypes.Boost;
-            case 4: return TargetTypes.Negative;
-            case 5: return TargetTypes.Child;
-            default: return TargetTypes.None;
+            case 0: ret= TargetTypes.None; break;
+            case 1: ret= TargetTypes.Moving; break;
+            case 2: ret= TargetTypes.Shielded; break;
+            case 3: ret= TargetTypes.Boost; break;
+            case 4: ret= TargetTypes.Negative; break;
+            case 5: ret= TargetTypes.Child; break;
+            default: return TargetTypes.None; break;
         }
+
+        if((ret!=0) && ((ret & TargetTypesAllowed) == 0))
+        {
+            return CastSNumerToTargetType((++number) % 6);
+        }
+        return ret;
 
     }
 
