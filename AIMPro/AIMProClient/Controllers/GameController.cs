@@ -31,7 +31,7 @@ namespace AIMProClient.Controllers
         public List<Target> targets;
         Color[] nizBoja = { Color.FromArgb(255, 0, 0), Color.FromArgb(155, 255, 80), Color.FromArgb(0, 0, 205), Color.FromArgb(255, 150, 170), Color.FromArgb(15, 70, 240) };
         int indexBoja = 0;
-
+        List<Control> lobbyView = new List<Control>();
 
         public GameController(LobbyForm lf) {
             this.lobbyForm = lf;
@@ -40,6 +40,9 @@ namespace AIMProClient.Controllers
         public void loadGameView() {
             nisan = new RegularNisan();
             bojaNisana = Color.FromArgb(0,255,0);
+            for (int i = 0; i < lobbyForm.Controls.Count; i++) {
+                lobbyView.Add(lobbyForm.Controls[i]);
+            }
             lobbyForm.Controls.Clear();
             lobbyForm.BackColor = Color.SandyBrown;
             resizeForm();
@@ -203,7 +206,15 @@ namespace AIMProClient.Controllers
 
         public void krajIgre() {
             MessageBox.Show("Kraj igre");
+            lobbyForm.WindowState = FormWindowState.Normal;
+            this.lobbyForm.Size = new Size(950, 500);
             this.lobbyForm.Controls.Clear();
+            for (int i = 0; i < lobbyView.Count; i++)
+            {
+                if(lobbyView[i].Name != "readyBtn")
+                lobbyForm.Controls.Add(lobbyView[i]);
+            }
+            
         }
     }
 }

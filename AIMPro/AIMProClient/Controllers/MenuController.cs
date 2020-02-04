@@ -271,6 +271,9 @@ namespace AIMProClient.Controllers
 
         public void enterMenuFormFromJoin()
         {
+            MenuForm mf = new MenuForm(logovaniKorisnik);
+            mf.Show();
+            FormLayer.Instance.menuForm = mf;
             FormLayer.Instance.joinRoomForm = null;
         }
     }

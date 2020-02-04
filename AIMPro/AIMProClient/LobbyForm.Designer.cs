@@ -515,7 +515,7 @@
             // 
             this.backBtn.BackgroundImage = global::AIMProClient.Properties.Resources.nazadd;
             this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.backBtn.Location = new System.Drawing.Point(1005, 354);
+            this.backBtn.Location = new System.Drawing.Point(781, 411);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(72, 24);
             this.backBtn.TabIndex = 1;
@@ -536,7 +536,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 479);
+            this.ClientSize = new System.Drawing.Size(934, 461);
             this.Controls.Add(this.readyBtn);
             this.Controls.Add(this.player4GroupBox);
             this.Controls.Add(this.player3GroupBox);
