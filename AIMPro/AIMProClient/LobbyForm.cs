@@ -19,6 +19,14 @@ namespace AIMProClient
         public LobbyController lobbyController;
         public GameController gameController;
         public bool borderFlag = false;
+
+        protected Label[] usernames;
+        protected Label[] eloLabel;
+        protected Label[] points;
+        protected Label[] numOfHits;
+        protected Label[] numOfMisses;
+        protected Label[] ready;
+
         public LobbyForm(MenuController menuController, AIMProService.RoomState roomState)
         {
             InitializeComponent();
@@ -30,6 +38,40 @@ namespace AIMProClient
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             //this.readyBtn.Enabled = false;
+
+            usernames = new Label[4];
+            eloLabel = new Label[4];
+            points = new Label[4];
+            numOfHits = new Label[4];
+            numOfMisses = new Label[4];
+            ready = new Label[4];
+
+            usernames[0] = p1UsernameLbl;
+            usernames[1] = p2UsernameLbl;
+            usernames[2] = p3UsernameLbl;
+            usernames[3] = p4UsernameLbl;
+
+            eloLabel[0] = p1EloLbl;
+            eloLabel[1] = p2EloLbl;
+            eloLabel[2] = p3EloLbl;
+            eloLabel[3] = p4EloLbl;
+
+            points[0] = p1PointsLbl;
+            points[1] = p2PointsLbl;
+            points[2] = p3PointsLbl;
+            points[3] = p4PointsLbl;
+
+            numOfHits[0] = p1NumHitsLbl;
+            numOfHits[1] = p2NumHitsLbl;
+            numOfHits[2] = p3NumHitsLbl;
+            numOfHits[3] = p4NumHitsLbl;
+
+            numOfMisses[0] = p1NumMissesLbl;
+            numOfMisses[1] = p2NumMissesLbl;
+            numOfMisses[2] = p3NumMissesLbl;
+            numOfMisses[3] = p4NumMissesLbl;
+
+
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -83,78 +125,88 @@ namespace AIMProClient
                 player4GroupBox.Visible = niz[3];
         }
         private void osveziUsers(List<Shooter> nizUsera) {
-            if (nizUsera.Count == 1)
+
+            for(int i =0; i < nizUsera.Count; i++)
             {
-                p1UsernameLbl.Text = nizUsera[0].username;
-                p1EloLbl.Text = nizUsera[0].elo.ToString();
-                p1PointsLbl.Text= nizUsera[0].points.ToString();
-                p1NumHitsLbl.Text= nizUsera[0].numberOfHits.ToString();
-                p1NumMissesLbl.Text= nizUsera[0].numbeerOfMisses.ToString();
-
+                usernames[i].Text = nizUsera[i].username;
+                eloLabel[i].Text = nizUsera[i].elo.ToString();
+                points[i].Text = nizUsera[i].points.ToString();
+                numOfHits[i].Text = nizUsera[i].numberOfHits.ToString();
+                numOfMisses[i].Text = nizUsera[i].numbeerOfMisses.ToString();
             }
-            if (nizUsera.Count == 2)
-            {
-                p1UsernameLbl.Text = nizUsera[0].username;
-                p1EloLbl.Text = nizUsera[0].elo.ToString();
-                p1PointsLbl.Text = nizUsera[0].points.ToString();
-                p1NumHitsLbl.Text = nizUsera[0].numberOfHits.ToString();
-                p1NumMissesLbl.Text = nizUsera[0].numbeerOfMisses.ToString();
 
-                p2UsernameLbl.Text = nizUsera[1].username;
-                p2EloLbl.Text = nizUsera[1].elo.ToString();
-                p2PointsLbl.Text = nizUsera[1].points.ToString();
-                p2NumHitsLbl.Text = nizUsera[1].numberOfHits.ToString();
-                p2NumMissesLbl.Text = nizUsera[1].numbeerOfMisses.ToString();
-            }
-            if (nizUsera.Count == 3)
-            {
-                p1UsernameLbl.Text = nizUsera[0].username;
-                p1EloLbl.Text = nizUsera[0].elo.ToString();
-                p1PointsLbl.Text = nizUsera[0].points.ToString();
-                p1NumHitsLbl.Text = nizUsera[0].numberOfHits.ToString();
-                p1NumMissesLbl.Text = nizUsera[0].numbeerOfMisses.ToString();
+            //if (nizUsera.Count == 1)
+            //{
+            //    p1UsernameLbl.Text = nizUsera[0].username;
+            //    p1EloLbl.Text = nizUsera[0].elo.ToString();
+            //    p1PointsLbl.Text= nizUsera[0].points.ToString();
+            //    p1NumHitsLbl.Text= nizUsera[0].numberOfHits.ToString();
+            //    p1NumMissesLbl.Text= nizUsera[0].numbeerOfMisses.ToString();
 
-                p2UsernameLbl.Text = nizUsera[1].username;
-                p2EloLbl.Text = nizUsera[1].elo.ToString();
-                p2PointsLbl.Text = nizUsera[1].points.ToString();
-                p2NumHitsLbl.Text = nizUsera[1].numberOfHits.ToString();
-                p2NumMissesLbl.Text = nizUsera[1].numbeerOfMisses.ToString();
+            //}
+            //if (nizUsera.Count == 2)
+            //{
+            //    p1UsernameLbl.Text = nizUsera[0].username;
+            //    p1EloLbl.Text = nizUsera[0].elo.ToString();
+            //    p1PointsLbl.Text = nizUsera[0].points.ToString();
+            //    p1NumHitsLbl.Text = nizUsera[0].numberOfHits.ToString();
+            //    p1NumMissesLbl.Text = nizUsera[0].numbeerOfMisses.ToString();
 
-                p3UsernameLbl.Text = nizUsera[2].username;
-                p3EloLbl.Text = nizUsera[2].elo.ToString();
-                p3PointsLbl.Text = nizUsera[2].points.ToString();
-                p3NumHitsLbl.Text = nizUsera[2].numberOfHits.ToString();
-                p3NumMissesLbl.Text = nizUsera[2].numbeerOfMisses.ToString();
-            }
-            else if (nizUsera.Count == 4)
-            {
-                p1UsernameLbl.Text = nizUsera[0].username;
-                p1EloLbl.Text = nizUsera[0].elo.ToString();
-                p1PointsLbl.Text = nizUsera[0].points.ToString();
-                p1NumHitsLbl.Text = nizUsera[0].numberOfHits.ToString();
-                p1NumMissesLbl.Text = nizUsera[0].numbeerOfMisses.ToString();
+            //    p2UsernameLbl.Text = nizUsera[1].username;
+            //    p2EloLbl.Text = nizUsera[1].elo.ToString();
+            //    p2PointsLbl.Text = nizUsera[1].points.ToString();
+            //    p2NumHitsLbl.Text = nizUsera[1].numberOfHits.ToString();
+            //    p2NumMissesLbl.Text = nizUsera[1].numbeerOfMisses.ToString();
+            //}
+            //if (nizUsera.Count == 3)
+            //{
+            //    p1UsernameLbl.Text = nizUsera[0].username;
+            //    p1EloLbl.Text = nizUsera[0].elo.ToString();
+            //    p1PointsLbl.Text = nizUsera[0].points.ToString();
+            //    p1NumHitsLbl.Text = nizUsera[0].numberOfHits.ToString();
+            //    p1NumMissesLbl.Text = nizUsera[0].numbeerOfMisses.ToString();
 
+            //    p2UsernameLbl.Text = nizUsera[1].username;
+            //    p2EloLbl.Text = nizUsera[1].elo.ToString();
+            //    p2PointsLbl.Text = nizUsera[1].points.ToString();
+            //    p2NumHitsLbl.Text = nizUsera[1].numberOfHits.ToString();
+            //    p2NumMissesLbl.Text = nizUsera[1].numbeerOfMisses.ToString();
 
-                p2UsernameLbl.Text = nizUsera[1].username;
-                p2EloLbl.Text = nizUsera[1].elo.ToString();
-                p2PointsLbl.Text = nizUsera[1].points.ToString();
-                p2NumHitsLbl.Text = nizUsera[1].numberOfHits.ToString();
-                p2NumMissesLbl.Text = nizUsera[1].numbeerOfMisses.ToString();
-
-
-                p3UsernameLbl.Text = nizUsera[2].username;
-                p3EloLbl.Text = nizUsera[2].elo.ToString();
-                p3PointsLbl.Text = nizUsera[2].points.ToString();
-                p3NumHitsLbl.Text = nizUsera[2].numberOfHits.ToString();
-                p3NumMissesLbl.Text = nizUsera[2].numbeerOfMisses.ToString();
+            //    p3UsernameLbl.Text = nizUsera[2].username;
+            //    p3EloLbl.Text = nizUsera[2].elo.ToString();
+            //    p3PointsLbl.Text = nizUsera[2].points.ToString();
+            //    p3NumHitsLbl.Text = nizUsera[2].numberOfHits.ToString();
+            //    p3NumMissesLbl.Text = nizUsera[2].numbeerOfMisses.ToString();
+            //}
+            //else if (nizUsera.Count == 4)
+            //{
+            //    p1UsernameLbl.Text = nizUsera[0].username;
+            //    p1EloLbl.Text = nizUsera[0].elo.ToString();
+            //    p1PointsLbl.Text = nizUsera[0].points.ToString();
+            //    p1NumHitsLbl.Text = nizUsera[0].numberOfHits.ToString();
+            //    p1NumMissesLbl.Text = nizUsera[0].numbeerOfMisses.ToString();
 
 
-                p4UsernameLbl.Text = nizUsera[3].username;
-                p4EloLbl.Text = nizUsera[3].elo.ToString();
-                p4PointsLbl.Text = nizUsera[3].points.ToString();
-                p4NumHitsLbl.Text = nizUsera[3].numberOfHits.ToString();
-                p4NumMissesLbl.Text = nizUsera[3].numbeerOfMisses.ToString();
-            }
+            //    p2UsernameLbl.Text = nizUsera[1].username;
+            //    p2EloLbl.Text = nizUsera[1].elo.ToString();
+            //    p2PointsLbl.Text = nizUsera[1].points.ToString();
+            //    p2NumHitsLbl.Text = nizUsera[1].numberOfHits.ToString();
+            //    p2NumMissesLbl.Text = nizUsera[1].numbeerOfMisses.ToString();
+
+
+            //    p3UsernameLbl.Text = nizUsera[2].username;
+            //    p3EloLbl.Text = nizUsera[2].elo.ToString();
+            //    p3PointsLbl.Text = nizUsera[2].points.ToString();
+            //    p3NumHitsLbl.Text = nizUsera[2].numberOfHits.ToString();
+            //    p3NumMissesLbl.Text = nizUsera[2].numbeerOfMisses.ToString();
+
+
+            //    p4UsernameLbl.Text = nizUsera[3].username;
+            //    p4EloLbl.Text = nizUsera[3].elo.ToString();
+            //    p4PointsLbl.Text = nizUsera[3].points.ToString();
+            //    p4NumHitsLbl.Text = nizUsera[3].numberOfHits.ToString();
+            //    p4NumMissesLbl.Text = nizUsera[3].numbeerOfMisses.ToString();
+            //}
         }
 
         private void readyBtn_Click(object sender, EventArgs e)

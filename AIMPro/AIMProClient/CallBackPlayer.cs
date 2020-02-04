@@ -43,6 +43,7 @@ public class CallBackPlayer : IAIMProServerServiceCallback
     public void updateTargets(List<Target> targets)
     {
         FormLayer.Instance.lobbyForm.gameController.targets = targets;
+        FormLayer.Instance.lobbyForm.gameController.targets.Reverse();
         FormLayer.Instance.lobbyForm.gameController.canvas.Invalidate();
     }
 }
