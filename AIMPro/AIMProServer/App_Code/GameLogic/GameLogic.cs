@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Timers;
 using System.Web;
 
 /// <summary>
@@ -8,6 +9,7 @@ using System.Web;
 /// </summary>
 public abstract class GameLogic
 {
+    public Timer timer;
 
     public Room room { get; set; }
     public Dictionary<string, Shooter> players { get; set; }
@@ -24,6 +26,14 @@ public abstract class GameLogic
 
     public abstract void submitHit(string username, int x, int y);
 
+
+    protected void gameEnds(object sender, ElapsedEventArgs e)
+    {
+        timer.Stop();
+        publisher.NotifyGameStoped();
+        saveResults();
+        this.room.FinishGame();
+    }
 
 
     public void saveResults()
@@ -55,12 +65,12 @@ public abstract class GameLogic
 
             db.UpdateUsers(usersAndReuslts, newMatch);
 
-        
         }
     }
 
     public GameLogic()
     {
-
+        timer = new Timer(1000 * 60 * 1);
+        timer.Elapsed += gameEnds;
     }
 }

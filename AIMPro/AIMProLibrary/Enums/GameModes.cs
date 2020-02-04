@@ -7,5 +7,6 @@ public enum GameMode
     MultyPlayerShootOut =  2,
     FastShooting= 4,
     PreciseShooting=8,
-    EndlessCampaign=16
+    EndlessCampaign=16,
+    SoloShooting =32
 }

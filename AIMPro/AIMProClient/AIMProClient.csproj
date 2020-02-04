@@ -86,6 +86,7 @@
     <Compile Include="CreateRoomForm.Designer.cs">
       <DependentUpon>CreateRoomForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Crosshairs\Crosshair.cs" />
     <Compile Include="DrawingStrategy\BazookaNisan.cs" />
     <Compile Include="DrawingStrategy\BoostTarget.cs" />
     <Compile Include="DrawingStrategy\ICursorDrawing.cs" />

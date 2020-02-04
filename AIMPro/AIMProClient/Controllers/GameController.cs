@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using AIMProClient.DrawingStrategy;
 using BoostTarget = AIMProClient.DrawingStrategy.BoostTarget;
+using AIMProClient.Crosshairs;
 
 namespace AIMProClient.Controllers
 {
@@ -32,8 +33,15 @@ namespace AIMProClient.Controllers
         Color[] nizBoja = { Color.FromArgb(255, 0, 0), Color.FromArgb(155, 255, 80), Color.FromArgb(0, 0, 205), Color.FromArgb(255, 150, 170), Color.FromArgb(15, 70, 240) };
         int indexBoja = 0;
         List<Control> lobbyView = new List<Control>();
+        Crosshair crosshair;
 
-        public GameController(LobbyForm lf) {
+
+        public GameController()
+        {
+             crosshair= new Crosshair(this);
+        }
+
+        public GameController(LobbyForm lf) :this() {
             this.lobbyForm = lf;
         }
 
@@ -105,7 +113,7 @@ namespace AIMProClient.Controllers
             int toSendY = (int)(cursorY * pomy);
             updateScore(100, nizBoja[indexBoja]);
             indexBoja = (indexBoja + 1) % 5;
-            CommunicationLayer.Instance.submitHit(toSendX, toSendY);
+            crosshair.submitHit(toSendX, toSendY);
         }
 
         private void gameCanvas_MouseEnter(object sender, System.EventArgs e){

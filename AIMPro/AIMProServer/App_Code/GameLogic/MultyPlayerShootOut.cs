@@ -9,8 +9,7 @@ using System.Web;
 /// </summary>
 public class MultyPlayerShootOut : GameLogic
 {
-    Timer timer;
-
+    
     const int maxNumberOfTargetsAtTheSameTime = 10;
     public MultyPlayerShootOut()
     {
@@ -64,20 +63,10 @@ public class MultyPlayerShootOut : GameLogic
         publisher.UpdateTargets(targets);
         publisher.NotifyGameStart();
 
-        timer = new Timer(1000 * 60 * 1);
-        timer.Elapsed += gameEnds;
         timer.Start();
 
     }
 
-
-    void gameEnds(object sender, ElapsedEventArgs e)
-    {
-        timer.Stop();
-        publisher.NotifyGameStoped();
-        saveResults();
-        this.room.FinishGame();
-    }
 
     public override void submitHit(string username, int x, int y)
     {
