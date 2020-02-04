@@ -18,6 +18,7 @@ namespace AIMProClient
         MenuController menuController;
         public LobbyController lobbyController;
         public GameController gameController;
+        public bool borderFlag = false;
         public LobbyForm(MenuController menuController, AIMProService.RoomState roomState)
         {
             InitializeComponent();
@@ -172,6 +173,12 @@ namespace AIMProClient
         private void LobbyForm_Resize(object sender, EventArgs e)
         {
             this.gameController.resizeEvent(sender,e);
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            if(borderFlag == true)
+                ControlPaint.DrawBorder(e.Graphics, ClientRectangle, Color.FromArgb(0,0,0), ButtonBorderStyle.Solid);
         }
     }
 }

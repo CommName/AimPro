@@ -47,6 +47,7 @@ namespace AIMProClient.Controllers
             lobbyForm.BackColor = Color.SandyBrown;
             resizeForm();
             loadGameControlls();
+
         }
 
         public void resizeForm() {
@@ -56,6 +57,8 @@ namespace AIMProClient.Controllers
             lobbyForm.WindowState = FormWindowState.Maximized;
             lobbyForm.Location = new Point(0, 0);
             lobbyForm.Text = "AimPRO Game";
+            this.lobbyForm.borderFlag = true;//
+            this.lobbyForm.Invalidate();//
         }
 
         public void loadGameControlls() {
@@ -67,7 +70,7 @@ namespace AIMProClient.Controllers
         private void gameCanvas_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-
+            ControlPaint.DrawBorder(g, canvas.ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
             double unitx = canvas.Width/1000.0;
             double unity = canvas.Height/1000.0;
 
@@ -165,6 +168,7 @@ namespace AIMProClient.Controllers
             score.Location = new Point(lobbyForm.Width - lobbyForm.Width / 5, lobbyForm.Height - 80);
             scoreLabel = score;
             lobbyForm.Controls.Add(score);
+            generisiTimer();
         }
 
         private void generisiTimer() {
@@ -214,7 +218,8 @@ namespace AIMProClient.Controllers
                 if(lobbyView[i].Name != "readyBtn")
                 lobbyForm.Controls.Add(lobbyView[i]);
             }
-            
+            this.lobbyForm.borderFlag = false;//
+            this.lobbyForm.Invalidate();//
         }
     }
 }

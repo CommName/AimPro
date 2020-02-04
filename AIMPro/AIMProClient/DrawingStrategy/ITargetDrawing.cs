@@ -13,6 +13,7 @@ namespace AIMProClient.DrawingStrategy
         public int y;
         public int r;
         public Color boja;
+        public Color bojaOlovke = Color.FromArgb(0, 0, 0);
 
 
         public ITargetDrawing()
@@ -25,7 +26,9 @@ namespace AIMProClient.DrawingStrategy
 
         public virtual void CrtajMetu(Graphics g) {
             Brush brush = new SolidBrush(boja);
+            Pen olovka = new Pen(bojaOlovke,2);
             g.FillEllipse(brush, x - r, y - r, 2 * r, 2 * r);
+            g.DrawEllipse(olovka, x - r, y - r, 2 * r, 2 * r);
         }
 
         public Color generisiInverznuBoju()
