@@ -47,8 +47,9 @@ public class Room
             return;
 
         players[username].ready = true;
+        subscriber.PlayersInTheRoom(players);
 
-        //Proverava da li su svi spremni
+        
         foreach(var player in players)
         {
             if (!player.Value.ready)

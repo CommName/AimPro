@@ -71,6 +71,8 @@ public abstract class GameLogic
 
         publisher.NotifyGameStoped();
         saveResults();
+        Dictionary<string, Shooter> copy = new Dictionary<string, Shooter>(players);
+        publisher.PlayersInTheRoom(copy);
         this.room.FinishGame();
     }
 
