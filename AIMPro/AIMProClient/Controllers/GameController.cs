@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using AIMProClient.DrawingStrategy;
+using BoostTarget = AIMProClient.DrawingStrategy.BoostTarget;
 
 namespace AIMProClient.Controllers
 {

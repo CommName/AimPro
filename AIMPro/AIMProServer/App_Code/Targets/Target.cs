@@ -14,6 +14,10 @@ using System.Web;
 /// 
 
 [DataContract]
+[KnownType(typeof(NegativeTargets))]
+[KnownType(typeof(ShieldedTarget))]
+[KnownType(typeof(BoostTarget))]
+[KnownType(typeof(ChildTargets))]
 public class Target
 {
     [DataMember]
@@ -35,12 +39,22 @@ public class Target
 
     public Target()
     {
+        radius = 50;
+        pointsWorth = 10;
+        type = TargetTypes.None;
+    }
+
+    public Target(Target target) : this()
+    {
+        this.radius = target.radius;
+        this.x = target.x;
+        this.y = target.y;
+        this.activeTargets = target.activeTargets;
 
     }
 
 
-
-    public bool TryToHit(Shooter player, int x, int y)
+    virtual public bool TryToHit(Shooter player, int x, int y)
     {
         if (isInCircle(x, y))
         {
