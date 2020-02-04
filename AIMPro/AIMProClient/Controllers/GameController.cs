@@ -32,7 +32,7 @@ namespace AIMProClient.Controllers
         public List<Target> targets;
         Color[] nizBoja = { Color.FromArgb(255, 0, 0), Color.FromArgb(155, 255, 80), Color.FromArgb(0, 0, 205), Color.FromArgb(255, 150, 170), Color.FromArgb(15, 70, 240) };
         int indexBoja = 0;
-        List<Control> lobbyView = new List<Control>();
+        public List<Control> lobbyView = new List<Control>();
         Crosshair crosshair;
 
 
@@ -43,19 +43,18 @@ namespace AIMProClient.Controllers
 
         public GameController(LobbyForm lf) :this() {
             this.lobbyForm = lf;
+            generateCanvas();
+            generateNaslov();
+            generisiScoreLabelu();
         }
 
         public void loadGameView() {
             nisan = new RegularNisan();
             bojaNisana = Color.FromArgb(0,255,0);
-            for (int i = 0; i < lobbyForm.Controls.Count; i++) {
-                lobbyView.Add(lobbyForm.Controls[i]);
-            }
             lobbyForm.Controls.Clear();
             lobbyForm.BackColor = Color.SandyBrown;
             resizeForm();
             loadGameControlls();
-
         }
 
         public void resizeForm() {
@@ -65,14 +64,13 @@ namespace AIMProClient.Controllers
             lobbyForm.WindowState = FormWindowState.Maximized;
             lobbyForm.Location = new Point(0, 0);
             lobbyForm.Text = "AimPRO Game";
-            this.lobbyForm.borderFlag = true;//
-            this.lobbyForm.Invalidate();//
+            this.lobbyForm.Invalidate();
         }
 
         public void loadGameControlls() {
-            generateCanvas();
-            generateNaslov();
-            generisiScoreLabelu();
+            this.lobbyForm.Controls.Add(canvas);
+            this.lobbyForm.Controls.Add(naslov);
+            this.lobbyForm.Controls.Add(scoreLabel);
         }
 
         private void gameCanvas_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
@@ -111,8 +109,6 @@ namespace AIMProClient.Controllers
             double pomy = 1000.0 / canvas.Height;
             int toSendX =(int) (cursorX * pomx);
             int toSendY = (int)(cursorY * pomy);
-            updateScore(100, nizBoja[indexBoja]);
-            indexBoja = (indexBoja + 1) % 5;
             crosshair.submitHit(toSendX, toSendY);
         }
 
@@ -157,7 +153,6 @@ namespace AIMProClient.Controllers
             gameCanvas.MouseMove += new MouseEventHandler(gameCanvas_MouseMove);
             lobbyForm.KeyDown += new KeyEventHandler(lobbyForm_KeyDown);
             this.canvas= gameCanvas;
-            lobbyForm.Controls.Add(gameCanvas);
         }
 
         private void generateNaslov() {
@@ -166,7 +161,6 @@ namespace AIMProClient.Controllers
             naslov.Font = new Font("Modern No. 20", 18, FontStyle.Underline);
             naslov.Location = new Point(lobbyForm.Width / 6, lobbyForm.Height - 80);
             this.naslov = naslov;
-            lobbyForm.Controls.Add(naslov);
         }
 
         private void generisiScoreLabelu() {
@@ -175,8 +169,6 @@ namespace AIMProClient.Controllers
             score.Font = new Font("Modern No. 20", 20, FontStyle.Underline);
             score.Location = new Point(lobbyForm.Width - lobbyForm.Width / 5, lobbyForm.Height - 80);
             scoreLabel = score;
-            lobbyForm.Controls.Add(score);
-            generisiTimer();
         }
 
         private void generisiTimer() {
@@ -197,11 +189,12 @@ namespace AIMProClient.Controllers
             this.timer = null;
         }
 
-        private void updateScore(int noviScore, Color boja){
+        public void updateScore(int noviScore){
             this.Score = noviScore;
             scoreLabel.Show();
             scoreLabel.Text = "Score : " + Score.ToString() + " ";
-            scoreLabel.ForeColor = boja;
+            scoreLabel.ForeColor = nizBoja[indexBoja];
+            indexBoja = (indexBoja + 1) % 5;
             generisiTimer();
         }
 
@@ -217,7 +210,8 @@ namespace AIMProClient.Controllers
         }
 
         public void krajIgre() {
-            MessageBox.Show("Kraj igre");
+            // MessageBox.Show("Game Ended.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.lobbyForm.gameNotEnd = false;
             lobbyForm.WindowState = FormWindowState.Normal;
             this.lobbyForm.Size = new Size(950, 500);
             this.lobbyForm.Controls.Clear();
@@ -226,8 +220,7 @@ namespace AIMProClient.Controllers
                 if(lobbyView[i].Name != "readyBtn")
                 lobbyForm.Controls.Add(lobbyView[i]);
             }
-            this.lobbyForm.borderFlag = false;//
-            this.lobbyForm.Invalidate();//
+            this.lobbyForm.Invalidate();
         }
     }
 }

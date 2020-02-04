@@ -15,6 +15,7 @@ namespace AIMProClient
     public partial class JoinRoomForm : Form
     {
         MenuController controller;
+        public bool ideUMenu = false;
         public JoinRoomForm(MenuController controller)
         {
             InitializeComponent();
@@ -47,13 +48,14 @@ namespace AIMProClient
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            //this.controller.enterMenuFormFromJoin();
+            ideUMenu = true;
             this.Close();
         }
 
         private void JoinRoomForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.controller.enterMenuFormFromJoin();
+            if (ideUMenu == true)
+                this.controller.enterMenuFormFromJoin();
         }
     }
 }

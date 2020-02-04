@@ -23,17 +23,25 @@ namespace AIMProClient.Controllers
             get { return this.listaMogucihSoba; }
         }
 
-        internal void leaveLobby()
+        internal void leaveLobby(bool leaving)
         {
-            FormLayer.Instance.lobbyForm.Hide();
+            //FormLayer.Instance.lobbyForm.Hide();
             if (FormLayer.Instance.joinRoomForm == null)
             {
                 FormLayer.Instance.joinRoomForm = new JoinRoomForm(this);
             }
-            CommunicationLayer.Instance.leaveLobby();
-            getRooms();
+            if (leaving)
+            {
+                CommunicationLayer.Instance.leaveLobby();
+                getRooms();
+            }
+            MessageBox.Show("1");
+            FormLayer.Instance.joinRoomForm.ideUMenu = false;
+            MessageBox.Show("2");
             FormLayer.Instance.joinRoomForm.Show();
+            MessageBox.Show("3");
             FormLayer.Instance.joinRoomForm.RefreshTable(ListaMogucihSoba);
+            MessageBox.Show("4");
         }
 
         internal void leaveLobbyAndGame() {
@@ -100,7 +108,7 @@ namespace AIMProClient.Controllers
             FormLayer.Instance.menuForm.Close();
             JoinRoomForm jrf = new JoinRoomForm(this);
             FormLayer.Instance.joinRoomForm = jrf;
-            jrf.ShowDialog();
+            jrf.Show();
         }
 
         public void setCreateRoom(CreateRoomForm crf) {
@@ -126,9 +134,10 @@ namespace AIMProClient.Controllers
             }
             else //public room
             {
+                CommunicationLayer.Instance.joinRoom(listaMogucihSoba[i].ID);
                 udjiULobby(i);
                 //FormLayer.Instance.joinRoomForm.Close();
-                CommunicationLayer.Instance.joinRoom(listaMogucihSoba[i].ID);
+                
             }
         }
 
@@ -139,8 +148,13 @@ namespace AIMProClient.Controllers
         public void udjiULobby (int i) {
             if (FormLayer.Instance.joinRoomForm != null)
             {
-                FormLayer.Instance.joinRoomForm.Hide();
+                // FormLayer.Instance.joinRoomForm.Hide();
+                FormLayer.Instance.joinRoomForm.Close();
+                FormLayer.Instance.joinRoomForm = null;
             }
+            //FormLayer.Instance.menuForm.exitApp = false;
+            // FormLayer.Instance.menuForm.Close();
+
             FormLayer.Instance.lobbyForm.Show();
             FormLayer.Instance.lobbyForm.appClose = true;
         }

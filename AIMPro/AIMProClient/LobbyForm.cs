@@ -18,7 +18,7 @@ namespace AIMProClient
         MenuController menuController;
         public LobbyController lobbyController;
         public GameController gameController;
-        public bool borderFlag = false;
+        public bool gameNotEnd = true;
         public LobbyForm(MenuController menuController, AIMProService.RoomState roomState)
         {
             InitializeComponent();
@@ -34,14 +34,14 @@ namespace AIMProClient
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            this.menuController.leaveLobby();
+            this.menuController.leaveLobby(gameNotEnd);
             this.appClose = false;
             this.Hide();
         }
 
         private void LobbyForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.menuController.leaveLobbyAndGame();
+            //this.menuController.leaveLobbyAndGame();
             if (this.appClose == true)
                 FormLayer.Instance.mainForm.Close();
         }
@@ -159,10 +159,11 @@ namespace AIMProClient
 
         private void readyBtn_Click(object sender, EventArgs e)
         {
-            // this.lobbyController.userReady();
-            gameController = new GameController(this);
-            CommunicationLayer.Instance.userReady();
-            gameController.loadGameView();
+            for (int i = 0; i < this.Controls.Count; i++)
+            {
+                this.gameController.lobbyView.Add(this.Controls[i]);
+            }
+            this.lobbyController.userReady();
         }
 
         private void LobbyForm_Shown(object sender, EventArgs e)
@@ -177,8 +178,7 @@ namespace AIMProClient
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            if(borderFlag == true)
-                ControlPaint.DrawBorder(e.Graphics, ClientRectangle, Color.FromArgb(0,0,0), ButtonBorderStyle.Solid);
+          
         }
     }
 }

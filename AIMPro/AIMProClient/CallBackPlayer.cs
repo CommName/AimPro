@@ -16,13 +16,14 @@ public class CallBackPlayer : IAIMProServerServiceCallback
     public void EarnedPoints(int points)
     {
         //MessageBox.Show(points.ToString());
+        FormLayer.Instance.lobbyForm.gameController.updateScore(points);
     }
 
     public void GameStarted()
     {
         //Call game view
-
-        MessageBox.Show("Pocetak igre");
+        FormLayer.Instance.lobbyForm.gameController.loadGameView();
+        //MessageBox.Show("Pocetak igre");
     }
 
     public void GameStats()
