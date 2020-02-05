@@ -35,7 +35,7 @@ public class FastShooting : GameLogic
         playersGame = new Dictionary<string, MultyPlayerShootOut>();
         foreach(var shooter in players)
         {
-            MultyPlayerShootOut game = new MultyPlayerShootOut(this.seed);
+            MultyPlayerShootOut game = new MultyPlayerShootOut(this.seed, TargetTypesAllowed);
             
             Dictionary<string, Shooter> localPlayers = new Dictionary<string, Shooter>();
             localPlayers.Add(shooter.Key, shooter.Value);

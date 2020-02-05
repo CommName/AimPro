@@ -11,29 +11,34 @@ using System.Web;
 [DataContract]
 public class ChildTargets : Target
 {
-    Random random;
+
+    Target firstChild;
+    Target secondChild;
+
     public ChildTargets() : base()
     {
-        random = new Random();
+
     }
 
     public ChildTargets(Random r) : base()
     {
-        random = r;
+        firstChild = new Target();
+        firstChild.x = r.Next() % TargetFactory.winSizeX;
+        firstChild.y = r.Next() % TargetFactory.winSzieY;
+        secondChild = new Target();
+        secondChild.x = r.Next() % TargetFactory.winSizeX;
+        secondChild.y = r.Next() % TargetFactory.winSzieY;
     }
 
 
     public override bool TryToHit(Shooter player, int x, int y)
     {
+
         if (base.TryToHit(player, x, y))
         {
-            Target firstChild = new Target();
-            firstChild.x = random.Next() % 1000;
-            firstChild.y = random.Next() % 1000;
+
             firstChild.activeTargets = this.activeTargets;
-            Target secondChild = new Target();
-            secondChild.x = random.Next() % 1000;
-            secondChild.y = random.Next() % 1000;
+
             secondChild.activeTargets = this.activeTargets;
             this.activeTargets.Add(firstChild);
             this.activeTargets.Add(secondChild);
