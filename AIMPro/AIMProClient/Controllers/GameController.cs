@@ -103,12 +103,12 @@ namespace AIMProClient.Controllers
                     }
                     crtacMeta.x =(int) (t.x *unitx) ;
                     crtacMeta.y = (int)(t.y *unity);
-                    crtacMeta.r =(unitx <= unity) ?  (int) (t.radius *unitx) : (int) (t.radius * unity);
+                    crtacMeta.r = (unitx <= unity) ?  (int) (t.radius *unitx) : (int) (t.radius * unity);
                     crtacMeta.CrtajMetu(g);
                 }
             }
-            double percentToScale = (unitx <= unity) ? (double)( unitx*1.5) : (double)( unity*1.5);
-            bazookaKoef = percentToScale;
+            double percentToScale = (unitx <= unity) ? (double)( unitx) : (double)( unity);
+         
             nisan.CrtajNisan(g,cursorX,cursorY,percentToScale, bojaNisana);
         }
 
@@ -138,12 +138,14 @@ namespace AIMProClient.Controllers
         {
             if (e.KeyCode == Keys.B) {
                 nisan = new BazookaNisan();
-                crosshair = new Piercing(this);
+                crosshair = new Bazooka(70 , this);
+                
             }
             else if (e.KeyCode == Keys.P) {
                 bojaNisana = Color.FromArgb(255, 255, 127, 80);
                 nisan = new PiercingNisan();
-                crosshair = new Bazooka(Convert.ToInt32(70 * bazookaKoef) , this);
+                crosshair = new Piercing(this);
+
             }
             else if (e.KeyCode == Keys.R) {
                 bojaNisana = Color.FromArgb(0, 255, 0);
