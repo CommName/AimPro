@@ -54,7 +54,6 @@ namespace AIMProClient.Controllers
             nisan = new RegularNisan();
             bojaNisana = Color.FromArgb(0,255,0);
             lobbyForm.BackColor = Color.SandyBrown;
-            this.lobbyForm.Controls.Clear();
             resizeForm();
             loadGameControlls();
         }
@@ -230,13 +229,12 @@ namespace AIMProClient.Controllers
             this.lobbyForm.gameNotEnd = false;
             lobbyForm.WindowState = FormWindowState.Normal;
             this.lobbyForm.Size = new Size(950, 500);
-            this.lobbyForm.Controls.Clear();
+            this.lobbyForm.Controls.Remove(canvas);
+            this.lobbyForm.Controls.Remove(stoperica);
+            this.lobbyForm.Controls.Remove(scoreLabel);
+            this.lobbyForm.scoreView();
             
-            /*for (int i = 0; i < lobbyView.Count; i++)
-            {
-                if (lobbyView[i].Name != "readyBtn" && lobbyView[i].Name!= "backBtn")
-                    lobbyForm.Controls.Add(lobbyView[i]);
-            }*/
+
             this.lobbyForm.Invalidate();
         }
     }

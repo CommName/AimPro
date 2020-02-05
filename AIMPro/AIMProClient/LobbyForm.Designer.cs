@@ -83,6 +83,10 @@
             this.label17 = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.readyBtn = new System.Windows.Forms.Button();
+            this.p1place = new System.Windows.Forms.Label();
+            this.p2place = new System.Windows.Forms.Label();
+            this.p3place = new System.Windows.Forms.Label();
+            this.p4place = new System.Windows.Forms.Label();
             this.player1GroupBox.SuspendLayout();
             this.player2GroupBox.SuspendLayout();
             this.player3GroupBox.SuspendLayout();
@@ -104,6 +108,7 @@
             this.player1GroupBox.Controls.Add(this.p1readylabel);
             this.player1GroupBox.Controls.Add(this.label19);
             this.player1GroupBox.Controls.Add(this.p1NumMissesLbl);
+            this.player1GroupBox.Controls.Add(this.p1place);
             this.player1GroupBox.Controls.Add(this.label1);
             this.player1GroupBox.Controls.Add(this.p1NumHitsLbl);
             this.player1GroupBox.Controls.Add(this.p1EloLbl);
@@ -226,6 +231,7 @@
             // player2GroupBox
             // 
             this.player2GroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.player2GroupBox.Controls.Add(this.p2place);
             this.player2GroupBox.Controls.Add(this.p2readylabel);
             this.player2GroupBox.Controls.Add(this.label22);
             this.player2GroupBox.Controls.Add(this.p2NumMissesLbl);
@@ -352,6 +358,7 @@
             // 
             this.player3GroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.player3GroupBox.Controls.Add(this.p3readylabel);
+            this.player3GroupBox.Controls.Add(this.p3place);
             this.player3GroupBox.Controls.Add(this.label23);
             this.player3GroupBox.Controls.Add(this.p3NumMissesLbl);
             this.player3GroupBox.Controls.Add(this.label2);
@@ -476,6 +483,7 @@
             // player4GroupBox
             // 
             this.player4GroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.player4GroupBox.Controls.Add(this.p4place);
             this.player4GroupBox.Controls.Add(this.p4readylabel);
             this.player4GroupBox.Controls.Add(this.label24);
             this.player4GroupBox.Controls.Add(this.p4NumMissesLbl);
@@ -603,9 +611,9 @@
             this.backBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.backBtn.BackgroundImage = global::AIMProClient.Properties.Resources.nazadd;
             this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.backBtn.Location = new System.Drawing.Point(510, 394);
+            this.backBtn.Location = new System.Drawing.Point(420, 394);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(72, 24);
+            this.backBtn.Size = new System.Drawing.Size(101, 24);
             this.backBtn.TabIndex = 1;
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
@@ -613,13 +621,64 @@
             // readyBtn
             // 
             this.readyBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.readyBtn.Location = new System.Drawing.Point(365, 394);
+            this.readyBtn.Location = new System.Drawing.Point(420, 364);
             this.readyBtn.Name = "readyBtn";
             this.readyBtn.Size = new System.Drawing.Size(101, 24);
             this.readyBtn.TabIndex = 7;
             this.readyBtn.Text = "Ready";
             this.readyBtn.UseVisualStyleBackColor = true;
             this.readyBtn.Click += new System.EventHandler(this.readyBtn_Click);
+            // 
+            // p1place
+            // 
+            this.p1place.AutoSize = true;
+            this.p1place.BackColor = System.Drawing.Color.Transparent;
+            this.p1place.Font = new System.Drawing.Font("Algerian", 48F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p1place.ForeColor = System.Drawing.Color.Gold;
+            this.p1place.Location = new System.Drawing.Point(186, 3);
+            this.p1place.Name = "p1place";
+            this.p1place.Size = new System.Drawing.Size(85, 71);
+            this.p1place.TabIndex = 8;
+            this.p1place.Text = "1.";
+            // 
+            // p2place
+            // 
+            this.p2place.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.p2place.AutoSize = true;
+            this.p2place.BackColor = System.Drawing.Color.Transparent;
+            this.p2place.Font = new System.Drawing.Font("Algerian", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p2place.ForeColor = System.Drawing.Color.Silver;
+            this.p2place.Location = new System.Drawing.Point(198, 20);
+            this.p2place.Name = "p2place";
+            this.p2place.Size = new System.Drawing.Size(65, 54);
+            this.p2place.TabIndex = 9;
+            this.p2place.Text = "2.";
+            // 
+            // p3place
+            // 
+            this.p3place.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.p3place.AutoSize = true;
+            this.p3place.BackColor = System.Drawing.Color.Transparent;
+            this.p3place.Font = new System.Drawing.Font("Algerian", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p3place.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.p3place.Location = new System.Drawing.Point(206, 25);
+            this.p3place.Name = "p3place";
+            this.p3place.Size = new System.Drawing.Size(50, 41);
+            this.p3place.TabIndex = 10;
+            this.p3place.Text = "3.";
+            // 
+            // p4place
+            // 
+            this.p4place.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.p4place.AutoSize = true;
+            this.p4place.BackColor = System.Drawing.Color.Transparent;
+            this.p4place.Font = new System.Drawing.Font("Algerian", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p4place.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.p4place.Location = new System.Drawing.Point(206, 27);
+            this.p4place.Name = "p4place";
+            this.p4place.Size = new System.Drawing.Size(47, 39);
+            this.p4place.TabIndex = 11;
+            this.p4place.Text = "4.";
             // 
             // LobbyForm
             // 
@@ -708,5 +767,9 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label p4readylabel;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label p1place;
+        private System.Windows.Forms.Label p2place;
+        private System.Windows.Forms.Label p3place;
+        private System.Windows.Forms.Label p4place;
     }
 }
