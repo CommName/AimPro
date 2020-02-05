@@ -68,7 +68,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(352, 9);
+            this.label1.Location = new System.Drawing.Point(242, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(283, 24);
             this.label1.TabIndex = 0;
@@ -79,7 +79,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(274, 52);
+            this.label2.Location = new System.Drawing.Point(102, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 17);
             this.label2.TabIndex = 1;
@@ -88,9 +88,9 @@
             // nameTxtBox
             // 
             this.nameTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTxtBox.Location = new System.Drawing.Point(396, 50);
+            this.nameTxtBox.Location = new System.Drawing.Point(243, 49);
             this.nameTxtBox.Name = "nameTxtBox";
-            this.nameTxtBox.Size = new System.Drawing.Size(179, 22);
+            this.nameTxtBox.Size = new System.Drawing.Size(276, 22);
             this.nameTxtBox.TabIndex = 2;
             // 
             // groupBox1
@@ -101,9 +101,9 @@
             this.groupBox1.Controls.Add(this.multyPlayerRb);
             this.groupBox1.Controls.Add(this.duelRb);
             this.groupBox1.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(483, 87);
+            this.groupBox1.Location = new System.Drawing.Point(295, 317);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(223, 209);
+            this.groupBox1.Size = new System.Drawing.Size(207, 187);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Type of Game";
@@ -111,7 +111,7 @@
             // endlessRb
             // 
             this.endlessRb.AutoSize = true;
-            this.endlessRb.Location = new System.Drawing.Point(47, 143);
+            this.endlessRb.Location = new System.Drawing.Point(16, 116);
             this.endlessRb.Name = "endlessRb";
             this.endlessRb.Size = new System.Drawing.Size(122, 19);
             this.endlessRb.TabIndex = 4;
@@ -123,7 +123,7 @@
             // preciseRb
             // 
             this.preciseRb.AutoSize = true;
-            this.preciseRb.Location = new System.Drawing.Point(47, 120);
+            this.preciseRb.Location = new System.Drawing.Point(16, 93);
             this.preciseRb.Name = "preciseRb";
             this.preciseRb.Size = new System.Drawing.Size(113, 19);
             this.preciseRb.TabIndex = 3;
@@ -135,7 +135,7 @@
             // fastRb
             // 
             this.fastRb.AutoSize = true;
-            this.fastRb.Location = new System.Drawing.Point(47, 97);
+            this.fastRb.Location = new System.Drawing.Point(16, 70);
             this.fastRb.Name = "fastRb";
             this.fastRb.Size = new System.Drawing.Size(99, 19);
             this.fastRb.TabIndex = 2;
@@ -147,7 +147,7 @@
             // multyPlayerRb
             // 
             this.multyPlayerRb.AutoSize = true;
-            this.multyPlayerRb.Location = new System.Drawing.Point(47, 74);
+            this.multyPlayerRb.Location = new System.Drawing.Point(16, 47);
             this.multyPlayerRb.Name = "multyPlayerRb";
             this.multyPlayerRb.Size = new System.Drawing.Size(145, 19);
             this.multyPlayerRb.TabIndex = 1;
@@ -159,7 +159,7 @@
             // duelRb
             // 
             this.duelRb.AutoSize = true;
-            this.duelRb.Location = new System.Drawing.Point(47, 51);
+            this.duelRb.Location = new System.Drawing.Point(16, 24);
             this.duelRb.Name = "duelRb";
             this.duelRb.Size = new System.Drawing.Size(50, 19);
             this.duelRb.TabIndex = 0;
@@ -174,12 +174,13 @@
             this.groupBox2.Controls.Add(this.privateRb);
             this.groupBox2.Controls.Add(this.publicRb);
             this.groupBox2.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(712, 87);
+            this.groupBox2.Location = new System.Drawing.Point(3, 530);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(210, 209);
+            this.groupBox2.Size = new System.Drawing.Size(210, 32);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Type of Room";
+            this.groupBox2.Visible = false;
             // 
             // codePanel
             // 
@@ -236,9 +237,9 @@
             this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(24, 87);
+            this.groupBox3.Location = new System.Drawing.Point(295, 109);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(437, 209);
+            this.groupBox3.Size = new System.Drawing.Size(207, 187);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Type of Targets and Ammo";
@@ -255,6 +256,7 @@
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Ammo";
+            this.groupBox5.Visible = false;
             // 
             // bazookaChb
             // 
@@ -306,7 +308,7 @@
             this.groupBox4.Controls.Add(this.navigateCb);
             this.groupBox4.Controls.Add(this.boostChb);
             this.groupBox4.Controls.Add(this.shieldChb);
-            this.groupBox4.Location = new System.Drawing.Point(22, 45);
+            this.groupBox4.Location = new System.Drawing.Point(16, 24);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(178, 146);
             this.groupBox4.TabIndex = 6;
@@ -360,7 +362,7 @@
             // createBtn
             // 
             this.createBtn.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createBtn.Location = new System.Drawing.Point(592, 49);
+            this.createBtn.Location = new System.Drawing.Point(557, 49);
             this.createBtn.Name = "createBtn";
             this.createBtn.Size = new System.Drawing.Size(91, 24);
             this.createBtn.TabIndex = 6;
@@ -372,7 +374,7 @@
             // 
             this.backBtn.BackgroundImage = global::AIMProClient.Properties.Resources.nazadd;
             this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.backBtn.Location = new System.Drawing.Point(847, 311);
+            this.backBtn.Location = new System.Drawing.Point(664, 530);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(75, 23);
             this.backBtn.TabIndex = 7;
@@ -383,7 +385,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 348);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.createBtn);
             this.Controls.Add(this.groupBox3);
@@ -393,7 +394,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CreateRoomForm";
-            this.Text = "Create Room";
+            this.Size = new System.Drawing.Size(759, 572);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -428,11 +429,6 @@
         private System.Windows.Forms.RadioButton privateRb;
         private System.Windows.Forms.RadioButton publicRb;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.CheckBox bazookaChb;
-        private System.Windows.Forms.CheckBox drunkChb;
-        private System.Windows.Forms.CheckBox limitedChb;
-        private System.Windows.Forms.CheckBox piercingChb;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox childChb;
         private System.Windows.Forms.CheckBox navigateCb;
@@ -440,5 +436,10 @@
         private System.Windows.Forms.CheckBox shieldChb;
         private System.Windows.Forms.Button createBtn;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.CheckBox bazookaChb;
+        private System.Windows.Forms.CheckBox drunkChb;
+        private System.Windows.Forms.CheckBox limitedChb;
+        private System.Windows.Forms.CheckBox piercingChb;
     }
 }

@@ -82,8 +82,8 @@ namespace AIMProClient
         }
 
         public void f() {
-            this.menuController.leaveLobby(gameNotEnd);
-            this.appClose = false;
+            //this.menuController.leaveLobby(gameNotEnd);
+            //this.appClose = false;
             this.Hide();
         }
 
@@ -91,7 +91,7 @@ namespace AIMProClient
         {
             
             this.menuController.leaveLobby(gameNotEnd);
-            this.appClose = false;
+            //this.appClose = false;
             this.Hide();
         }
 

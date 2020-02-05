@@ -27,11 +27,9 @@ namespace AIMProClient.Controllers
         {
             CommunicationLayer.Instance.leaveLobby();
             getRooms();
-
-            FormLayer.Instance.joinRoomForm.ideUMenu = false;
             FormLayer.Instance.joinRoomForm.RefreshTable(ListaMogucihSoba);
-            FormLayer.Instance.joinRoomForm.Show();
-            FormLayer.Instance.setJoinRoomView();
+            //FormLayer.Instance.joinRoomForm.Show();
+            //FormLayer.Instance.setJoinRoomView();
         }
 
         internal void leaveLobbyAndGame() {
@@ -82,6 +80,8 @@ namespace AIMProClient.Controllers
         public void initFormLayer()
         {
             FormLayer.Instance.joinRoomForm = new JoinRoomForm(this);
+            FormLayer.Instance.createRoomForm = new CreateRoomForm(this);
+            FormLayer.Instance.lobbyForm = new LobbyForm(this, null);
         }
 
         public void otvoriProfil()
@@ -94,17 +94,12 @@ namespace AIMProClient.Controllers
 
         public void napraviSobu()
         {
-            CreateRoomForm crf = new CreateRoomForm(this);
-            crf.ShowDialog();
+            FormLayer.Instance.setCreateRoomView();
         }
 
         public void udjiUSobu()
         {
             FormLayer.Instance.setJoinRoomView();
-        }
-
-        public void setCreateRoom(CreateRoomForm crf) {
-            this.createRoomForm = crf;
         }
 
         public List<RoomState> getRooms() {
@@ -128,7 +123,6 @@ namespace AIMProClient.Controllers
             {
                 CommunicationLayer.Instance.joinRoom(listaMogucihSoba[i].ID);
                 udjiULobby(i);
-                //FormLayer.Instance.joinRoomForm.Close();
                 
             }
         }
@@ -261,17 +255,13 @@ namespace AIMProClient.Controllers
         }
         private void enterLobbyRoomFromCreate()
         {
-            FormLayer.Instance.createRoomForm = null;
-            FormLayer.Instance.menuForm.exitApp = false;
-            FormLayer.Instance.menuForm.Close();
+            //FormLayer.Instance.menuForm.Close();
             FormLayer.Instance.lobbyForm.Show();
         }
 
         public void enterMenuFormFromJoin()
-        {
-            //MenuForm mf = new MenuForm(logovaniKorisnik);
-            //mf.Show();
-            //FormLayer.Instance.menuForm = mf;
+        { 
+
         }
     }
 }

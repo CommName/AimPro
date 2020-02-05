@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace AIMProClient
 {
-    public partial class CreateRoomForm : Form
+    public partial class CreateRoomForm : UserControl
     {
         MenuController controller;
         
@@ -20,10 +20,6 @@ namespace AIMProClient
             this.controller=menuController;
             InitializeComponent();
             this.codePanel.Visible = false;
-            this.controller.setCreateRoom(this);
-            this.MinimizeBox = false;
-            this.MaximizeBox = false;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.ActiveControl = nameTxtBox;
             this.publicRb.Checked = true;
             this.multyPlayerRb.Checked = true;
@@ -144,13 +140,13 @@ namespace AIMProClient
         {
             if (this.controller.validirajKreiranjeSobe(this.nameTxtBox.Text, this.codeTxtBox.Text))
             {
-                this.Close();
+                //this.Close();
             }
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
         }
     }
 }

@@ -27,7 +27,13 @@ namespace AIMProClient
 
         public void setJoinRoomView()
         {
+            joinRoomForm.Refresh();
             menuForm.setSubView(joinRoomForm);
+        }
+
+        public void setCreateRoomView()
+        {
+            menuForm.setSubView(createRoomForm);
         }
 
 
