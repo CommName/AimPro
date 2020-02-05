@@ -20,7 +20,7 @@ public class EndlessCamp  : MultyPlayerShootOut
 
     }
 
-    public EndlessCamp(int seed = 0) : base(seed)
+    public EndlessCamp(int seed = 0, TargetTypes allowed = TargetTypes.None) : base(seed,allowed)
     {
 
     }

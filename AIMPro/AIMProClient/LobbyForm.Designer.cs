@@ -30,6 +30,8 @@
         {
             this.naslovLbl = new System.Windows.Forms.Label();
             this.player1GroupBox = new System.Windows.Forms.GroupBox();
+            this.p1readylabel = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.p1NumMissesLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.p1NumHitsLbl = new System.Windows.Forms.Label();
@@ -41,6 +43,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.player2GroupBox = new System.Windows.Forms.GroupBox();
+            this.p2readylabel = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.p2NumMissesLbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -52,6 +56,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.player3GroupBox = new System.Windows.Forms.GroupBox();
+            this.p3readylabel = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.p3NumMissesLbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -63,6 +69,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.player4GroupBox = new System.Windows.Forms.GroupBox();
+            this.p4readylabel = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.p4NumMissesLbl = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -75,14 +83,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.readyBtn = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.p3readylabel = new System.Windows.Forms.Label();
-            this.p1readylabel = new System.Windows.Forms.Label();
-            this.p2readylabel = new System.Windows.Forms.Label();
-            this.p4readylabel = new System.Windows.Forms.Label();
             this.player1GroupBox.SuspendLayout();
             this.player2GroupBox.SuspendLayout();
             this.player3GroupBox.SuspendLayout();
@@ -120,6 +120,23 @@
             this.player1GroupBox.TabIndex = 2;
             this.player1GroupBox.TabStop = false;
             this.player1GroupBox.Text = "Player 1 Information";
+            // 
+            // p1readylabel
+            // 
+            this.p1readylabel.AutoSize = true;
+            this.p1readylabel.Location = new System.Drawing.Point(94, 150);
+            this.p1readylabel.Name = "p1readylabel";
+            this.p1readylabel.Size = new System.Drawing.Size(0, 15);
+            this.p1readylabel.TabIndex = 29;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(15, 150);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(73, 15);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "Player ready";
             // 
             // p1NumMissesLbl
             // 
@@ -208,6 +225,7 @@
             // 
             // player2GroupBox
             // 
+            this.player2GroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.player2GroupBox.Controls.Add(this.p2readylabel);
             this.player2GroupBox.Controls.Add(this.label22);
             this.player2GroupBox.Controls.Add(this.p2NumMissesLbl);
@@ -227,6 +245,23 @@
             this.player2GroupBox.TabIndex = 3;
             this.player2GroupBox.TabStop = false;
             this.player2GroupBox.Text = "Player 2 Information";
+            // 
+            // p2readylabel
+            // 
+            this.p2readylabel.AutoSize = true;
+            this.p2readylabel.Location = new System.Drawing.Point(89, 150);
+            this.p2readylabel.Name = "p2readylabel";
+            this.p2readylabel.Size = new System.Drawing.Size(0, 15);
+            this.p2readylabel.TabIndex = 22;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 150);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(73, 15);
+            this.label22.TabIndex = 30;
+            this.label22.Text = "Player ready";
             // 
             // p2NumMissesLbl
             // 
@@ -315,6 +350,7 @@
             // 
             // player3GroupBox
             // 
+            this.player3GroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.player3GroupBox.Controls.Add(this.p3readylabel);
             this.player3GroupBox.Controls.Add(this.label23);
             this.player3GroupBox.Controls.Add(this.p3NumMissesLbl);
@@ -334,6 +370,23 @@
             this.player3GroupBox.TabIndex = 4;
             this.player3GroupBox.TabStop = false;
             this.player3GroupBox.Text = "Player 3 Information";
+            // 
+            // p3readylabel
+            // 
+            this.p3readylabel.AutoSize = true;
+            this.p3readylabel.Location = new System.Drawing.Point(94, 153);
+            this.p3readylabel.Name = "p3readylabel";
+            this.p3readylabel.Size = new System.Drawing.Size(0, 15);
+            this.p3readylabel.TabIndex = 23;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(15, 153);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(73, 15);
+            this.label23.TabIndex = 28;
+            this.label23.Text = "Player ready";
             // 
             // p3NumMissesLbl
             // 
@@ -422,6 +475,7 @@
             // 
             // player4GroupBox
             // 
+            this.player4GroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.player4GroupBox.Controls.Add(this.p4readylabel);
             this.player4GroupBox.Controls.Add(this.label24);
             this.player4GroupBox.Controls.Add(this.p4NumMissesLbl);
@@ -441,6 +495,23 @@
             this.player4GroupBox.TabIndex = 5;
             this.player4GroupBox.TabStop = false;
             this.player4GroupBox.Text = "Player 4 Information";
+            // 
+            // p4readylabel
+            // 
+            this.p4readylabel.AutoSize = true;
+            this.p4readylabel.Location = new System.Drawing.Point(98, 155);
+            this.p4readylabel.Name = "p4readylabel";
+            this.p4readylabel.Size = new System.Drawing.Size(0, 15);
+            this.p4readylabel.TabIndex = 22;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(16, 153);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(73, 15);
+            this.label24.TabIndex = 23;
+            this.label24.Text = "Player ready";
             // 
             // p4NumMissesLbl
             // 
@@ -529,9 +600,10 @@
             // 
             // backBtn
             // 
+            this.backBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.backBtn.BackgroundImage = global::AIMProClient.Properties.Resources.nazadd;
             this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.backBtn.Location = new System.Drawing.Point(781, 411);
+            this.backBtn.Location = new System.Drawing.Point(488, 394);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(72, 24);
             this.backBtn.TabIndex = 1;
@@ -540,7 +612,8 @@
             // 
             // readyBtn
             // 
-            this.readyBtn.Location = new System.Drawing.Point(425, 411);
+            this.readyBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.readyBtn.Location = new System.Drawing.Point(381, 394);
             this.readyBtn.Name = "readyBtn";
             this.readyBtn.Size = new System.Drawing.Size(101, 24);
             this.readyBtn.TabIndex = 7;
@@ -548,79 +621,11 @@
             this.readyBtn.UseVisualStyleBackColor = true;
             this.readyBtn.Click += new System.EventHandler(this.readyBtn_Click);
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(15, 150);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(73, 15);
-            this.label19.TabIndex = 22;
-            this.label19.Text = "Player ready";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 150);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(73, 15);
-            this.label22.TabIndex = 30;
-            this.label22.Text = "Player ready";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(15, 153);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(73, 15);
-            this.label23.TabIndex = 28;
-            this.label23.Text = "Player ready";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(16, 153);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(73, 15);
-            this.label24.TabIndex = 23;
-            this.label24.Text = "Player ready";
-            // 
-            // p3readylabel
-            // 
-            this.p3readylabel.AutoSize = true;
-            this.p3readylabel.Location = new System.Drawing.Point(94, 153);
-            this.p3readylabel.Name = "p3readylabel";
-            this.p3readylabel.Size = new System.Drawing.Size(0, 15);
-            this.p3readylabel.TabIndex = 23;
-            // 
-            // p1readylabel
-            // 
-            this.p1readylabel.AutoSize = true;
-            this.p1readylabel.Location = new System.Drawing.Point(94, 150);
-            this.p1readylabel.Name = "p1readylabel";
-            this.p1readylabel.Size = new System.Drawing.Size(0, 15);
-            this.p1readylabel.TabIndex = 29;
-            // 
-            // p2readylabel
-            // 
-            this.p2readylabel.AutoSize = true;
-            this.p2readylabel.Location = new System.Drawing.Point(89, 150);
-            this.p2readylabel.Name = "p2readylabel";
-            this.p2readylabel.Size = new System.Drawing.Size(0, 15);
-            this.p2readylabel.TabIndex = 22;
-            // 
-            // p4readylabel
-            // 
-            this.p4readylabel.AutoSize = true;
-            this.p4readylabel.Location = new System.Drawing.Point(98, 155);
-            this.p4readylabel.Name = "p4readylabel";
-            this.p4readylabel.Size = new System.Drawing.Size(0, 15);
-            this.p4readylabel.TabIndex = 22;
-            // 
             // LobbyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 461);
+            this.ClientSize = new System.Drawing.Size(903, 480);
             this.Controls.Add(this.readyBtn);
             this.Controls.Add(this.player4GroupBox);
             this.Controls.Add(this.player3GroupBox);

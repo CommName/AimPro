@@ -14,8 +14,9 @@ public class MultyPlayerShootOut : GameLogic
     public TargetFactory targetFactory { get; set; }
 
     const int maxNumberOfTargetsAtTheSameTime = 10;
-    public MultyPlayerShootOut(int seed = 0 )
+    public MultyPlayerShootOut(int seed = 0 , TargetTypes allowed = TargetTypes.None)
     {
+        TargetTypesAllowed = allowed;
         targets = new List<Target>();
         targetFactory = new TargetFactory();
         targetFactory.TargetTypesAllowed = this.TargetTypesAllowed;

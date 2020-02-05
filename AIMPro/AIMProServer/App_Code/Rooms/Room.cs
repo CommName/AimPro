@@ -66,16 +66,15 @@ public class Room
 
         switch (this.RoomPropertes.GameMode)
         {
-            case GameMode.EndlessCampaign: { this.gamelogic = new EndlessCamp(roomProperties.seed); break; }
-            case GameMode.FastShooting: { this.gamelogic = new FastShooting(roomProperties.seed); break; }
+            case GameMode.EndlessCampaign: { this.gamelogic = new EndlessCamp(roomProperties.seed, this.roomProperties.TargetTypesAllowed); break; }
+            case GameMode.FastShooting: { this.gamelogic = new FastShooting(roomProperties.seed, this.roomProperties.TargetTypesAllowed); break; }
             case GameMode.Duel: 
             case GameMode.MultyPlayerShootOut: 
-                { this.gamelogic = new MultyPlayerShootOut();  break; }
+                { this.gamelogic = new MultyPlayerShootOut(roomProperties.seed, this.roomProperties.TargetTypesAllowed);  break; }
         }
 
         this.gamelogic.room = this;
         this.gamelogic.players = this.players;
-        this.gamelogic.TargetTypesAllowed = this.roomProperties.TargetTypesAllowed;
         this.gamelogic.start();
     }
 

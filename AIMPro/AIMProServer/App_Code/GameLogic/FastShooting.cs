@@ -16,8 +16,9 @@ public class FastShooting : GameLogic
 
     }
 
-    public FastShooting(int seed) : this()
+    public FastShooting(int seed, TargetTypes allowed = TargetTypes.None) : this()
     {
+        TargetTypesAllowed = allowed;
         if (seed != 0)
         {
             this.seed = seed;
