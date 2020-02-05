@@ -29,7 +29,8 @@ namespace AIMProClient
         public void setSubView(UserControl sview)
         {
             subView.Controls.Clear();
-            subView.Controls.Add(sview);
+            if(sview!=null)
+                subView.Controls.Add(sview);
         }
 
         private void MenuForm_FormClosing(object sender, FormClosingEventArgs e)

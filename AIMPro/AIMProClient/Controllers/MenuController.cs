@@ -80,6 +80,7 @@ namespace AIMProClient.Controllers
             FormLayer.Instance.joinRoomForm = new JoinRoomForm(this);
             FormLayer.Instance.createRoomForm = new CreateRoomForm(this);
             FormLayer.Instance.lobbyForm = new LobbyForm(this, null);
+            FormLayer.Instance.statistics =  new StatisticsForm(this, null); ;
         }
 
         public void otvoriProfil()
@@ -108,8 +109,8 @@ namespace AIMProClient.Controllers
         public void generisiStatistiku()
         {
             List<User> users = CommunicationLayer.Instance.getUsers();
-            StatisticsForm sf = new StatisticsForm(this, users);
-            sf.ShowDialog();
+
+            FormLayer.Instance.setStatisticsView(users);
         }
 
         public void pokreniLobby(int i) {

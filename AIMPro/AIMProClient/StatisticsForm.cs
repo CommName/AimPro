@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace AIMProClient
 {
-    public partial class StatisticsForm : Form
+    public partial class StatisticsForm : UserControl
     {
         MenuController controller;
-        List<User> users;
+        public List<User> users;
 
 
         public StatisticsForm( MenuController controller, List<User> users )
@@ -23,15 +23,22 @@ namespace AIMProClient
             InitializeComponent();
             this.controller = controller;
             this.users = users;
-            ShowTable(users);
+            ShowTable();
         }
 
+        public void ShowTable()
+        {
+            this.ShowTable(this.users);
+        }
         public void ShowTable(List<User> users)
         {
             int rank = 0;
-            foreach (User user in users)
+            if (users != null)
             {
-               dataGridStatistics.Rows.Add(++rank, user.Username,user.Elo, null,null);
+                foreach (User user in users)
+                {
+                    dataGridStatistics.Rows.Add(++rank, user.Username, user.Elo, null, null);
+                }
             }
         }
 
@@ -50,7 +57,7 @@ namespace AIMProClient
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormLayer.Instance.clearView();
         }
     }
 }

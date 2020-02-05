@@ -55,7 +55,7 @@ namespace AIMProClient
         private void backBtn_Click(object sender, EventArgs e)
         {
             ideUMenu = true;
-            this.Hide();
+            FormLayer.Instance.clearView();
         }
 
         private void JoinRoomForm_FormClosing(object sender, FormClosingEventArgs e)

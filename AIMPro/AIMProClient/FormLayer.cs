@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AIMProClient.AIMProService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace AIMProClient
         public JoinRoomForm joinRoomForm;
         public LobbyForm lobbyForm;
         public LoginForm loginForm;
+        public StatisticsForm statistics;
 
         protected static FormLayer instance = null;
         public static FormLayer Instance
@@ -35,6 +37,18 @@ namespace AIMProClient
         public void setCreateRoomView()
         {
             menuForm.setSubView(createRoomForm);
+        }
+
+        public void setStatisticsView(List<User> users)
+        {
+            statistics.users = users;
+            statistics.ShowTable();
+            menuForm.setSubView(statistics);
+        }
+
+        public void clearView()
+        {
+            menuForm.setSubView(null);
         }
 
 
