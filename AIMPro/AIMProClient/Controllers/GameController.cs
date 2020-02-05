@@ -166,7 +166,6 @@ namespace AIMProClient.Controllers
             gameCanvas.MouseLeave += new EventHandler(gameCanvas_MouseLeave);
             gameCanvas.MouseMove += new MouseEventHandler(gameCanvas_MouseMove);
             gameCanvas.KeyDown += new KeyEventHandler(lobbyForm_KeyDown);
-            //lobbyForm.KeyDown += new KeyEventHandler(lobbyForm_KeyDown);
             this.canvas= gameCanvas;
         }
 
@@ -236,7 +235,8 @@ namespace AIMProClient.Controllers
         }
 
         public void krajIgre() {
-            Cursor.Show();
+           // if(Cursor.)
+           // Cursor.Show();
             this.lobbyForm.gameNotEnd = false;
             lobbyForm.WindowState = FormWindowState.Normal;
             this.lobbyForm.Size = new Size(950, 500);
@@ -244,8 +244,6 @@ namespace AIMProClient.Controllers
             this.lobbyForm.Controls.Remove(stoperica);
             this.lobbyForm.Controls.Remove(scoreLabel);
             this.lobbyForm.scoreView();
-            
-
             this.lobbyForm.Invalidate();
         }
     }

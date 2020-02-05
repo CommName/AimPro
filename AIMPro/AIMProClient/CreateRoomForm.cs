@@ -24,6 +24,7 @@ namespace AIMProClient
             this.nameTxtBox.Text = this.controller.getUser.Username+" 's room";
             this.controller.PublicSoba = true;
             this.controller.TipIgre = 2;
+            this.controller.TipMete = 0;
         }
 
 
@@ -100,6 +101,14 @@ namespace AIMProClient
         private void backBtn_Click(object sender, EventArgs e)
         {
             FormLayer.Instance.clearView();
+        }
+
+        public void deSelectAll() {
+            this.childChb.Checked = false;
+            this.navigateCb.Checked = false;
+            this.boostChb.Checked = false;
+            this.shieldChb.Checked = false;
+            this.multyPlayerRb.Checked = true;
         }
     }
 }
