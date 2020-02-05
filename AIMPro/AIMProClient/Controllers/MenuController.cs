@@ -131,8 +131,9 @@ namespace AIMProClient.Controllers
 
         public void udjiULobby (int i) {
 
+            FormLayer.Instance.menuForm.Hide();
             FormLayer.Instance.lobbyForm.ShowDialog();
-            //FormLayer.Instance.lobbyForm.appClose = true;
+            FormLayer.Instance.menuForm.Show();
         }
 
         public bool validirajKreiranjeSobe(string sobaName,string sobaCode) {
@@ -254,7 +255,9 @@ namespace AIMProClient.Controllers
         private void enterLobbyRoomFromCreate()
         {
             //FormLayer.Instance.menuForm.Close();
+            FormLayer.Instance.menuForm.Hide();
             FormLayer.Instance.lobbyForm.ShowDialog();
+            FormLayer.Instance.menuForm.Show();
         }
 
         public void enterMenuFormFromJoin()

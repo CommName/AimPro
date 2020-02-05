@@ -60,8 +60,7 @@ namespace AIMProClient
 
         private void JoinRoomForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (ideUMenu == true)
-                this.controller.enterMenuFormFromJoin();
+
         }
     }
 }
