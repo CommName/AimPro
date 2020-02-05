@@ -12,7 +12,7 @@ using AIMProClient.AIMProService;
 
 namespace AIMProClient
 {
-    public partial class JoinRoomForm : Form
+    public partial class JoinRoomForm : UserControl
     {
         MenuController controller;
         public bool ideUMenu = false;
@@ -49,7 +49,7 @@ namespace AIMProClient
         private void backBtn_Click(object sender, EventArgs e)
         {
             ideUMenu = true;
-            this.Close();
+            this.Hide();
         }
 
         private void JoinRoomForm_FormClosing(object sender, FormClosingEventArgs e)

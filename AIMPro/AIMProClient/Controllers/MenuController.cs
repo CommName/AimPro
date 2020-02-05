@@ -25,19 +25,13 @@ namespace AIMProClient.Controllers
 
         internal void leaveLobby(bool leaving)
         {
-            //FormLayer.Instance.lobbyForm.Hide();
-            if (FormLayer.Instance.joinRoomForm == null)
-            {
-                FormLayer.Instance.joinRoomForm = new JoinRoomForm(this);
-            }
-            //if (leaving)
-            //{
-                CommunicationLayer.Instance.leaveLobby();
-                getRooms();
-           // }
+            CommunicationLayer.Instance.leaveLobby();
+            getRooms();
+
             FormLayer.Instance.joinRoomForm.ideUMenu = false;
-            FormLayer.Instance.joinRoomForm.Show();
             FormLayer.Instance.joinRoomForm.RefreshTable(ListaMogucihSoba);
+            FormLayer.Instance.joinRoomForm.Show();
+            FormLayer.Instance.setJoinRoomView();
         }
 
         internal void leaveLobbyAndGame() {
@@ -82,6 +76,12 @@ namespace AIMProClient.Controllers
         public MenuController(MenuForm mf, User logovaniKorisnik) {
             this.menuForm = mf;
             this.logovaniKorisnik = logovaniKorisnik;
+            initFormLayer();
+        }
+
+        public void initFormLayer()
+        {
+            FormLayer.Instance.joinRoomForm = new JoinRoomForm(this);
         }
 
         public void otvoriProfil()
@@ -100,11 +100,7 @@ namespace AIMProClient.Controllers
 
         public void udjiUSobu()
         {
-            menuForm.exitApp = false;
-            FormLayer.Instance.menuForm.Close();
-            JoinRoomForm jrf = new JoinRoomForm(this);
-            FormLayer.Instance.joinRoomForm = jrf;
-            jrf.Show();
+            FormLayer.Instance.setJoinRoomView();
         }
 
         public void setCreateRoom(CreateRoomForm crf) {
@@ -142,17 +138,9 @@ namespace AIMProClient.Controllers
         }
 
         public void udjiULobby (int i) {
-            if (FormLayer.Instance.joinRoomForm != null)
-            {
-                // FormLayer.Instance.joinRoomForm.Hide();
-                FormLayer.Instance.joinRoomForm.Close();
-                FormLayer.Instance.joinRoomForm = null;
-            }
-            //FormLayer.Instance.menuForm.exitApp = false;
-            // FormLayer.Instance.menuForm.Close();
 
             FormLayer.Instance.lobbyForm.Show();
-            FormLayer.Instance.lobbyForm.appClose = true;
+            //FormLayer.Instance.lobbyForm.appClose = true;
         }
 
         public bool validirajKreiranjeSobe(string sobaName,string sobaCode) {
@@ -284,7 +272,6 @@ namespace AIMProClient.Controllers
             //MenuForm mf = new MenuForm(logovaniKorisnik);
             //mf.Show();
             //FormLayer.Instance.menuForm = mf;
-            FormLayer.Instance.joinRoomForm = null;
         }
     }
 }

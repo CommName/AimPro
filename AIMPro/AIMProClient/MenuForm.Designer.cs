@@ -36,6 +36,8 @@
             this.logoutBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.subView = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,7 +110,7 @@
             // 
             this.exitBtn.BackgroundImage = global::AIMProClient.Properties.Resources.exit12;
             this.exitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.exitBtn.Location = new System.Drawing.Point(707, 384);
+            this.exitBtn.Location = new System.Drawing.Point(704, 710);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(75, 54);
             this.exitBtn.TabIndex = 7;
@@ -127,11 +129,23 @@
             this.panel1.Size = new System.Drawing.Size(770, 48);
             this.panel1.TabIndex = 8;
             // 
+            // subView
+            // 
+            this.subView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.subView.Location = new System.Drawing.Point(19, 138);
+            this.subView.Name = "subView";
+            this.subView.Size = new System.Drawing.Size(759, 572);
+            this.subView.TabIndex = 9;
+            this.subView.TabStop = false;
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 450);
+            this.ClientSize = new System.Drawing.Size(794, 776);
+            this.Controls.Add(this.subView);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.welcomeLabel);
@@ -154,5 +168,7 @@
         private System.Windows.Forms.Button logoutBtn;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox subView;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

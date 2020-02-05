@@ -19,9 +19,7 @@ namespace AIMProClient
         public LobbyController lobbyController;
         public GameController gameController;
         public bool gameNotEnd = true;
-<<<<<<< HEAD
         public bool readyClick = false;
-=======
 
         public bool borderFlag = false;
 
@@ -32,7 +30,6 @@ namespace AIMProClient
         protected Label[] numOfMisses;
         protected Label[] ready;
 
->>>>>>> a98e37f4a1471d3fa5ef0e206c8129879e175f67
         public LobbyForm(MenuController menuController, AIMProService.RoomState roomState)
         {
             InitializeComponent();

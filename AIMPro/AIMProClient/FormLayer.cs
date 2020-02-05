@@ -25,5 +25,11 @@ namespace AIMProClient
 
         }
 
+        public void setJoinRoomView()
+        {
+            menuForm.setSubView(joinRoomForm);
+        }
+
+
     }
 }
