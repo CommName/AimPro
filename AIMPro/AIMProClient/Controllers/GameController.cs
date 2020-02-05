@@ -51,7 +51,6 @@ namespace AIMProClient.Controllers
         public void loadGameView() {
             nisan = new RegularNisan();
             bojaNisana = Color.FromArgb(0,255,0);
-            //lobbyForm.Controls.Clear();
             lobbyForm.BackColor = Color.SandyBrown;
             resizeForm();
             loadGameControlls();
@@ -71,6 +70,9 @@ namespace AIMProClient.Controllers
             this.lobbyForm.Controls.Add(canvas);
             this.lobbyForm.Controls.Add(naslov);
             this.lobbyForm.Controls.Add(scoreLabel);
+            naslov.BringToFront();
+            scoreLabel.BringToFront();
+            canvas.BringToFront();
         }
 
         private void gameCanvas_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
@@ -211,17 +213,19 @@ namespace AIMProClient.Controllers
         }
 
         public void krajIgre() {
-
+            Cursor.Show();
             this.lobbyForm.gameNotEnd = false;
             lobbyForm.WindowState = FormWindowState.Normal;
             this.lobbyForm.Size = new Size(950, 500);
-            this.lobbyForm.Controls.Clear();
-            for (int i = 0; i < lobbyView.Count; i++)
-            {
-                if(lobbyView[i].Name != "readyBtn")
-                lobbyForm.Controls.Add(lobbyView[i]);
-            }
-            
+            this.lobbyForm.Controls.Remove(canvas);
+            this.lobbyForm.Controls.Remove(naslov);
+            this.lobbyForm.Controls.Remove(scoreLabel);
+            //for (int i = 0; i < lobbyView.Count; i++)
+            //{
+            //    if(lobbyView[i].Name != "readyBtn")
+            //    lobbyForm.Controls.Add(lobbyView[i]);
+            //}
+
             this.lobbyForm.Invalidate();
         }
     }

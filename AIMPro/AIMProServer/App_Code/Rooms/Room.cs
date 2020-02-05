@@ -75,6 +75,7 @@ public class Room
 
         this.gamelogic.room = this;
         this.gamelogic.players = this.players;
+        this.gamelogic.TargetTypesAllowed = this.roomProperties.TargetTypesAllowed;
         this.gamelogic.start();
     }
 

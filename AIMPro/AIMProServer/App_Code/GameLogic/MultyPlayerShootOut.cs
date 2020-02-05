@@ -18,6 +18,7 @@ public class MultyPlayerShootOut : GameLogic
     {
         targets = new List<Target>();
         targetFactory = new TargetFactory();
+        targetFactory.TargetTypesAllowed = this.TargetTypesAllowed;
         this.seed = seed;
         if (this.seed != 0)
         {
