@@ -81,6 +81,7 @@ public class Room
     public void FinishGame()
     {
         Dictionary<string, Shooter> copy = new Dictionary<string, Shooter>(players);
+        this.players = null;
         foreach(var player in copy)
         {
             RoomDispatcher.Instance.LeaveRoom(player.Value.username);
@@ -156,18 +157,21 @@ public class Room
 
     public void LeaveRoom(string player)
     {
-        this.players.Remove(player);
-        if (this.players.Count == 0)
+        if (this.players != null)
         {
-            FinishGame();
-        }
-        else
-        {
-            foreach (var pl in players)
+            this.players.Remove(player);
+            if (this.players.Count == 0)
             {
-                pl.Value.ready = false;
+                FinishGame();
             }
-            this.subscriber.PlayersInTheRoom(players);
+            else
+            {
+                foreach (var pl in players)
+                {
+                    pl.Value.ready = false;
+                }
+                this.subscriber.PlayersInTheRoom(players);
+            }
         }
     }
 
