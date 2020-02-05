@@ -17,7 +17,7 @@ public class Room
     protected bool gameStarted;
     protected RoomProperties roomProperties;
     protected Dictionary<string, Shooter> players;
-    protected Subscriber subscriber;
+    protected Publisher subscriber;
 
     //Strategy
     protected GameLogic gamelogic;
@@ -103,7 +103,7 @@ public class Room
         this.players = new Dictionary<string, Shooter>();
         password = null;
         gameStarted = false;
-        this.subscriber = new Subscriber();
+        this.subscriber = new Publisher();
 
     }
 

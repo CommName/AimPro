@@ -30,7 +30,7 @@ public class MultyPlayerShootOut : GameLogic
             targetFactory.random = new Random();
         }
         targetFactory.actieTargets = this.targets;
-        publisher = new Subscriber();
+        publisher = new Publisher();
 
     }
 

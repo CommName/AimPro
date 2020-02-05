@@ -16,7 +16,7 @@ public abstract class GameLogic
     public Dictionary<string, Shooter> players { get; set; }
     public TargetTypes TargetTypesAllowed { get; set; }
 
-    public Subscriber publisher { get; set; }
+    public Publisher publisher { get; set; }
 
     public abstract void start();
 
@@ -48,7 +48,7 @@ public abstract class GameLogic
 
     public void initPublisher()
     {
-        publisher = new Subscriber();
+        publisher = new Publisher();
         List<Shooter> shooter = new List<Shooter>();
         foreach (var player in players)
         {
