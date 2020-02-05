@@ -20,10 +20,7 @@ public interface ICallBackPlayer
     void GameStops();
 
     [OperationContract(IsOneWay = true)]
-    void GameStats();
-
-    [OperationContract(IsOneWay = true)]
     //Everytime it hits it sends how mutch points player has earned
-    void EarnedPoints(int points); 
+    void EarnedPoints(int totalPoints, int newPoints); 
 
 }
