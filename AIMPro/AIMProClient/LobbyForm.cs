@@ -123,7 +123,7 @@ namespace AIMProClient
         delegate void osveziPrikazUseraDgt(List<Shooter> listaUsera);
 
         public void refreshUsers(List<Shooter> listaUsera) {
-            //if (readyClick == false)
+           // if (readyClick == false)
            // {
                 if (this.InvokeRequired)
                 {

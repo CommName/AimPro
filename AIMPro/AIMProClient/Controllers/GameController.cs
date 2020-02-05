@@ -233,8 +233,9 @@ namespace AIMProClient.Controllers
         }
 
         public void krajIgre() {
-           // if(Cursor.)
-           // Cursor.Show();
+            // if(Cursor.)
+            // Cursor.Show();
+            lobbyForm.readyClick = false;
             this.lobbyForm.gameNotEnd = false;
             lobbyForm.WindowState = FormWindowState.Normal;
             this.lobbyForm.Size = new Size(950, 500);
