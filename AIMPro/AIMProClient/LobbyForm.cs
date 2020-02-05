@@ -38,6 +38,7 @@ namespace AIMProClient
             gameController = new GameController(this);
             this.lobbyController = lobbyController;
             this.MinimizeBox = false;
+            this.appClose = false;
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             //this.readyBtn.Enabled = false;
@@ -83,7 +84,6 @@ namespace AIMProClient
 
         public void f() {
             this.menuController.leaveLobby(gameNotEnd);
-            this.appClose = false;
             this.Close();
         }
 
@@ -91,7 +91,6 @@ namespace AIMProClient
         {
             
             this.menuController.leaveLobby(gameNotEnd);
-            this.appClose = false;
             this.Close();
         }
 

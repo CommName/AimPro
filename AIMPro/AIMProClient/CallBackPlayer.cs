@@ -15,7 +15,6 @@ public class CallBackPlayer : IAIMProServerServiceCallback
 {
     public void EarnedPoints(int points)
     {
-        //MessageBox.Show(points.ToString());
         FormLayer.Instance.lobbyForm.gameController.updateScore(points);
     }
 
@@ -28,7 +27,7 @@ public class CallBackPlayer : IAIMProServerServiceCallback
 
     public void GameStats()
     {
-        //throw new NotImplementedException();
+
     }
 
     public void GameStops()

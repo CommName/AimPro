@@ -51,7 +51,7 @@ namespace AIMProClient.Controllers
         public void loadGameView() {
             nisan = new RegularNisan();
             bojaNisana = Color.FromArgb(0,255,0);
-            lobbyForm.Controls.Clear();
+            //lobbyForm.Controls.Clear();
             lobbyForm.BackColor = Color.SandyBrown;
             resizeForm();
             loadGameControlls();
@@ -211,7 +211,7 @@ namespace AIMProClient.Controllers
         }
 
         public void krajIgre() {
-            // MessageBox.Show("Game Ended.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             this.lobbyForm.gameNotEnd = false;
             lobbyForm.WindowState = FormWindowState.Normal;
             this.lobbyForm.Size = new Size(950, 500);
@@ -221,11 +221,7 @@ namespace AIMProClient.Controllers
                 if(lobbyView[i].Name != "readyBtn")
                 lobbyForm.Controls.Add(lobbyView[i]);
             }
-            Button b = new Button();
-            b.Location = new Point(450, 450);
-            b.Text = "Kraj";
-            b.Click += (s, e) => { this.lobbyForm.f(); };
-            this.lobbyForm.Controls.Add(b);
+            
             this.lobbyForm.Invalidate();
         }
     }

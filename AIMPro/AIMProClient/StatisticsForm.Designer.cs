@@ -114,9 +114,9 @@
             // backBtn
             // 
             this.backBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.backBtn.Location = new System.Drawing.Point(0, 416);
+            this.backBtn.Location = new System.Drawing.Point(0, 413);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(822, 32);
+            this.backBtn.Size = new System.Drawing.Size(822, 35);
             this.backBtn.TabIndex = 2;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = true;
@@ -127,11 +127,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(822, 448);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.dataGridStatistics);
             this.Name = "StatisticsForm";
-            this.Text = "Leaderboard";
+            this.Size = new System.Drawing.Size(822, 448);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStatistics)).EndInit();
             this.ResumeLayout(false);
 
