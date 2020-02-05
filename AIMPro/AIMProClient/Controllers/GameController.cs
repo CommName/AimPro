@@ -32,7 +32,7 @@ namespace AIMProClient.Controllers
         public List<Target> targets;
         Color[] nizBoja = { Color.FromArgb(255, 0, 0), Color.FromArgb(155, 255, 80), Color.FromArgb(0, 0, 205), Color.FromArgb(255, 150, 170), Color.FromArgb(15, 70, 240) };
         int indexBoja = 0;
-        public List<Control> lobbyView = new List<Control>();
+        //public List<Control> lobbyView = new List<Control>();
         Crosshair crosshair;
 
 

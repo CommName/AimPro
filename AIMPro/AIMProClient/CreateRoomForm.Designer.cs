@@ -111,7 +111,7 @@
             // endlessRb
             // 
             this.endlessRb.AutoSize = true;
-            this.endlessRb.Location = new System.Drawing.Point(16, 116);
+            this.endlessRb.Location = new System.Drawing.Point(16, 82);
             this.endlessRb.Name = "endlessRb";
             this.endlessRb.Size = new System.Drawing.Size(122, 19);
             this.endlessRb.TabIndex = 4;
@@ -123,19 +123,21 @@
             // preciseRb
             // 
             this.preciseRb.AutoSize = true;
-            this.preciseRb.Location = new System.Drawing.Point(16, 93);
+            this.preciseRb.Enabled = false;
+            this.preciseRb.Location = new System.Drawing.Point(16, 107);
             this.preciseRb.Name = "preciseRb";
             this.preciseRb.Size = new System.Drawing.Size(113, 19);
             this.preciseRb.TabIndex = 3;
             this.preciseRb.TabStop = true;
             this.preciseRb.Text = "Precise Shooting";
             this.preciseRb.UseVisualStyleBackColor = true;
+            this.preciseRb.Visible = false;
             this.preciseRb.CheckedChanged += new System.EventHandler(this.preciseRb_CheckedChanged);
             // 
             // fastRb
             // 
             this.fastRb.AutoSize = true;
-            this.fastRb.Location = new System.Drawing.Point(16, 70);
+            this.fastRb.Location = new System.Drawing.Point(16, 57);
             this.fastRb.Name = "fastRb";
             this.fastRb.Size = new System.Drawing.Size(99, 19);
             this.fastRb.TabIndex = 2;
@@ -147,7 +149,7 @@
             // multyPlayerRb
             // 
             this.multyPlayerRb.AutoSize = true;
-            this.multyPlayerRb.Location = new System.Drawing.Point(16, 47);
+            this.multyPlayerRb.Location = new System.Drawing.Point(16, 32);
             this.multyPlayerRb.Name = "multyPlayerRb";
             this.multyPlayerRb.Size = new System.Drawing.Size(145, 19);
             this.multyPlayerRb.TabIndex = 1;
@@ -159,13 +161,15 @@
             // duelRb
             // 
             this.duelRb.AutoSize = true;
-            this.duelRb.Location = new System.Drawing.Point(16, 24);
+            this.duelRb.Enabled = false;
+            this.duelRb.Location = new System.Drawing.Point(16, 132);
             this.duelRb.Name = "duelRb";
             this.duelRb.Size = new System.Drawing.Size(50, 19);
             this.duelRb.TabIndex = 0;
             this.duelRb.TabStop = true;
             this.duelRb.Text = "Duel";
             this.duelRb.UseVisualStyleBackColor = true;
+            this.duelRb.Visible = false;
             this.duelRb.CheckedChanged += new System.EventHandler(this.duelRb_CheckedChanged);
             // 
             // groupBox2
