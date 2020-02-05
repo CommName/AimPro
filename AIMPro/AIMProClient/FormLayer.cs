@@ -14,6 +14,7 @@ namespace AIMProClient
         public JoinRoomForm joinRoomForm;
         public LobbyForm lobbyForm;
         public LoginForm loginForm;
+
         protected static FormLayer instance = null;
         public static FormLayer Instance
         {
@@ -27,7 +28,7 @@ namespace AIMProClient
 
         public void setJoinRoomView()
         {
-            joinRoomForm.Refresh();
+            joinRoomForm.RefreshList();
             menuForm.setSubView(joinRoomForm);
         }
 

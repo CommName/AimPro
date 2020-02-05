@@ -41,9 +41,15 @@ namespace AIMProClient
             }
         }
 
+        public void RefreshList()
+        {
+
+            this.RefreshTable(controller.getRooms());
+        }
+
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            this.RefreshTable(controller.getRooms());
+            this.RefreshList();
         }
 
         private void backBtn_Click(object sender, EventArgs e)

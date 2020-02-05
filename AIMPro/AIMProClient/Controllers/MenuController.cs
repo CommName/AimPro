@@ -28,8 +28,6 @@ namespace AIMProClient.Controllers
             CommunicationLayer.Instance.leaveLobby();
             getRooms();
             FormLayer.Instance.joinRoomForm.RefreshTable(ListaMogucihSoba);
-            //FormLayer.Instance.joinRoomForm.Show();
-            //FormLayer.Instance.setJoinRoomView();
         }
 
         internal void leaveLobbyAndGame() {
@@ -133,7 +131,7 @@ namespace AIMProClient.Controllers
 
         public void udjiULobby (int i) {
 
-            FormLayer.Instance.lobbyForm.Show();
+            FormLayer.Instance.lobbyForm.ShowDialog();
             //FormLayer.Instance.lobbyForm.appClose = true;
         }
 
@@ -256,7 +254,7 @@ namespace AIMProClient.Controllers
         private void enterLobbyRoomFromCreate()
         {
             //FormLayer.Instance.menuForm.Close();
-            FormLayer.Instance.lobbyForm.Show();
+            FormLayer.Instance.lobbyForm.ShowDialog();
         }
 
         public void enterMenuFormFromJoin()

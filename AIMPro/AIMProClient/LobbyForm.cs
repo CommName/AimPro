@@ -82,22 +82,21 @@ namespace AIMProClient
         }
 
         public void f() {
-            //this.menuController.leaveLobby(gameNotEnd);
-            //this.appClose = false;
-            this.Hide();
+            this.menuController.leaveLobby(gameNotEnd);
+            this.appClose = false;
+            this.Close();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
             
             this.menuController.leaveLobby(gameNotEnd);
-            //this.appClose = false;
-            this.Hide();
+            this.appClose = false;
+            this.Close();
         }
 
         private void LobbyForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //this.menuController.leaveLobbyAndGame();
             if (this.appClose == true)
                 FormLayer.Instance.mainForm.Close();
         }
