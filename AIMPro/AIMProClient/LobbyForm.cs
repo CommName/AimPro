@@ -30,6 +30,26 @@ namespace AIMProClient
         protected Label[] numOfMisses;
         protected Label[] ready;
 
+
+        public void scoreView()
+        {
+
+            p1place.Show();
+            p2place.Show();
+            p3place.Show();
+            p4place.Show();
+            readyBtn.Hide();
+        }
+
+        public void regularView()
+        {
+            p1place.Hide();
+            p2place.Hide();
+            p3place.Hide();
+            p4place.Hide();
+            readyBtn.Show();
+        }
+
         public LobbyForm(MenuController menuController, AIMProService.RoomState roomState)
         {
             InitializeComponent();
@@ -42,7 +62,7 @@ namespace AIMProClient
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             //this.readyBtn.Enabled = false;
-
+            regularView();
             usernames = new Label[4];
             eloLabel = new Label[4];
             points = new Label[4];
