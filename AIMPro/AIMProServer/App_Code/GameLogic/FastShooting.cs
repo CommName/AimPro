@@ -16,17 +16,9 @@ public class FastShooting : GameLogic
 
     }
 
-    public FastShooting(int seed, TargetTypes allowed = TargetTypes.None) : this()
+    public FastShooting(int seed, TargetTypes allowed = TargetTypes.None) : base(seed, allowed) 
     {
-        TargetTypesAllowed = allowed;
-        if (seed != 0)
-        {
-            this.seed = seed;
-        }
-        else
-        {
-            this.seed = Environment.TickCount;
-        }
+       
     }
 
 

@@ -20,6 +20,7 @@ public abstract class GameLogic
 
     public abstract void start();
 
+
     public int getEarnedElo(string username)
     {
         //FIDE ratings system applied just insted of 4 matches it's applaid for 4 players
@@ -113,5 +114,18 @@ public abstract class GameLogic
     {
         timer = new Timer(1000 * 60 * 1);
         timer.Elapsed += gameEnds;
+    }
+
+    public GameLogic(int seed , TargetTypes allowed) : this()
+    {
+         TargetTypesAllowed = allowed;
+        if (seed != 0)
+        {
+            this.seed = seed;
+        }
+        else
+        {
+            this.seed = Environment.TickCount;
+        }
     }
 }

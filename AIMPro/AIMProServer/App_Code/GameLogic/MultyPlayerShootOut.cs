@@ -14,28 +14,19 @@ public class MultyPlayerShootOut : GameLogic
     public TargetFactory targetFactory { get; set; }
 
     const int maxNumberOfTargetsAtTheSameTime = 10;
-    public MultyPlayerShootOut(int seed = 0 , TargetTypes allowed = TargetTypes.None)
+    public MultyPlayerShootOut(int seed = 0 , TargetTypes allowed = TargetTypes.None) :base (seed, allowed)
     {
-        TargetTypesAllowed = allowed;
         targets = new List<Target>();
         targetFactory = new TargetFactory();
         targetFactory.TargetTypesAllowed = this.TargetTypesAllowed;
-        this.seed = seed;
-        if (this.seed != 0)
-        {
-            targetFactory.random = new Random(this.seed);
-        }
-        else
-        {
-            targetFactory.random = new Random();
-        }
+        targetFactory.random = new Random(this.seed);
+        
         targetFactory.actieTargets = this.targets;
         publisher = new Publisher();
-
     }
 
 
-    public MultyPlayerShootOut(MultyPlayerShootOut copy)
+    public MultyPlayerShootOut(MultyPlayerShootOut copy) :base()
     {
         targets = new List<Target>(copy.targets);
         TargetTypesAllowed = copy.TargetTypesAllowed;

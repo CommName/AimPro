@@ -97,12 +97,13 @@ public class Publisher
             lock (locker)
             {
                 List<Shooter> playersInTheRoom = new List<Shooter>();
-                foreach (var player in players)
+                Dictionary<string, Shooter> copy = new Dictionary<string, Shooter>(players);
+                foreach (var player in copy)
                 {
 
                     playersInTheRoom.Add(player.Value);
                 }
-                foreach (var player in players)
+                foreach (var player in copy)
                 {
                     try
                     {
