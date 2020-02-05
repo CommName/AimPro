@@ -22,6 +22,7 @@ namespace AIMProClient.Controllers
         public PictureBox canvas;
         Label scoreLabel;
         Label stoperica;
+        Label ukupniPoeni;
         Timer scoreTimer;
         Timer stopericaTimer;
         int cursorX = 0;
@@ -32,7 +33,7 @@ namespace AIMProClient.Controllers
         ITargetDrawing crtacMeta = null;
         Color bojaNisana;
         public List<Target> targets;
-        Color[] nizBoja = { Color.FromArgb(255, 0, 0), Color.FromArgb(155, 255, 80), Color.FromArgb(0, 0, 205), Color.FromArgb(255, 150, 170), Color.FromArgb(15, 70, 240) };
+        Color[] nizBoja = { Color.FromArgb(255, 0, 0), Color.FromArgb(155, 255, 80), Color.FromArgb(0, 0, 255), Color.FromArgb(255, 255, 0), Color.FromArgb(135, 206, 235) };
         int indexBoja = 0;
         double bazookaKoef = 0;
         public List<Control> lobbyView = new List<Control>();
@@ -47,7 +48,6 @@ namespace AIMProClient.Controllers
         public GameController(LobbyForm lf) :this() {
             this.lobbyForm = lf;
             generateCanvas();
-            generateStopericu();
             generisiScoreLabelu();
         }
 
@@ -55,6 +55,9 @@ namespace AIMProClient.Controllers
             nisan = new RegularNisan();
             bojaNisana = Color.FromArgb(0,255,0);
             lobbyForm.BackColor = Color.SandyBrown;
+
+            generisiPoeneLabelu();
+            generateStopericu();
             resizeForm();
             loadGameControlls();
 
@@ -74,8 +77,10 @@ namespace AIMProClient.Controllers
             this.lobbyForm.Controls.Add(canvas);
             this.lobbyForm.Controls.Add(stoperica);
             this.lobbyForm.Controls.Add(scoreLabel);
+            this.lobbyForm.Controls.Add(ukupniPoeni);
             stoperica.BringToFront();
             scoreLabel.BringToFront();
+            ukupniPoeni.BringToFront();
             canvas.BringToFront();
             canvas.Focus();
         }
@@ -83,7 +88,7 @@ namespace AIMProClient.Controllers
         private void gameCanvas_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            ControlPaint.DrawBorder(g, canvas.ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
+           
             double unitx = canvas.Width/1000.0;
             double unity = canvas.Height/1000.0;
 
@@ -110,6 +115,7 @@ namespace AIMProClient.Controllers
             double percentToScale = (unitx <= unity) ? (double)( unitx) : (double)( unity);
          
             nisan.CrtajNisan(g,cursorX,cursorY,percentToScale, bojaNisana);
+            ControlPaint.DrawBorder(g, canvas.ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
         }
 
         private void gameCanvas_Click(object sender, EventArgs e) {
@@ -138,7 +144,7 @@ namespace AIMProClient.Controllers
         {
             if (e.KeyCode == Keys.B) {
                 nisan = new BazookaNisan();
-                crosshair = new Bazooka(70 , this);
+                crosshair = new Bazooka(105 , this);
                 
             }
             else if (e.KeyCode == Keys.P) {
@@ -174,6 +180,7 @@ namespace AIMProClient.Controllers
             stopwatch.Text = "Time  : " + this.vreme.ToString();
             stopwatch.Font = new Font("Modern No. 20", 18, FontStyle.Underline);
             stopwatch.Location = new Point(lobbyForm.Width / 6, lobbyForm.Height - 80);
+            stopwatch.Size = new Size(120, 50);
             this.stoperica = stopwatch;
             this.stopericaTimer = new Timer();
             stopericaTimer.Interval = 1000;
@@ -183,9 +190,10 @@ namespace AIMProClient.Controllers
 
         private void generisiScoreLabelu() {
             Label score = new Label();
-            score.Text = "Score : " + Score.ToString() + " ";
+            score.Text = "Shot : " + Score.ToString() + " ";
             score.Font = new Font("Modern No. 20", 20, FontStyle.Underline);
             score.Location = new Point(lobbyForm.Width - lobbyForm.Width / 5, lobbyForm.Height - 80);
+            score.Size = new Size(180,60);
             scoreLabel = score;
         }
 
@@ -200,6 +208,15 @@ namespace AIMProClient.Controllers
             this.scoreTimer = scoreTimer;
         }
 
+        private void generisiPoeneLabelu() {
+            Label labPoeni = new Label();
+            labPoeni.Text = "Points  : " + this.vreme.ToString();
+            labPoeni.Font = new Font("Modern No. 20", 18, FontStyle.Underline);
+            labPoeni.Location = new Point((2 * lobbyForm.Width) / 5, lobbyForm.Height - 80);
+            labPoeni.Size = new Size(130, 50);
+            this.ukupniPoeni = labPoeni;
+        }
+
         private void TickHandlerScore(object sender, EventArgs e)
         {
             if(scoreLabel!=null)
@@ -211,13 +228,17 @@ namespace AIMProClient.Controllers
         private void TickHandlerStoperica(object sender, EventArgs e)
         {
             this.vreme++;
-            this.stoperica.Text = "Time : " + this.vreme.ToString() ;
+            String labela = "Time : ";
+            this.stoperica.Text = string.Concat(labela, Convert.ToString(this.vreme));
         }
 
-        public void updateScore(int noviScore){
+        public void updateScore(int noviScore)
+        {
+            this.ukupniPoeni.Text = "Points  : " + Convert.ToString(noviScore);
             this.Score = noviScore;
+            String labela = "Shot : ";
+            scoreLabel.Text = string.Concat(labela, Convert.ToString(noviScore));
             scoreLabel.Show();
-            scoreLabel.Text = "Score : " + Score.ToString() + " ";
             scoreLabel.ForeColor = nizBoja[indexBoja];
             indexBoja = (indexBoja + 1) % 5;
             generisiTimer();
@@ -230,13 +251,12 @@ namespace AIMProClient.Controllers
                 canvas.Size = new Size(lobbyForm.Width - 35, lobbyForm.Height - 80);
                 scoreLabel.Location = new Point(lobbyForm.Width - lobbyForm.Width / 3, lobbyForm.Height - 72);
                 stoperica.Location = new Point(lobbyForm.Width / 6, lobbyForm.Height - 72);
+                ukupniPoeni.Location = new Point((2 * lobbyForm.Width) / 5, lobbyForm.Height - 72);
                 canvas.Invalidate();
             }
         }
 
         public void krajIgre() {
-            // if(Cursor.)
-            // Cursor.Show();
             lobbyForm.readyClick = false;
             this.lobbyForm.gameNotEnd = false;
             lobbyForm.WindowState = FormWindowState.Normal;
@@ -244,6 +264,7 @@ namespace AIMProClient.Controllers
             this.lobbyForm.Controls.Remove(canvas);
             this.lobbyForm.Controls.Remove(stoperica);
             this.lobbyForm.Controls.Remove(scoreLabel);
+            this.lobbyForm.Controls.Remove(ukupniPoeni);
             this.lobbyForm.scoreView();
             this.lobbyForm.Invalidate();
         }

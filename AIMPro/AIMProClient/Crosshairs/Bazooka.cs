@@ -15,10 +15,10 @@ namespace AIMProClient.Crosshairs
         {
             this.radius = radius;
         }
-        public bool sectionCircle(int x, int y, int x1, int y1, int radius)
+        public bool sectionCircle(int x, int y, int x1, int y1, int rad)
         {
            
-            return ( (Math.Pow((x-x1), 2.0) + Math.Pow((y - y1), 2.0)) <= Math.Pow((radius + this.radius), 2.0));
+            return ( (Math.Pow((x-x1), 2.0) + Math.Pow((y - y1), 2.0)) <= Math.Pow((rad + this.radius), 2.0));
         }
 
 
@@ -26,8 +26,8 @@ namespace AIMProClient.Crosshairs
         {
             double unitx = base.gameController.canvas.Width / 1000.0;
             double unity = base.gameController.canvas.Height / 1000.0;
-
-            this.radius = (unitx <= unity) ? (int)(70 * unitx) : (int)(70 * unity);
+            //double scale = (unitx <= unity) ? unity : unitx;
+            this.radius = (unitx <= unity) ? (int)(this.radius * unitx) : (int)(this.radius * unity);
      
             int countHits = 0;
             List<Target> hitsTargets = new List<Target>();

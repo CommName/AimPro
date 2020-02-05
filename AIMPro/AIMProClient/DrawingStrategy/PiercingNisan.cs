@@ -18,8 +18,8 @@ namespace AIMProClient.DrawingStrategy
 
         private void CrtajObicanNisan(Graphics g, int cursorX, int cursorY, double percentScale, Color boja)
         {
-            int duzinaKrsta = (int)(20 *percentScale);
-            int poluprecnikPrstena = (int)(10 * percentScale);
+            int duzinaKrsta = (int)(30 *percentScale);
+            int poluprecnikPrstena = (int)(15 * percentScale);
             Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 2);
             Pen customPen = new Pen(boja, 4);
             customPen.Alignment = PenAlignment.Center;
@@ -33,8 +33,8 @@ namespace AIMProClient.DrawingStrategy
         }
         private void CrtajPiercing(Graphics g, int cursorX, int cursorY, double percentScale)
         {
-            int duzinaKrsta =(int) ( 20 *percentScale);
-            int poluprecnikPrstena = (int)(10 * percentScale);
+            int duzinaKrsta =(int) ( 30 *percentScale);
+            int poluprecnikPrstena = (int)(15 * percentScale);
             Brush orangeBrush = new SolidBrush(Color.FromArgb(255, 255, 127, 80));
             PointF[] nizTemena = new PointF[3];
             nizTemena[0] = new PointF(cursorX - duzinaKrsta - poluprecnikPrstena, cursorY - 3);
