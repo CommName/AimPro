@@ -74,8 +74,7 @@ public class AIMProServerService : IAIMProServerService
     public bool signUp(string username, byte[] pass)
     {
         Querry querry = new Querry();
-        querry.registry(username, pass);
-        return true;
+        return querry.registry(username, pass);
     }
 
     public List<User> getProfiles()
