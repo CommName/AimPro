@@ -62,7 +62,7 @@ public class Target
             activeTargets.Remove(this);
             player.points += this.pointsWorth;
             player.numberOfHits++;
-            player.callback.EarnedPoints(pointsWorth);
+            player.callback.EarnedPoints(player.points,pointsWorth);
             return true;
         }
         return false;
