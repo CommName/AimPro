@@ -17,7 +17,7 @@ public class Room
     protected bool gameStarted;
     protected RoomProperties roomProperties;
     protected Dictionary<string, Shooter> players;
-    protected Subscriber subscriber;
+    protected Publisher subscriber;
 
     //Strategy
     protected GameLogic gamelogic;
@@ -81,6 +81,7 @@ public class Room
     public void FinishGame()
     {
         Dictionary<string, Shooter> copy = new Dictionary<string, Shooter>(players);
+        this.players = null;
         foreach(var player in copy)
         {
             RoomDispatcher.Instance.LeaveRoom(player.Value.username);
@@ -102,7 +103,7 @@ public class Room
         this.players = new Dictionary<string, Shooter>();
         password = null;
         gameStarted = false;
-        this.subscriber = new Subscriber();
+        this.subscriber = new Publisher();
 
     }
 
@@ -156,18 +157,21 @@ public class Room
 
     public void LeaveRoom(string player)
     {
-        this.players.Remove(player);
-        if (this.players.Count == 0)
+        if (this.players != null)
         {
-            FinishGame();
-        }
-        else
-        {
-            foreach (var pl in players)
+            this.players.Remove(player);
+            if (this.players.Count == 0)
             {
-                pl.Value.ready = false;
+                FinishGame();
             }
-            this.subscriber.PlayersInTheRoom(players);
+            else
+            {
+                foreach (var pl in players)
+                {
+                    pl.Value.ready = false;
+                }
+                this.subscriber.PlayersInTheRoom(players);
+            }
         }
     }
 

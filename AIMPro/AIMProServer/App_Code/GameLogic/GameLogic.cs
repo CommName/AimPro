@@ -16,9 +16,10 @@ public abstract class GameLogic
     public Dictionary<string, Shooter> players { get; set; }
     public TargetTypes TargetTypesAllowed { get; set; }
 
-    public Subscriber publisher { get; set; }
+    public Publisher publisher { get; set; }
 
     public abstract void start();
+
 
     public int getEarnedElo(string username)
     {
@@ -48,7 +49,7 @@ public abstract class GameLogic
 
     public void initPublisher()
     {
-        publisher = new Subscriber();
+        publisher = new Publisher();
         List<Shooter> shooter = new List<Shooter>();
         foreach (var player in players)
         {
@@ -113,5 +114,18 @@ public abstract class GameLogic
     {
         timer = new Timer(1000 * 60 * 1);
         timer.Elapsed += gameEnds;
+    }
+
+    public GameLogic(int seed , TargetTypes allowed) : this()
+    {
+         TargetTypesAllowed = allowed;
+        if (seed != 0)
+        {
+            this.seed = seed;
+        }
+        else
+        {
+            this.seed = Environment.TickCount;
+        }
     }
 }

@@ -8,7 +8,7 @@ using System.Web;
 /// <summary>
 /// Summary description for Subscriber
 /// </summary>
-public class Subscriber
+public class Publisher
 {
     private object locker = false;
     public List<Shooter> subscribers { get; set; }
@@ -22,7 +22,18 @@ public class Subscriber
     {
         foreach (Shooter shooter in players)
         {
-            shooter.callback.GameStarted();
+            Thread gameStarter = new Thread(() =>
+            {
+                try
+                {
+                    shooter.callback.GameStarted();
+                }
+                catch (Exception e)
+                {
+
+                }
+            });
+            gameStarter.Start();
         }
     }
 
@@ -35,7 +46,19 @@ public class Subscriber
     {
         foreach(Shooter shoter in shoters)
         {
-            shoter.callback.GameStops();
+            Thread gamestppoer = new Thread(() =>
+            {
+                try
+                {
+                    shoter.callback.GameStops();
+                }
+                catch (Exception e)
+                {
+
+                }
+            });
+            gamestppoer.Start();
+
         }
     }
 
@@ -46,11 +69,11 @@ public class Subscriber
 
     public void UpdateTargets(List<Target> targets, List<Shooter> players)
     {
-        Thread targetsender = new Thread(() =>
+        lock (locker)
         {
-            lock (locker)
+            foreach (Shooter shooter in players)
             {
-                foreach (Shooter shooter in players)
+                Thread targetsender = new Thread(() =>
                 {
                     try
                     {
@@ -60,11 +83,11 @@ public class Subscriber
                     {
 
                     }
-                }
+                });
+                targetsender.Start();
             }
-        });
+        }
 
-        targetsender.Start();
     }
 
     public void PlayersInTheRoom(Dictionary<string, Shooter> players)
@@ -74,12 +97,13 @@ public class Subscriber
             lock (locker)
             {
                 List<Shooter> playersInTheRoom = new List<Shooter>();
-                foreach (var player in players)
+                Dictionary<string, Shooter> copy = new Dictionary<string, Shooter>(players);
+                foreach (var player in copy)
                 {
 
                     playersInTheRoom.Add(player.Value);
                 }
-                foreach (var player in players)
+                foreach (var player in copy)
                 {
                     try
                     {

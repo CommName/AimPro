@@ -9,14 +9,19 @@ using System.Web;
 public class Querry
 {
     DataBaseAPI api = new DataBaseAPI();
-    public void registry(string username, byte[] password)
+    public bool registry(string username, byte[] password)
     {
-        User newUser = new User();
+        User newUser = api.getUserWithoutHistory(username);
+        if (newUser != null)
+        {
+            return false;
+        }
+        newUser = new User();
         newUser.Username = username;
         newUser.Password = password;
         newUser.Elo = 1200;
         api.AddUser(newUser);
-
+        return true;
     }
 
     public bool login(string username, byte[] password)
