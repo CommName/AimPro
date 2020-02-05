@@ -277,6 +277,9 @@ namespace AIMProClient.AIMProService {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EndlessCampaign = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SoloShooting = 32,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -905,10 +908,10 @@ namespace AIMProClient.AIMProService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Target", Namespace="http://schemas.datacontract.org/2004/07/")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AIMProClient.AIMProService.BoostTarget))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AIMProClient.AIMProService.ShieldedTarget))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AIMProClient.AIMProService.ChildTargets))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AIMProClient.AIMProService.NegativeTargets))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AIMProClient.AIMProService.ShieldedTarget))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AIMProClient.AIMProService.BoostTarget))]
     public partial class Target : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -1000,16 +1003,9 @@ namespace AIMProClient.AIMProService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ChildTargets", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BoostTarget", Namespace="http://schemas.datacontract.org/2004/07/")]
     [System.SerializableAttribute()]
-    public partial class ChildTargets : AIMProClient.AIMProService.Target {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="NegativeTargets", Namespace="http://schemas.datacontract.org/2004/07/")]
-    [System.SerializableAttribute()]
-    public partial class NegativeTargets : AIMProClient.AIMProService.Target {
+    public partial class BoostTarget : AIMProClient.AIMProService.Target {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1021,9 +1017,16 @@ namespace AIMProClient.AIMProService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BoostTarget", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ChildTargets", Namespace="http://schemas.datacontract.org/2004/07/")]
     [System.SerializableAttribute()]
-    public partial class BoostTarget : AIMProClient.AIMProService.Target {
+    public partial class ChildTargets : AIMProClient.AIMProService.Target {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NegativeTargets", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class NegativeTargets : AIMProClient.AIMProService.Target {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1124,11 +1127,8 @@ namespace AIMProClient.AIMProService {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/GameStops")]
         void GameStops();
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/GameStats")]
-        void GameStats();
-        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/EarnedPoints")]
-        void EarnedPoints(int points);
+        void EarnedPoints(int totalPoints, int newPoints);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

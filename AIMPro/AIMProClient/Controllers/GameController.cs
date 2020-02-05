@@ -213,7 +213,7 @@ namespace AIMProClient.Controllers
             labPoeni.Text = "Points  : " + this.vreme.ToString();
             labPoeni.Font = new Font("Modern No. 20", 18, FontStyle.Underline);
             labPoeni.Location = new Point((2 * lobbyForm.Width) / 5, lobbyForm.Height - 80);
-            labPoeni.Size = new Size(130, 50);
+            labPoeni.Size = new Size(180, 50);
             this.ukupniPoeni = labPoeni;
         }
 
@@ -232,12 +232,12 @@ namespace AIMProClient.Controllers
             this.stoperica.Text = string.Concat(labela, Convert.ToString(this.vreme));
         }
 
-        public void updateScore(int noviScore)
+        public void updateScore(int totalPoints, int newPoints)
         {
-            this.ukupniPoeni.Text = "Points  : " + Convert.ToString(noviScore);
-            this.Score = noviScore;
+            this.ukupniPoeni.Text = "Points  : " + Convert.ToString(totalPoints);
+            this.Score = newPoints;
             String labela = "Shot : ";
-            scoreLabel.Text = string.Concat(labela, Convert.ToString(noviScore));
+            scoreLabel.Text = string.Concat(labela, Convert.ToString(newPoints));
             scoreLabel.Show();
             scoreLabel.ForeColor = nizBoja[indexBoja];
             indexBoja = (indexBoja + 1) % 5;

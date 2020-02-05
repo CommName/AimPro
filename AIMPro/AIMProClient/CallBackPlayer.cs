@@ -13,9 +13,9 @@ using System.Windows.Forms;
 /// </summary>
 public class CallBackPlayer : IAIMProServerServiceCallback
 {
-    public void EarnedPoints(int points)
+    public void EarnedPoints(int totalPoints, int newPoints)
     {
-        FormLayer.Instance.lobbyForm.gameController.updateScore(points);
+        FormLayer.Instance.lobbyForm.gameController.updateScore(totalPoints,newPoints);
     }
 
     public void GameStarted()

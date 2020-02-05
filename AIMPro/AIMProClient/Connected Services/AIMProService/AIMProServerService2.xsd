@@ -105,6 +105,13 @@
               </xs:appinfo>
             </xs:annotation>
           </xs:enumeration>
+          <xs:enumeration value="SoloShooting">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
         </xs:restriction>
       </xs:simpleType>
     </xs:list>
@@ -274,6 +281,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Target" nillable="true" type="tns:Target" />
+  <xs:complexType name="BoostTarget">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Target">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BoostTarget" nillable="true" type="tns:BoostTarget" />
+  <xs:complexType name="ShieldedTarget">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Target">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShieldedTarget" nillable="true" type="tns:ShieldedTarget" />
   <xs:complexType name="ChildTargets">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Target">
@@ -290,20 +313,4 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="NegativeTargets" nillable="true" type="tns:NegativeTargets" />
-  <xs:complexType name="ShieldedTarget">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Target">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="ShieldedTarget" nillable="true" type="tns:ShieldedTarget" />
-  <xs:complexType name="BoostTarget">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Target">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="BoostTarget" nillable="true" type="tns:BoostTarget" />
 </xs:schema>
