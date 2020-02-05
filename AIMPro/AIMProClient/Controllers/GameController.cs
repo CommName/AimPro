@@ -101,12 +101,12 @@ namespace AIMProClient.Controllers
                     }
                     crtacMeta.x =(int) (t.x *unitx) ;
                     crtacMeta.y = (int)(t.y *unity);
-                     crtacMeta.r = t.radius;
+                    crtacMeta.r =(unitx <= unity) ?  (int) (t.radius *unitx) : (int) (t.radius * unity);
                     crtacMeta.CrtajMetu(g);
                 }
             }
-            
-            nisan.CrtajNisan(g,cursorX,cursorY,bojaNisana);
+            double percentToScale= (unitx <= unity) ? (double)( unitx) : (double)( unity);
+            nisan.CrtajNisan(g,cursorX,cursorY,percentToScale, bojaNisana);
         }
 
         private void gameCanvas_Click(object sender, EventArgs e) {

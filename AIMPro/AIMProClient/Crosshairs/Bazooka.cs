@@ -17,17 +17,26 @@ namespace AIMProClient.Crosshairs
         }
         public bool sectionCircle(int x, int y, int x1, int y1, int radius)
         {
+            
+
+
             return ( (Math.Pow((x-x1), 2.0) + Math.Pow((y - y1), 2.0)) <= Math.Pow((radius + this.radius), 2.0));
         }
 
 
         public override void submitHit(int x, int y)
         {
+            double unitx = base.gameController.canvas.Width / 1000.0;
+            double unity = base.gameController.canvas.Height / 1000.0;
+            this.radius = (unitx <= unity) ? (int)(this.radius * unitx) : (int)(this.radius * unity);
+
             List<Target> pomTargets = base.gameController.targets;
             int countHits = 0;
             List<Target> hitsTargets = new List<Target>();
             foreach (Target t in pomTargets)
             {
+                t.radius = (unitx <= unity) ? (int)(t.radius * unitx) : (int)(t.radius * unity);
+
                 if (sectionCircle(x, y, t.x, t.y, t.radius))
                 {
                     if (t.type == TargetTypes.Shielded)

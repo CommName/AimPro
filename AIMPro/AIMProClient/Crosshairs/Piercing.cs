@@ -19,8 +19,13 @@ namespace AIMProClient.Crosshairs
         {
             List<Target> pomTargets=base.gameController.targets;
             int countHits = 0;
-            foreach(Target t in pomTargets)
+            double unitx = base.gameController.canvas.Width / 1000.0;
+            double unity = base.gameController.canvas.Height / 1000.0;
+
+            foreach (Target t in pomTargets)
             {
+                t.radius = (unitx <= unity) ? (int)(t.radius * unitx) : (int)(t.radius * unity);
+
                 if (base.isInCircle(x, y, t.x, t.y, t.radius))
                 {
                     if (t.type == TargetTypes.Shielded)
