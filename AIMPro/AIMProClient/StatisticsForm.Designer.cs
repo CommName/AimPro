@@ -48,7 +48,7 @@
             this.dataGridStatistics.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridStatistics.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dataGridStatistics.BackgroundColor = System.Drawing.Color.AntiqueWhite;
-            this.dataGridStatistics.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridStatistics.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridStatistics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridStatistics.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Rank,
@@ -60,7 +60,7 @@
             this.dataGridStatistics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridStatistics.Location = new System.Drawing.Point(0, 0);
             this.dataGridStatistics.Name = "dataGridStatistics";
-            this.dataGridStatistics.Size = new System.Drawing.Size(822, 448);
+            this.dataGridStatistics.Size = new System.Drawing.Size(827, 550);
             this.dataGridStatistics.TabIndex = 0;
             this.dataGridStatistics.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridStatistics_CellClick);
             // 
@@ -114,9 +114,9 @@
             // backBtn
             // 
             this.backBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.backBtn.Location = new System.Drawing.Point(0, 413);
+            this.backBtn.Location = new System.Drawing.Point(0, 515);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(822, 35);
+            this.backBtn.Size = new System.Drawing.Size(827, 35);
             this.backBtn.TabIndex = 2;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = true;
@@ -130,7 +130,7 @@
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.dataGridStatistics);
             this.Name = "StatisticsForm";
-            this.Size = new System.Drawing.Size(822, 448);
+            this.Size = new System.Drawing.Size(827, 550);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStatistics)).EndInit();
             this.ResumeLayout(false);
 

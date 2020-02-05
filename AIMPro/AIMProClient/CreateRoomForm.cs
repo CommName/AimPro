@@ -19,27 +19,13 @@ namespace AIMProClient
         {
             this.controller=menuController;
             InitializeComponent();
-            this.codePanel.Visible = false;
             this.ActiveControl = nameTxtBox;
-            this.publicRb.Checked = true;
             this.multyPlayerRb.Checked = true;
             this.nameTxtBox.Text = this.controller.getUser.Username+" 's room";
             this.controller.PublicSoba = true;
             this.controller.TipIgre = 2;
         }
 
-        private void privateRb_CheckedChanged(object sender, EventArgs e)
-        {
-            this.codePanel.Visible = privateRb.Checked;
-            if (this.privateRb.Checked == true)
-                this.controller.PublicSoba = false;
-        }
-
-        private void publicRb_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.publicRb.Checked == true)
-                this.controller.PublicSoba = true;
-        }
 
         private void duelRb_CheckedChanged(object sender, EventArgs e)
         {
@@ -103,42 +89,9 @@ namespace AIMProClient
                 this.controller.TipMete -= 16;
         }
 
-        private void piercingChb_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.piercingChb.Checked == true)
-                this.controller.TipMunicije += 1;
-            else
-                this.controller.TipMunicije -= 1;
-        }
-
-
-        private void limitedChb_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.limitedChb.Checked == true)
-                this.controller.TipMunicije += 4;
-            else
-                this.controller.TipMunicije -= 4;
-        }
-
-        private void drunkChb_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.drunkChb.Checked == true)
-                this.controller.TipMunicije += 8;
-            else
-                this.controller.TipMunicije -= 8;
-        }
-
-        private void bazookaChb_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.bazookaChb.Checked == true)
-                this.controller.TipMunicije += 16;
-            else
-                this.controller.TipMunicije -= 16;
-        }
-
         private void createBtn_Click(object sender, EventArgs e)
         {
-            if (this.controller.validirajKreiranjeSobe(this.nameTxtBox.Text, this.codeTxtBox.Text))
+            if (this.controller.validirajKreiranjeSobe(this.nameTxtBox.Text, ""))
             {
                 //this.Close();
             }

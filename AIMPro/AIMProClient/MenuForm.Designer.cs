@@ -45,7 +45,7 @@
             // 
             this.welcomeLabel.AutoSize = true;
             this.welcomeLabel.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.welcomeLabel.Location = new System.Drawing.Point(170, 27);
+            this.welcomeLabel.Location = new System.Drawing.Point(271, 9);
             this.welcomeLabel.Name = "welcomeLabel";
             this.welcomeLabel.Size = new System.Drawing.Size(122, 29);
             this.welcomeLabel.TabIndex = 0;
@@ -110,23 +110,24 @@
             // 
             this.exitBtn.BackgroundImage = global::AIMProClient.Properties.Resources.exit12;
             this.exitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.exitBtn.Location = new System.Drawing.Point(704, 710);
+            this.exitBtn.Location = new System.Drawing.Point(765, 1);
             this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(75, 54);
+            this.exitBtn.Size = new System.Drawing.Size(60, 45);
             this.exitBtn.TabIndex = 7;
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.exitBtn);
             this.panel1.Controls.Add(this.logoutBtn);
             this.panel1.Controls.Add(this.joinRoomButton);
             this.panel1.Controls.Add(this.profileButton);
             this.panel1.Controls.Add(this.createRoomButton);
             this.panel1.Controls.Add(this.statisticsButton);
-            this.panel1.Location = new System.Drawing.Point(12, 84);
+            this.panel1.Location = new System.Drawing.Point(12, 54);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(770, 48);
+            this.panel1.Size = new System.Drawing.Size(827, 48);
             this.panel1.TabIndex = 8;
             // 
             // subView
@@ -134,9 +135,9 @@
             this.subView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.subView.Location = new System.Drawing.Point(19, 138);
+            this.subView.Location = new System.Drawing.Point(12, 122);
             this.subView.Name = "subView";
-            this.subView.Size = new System.Drawing.Size(759, 572);
+            this.subView.Size = new System.Drawing.Size(827, 550);
             this.subView.TabIndex = 9;
             this.subView.TabStop = false;
             // 
@@ -144,10 +145,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 776);
+            this.ClientSize = new System.Drawing.Size(851, 687);
             this.Controls.Add(this.subView);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.welcomeLabel);
             this.Name = "MenuForm";
             this.Text = "Menu";

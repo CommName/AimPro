@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.RoomName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeOfGame = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,19 +37,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.refreshBtn = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(4, 48);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(732, 455);
-            this.panel2.TabIndex = 6;
             // 
             // dataGridView1
             // 
@@ -69,7 +58,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(732, 455);
+            this.dataGridView1.Size = new System.Drawing.Size(827, 519);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -109,9 +98,9 @@
             this.panel1.Controls.Add(this.refreshBtn);
             this.panel1.Controls.Add(this.backBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 502);
+            this.panel1.Location = new System.Drawing.Point(0, 519);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(743, 31);
+            this.panel1.Size = new System.Drawing.Size(827, 31);
             this.panel1.TabIndex = 9;
             // 
             // refreshBtn
@@ -131,44 +120,28 @@
             this.backBtn.BackgroundImage = global::AIMProClient.Properties.Resources.nazadd;
             this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.backBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.backBtn.Location = new System.Drawing.Point(677, 0);
+            this.backBtn.Location = new System.Drawing.Point(761, 0);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(66, 31);
             this.backBtn.TabIndex = 8;
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(237, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 24);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Choose room you wish to join :";
-            // 
             // JoinRoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 533);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
             this.Name = "JoinRoomForm";
-            this.Text = "Join Room";
-            this.panel2.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(827, 550);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeOfGame;
@@ -178,6 +151,5 @@
         private System.Windows.Forms.Button refreshBtn;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
     }
 }

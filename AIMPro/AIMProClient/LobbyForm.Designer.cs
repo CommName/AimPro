@@ -603,7 +603,7 @@
             this.backBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.backBtn.BackgroundImage = global::AIMProClient.Properties.Resources.nazadd;
             this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.backBtn.Location = new System.Drawing.Point(488, 394);
+            this.backBtn.Location = new System.Drawing.Point(510, 394);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(72, 24);
             this.backBtn.TabIndex = 1;
@@ -613,7 +613,7 @@
             // readyBtn
             // 
             this.readyBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.readyBtn.Location = new System.Drawing.Point(381, 394);
+            this.readyBtn.Location = new System.Drawing.Point(365, 394);
             this.readyBtn.Name = "readyBtn";
             this.readyBtn.Size = new System.Drawing.Size(101, 24);
             this.readyBtn.TabIndex = 7;

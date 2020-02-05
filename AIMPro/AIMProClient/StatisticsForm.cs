@@ -32,6 +32,7 @@ namespace AIMProClient
         }
         public void ShowTable(List<User> users)
         {
+            dataGridStatistics.Rows.Clear();
             int rank = 0;
             if (users != null)
             {

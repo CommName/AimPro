@@ -108,6 +108,8 @@ namespace AIMProClient
         delegate void osveziPrikazUseraDgt(List<Shooter> listaUsera);
 
         public void refreshUsers(List<Shooter> listaUsera) {
+            //if (readyClick == false)
+           // {
                 if (this.InvokeRequired)
                 {
                     osveziPrikazUseraDgt d = new osveziPrikazUseraDgt(osveziPrikazUsera);
@@ -117,6 +119,7 @@ namespace AIMProClient
                 {
                     osveziPrikazUsera(listaUsera);
                 }
+           // }
         }
 
         public void osveziPrikazUsera(List<Shooter> listaUsera) {
@@ -154,6 +157,10 @@ namespace AIMProClient
         private void readyBtn_Click(object sender, EventArgs e)
         {
             this.readyClick = true;
+            for (int i = 0; i < this.Controls.Count; i++)
+            {
+                this.gameController.lobbyView.Add(this.Controls[i]);
+            }
             this.lobbyController.userReady();
         }
 
