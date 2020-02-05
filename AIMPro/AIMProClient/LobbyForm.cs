@@ -99,12 +99,7 @@ namespace AIMProClient
             ready[1] = p2readylabel;
             ready[2] = p3readylabel;
             ready[3] = p4readylabel;
-
-        }
-
-        public void f() {
-            this.menuController.leaveLobby(gameNotEnd);
-            this.Close();
+           
         }
 
         private void backBtn_Click(object sender, EventArgs e)

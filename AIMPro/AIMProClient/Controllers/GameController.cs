@@ -34,6 +34,7 @@ namespace AIMProClient.Controllers
         public List<Target> targets;
         Color[] nizBoja = { Color.FromArgb(255, 0, 0), Color.FromArgb(155, 255, 80), Color.FromArgb(0, 0, 205), Color.FromArgb(255, 150, 170), Color.FromArgb(15, 70, 240) };
         int indexBoja = 0;
+        double bazookaKoef = 0;
         public List<Control> lobbyView = new List<Control>();
         Crosshair crosshair;
 
@@ -56,6 +57,7 @@ namespace AIMProClient.Controllers
             lobbyForm.BackColor = Color.SandyBrown;
             resizeForm();
             loadGameControlls();
+
         }
 
         public void resizeForm() {
@@ -75,6 +77,7 @@ namespace AIMProClient.Controllers
             stoperica.BringToFront();
             scoreLabel.BringToFront();
             canvas.BringToFront();
+            canvas.Focus();
         }
 
         private void gameCanvas_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
@@ -100,12 +103,13 @@ namespace AIMProClient.Controllers
                     }
                     crtacMeta.x =(int) (t.x *unitx) ;
                     crtacMeta.y = (int)(t.y *unity);
-                     crtacMeta.r = t.radius;
+                    crtacMeta.r = (unitx <= unity) ?  (int) (t.radius *unitx) : (int) (t.radius * unity);
                     crtacMeta.CrtajMetu(g);
                 }
             }
-            
-            nisan.CrtajNisan(g,cursorX,cursorY,bojaNisana);
+            double percentToScale = (unitx <= unity) ? (double)( unitx) : (double)( unity);
+         
+            nisan.CrtajNisan(g,cursorX,cursorY,percentToScale, bojaNisana);
         }
 
         private void gameCanvas_Click(object sender, EventArgs e) {
@@ -130,17 +134,23 @@ namespace AIMProClient.Controllers
             canvas.Invalidate();
         }
 
-        private void lobbyForm_KeyDown(object sender, KeyEventArgs e)
+        public void lobbyForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.B)
+            if (e.KeyCode == Keys.B) {
                 nisan = new BazookaNisan();
+                crosshair = new Bazooka(70 , this);
+                
+            }
             else if (e.KeyCode == Keys.P) {
                 bojaNisana = Color.FromArgb(255, 255, 127, 80);
                 nisan = new PiercingNisan();
+                crosshair = new Piercing(this);
+
             }
             else if (e.KeyCode == Keys.R) {
-                bojaNisana = Color.FromArgb(0,255,0);
+                bojaNisana = Color.FromArgb(0, 255, 0);
                 nisan = new RegularNisan();
+                crosshair = new Crosshair(this);
             }
             canvas.Invalidate();
         }
@@ -155,7 +165,7 @@ namespace AIMProClient.Controllers
             gameCanvas.MouseEnter += new EventHandler(gameCanvas_MouseEnter);
             gameCanvas.MouseLeave += new EventHandler(gameCanvas_MouseLeave);
             gameCanvas.MouseMove += new MouseEventHandler(gameCanvas_MouseMove);
-            lobbyForm.KeyDown += new KeyEventHandler(lobbyForm_KeyDown);
+            gameCanvas.KeyDown += new KeyEventHandler(lobbyForm_KeyDown);
             this.canvas= gameCanvas;
         }
 
@@ -166,7 +176,7 @@ namespace AIMProClient.Controllers
             stopwatch.Location = new Point(lobbyForm.Width / 6, lobbyForm.Height - 80);
             this.stoperica = stopwatch;
             this.stopericaTimer = new Timer();
-            stopericaTimer.Interval = 2000;
+            stopericaTimer.Interval = 1000;
             stopericaTimer.Tick += TickHandlerStoperica;
             stopericaTimer.Start();
         }
@@ -225,7 +235,8 @@ namespace AIMProClient.Controllers
         }
 
         public void krajIgre() {
-            Cursor.Show();
+           // if(Cursor.)
+           // Cursor.Show();
             this.lobbyForm.gameNotEnd = false;
             lobbyForm.WindowState = FormWindowState.Normal;
             this.lobbyForm.Size = new Size(950, 500);
@@ -233,8 +244,6 @@ namespace AIMProClient.Controllers
             this.lobbyForm.Controls.Remove(stoperica);
             this.lobbyForm.Controls.Remove(scoreLabel);
             this.lobbyForm.scoreView();
-            
-
             this.lobbyForm.Invalidate();
         }
     }

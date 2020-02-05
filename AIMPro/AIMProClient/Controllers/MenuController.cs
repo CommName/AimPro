@@ -150,6 +150,9 @@ namespace AIMProClient.Controllers
                     
                 };
                 CommunicationLayer.Instance.CreateRoom(room);
+                FormLayer.Instance.createRoomForm.deSelectAll();
+                TipMete = 0;
+                TipIgre = 2;
                 MessageBox.Show("Room created Successfully!", "Notification!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 enterLobbyRoomFromCreate();
                 return true;
@@ -166,6 +169,9 @@ namespace AIMProClient.Controllers
                     Name=sobaName,
                     Password=sobaCode
                 };
+                FormLayer.Instance.createRoomForm.deSelectAll();
+                TipMete = 0;
+                TipIgre = 2;
                 CommunicationLayer.Instance.CreateRoom(room);
                 MessageBox.Show("Room created Successfully!", "Notification!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 enterLobbyRoomFromCreate();

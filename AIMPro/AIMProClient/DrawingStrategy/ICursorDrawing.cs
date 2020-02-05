@@ -11,6 +11,6 @@ namespace AIMProClient.DrawingStrategy
     {
         //abstract 
         
-            void CrtajNisan(Graphics g,int cursorX,int cursorY, Color boja); 
+            void CrtajNisan(Graphics g,int cursorX,int cursorY,double percentScale, Color boja); 
     }
 }

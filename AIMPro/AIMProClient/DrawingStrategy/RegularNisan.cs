@@ -10,10 +10,10 @@ namespace AIMProClient.DrawingStrategy
 {
     class RegularNisan : ICursorDrawing
     {
-        void ICursorDrawing.CrtajNisan(Graphics g, int cursorX, int cursorY, Color boja)
+        void ICursorDrawing.CrtajNisan(Graphics g, int cursorX, int cursorY, double percentScale, Color boja)
         {
-            int duzinaKrsta = 20;
-            int poluprecnikPrstena = 10;
+            int duzinaKrsta = (int)(20*percentScale);
+            int poluprecnikPrstena = (int) (10* percentScale);
             Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 2);
             Pen customPen = new Pen(boja, 4);
             customPen.Alignment = PenAlignment.Center;

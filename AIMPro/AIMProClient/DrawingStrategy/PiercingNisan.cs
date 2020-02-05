@@ -10,16 +10,16 @@ namespace AIMProClient.DrawingStrategy
 {
     class PiercingNisan : ICursorDrawing
     {
-        void ICursorDrawing.CrtajNisan(Graphics g, int cursorX, int cursorY, Color boja)
+        void ICursorDrawing.CrtajNisan(Graphics g, int cursorX, int cursorY, double percentScale, Color boja)
         {
-            CrtajObicanNisan(g, cursorX, cursorY, Color.FromArgb(255, 255, 127, 80));
-            CrtajPiercing(g, cursorX, cursorY);
+            CrtajObicanNisan(g, cursorX, cursorY,percentScale, Color.FromArgb(255, 255, 127, 80));
+            CrtajPiercing(g, cursorX, cursorY,percentScale);
         }
 
-        private void CrtajObicanNisan(Graphics g, int cursorX, int cursorY, Color boja)
+        private void CrtajObicanNisan(Graphics g, int cursorX, int cursorY, double percentScale, Color boja)
         {
-            int duzinaKrsta = 20;
-            int poluprecnikPrstena = 10;
+            int duzinaKrsta = (int)(20 *percentScale);
+            int poluprecnikPrstena = (int)(10 * percentScale);
             Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 2);
             Pen customPen = new Pen(boja, 4);
             customPen.Alignment = PenAlignment.Center;
@@ -31,10 +31,10 @@ namespace AIMProClient.DrawingStrategy
             g.DrawLine(customPen, cursorX - duzinaKrsta, cursorY, cursorX + duzinaKrsta, cursorY);
             g.DrawLine(blackPen, cursorX - duzinaKrsta, cursorY, cursorX + duzinaKrsta, cursorY);
         }
-        private void CrtajPiercing(Graphics g, int cursorX, int cursorY)
+        private void CrtajPiercing(Graphics g, int cursorX, int cursorY, double percentScale)
         {
-            int duzinaKrsta = 20;
-            int poluprecnikPrstena = 10;
+            int duzinaKrsta =(int) ( 20 *percentScale);
+            int poluprecnikPrstena = (int)(10 * percentScale);
             Brush orangeBrush = new SolidBrush(Color.FromArgb(255, 255, 127, 80));
             PointF[] nizTemena = new PointF[3];
             nizTemena[0] = new PointF(cursorX - duzinaKrsta - poluprecnikPrstena, cursorY - 3);

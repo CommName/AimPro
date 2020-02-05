@@ -17,11 +17,16 @@ namespace AIMProClient.Crosshairs
 
         public override void submitHit(int x, int y)
         {
-            List<Target> pomTargets=base.gameController.targets;
+         
             int countHits = 0;
-            foreach(Target t in pomTargets)
+            double unitx = base.gameController.canvas.Width / 1000.0;
+            double unity = base.gameController.canvas.Height / 1000.0;
+
+            foreach (Target t in base.gameController.targets)
             {
-                if (base.isInCircle(x, y, t.x, t.y, t.radius))
+              int radius = (unitx <= unity) ? (int)(t.radius * unitx) : (int)(t.radius * unity);
+
+                if (base.isInCircle(x, y, t.x, t.y, radius))
                 {
                     if (t.type == TargetTypes.Shielded)
                     {
