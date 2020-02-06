@@ -37,11 +37,11 @@ namespace AIMProClient.Controllers
         int indexBoja = 0;
         public List<Control> lobbyView = new List<Control>();
         Crosshair crosshair;
-        int[] nizMunicije = {100,100,1000};
+        int[] nizMunicije = {20,20,1000};
         AmmoController ammoController;
         public List<Tuple<PointF, Target>> pointsTargets;
         Matrix Transform;
-
+        public bool cursorFlag;
 
 
         public GameController()
@@ -157,10 +157,12 @@ namespace AIMProClient.Controllers
 
         private void gameCanvas_MouseEnter(object sender, System.EventArgs e){
             Cursor.Hide();
+            cursorFlag = false;
         }
 
         private void gameCanvas_MouseLeave(object sender, System.EventArgs e){
             Cursor.Show();
+            cursorFlag = true;
         }
 
         private void gameCanvas_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e){
@@ -297,6 +299,10 @@ namespace AIMProClient.Controllers
         public void krajIgre() {
             this.vreme = 0;
             ammoController = new AmmoController(nizMunicije);
+            bojaNisana = Color.FromArgb(0, 255, 0);
+            crosshair = new Crosshair(this);
+            nisan = new RegularNisan();
+            this.stopericaTimer.Stop();
             lobbyForm.readyClick = false;
             this.lobbyForm.gameNotEnd = false;
             lobbyForm.WindowState = FormWindowState.Normal;
@@ -305,6 +311,8 @@ namespace AIMProClient.Controllers
             this.lobbyForm.setWallPaper();
             this.lobbyForm.scoreView();
             this.lobbyForm.Invalidate();
+            if (cursorFlag == false)
+                Cursor.Show();
         }
 
         private void deleteGameView() {
