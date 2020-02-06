@@ -19,6 +19,7 @@ namespace AIMProClient
             this.controller = controller;
             this.controller.mask = false;
             InitializeComponent();
+            this.Icon = new Icon("icon.ico");
             this.passwordSignUpTextBox.PasswordChar = this.controller.setMask();
             this.MinimizeBox = false;
             this.MaximizeBox = false;

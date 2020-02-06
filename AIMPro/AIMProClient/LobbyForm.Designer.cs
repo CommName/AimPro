@@ -33,6 +33,7 @@
             this.p1readylabel = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.p1NumMissesLbl = new System.Windows.Forms.Label();
+            this.p1place = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.p1NumHitsLbl = new System.Windows.Forms.Label();
             this.p1EloLbl = new System.Windows.Forms.Label();
@@ -42,21 +43,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.player2GroupBox = new System.Windows.Forms.GroupBox();
-            this.p2readylabel = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.p2NumMissesLbl = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.p2NumHitsLbl = new System.Windows.Forms.Label();
-            this.p2EloLbl = new System.Windows.Forms.Label();
-            this.p2PointsLbl = new System.Windows.Forms.Label();
-            this.p2UsernameLbl = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.player3GroupBox = new System.Windows.Forms.GroupBox();
             this.p3readylabel = new System.Windows.Forms.Label();
+            this.p3place = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.p3NumMissesLbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -69,6 +58,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.player4GroupBox = new System.Windows.Forms.GroupBox();
+            this.p4place = new System.Windows.Forms.Label();
             this.p4readylabel = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.p4NumMissesLbl = new System.Windows.Forms.Label();
@@ -81,21 +71,32 @@
             this.p4UsernameLbl = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.backBtn = new System.Windows.Forms.Button();
             this.readyBtn = new System.Windows.Forms.Button();
-            this.p1place = new System.Windows.Forms.Label();
+            this.player2GroupBox = new System.Windows.Forms.GroupBox();
             this.p2place = new System.Windows.Forms.Label();
-            this.p3place = new System.Windows.Forms.Label();
-            this.p4place = new System.Windows.Forms.Label();
+            this.p2readylabel = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.p2NumMissesLbl = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.p2NumHitsLbl = new System.Windows.Forms.Label();
+            this.p2EloLbl = new System.Windows.Forms.Label();
+            this.p2PointsLbl = new System.Windows.Forms.Label();
+            this.p2UsernameLbl = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.backBtn = new System.Windows.Forms.Button();
             this.player1GroupBox.SuspendLayout();
-            this.player2GroupBox.SuspendLayout();
             this.player3GroupBox.SuspendLayout();
             this.player4GroupBox.SuspendLayout();
+            this.player2GroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // naslovLbl
             // 
             this.naslovLbl.AutoSize = true;
+            this.naslovLbl.BackColor = System.Drawing.Color.Transparent;
             this.naslovLbl.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.naslovLbl.Location = new System.Drawing.Point(361, 9);
             this.naslovLbl.Name = "naslovLbl";
@@ -105,6 +106,7 @@
             // 
             // player1GroupBox
             // 
+            this.player1GroupBox.BackColor = System.Drawing.Color.Transparent;
             this.player1GroupBox.Controls.Add(this.p1readylabel);
             this.player1GroupBox.Controls.Add(this.label19);
             this.player1GroupBox.Controls.Add(this.p1NumMissesLbl);
@@ -119,7 +121,7 @@
             this.player1GroupBox.Controls.Add(this.label7);
             this.player1GroupBox.Controls.Add(this.label8);
             this.player1GroupBox.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1GroupBox.Location = new System.Drawing.Point(63, 47);
+            this.player1GroupBox.Location = new System.Drawing.Point(70, 47);
             this.player1GroupBox.Name = "player1GroupBox";
             this.player1GroupBox.Size = new System.Drawing.Size(271, 181);
             this.player1GroupBox.TabIndex = 2;
@@ -150,6 +152,18 @@
             this.p1NumMissesLbl.Name = "p1NumMissesLbl";
             this.p1NumMissesLbl.Size = new System.Drawing.Size(0, 15);
             this.p1NumMissesLbl.TabIndex = 21;
+            // 
+            // p1place
+            // 
+            this.p1place.AutoSize = true;
+            this.p1place.BackColor = System.Drawing.Color.Transparent;
+            this.p1place.Font = new System.Drawing.Font("Algerian", 48F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p1place.ForeColor = System.Drawing.Color.Gold;
+            this.p1place.Location = new System.Drawing.Point(186, 3);
+            this.p1place.Name = "p1place";
+            this.p1place.Size = new System.Drawing.Size(85, 71);
+            this.p1place.TabIndex = 8;
+            this.p1place.Text = "1.";
             // 
             // label1
             // 
@@ -228,135 +242,10 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "Elo : ";
             // 
-            // player2GroupBox
-            // 
-            this.player2GroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.player2GroupBox.Controls.Add(this.p2place);
-            this.player2GroupBox.Controls.Add(this.p2readylabel);
-            this.player2GroupBox.Controls.Add(this.label22);
-            this.player2GroupBox.Controls.Add(this.p2NumMissesLbl);
-            this.player2GroupBox.Controls.Add(this.label5);
-            this.player2GroupBox.Controls.Add(this.label10);
-            this.player2GroupBox.Controls.Add(this.label11);
-            this.player2GroupBox.Controls.Add(this.p2NumHitsLbl);
-            this.player2GroupBox.Controls.Add(this.p2EloLbl);
-            this.player2GroupBox.Controls.Add(this.p2PointsLbl);
-            this.player2GroupBox.Controls.Add(this.p2UsernameLbl);
-            this.player2GroupBox.Controls.Add(this.label20);
-            this.player2GroupBox.Controls.Add(this.label21);
-            this.player2GroupBox.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2GroupBox.Location = new System.Drawing.Point(602, 47);
-            this.player2GroupBox.Name = "player2GroupBox";
-            this.player2GroupBox.Size = new System.Drawing.Size(269, 181);
-            this.player2GroupBox.TabIndex = 3;
-            this.player2GroupBox.TabStop = false;
-            this.player2GroupBox.Text = "Player 2 Information";
-            // 
-            // p2readylabel
-            // 
-            this.p2readylabel.AutoSize = true;
-            this.p2readylabel.Location = new System.Drawing.Point(89, 150);
-            this.p2readylabel.Name = "p2readylabel";
-            this.p2readylabel.Size = new System.Drawing.Size(0, 15);
-            this.p2readylabel.TabIndex = 22;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 150);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(73, 15);
-            this.label22.TabIndex = 30;
-            this.label22.Text = "Player ready";
-            // 
-            // p2NumMissesLbl
-            // 
-            this.p2NumMissesLbl.AutoSize = true;
-            this.p2NumMissesLbl.Location = new System.Drawing.Point(122, 123);
-            this.p2NumMissesLbl.Name = "p2NumMissesLbl";
-            this.p2NumMissesLbl.Size = new System.Drawing.Size(0, 15);
-            this.p2NumMissesLbl.TabIndex = 29;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 123);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 15);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Number of misses :";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 98);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(103, 15);
-            this.label10.TabIndex = 27;
-            this.label10.Text = "Number of hits  : ";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 73);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(52, 15);
-            this.label11.TabIndex = 26;
-            this.label11.Text = "Points : ";
-            // 
-            // p2NumHitsLbl
-            // 
-            this.p2NumHitsLbl.AutoSize = true;
-            this.p2NumHitsLbl.Location = new System.Drawing.Point(115, 98);
-            this.p2NumHitsLbl.Name = "p2NumHitsLbl";
-            this.p2NumHitsLbl.Size = new System.Drawing.Size(0, 15);
-            this.p2NumHitsLbl.TabIndex = 25;
-            // 
-            // p2EloLbl
-            // 
-            this.p2EloLbl.AutoSize = true;
-            this.p2EloLbl.Location = new System.Drawing.Point(49, 48);
-            this.p2EloLbl.Name = "p2EloLbl";
-            this.p2EloLbl.Size = new System.Drawing.Size(0, 15);
-            this.p2EloLbl.TabIndex = 24;
-            // 
-            // p2PointsLbl
-            // 
-            this.p2PointsLbl.AutoSize = true;
-            this.p2PointsLbl.Location = new System.Drawing.Point(64, 73);
-            this.p2PointsLbl.Name = "p2PointsLbl";
-            this.p2PointsLbl.Size = new System.Drawing.Size(0, 15);
-            this.p2PointsLbl.TabIndex = 23;
-            // 
-            // p2UsernameLbl
-            // 
-            this.p2UsernameLbl.AutoSize = true;
-            this.p2UsernameLbl.Location = new System.Drawing.Point(98, 23);
-            this.p2UsernameLbl.Name = "p2UsernameLbl";
-            this.p2UsernameLbl.Size = new System.Drawing.Size(0, 15);
-            this.p2UsernameLbl.TabIndex = 22;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(6, 23);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(70, 15);
-            this.label20.TabIndex = 16;
-            this.label20.Text = "Username : ";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 48);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(37, 15);
-            this.label21.TabIndex = 17;
-            this.label21.Text = "Elo : ";
-            // 
             // player3GroupBox
             // 
             this.player3GroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.player3GroupBox.BackColor = System.Drawing.Color.Transparent;
             this.player3GroupBox.Controls.Add(this.p3readylabel);
             this.player3GroupBox.Controls.Add(this.p3place);
             this.player3GroupBox.Controls.Add(this.label23);
@@ -371,7 +260,7 @@
             this.player3GroupBox.Controls.Add(this.label12);
             this.player3GroupBox.Controls.Add(this.label13);
             this.player3GroupBox.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player3GroupBox.Location = new System.Drawing.Point(63, 234);
+            this.player3GroupBox.Location = new System.Drawing.Point(70, 246);
             this.player3GroupBox.Name = "player3GroupBox";
             this.player3GroupBox.Size = new System.Drawing.Size(271, 184);
             this.player3GroupBox.TabIndex = 4;
@@ -385,6 +274,19 @@
             this.p3readylabel.Name = "p3readylabel";
             this.p3readylabel.Size = new System.Drawing.Size(0, 15);
             this.p3readylabel.TabIndex = 23;
+            // 
+            // p3place
+            // 
+            this.p3place.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.p3place.AutoSize = true;
+            this.p3place.BackColor = System.Drawing.Color.Transparent;
+            this.p3place.Font = new System.Drawing.Font("Algerian", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p3place.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.p3place.Location = new System.Drawing.Point(206, 25);
+            this.p3place.Name = "p3place";
+            this.p3place.Size = new System.Drawing.Size(50, 41);
+            this.p3place.TabIndex = 10;
+            this.p3place.Text = "3.";
             // 
             // label23
             // 
@@ -483,6 +385,7 @@
             // player4GroupBox
             // 
             this.player4GroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.player4GroupBox.BackColor = System.Drawing.Color.Transparent;
             this.player4GroupBox.Controls.Add(this.p4place);
             this.player4GroupBox.Controls.Add(this.p4readylabel);
             this.player4GroupBox.Controls.Add(this.label24);
@@ -497,12 +400,25 @@
             this.player4GroupBox.Controls.Add(this.label16);
             this.player4GroupBox.Controls.Add(this.label17);
             this.player4GroupBox.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player4GroupBox.Location = new System.Drawing.Point(602, 234);
+            this.player4GroupBox.Location = new System.Drawing.Point(622, 262);
             this.player4GroupBox.Name = "player4GroupBox";
             this.player4GroupBox.Size = new System.Drawing.Size(269, 184);
             this.player4GroupBox.TabIndex = 5;
             this.player4GroupBox.TabStop = false;
             this.player4GroupBox.Text = "Player 4 Information";
+            // 
+            // p4place
+            // 
+            this.p4place.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.p4place.AutoSize = true;
+            this.p4place.BackColor = System.Drawing.Color.Transparent;
+            this.p4place.Font = new System.Drawing.Font("Algerian", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p4place.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.p4place.Location = new System.Drawing.Point(206, 27);
+            this.p4place.Name = "p4place";
+            this.p4place.Size = new System.Drawing.Size(47, 39);
+            this.p4place.TabIndex = 11;
+            this.p4place.Text = "4.";
             // 
             // p4readylabel
             // 
@@ -606,40 +522,42 @@
             this.label17.TabIndex = 17;
             this.label17.Text = "Elo : ";
             // 
-            // backBtn
-            // 
-            this.backBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.backBtn.BackgroundImage = global::AIMProClient.Properties.Resources.nazadd;
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.backBtn.Location = new System.Drawing.Point(420, 394);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(101, 24);
-            this.backBtn.TabIndex = 1;
-            this.backBtn.UseVisualStyleBackColor = true;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
-            // 
             // readyBtn
             // 
             this.readyBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.readyBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.readyBtn.Location = new System.Drawing.Point(420, 364);
             this.readyBtn.Name = "readyBtn";
             this.readyBtn.Size = new System.Drawing.Size(101, 24);
             this.readyBtn.TabIndex = 7;
             this.readyBtn.Text = "Ready";
-            this.readyBtn.UseVisualStyleBackColor = true;
+            this.readyBtn.UseVisualStyleBackColor = false;
             this.readyBtn.Click += new System.EventHandler(this.readyBtn_Click);
             // 
-            // p1place
+            // player2GroupBox
             // 
-            this.p1place.AutoSize = true;
-            this.p1place.BackColor = System.Drawing.Color.Transparent;
-            this.p1place.Font = new System.Drawing.Font("Algerian", 48F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p1place.ForeColor = System.Drawing.Color.Gold;
-            this.p1place.Location = new System.Drawing.Point(186, 3);
-            this.p1place.Name = "p1place";
-            this.p1place.Size = new System.Drawing.Size(85, 71);
-            this.p1place.TabIndex = 8;
-            this.p1place.Text = "1.";
+            this.player2GroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.player2GroupBox.BackColor = System.Drawing.Color.Transparent;
+            this.player2GroupBox.Controls.Add(this.p2place);
+            this.player2GroupBox.Controls.Add(this.p2readylabel);
+            this.player2GroupBox.Controls.Add(this.label22);
+            this.player2GroupBox.Controls.Add(this.p2NumMissesLbl);
+            this.player2GroupBox.Controls.Add(this.label5);
+            this.player2GroupBox.Controls.Add(this.label10);
+            this.player2GroupBox.Controls.Add(this.label11);
+            this.player2GroupBox.Controls.Add(this.p2NumHitsLbl);
+            this.player2GroupBox.Controls.Add(this.p2EloLbl);
+            this.player2GroupBox.Controls.Add(this.p2PointsLbl);
+            this.player2GroupBox.Controls.Add(this.p2UsernameLbl);
+            this.player2GroupBox.Controls.Add(this.label20);
+            this.player2GroupBox.Controls.Add(this.label21);
+            this.player2GroupBox.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player2GroupBox.Location = new System.Drawing.Point(622, 47);
+            this.player2GroupBox.Name = "player2GroupBox";
+            this.player2GroupBox.Size = new System.Drawing.Size(269, 181);
+            this.player2GroupBox.TabIndex = 3;
+            this.player2GroupBox.TabStop = false;
+            this.player2GroupBox.Text = "Player 2 Information";
             // 
             // p2place
             // 
@@ -654,36 +572,126 @@
             this.p2place.TabIndex = 9;
             this.p2place.Text = "2.";
             // 
-            // p3place
+            // p2readylabel
             // 
-            this.p3place.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.p3place.AutoSize = true;
-            this.p3place.BackColor = System.Drawing.Color.Transparent;
-            this.p3place.Font = new System.Drawing.Font("Algerian", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p3place.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.p3place.Location = new System.Drawing.Point(206, 25);
-            this.p3place.Name = "p3place";
-            this.p3place.Size = new System.Drawing.Size(50, 41);
-            this.p3place.TabIndex = 10;
-            this.p3place.Text = "3.";
+            this.p2readylabel.AutoSize = true;
+            this.p2readylabel.Location = new System.Drawing.Point(89, 150);
+            this.p2readylabel.Name = "p2readylabel";
+            this.p2readylabel.Size = new System.Drawing.Size(0, 15);
+            this.p2readylabel.TabIndex = 22;
             // 
-            // p4place
+            // label22
             // 
-            this.p4place.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.p4place.AutoSize = true;
-            this.p4place.BackColor = System.Drawing.Color.Transparent;
-            this.p4place.Font = new System.Drawing.Font("Algerian", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p4place.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.p4place.Location = new System.Drawing.Point(206, 27);
-            this.p4place.Name = "p4place";
-            this.p4place.Size = new System.Drawing.Size(47, 39);
-            this.p4place.TabIndex = 11;
-            this.p4place.Text = "4.";
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 150);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(73, 15);
+            this.label22.TabIndex = 30;
+            this.label22.Text = "Player ready";
+            // 
+            // p2NumMissesLbl
+            // 
+            this.p2NumMissesLbl.AutoSize = true;
+            this.p2NumMissesLbl.Location = new System.Drawing.Point(122, 123);
+            this.p2NumMissesLbl.Name = "p2NumMissesLbl";
+            this.p2NumMissesLbl.Size = new System.Drawing.Size(0, 15);
+            this.p2NumMissesLbl.TabIndex = 29;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 123);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 15);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Number of misses :";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 98);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(103, 15);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "Number of hits  : ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 73);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(52, 15);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "Points : ";
+            // 
+            // p2NumHitsLbl
+            // 
+            this.p2NumHitsLbl.AutoSize = true;
+            this.p2NumHitsLbl.Location = new System.Drawing.Point(115, 98);
+            this.p2NumHitsLbl.Name = "p2NumHitsLbl";
+            this.p2NumHitsLbl.Size = new System.Drawing.Size(0, 15);
+            this.p2NumHitsLbl.TabIndex = 25;
+            // 
+            // p2EloLbl
+            // 
+            this.p2EloLbl.AutoSize = true;
+            this.p2EloLbl.Location = new System.Drawing.Point(49, 48);
+            this.p2EloLbl.Name = "p2EloLbl";
+            this.p2EloLbl.Size = new System.Drawing.Size(0, 15);
+            this.p2EloLbl.TabIndex = 24;
+            // 
+            // p2PointsLbl
+            // 
+            this.p2PointsLbl.AutoSize = true;
+            this.p2PointsLbl.Location = new System.Drawing.Point(64, 73);
+            this.p2PointsLbl.Name = "p2PointsLbl";
+            this.p2PointsLbl.Size = new System.Drawing.Size(0, 15);
+            this.p2PointsLbl.TabIndex = 23;
+            // 
+            // p2UsernameLbl
+            // 
+            this.p2UsernameLbl.AutoSize = true;
+            this.p2UsernameLbl.Location = new System.Drawing.Point(98, 23);
+            this.p2UsernameLbl.Name = "p2UsernameLbl";
+            this.p2UsernameLbl.Size = new System.Drawing.Size(0, 15);
+            this.p2UsernameLbl.TabIndex = 22;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 23);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(70, 15);
+            this.label20.TabIndex = 16;
+            this.label20.Text = "Username : ";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 48);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(37, 15);
+            this.label21.TabIndex = 17;
+            this.label21.Text = "Elo : ";
+            // 
+            // backBtn
+            // 
+            this.backBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.backBtn.BackgroundImage = global::AIMProClient.Properties.Resources.nazadd;
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.backBtn.Location = new System.Drawing.Point(420, 394);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(101, 24);
+            this.backBtn.TabIndex = 1;
+            this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // LobbyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(903, 480);
             this.Controls.Add(this.readyBtn);
             this.Controls.Add(this.player4GroupBox);
@@ -692,6 +700,7 @@
             this.Controls.Add(this.player1GroupBox);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.naslovLbl);
+            this.DoubleBuffered = true;
             this.Name = "LobbyForm";
             this.Text = "Lobby";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LobbyForm_FormClosing);
@@ -699,12 +708,12 @@
             this.Resize += new System.EventHandler(this.LobbyForm_Resize);
             this.player1GroupBox.ResumeLayout(false);
             this.player1GroupBox.PerformLayout();
-            this.player2GroupBox.ResumeLayout(false);
-            this.player2GroupBox.PerformLayout();
             this.player3GroupBox.ResumeLayout(false);
             this.player3GroupBox.PerformLayout();
             this.player4GroupBox.ResumeLayout(false);
             this.player4GroupBox.PerformLayout();
+            this.player2GroupBox.ResumeLayout(false);
+            this.player2GroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

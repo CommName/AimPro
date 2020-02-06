@@ -18,6 +18,7 @@ namespace AIMProClient
         public ProfileForm(Profile korisnik ,List<MatchStatistics> matchHistory)
         {
             InitializeComponent();
+            this.Icon = new Icon("icon.ico");
             this.MinimizeBox = false;
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -25,15 +26,13 @@ namespace AIMProClient
             this.matchHistory = matchHistory;
             korisnikLabel.Text = this.korisnik.Username;
             lblElo.Text = this.korisnik.Elo.ToString();
-            lblHitRatio.Text = this.korisnik.HitRatio.ToString();
+            lblHitRatio.Text = (Convert.ToDouble(this.korisnik.TotalHits)/Convert.ToDouble(this.korisnik.TotalHits + this.korisnik.TotalMiss)).ToString();
 
             lblTotalTargerHits.Text = this.korisnik.TotalHits.ToString();
 
             lblTotalTargetMiss.Text = this.korisnik.TotalMiss.ToString();
-            lblDuel.Text = this.korisnik.NumberDuel.ToString();
             lblMulti.Text = this.korisnik.NumberFFA.ToString();
             lblEndLess.Text= this.korisnik.NumberEndless.ToString();
-            lblFastShooting.Text= this.korisnik.NumberFast.ToString();
             lblPreciseShooting.Text = this.korisnik.NumberPrecise.ToString();
             lblTotalMatch.Text = this.korisnik.MatchCount.ToString();
             this.FillTable();

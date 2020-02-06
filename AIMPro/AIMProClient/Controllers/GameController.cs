@@ -33,7 +33,7 @@ namespace AIMProClient.Controllers
         ITargetDrawing crtacMeta = null;
         Color bojaNisana;
         public List<Target> targets;
-        Color[] nizBoja = { Color.FromArgb(255, 0, 0), Color.FromArgb(155, 255, 80), Color.FromArgb(0, 0, 255), Color.FromArgb(255, 255, 0), Color.FromArgb(135, 206, 235) };
+        Color[] nizBoja = { Color.FromArgb(255, 0, 0), Color.FromArgb(0, 128, 0), Color.FromArgb(0, 0, 255), Color.FromArgb(255, 20, 147), Color.FromArgb(128, 0, 128) };
         int indexBoja = 0;
         public List<Control> lobbyView = new List<Control>();
         Crosshair crosshair;
@@ -59,7 +59,6 @@ namespace AIMProClient.Controllers
         public void loadGameView() {
             nisan = new RegularNisan();
             bojaNisana = Color.FromArgb(0,255,0);
-            lobbyForm.BackColor = Color.SandyBrown;
             generisiPoeneLabelu();
             generisiAmmoLabelu();
             generateStopericu();
@@ -76,6 +75,7 @@ namespace AIMProClient.Controllers
             lobbyForm.WindowState = FormWindowState.Maximized;
             lobbyForm.Location = new Point(0, 0);
             lobbyForm.Text = "AimPRO Game";
+            lobbyForm.BackgroundImage = null;
             this.lobbyForm.Invalidate();
         }
 
@@ -152,7 +152,7 @@ namespace AIMProClient.Controllers
                 nisan = new RegularNisan();
                 crosshair = new Crosshair(this);
             }
-            ammoLabel.Text = "B  : " + ammoController.getBazooka().ToString() + ", P : " + ammoController.getPiercing();
+            ammoLabel.Text = "B=>" + ammoController.getBazooka().ToString() + " P=>" + ammoController.getPiercing();
         }
 
         private void gameCanvas_MouseEnter(object sender, System.EventArgs e){
@@ -296,13 +296,13 @@ namespace AIMProClient.Controllers
 
         public void krajIgre() {
             this.vreme = 0;
-
             ammoController = new AmmoController(nizMunicije);
             lobbyForm.readyClick = false;
             this.lobbyForm.gameNotEnd = false;
             lobbyForm.WindowState = FormWindowState.Normal;
             this.lobbyForm.Size = new Size(950, 500);
             deleteGameView();
+            this.lobbyForm.setWallPaper();
             this.lobbyForm.scoreView();
             this.lobbyForm.Invalidate();
         }
