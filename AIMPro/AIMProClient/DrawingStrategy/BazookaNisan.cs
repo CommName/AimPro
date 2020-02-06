@@ -13,8 +13,9 @@ namespace AIMProClient.DrawingStrategy
         void ICursorDrawing.CrtajNisan(Graphics g, int cursorX, int cursorY,double percentScale, Color boja)
         {
             int poluprecnikPrstena = (int)(22.5*percentScale);
-            int velikiPoluprecnik = (int)(105 *percentScale);
-            int duzinaKrsta = (int)(45 *percentScale);
+             int velikiPoluprecnik = (int)(105 *percentScale);
+           // int velikiPoluprecnik = 105;
+             int duzinaKrsta = (int)(45 *percentScale);
             Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 2);
             Pen redPen = new Pen(Color.FromArgb(255, 200, 0, 0), 8);
             redPen.Alignment = PenAlignment.Center;

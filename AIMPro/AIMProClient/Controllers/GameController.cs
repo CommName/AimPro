@@ -35,11 +35,14 @@ namespace AIMProClient.Controllers
         public List<Target> targets;
         Color[] nizBoja = { Color.FromArgb(255, 0, 0), Color.FromArgb(155, 255, 80), Color.FromArgb(0, 0, 255), Color.FromArgb(255, 255, 0), Color.FromArgb(135, 206, 235) };
         int indexBoja = 0;
-        double bazookaKoef = 0;
         public List<Control> lobbyView = new List<Control>();
         Crosshair crosshair;
-        int[] nizMunicije = {3,5,1000};
+        int[] nizMunicije = {100,100,1000};
         AmmoController ammoController;
+        public List<Tuple<PointF, Target>> pointsTargets;
+        Matrix Transform;
+
+
 
         public GameController()
         {
@@ -62,6 +65,7 @@ namespace AIMProClient.Controllers
             generateStopericu();
             resizeForm();
             loadGameControlls();
+            Transform = new Matrix();
 
         }
 
@@ -92,12 +96,27 @@ namespace AIMProClient.Controllers
         private void gameCanvas_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-           
-            double unitx = canvas.Width/1000.0;
-            double unity = canvas.Height/1000.0;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            this.Transform.Reset();
+            float unitx = (float)(canvas.Width / 1000.0);
+            float unity = (float)(canvas.Height / 1000.0);
+            Transform.Scale(unitx, unity);
+            g.Transform = this.Transform;
+            g.ResetTransform();
+            PointF [] points = new PointF[targets.Count];
+            int i = 0;
+            foreach (Target t in targets)
+            {
+                points[i] = new PointF((float)t.x, (float)t.y);
+                i++;
+            }
+            this.Transform.TransformPoints(points);
+            this.pointsTargets = new List<Tuple<PointF, Target>>();
+
 
             if (targets != null)
             {
+                int j = 0;
                 foreach (Target t in targets)
                 {
                     switch (t.type)
@@ -110,12 +129,16 @@ namespace AIMProClient.Controllers
                         default:
                         case TargetTypes.None: { crtacMeta = new RegularTarget(); break; };
                     }
-                    crtacMeta.x =(int) (t.x *unitx) ;
-                    crtacMeta.y = (int)(t.y *unity);
+                    crtacMeta.x = (int)points[j].X;
+                    crtacMeta.y = (int)points[j].Y;
                     crtacMeta.r = (unitx <= unity) ?  (int) (t.radius *unitx) : (int) (t.radius * unity);
                     crtacMeta.CrtajMetu(g);
+
+                    this.pointsTargets.Add(new Tuple<PointF, Target>(points[j], t));
+                    j++;
                 }
             }
+
             double percentToScale = (unitx <= unity) ? (double)( unitx) : (double)( unity);
          
             nisan.CrtajNisan(g,cursorX,cursorY,percentToScale, bojaNisana);
@@ -123,11 +146,7 @@ namespace AIMProClient.Controllers
         }
 
         private void gameCanvas_Click(object sender, EventArgs e) {
-            double pomx= 1000.0 / canvas.Width;
-            double pomy = 1000.0 / canvas.Height;
-            int toSendX =(int) (cursorX * pomx);
-            int toSendY = (int)(cursorY * pomy);
-            crosshair.submitHit(toSendX, toSendY);
+            crosshair.submitHit(cursorX, cursorY);
             if (!ammoController.shoot()) {
                 bojaNisana = Color.FromArgb(0, 255, 0);
                 nisan = new RegularNisan();

@@ -14,41 +14,44 @@ namespace AIMProClient.Crosshairs
         {
 
         }
-
         public override void submitHit(int x, int y)
         {
-         
             int countHits = 0;
             double unitx = base.gameController.canvas.Width / 1000.0;
             double unity = base.gameController.canvas.Height / 1000.0;
 
-            foreach (Target t in base.gameController.targets)
-            {
-              int radius = (unitx <= unity) ? (int)(t.radius * unitx) : (int)(t.radius * unity);
+            List<Target> hitsTargets = new List<Target>();
 
-                if (base.isInCircle(x, y, t.x, t.y, radius))
+            foreach (var pointTarget in base.gameController.pointsTargets)
+            {
+                int targetRadius = (unitx <= unity) ? (int)(pointTarget.Item2.radius * unitx) : (int)(pointTarget.Item2.radius * unity);
+
+                if (base.isInCircle(x, y, (int)pointTarget.Item1.X, (int)pointTarget.Item1.Y, targetRadius))
                 {
-                    if (t.type == TargetTypes.Shielded)
+                    if (pointTarget.Item2.type == TargetTypes.Shielded)
                     {
-                        countHits += 2;
+                        countHits ++;
+                        hitsTargets.Add(pointTarget.Item2);
+                        hitsTargets.Add(pointTarget.Item2);
+
                     }
                     else
                     {
                         countHits++;
+                        hitsTargets.Add(pointTarget.Item2);
                     }
                 }
             }
 
             if(countHits==0)
             {
-                CommunicationLayer.Instance.submitHit(x, y);
+                base.submitHit( x, y);
             }
             else
             {
-                while(countHits>0)
+                foreach (Target t in hitsTargets)
                 {
-                    CommunicationLayer.Instance.submitHit(x, y);
-                    countHits--;
+                    CommunicationLayer.Instance.submitHit(t.x, t.y);
                 }
             }
 
