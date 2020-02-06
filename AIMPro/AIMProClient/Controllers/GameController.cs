@@ -23,11 +23,11 @@ namespace AIMProClient.Controllers
         Label scoreLabel;
         Label stoperica;
         Label ukupniPoeni;
+        Label ammoLabel;
         Timer scoreTimer;
         Timer stopericaTimer;
         int cursorX = 0;
         int cursorY = 0;
-        int Score = 0;
         int vreme = 1;
         ICursorDrawing nisan = null;
         ITargetDrawing crtacMeta = null;
@@ -38,11 +38,13 @@ namespace AIMProClient.Controllers
         double bazookaKoef = 0;
         public List<Control> lobbyView = new List<Control>();
         Crosshair crosshair;
-
+        int[] nizMunicije = {3,5,1000};
+        AmmoController ammoController;
 
         public GameController()
         {
              crosshair= new Crosshair(this);
+             ammoController = new AmmoController(nizMunicije);
         }
 
         public GameController(LobbyForm lf) :this() {
@@ -55,8 +57,8 @@ namespace AIMProClient.Controllers
             nisan = new RegularNisan();
             bojaNisana = Color.FromArgb(0,255,0);
             lobbyForm.BackColor = Color.SandyBrown;
-
             generisiPoeneLabelu();
+            generisiAmmoLabelu();
             generateStopericu();
             resizeForm();
             loadGameControlls();
@@ -78,9 +80,11 @@ namespace AIMProClient.Controllers
             this.lobbyForm.Controls.Add(stoperica);
             this.lobbyForm.Controls.Add(scoreLabel);
             this.lobbyForm.Controls.Add(ukupniPoeni);
+            this.lobbyForm.Controls.Add(ammoLabel);
             stoperica.BringToFront();
             scoreLabel.BringToFront();
             ukupniPoeni.BringToFront();
+            ammoLabel.BringToFront();
             canvas.BringToFront();
             canvas.Focus();
         }
@@ -124,6 +128,12 @@ namespace AIMProClient.Controllers
             int toSendX =(int) (cursorX * pomx);
             int toSendY = (int)(cursorY * pomy);
             crosshair.submitHit(toSendX, toSendY);
+            if (!ammoController.shoot()) {
+                bojaNisana = Color.FromArgb(0, 255, 0);
+                nisan = new RegularNisan();
+                crosshair = new Crosshair(this);
+            }
+            ammoLabel.Text = "B  : " + ammoController.getBazooka().ToString() + ", P : " + ammoController.getPiercing();
         }
 
         private void gameCanvas_MouseEnter(object sender, System.EventArgs e){
@@ -142,18 +152,16 @@ namespace AIMProClient.Controllers
 
         public void lobbyForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.B) {
+            if (e.KeyCode == Keys.Q && ammoController.setBazooka()) {
                 nisan = new BazookaNisan();
                 crosshair = new Bazooka(105 , this);
-                
             }
-            else if (e.KeyCode == Keys.P) {
+            else if (e.KeyCode == Keys.W && ammoController.setPiercing()) {
                 bojaNisana = Color.FromArgb(255, 255, 127, 80);
                 nisan = new PiercingNisan();
                 crosshair = new Piercing(this);
-
             }
-            else if (e.KeyCode == Keys.R) {
+            else if (e.KeyCode == Keys.E && ammoController.setRegular()) {
                 bojaNisana = Color.FromArgb(0, 255, 0);
                 nisan = new RegularNisan();
                 crosshair = new Crosshair(this);
@@ -190,7 +198,7 @@ namespace AIMProClient.Controllers
 
         private void generisiScoreLabelu() {
             Label score = new Label();
-            score.Text = "Shot : " + Score.ToString() + " ";
+            score.Text = "Shot : 0";
             score.Font = new Font("Modern No. 20", 20, FontStyle.Underline);
             score.Location = new Point(lobbyForm.Width - lobbyForm.Width / 5, lobbyForm.Height - 80);
             score.Size = new Size(180,60);
@@ -210,11 +218,21 @@ namespace AIMProClient.Controllers
 
         private void generisiPoeneLabelu() {
             Label labPoeni = new Label();
-            labPoeni.Text = "Points  : " + this.vreme.ToString();
+            labPoeni.Text = "Points : 0";
             labPoeni.Font = new Font("Modern No. 20", 18, FontStyle.Underline);
             labPoeni.Location = new Point((2 * lobbyForm.Width) / 5, lobbyForm.Height - 80);
             labPoeni.Size = new Size(180, 50);
             this.ukupniPoeni = labPoeni;
+        }
+
+        private void generisiAmmoLabelu()
+        {
+            Label labAmmo = new Label();
+            labAmmo.Text = "B=>" + ammoController.getBazooka().ToString() + " P=>" + ammoController.getPiercing();
+            labAmmo.Font = new Font("Modern No. 20", 18, FontStyle.Underline);
+            labAmmo.Location = new Point(lobbyForm.Width / 10, lobbyForm.Height - 80);
+            labAmmo.Size = new Size(180, 50);
+            this.ammoLabel = labAmmo;
         }
 
         private void TickHandlerScore(object sender, EventArgs e)
@@ -235,11 +253,10 @@ namespace AIMProClient.Controllers
         public void updateScore(int totalPoints, int newPoints)
         {
             this.ukupniPoeni.Text = "Points  : " + Convert.ToString(totalPoints);
-            this.Score = newPoints;
             String labela = "Shot : ";
             scoreLabel.Text = string.Concat(labela, Convert.ToString(newPoints));
-            scoreLabel.Show();
             scoreLabel.ForeColor = nizBoja[indexBoja];
+            scoreLabel.Show();
             indexBoja = (indexBoja + 1) % 5;
             generisiTimer();
         }
@@ -248,25 +265,35 @@ namespace AIMProClient.Controllers
         {
             if (this.canvas != null)
             {
+                int pomeraj = lobbyForm.Width / 20;
                 canvas.Size = new Size(lobbyForm.Width - 35, lobbyForm.Height - 80);
-                scoreLabel.Location = new Point(lobbyForm.Width - lobbyForm.Width / 3, lobbyForm.Height - 72);
-                stoperica.Location = new Point(lobbyForm.Width / 6, lobbyForm.Height - 72);
-                ukupniPoeni.Location = new Point((2 * lobbyForm.Width) / 5, lobbyForm.Height - 72);
+                scoreLabel.Location = new Point(lobbyForm.Width - lobbyForm.Width / 5 - pomeraj, lobbyForm.Height - 72);
+                stoperica.Location = new Point(lobbyForm.Width / 5 - pomeraj, lobbyForm.Height - 72);
+                ukupniPoeni.Location = new Point((3 * lobbyForm.Width) / 5 - pomeraj, lobbyForm.Height - 72);
+                ammoLabel.Location = new Point((2 * lobbyForm.Width) / 5 - pomeraj, lobbyForm.Height - 72);
                 canvas.Invalidate();
             }
         }
 
         public void krajIgre() {
+            this.vreme = 0;
+
+            ammoController = new AmmoController(nizMunicije);
             lobbyForm.readyClick = false;
             this.lobbyForm.gameNotEnd = false;
             lobbyForm.WindowState = FormWindowState.Normal;
             this.lobbyForm.Size = new Size(950, 500);
+            deleteGameView();
+            this.lobbyForm.scoreView();
+            this.lobbyForm.Invalidate();
+        }
+
+        private void deleteGameView() {
             this.lobbyForm.Controls.Remove(canvas);
             this.lobbyForm.Controls.Remove(stoperica);
             this.lobbyForm.Controls.Remove(scoreLabel);
             this.lobbyForm.Controls.Remove(ukupniPoeni);
-            this.lobbyForm.scoreView();
-            this.lobbyForm.Invalidate();
+            this.lobbyForm.Controls.Remove(ammoLabel);
         }
     }
 }

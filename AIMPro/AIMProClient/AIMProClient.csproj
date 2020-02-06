@@ -77,11 +77,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AmmoController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\LobbyController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="CreateRoomForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CreateRoomForm.Designer.cs">
       <DependentUpon>CreateRoomForm.cs</DependentUpon>
@@ -117,7 +118,7 @@
       <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
     <Compile Include="JoinRoomForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="JoinRoomForm.Designer.cs">
       <DependentUpon>JoinRoomForm.cs</DependentUpon>
@@ -161,7 +162,7 @@
       <DependentUpon>SignUpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StatisticsForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="StatisticsForm.Designer.cs">
       <DependentUpon>StatisticsForm.cs</DependentUpon>
