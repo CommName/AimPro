@@ -42,7 +42,7 @@
             // usernameSignUpTextBox
             // 
             this.usernameSignUpTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameSignUpTextBox.Location = new System.Drawing.Point(126, 73);
+            this.usernameSignUpTextBox.Location = new System.Drawing.Point(209, 60);
             this.usernameSignUpTextBox.Name = "usernameSignUpTextBox";
             this.usernameSignUpTextBox.Size = new System.Drawing.Size(100, 26);
             this.usernameSignUpTextBox.TabIndex = 1;
@@ -51,8 +51,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 73);
+            this.label1.Location = new System.Drawing.Point(103, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 21);
             this.label1.TabIndex = 2;
@@ -61,8 +62,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 125);
+            this.label2.Location = new System.Drawing.Point(107, 176);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 21);
             this.label2.TabIndex = 4;
@@ -71,7 +73,7 @@
             // passwordSignUpTextBox
             // 
             this.passwordSignUpTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordSignUpTextBox.Location = new System.Drawing.Point(126, 123);
+            this.passwordSignUpTextBox.Location = new System.Drawing.Point(209, 174);
             this.passwordSignUpTextBox.Name = "passwordSignUpTextBox";
             this.passwordSignUpTextBox.Size = new System.Drawing.Size(100, 26);
             this.passwordSignUpTextBox.TabIndex = 3;
@@ -80,8 +82,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(87, 18);
+            this.label3.Location = new System.Drawing.Point(153, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 24);
             this.label3.TabIndex = 5;
@@ -90,7 +93,8 @@
             // errorLabel
             // 
             this.errorLabel.AutoSize = true;
-            this.errorLabel.Location = new System.Drawing.Point(117, 156);
+            this.errorLabel.BackColor = System.Drawing.Color.Transparent;
+            this.errorLabel.Location = new System.Drawing.Point(200, 207);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(7, 13);
             this.errorLabel.TabIndex = 6;
@@ -98,21 +102,22 @@
             // 
             // signUpButton
             // 
+            this.signUpButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.signUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.signUpButton.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signUpButton.Location = new System.Drawing.Point(126, 168);
+            this.signUpButton.Location = new System.Drawing.Point(167, 246);
             this.signUpButton.Name = "signUpButton";
             this.signUpButton.Size = new System.Drawing.Size(100, 35);
             this.signUpButton.TabIndex = 0;
             this.signUpButton.Text = "Sign Up";
-            this.signUpButton.UseVisualStyleBackColor = true;
+            this.signUpButton.UseVisualStyleBackColor = false;
             this.signUpButton.Click += new System.EventHandler(this.signUpButton_Click);
             // 
             // backBtn
             // 
             this.backBtn.BackgroundImage = global::AIMProClient.Properties.Resources.nazadd;
             this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.backBtn.Location = new System.Drawing.Point(274, 197);
+            this.backBtn.Location = new System.Drawing.Point(342, 252);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(64, 29);
             this.backBtn.TabIndex = 8;
@@ -121,20 +126,23 @@
             // 
             // maskButton
             // 
+            this.maskButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.maskButton.BackgroundImage = global::AIMProClient.Properties.Resources.oko12;
             this.maskButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.maskButton.Location = new System.Drawing.Point(240, 121);
+            this.maskButton.Location = new System.Drawing.Point(323, 172);
             this.maskButton.Name = "maskButton";
             this.maskButton.Size = new System.Drawing.Size(38, 30);
             this.maskButton.TabIndex = 7;
-            this.maskButton.UseVisualStyleBackColor = true;
+            this.maskButton.UseVisualStyleBackColor = false;
             this.maskButton.Click += new System.EventHandler(this.maskButton_Click);
             // 
             // SignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 238);
+            this.BackgroundImage = global::AIMProClient.Properties.Resources.aim;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(450, 316);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.maskButton);
             this.Controls.Add(this.errorLabel);
@@ -144,6 +152,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.usernameSignUpTextBox);
             this.Controls.Add(this.signUpButton);
+            this.DoubleBuffered = true;
             this.Name = "SignUpForm";
             this.Text = "Sign Up";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SignUpForm_FormClosing);

@@ -292,6 +292,13 @@
   <ItemGroup>
     <None Include="Resources\refresh1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aim.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\icon.ico" />
+    <Content Include="Resources\icon1.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

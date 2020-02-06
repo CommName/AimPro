@@ -27,13 +27,6 @@ namespace AIMProClient
             this.controller.TipMete = 0;
         }
 
-
-        private void duelRb_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.duelRb.Checked == true)
-                this.controller.TipIgre = 1;
-        }
-
         private void multyPlayerRb_CheckedChanged(object sender, EventArgs e)
         {
             if (this.multyPlayerRb.Checked == true)
@@ -44,12 +37,6 @@ namespace AIMProClient
         {
             if (this.fastRb.Checked == true)
                 this.controller.TipIgre = 4;
-        }
-
-        private void preciseRb_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.preciseRb.Checked == true)
-                this.controller.TipIgre = 8;
         }
 
         private void endlessRb_CheckedChanged(object sender, EventArgs e)

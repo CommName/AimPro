@@ -44,6 +44,7 @@
             // welcomeLabel
             // 
             this.welcomeLabel.AutoSize = true;
+            this.welcomeLabel.BackColor = System.Drawing.Color.Transparent;
             this.welcomeLabel.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.welcomeLabel.Location = new System.Drawing.Point(271, 9);
             this.welcomeLabel.Name = "welcomeLabel";
@@ -53,57 +54,62 @@
             // 
             // createRoomButton
             // 
+            this.createRoomButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.createRoomButton.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createRoomButton.Location = new System.Drawing.Point(306, 1);
             this.createRoomButton.Name = "createRoomButton";
             this.createRoomButton.Size = new System.Drawing.Size(155, 45);
             this.createRoomButton.TabIndex = 1;
             this.createRoomButton.Text = "Create Room";
-            this.createRoomButton.UseVisualStyleBackColor = true;
+            this.createRoomButton.UseVisualStyleBackColor = false;
             this.createRoomButton.Click += new System.EventHandler(this.createRoomButton_Click);
             // 
             // profileButton
             // 
+            this.profileButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.profileButton.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileButton.Location = new System.Drawing.Point(0, 1);
             this.profileButton.Name = "profileButton";
             this.profileButton.Size = new System.Drawing.Size(155, 45);
             this.profileButton.TabIndex = 3;
             this.profileButton.Text = "My Profile";
-            this.profileButton.UseVisualStyleBackColor = true;
+            this.profileButton.UseVisualStyleBackColor = false;
             this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
             // 
             // statisticsButton
             // 
+            this.statisticsButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.statisticsButton.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statisticsButton.Location = new System.Drawing.Point(153, 1);
             this.statisticsButton.Name = "statisticsButton";
             this.statisticsButton.Size = new System.Drawing.Size(155, 45);
             this.statisticsButton.TabIndex = 4;
             this.statisticsButton.Text = "Statistics";
-            this.statisticsButton.UseVisualStyleBackColor = true;
+            this.statisticsButton.UseVisualStyleBackColor = false;
             this.statisticsButton.Click += new System.EventHandler(this.statisticsButton_Click);
             // 
             // joinRoomButton
             // 
+            this.joinRoomButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.joinRoomButton.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.joinRoomButton.Location = new System.Drawing.Point(459, 1);
             this.joinRoomButton.Name = "joinRoomButton";
             this.joinRoomButton.Size = new System.Drawing.Size(155, 45);
             this.joinRoomButton.TabIndex = 5;
             this.joinRoomButton.Text = "Join Room";
-            this.joinRoomButton.UseVisualStyleBackColor = true;
+            this.joinRoomButton.UseVisualStyleBackColor = false;
             this.joinRoomButton.Click += new System.EventHandler(this.joinRoomButton_Click);
             // 
             // logoutBtn
             // 
+            this.logoutBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.logoutBtn.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutBtn.Location = new System.Drawing.Point(612, 1);
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.Size = new System.Drawing.Size(155, 45);
             this.logoutBtn.TabIndex = 6;
             this.logoutBtn.Text = "Logout";
-            this.logoutBtn.UseVisualStyleBackColor = true;
+            this.logoutBtn.UseVisualStyleBackColor = false;
             this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
             // 
             // exitBtn
@@ -135,6 +141,8 @@
             this.subView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.subView.BackgroundImage = global::AIMProClient.Properties.Resources.aim;
+            this.subView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.subView.Location = new System.Drawing.Point(12, 122);
             this.subView.Name = "subView";
             this.subView.Size = new System.Drawing.Size(827, 550);
@@ -145,6 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(851, 687);
             this.Controls.Add(this.subView);
             this.Controls.Add(this.panel1);

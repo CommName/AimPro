@@ -47,7 +47,7 @@
             this.dataGridStatistics.AllowUserToResizeRows = false;
             this.dataGridStatistics.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridStatistics.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            this.dataGridStatistics.BackgroundColor = System.Drawing.Color.AntiqueWhite;
+            this.dataGridStatistics.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridStatistics.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridStatistics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridStatistics.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -113,13 +113,14 @@
             // 
             // backBtn
             // 
+            this.backBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.backBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.backBtn.Location = new System.Drawing.Point(0, 515);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(827, 35);
             this.backBtn.TabIndex = 2;
             this.backBtn.Text = "Back";
-            this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // StatisticsForm

@@ -53,6 +53,7 @@ namespace AIMProClient
         public LobbyForm(MenuController menuController, AIMProService.RoomState roomState)
         {
             InitializeComponent();
+            this.Icon = new Icon("icon.ico");
             this.menuController = menuController;
             LobbyController lobbyController = new LobbyController(this);
             gameController = new GameController(this);
@@ -61,7 +62,6 @@ namespace AIMProClient
             this.appClose = false;
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            //this.readyBtn.Enabled = false;
             regularView();
             usernames = new Label[4];
             eloLabel = new Label[4];
@@ -99,7 +99,13 @@ namespace AIMProClient
             ready[1] = p2readylabel;
             ready[2] = p3readylabel;
             ready[3] = p4readylabel;
-           
+
+            setWallPaper();
+        }
+
+        public void setWallPaper() {
+            this.BackgroundImage = Properties.Resources.aim;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void backBtn_Click(object sender, EventArgs e)

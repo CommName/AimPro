@@ -18,6 +18,7 @@ namespace AIMProClient
         public LoginForm()
         {
             InitializeComponent();
+            this.Icon = new Icon("icon.ico");
             controller = new LoginController();
             passwordTextBox.PasswordChar = passwordTextBox.PasswordChar = controller.setMask();
             this.MinimizeBox = false;

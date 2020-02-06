@@ -19,6 +19,7 @@ namespace AIMProClient
         public MenuForm(User logovaniKorisnik)
         {
             InitializeComponent();
+            this.Icon = new Icon("icon.ico");
             this.MinimizeBox = false;
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
