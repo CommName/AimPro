@@ -12,7 +12,6 @@ namespace AIMProClient.Controllers
     {
         MenuForm menuForm;
         User logovaniKorisnik;
-        CreateRoomForm createRoomForm;
         List<RoomState> listaMogucihSoba = new List<RoomState>();
         int tipIgre = 0;
         int tipMete = 0;
@@ -259,7 +258,6 @@ namespace AIMProClient.Controllers
         }
         private void enterLobbyRoomFromCreate()
         {
-            //FormLayer.Instance.menuForm.Close();
             showLobyRoom();
         }
 

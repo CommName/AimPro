@@ -11,7 +11,11 @@ namespace AIMProClient.Controllers
         private int[] nizPusaka;
         private int selektor;
         public AmmoController(int[] niz) {
-            this.nizPusaka = niz;
+            this.nizPusaka = new int[niz.Length];
+            for (int i = 0; i < niz.Length; i++)
+            {
+                nizPusaka[i] = niz[i];
+            }
             this.selektor = this.nizPusaka.Length - 1;
         }
 
