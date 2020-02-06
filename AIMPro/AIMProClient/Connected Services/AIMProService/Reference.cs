@@ -908,9 +908,9 @@ namespace AIMProClient.AIMProService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Target", Namespace="http://schemas.datacontract.org/2004/07/")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AIMProClient.AIMProService.BoostTarget))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AIMProClient.AIMProService.ShieldedTarget))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AIMProClient.AIMProService.ChildTargets))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AIMProClient.AIMProService.ShieldedTarget))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AIMProClient.AIMProService.BoostTarget))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AIMProClient.AIMProService.NegativeTargets))]
     public partial class Target : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -1003,9 +1003,9 @@ namespace AIMProClient.AIMProService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BoostTarget", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ChildTargets", Namespace="http://schemas.datacontract.org/2004/07/")]
     [System.SerializableAttribute()]
-    public partial class BoostTarget : AIMProClient.AIMProService.Target {
+    public partial class ChildTargets : AIMProClient.AIMProService.Target {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1017,9 +1017,9 @@ namespace AIMProClient.AIMProService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ChildTargets", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BoostTarget", Namespace="http://schemas.datacontract.org/2004/07/")]
     [System.SerializableAttribute()]
-    public partial class ChildTargets : AIMProClient.AIMProService.Target {
+    public partial class BoostTarget : AIMProClient.AIMProService.Target {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1082,10 +1082,10 @@ namespace AIMProClient.AIMProService {
         System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.RoomState>> GetRoomsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfiles", ReplyAction="http://tempuri.org/IAIMProServerService/getProfilesResponse")]
-        System.Collections.Generic.List<AIMProClient.AIMProService.User> getProfiles();
+        System.Collections.Generic.List<AIMProClient.AIMProService.Profile> getProfiles();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAIMProServerService/getProfiles", ReplyAction="http://tempuri.org/IAIMProServerService/getProfilesResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.User>> getProfilesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.Profile>> getProfilesAsync();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAIMProServerService/leaveRoom")]
         void leaveRoom();
@@ -1223,11 +1223,11 @@ namespace AIMProClient.AIMProService {
             return base.Channel.GetRoomsAsync();
         }
         
-        public System.Collections.Generic.List<AIMProClient.AIMProService.User> getProfiles() {
+        public System.Collections.Generic.List<AIMProClient.AIMProService.Profile> getProfiles() {
             return base.Channel.getProfiles();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.User>> getProfilesAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AIMProClient.AIMProService.Profile>> getProfilesAsync() {
             return base.Channel.getProfilesAsync();
         }
         

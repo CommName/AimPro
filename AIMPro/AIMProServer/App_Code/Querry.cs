@@ -42,7 +42,7 @@ public class Querry
         return api.getUser(username);
     }
 
-    public List<User> getUsers()
+    public List<Profile> getUsers()
     {
         return api.getUsers();
     }

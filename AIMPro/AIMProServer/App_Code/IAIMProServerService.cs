@@ -36,7 +36,7 @@ public interface IAIMProServerService
     List<RoomState> GetRooms();
 
     [OperationContract]
-    List< User> getProfiles();
+    List<Profile> getProfiles();
 
     [OperationContract(IsOneWay = true)]
     void leaveRoom();

@@ -108,7 +108,7 @@ namespace AIMProClient.Controllers
 
         public void generisiStatistiku()
         {
-            List<User> users = CommunicationLayer.Instance.getUsers();
+            List<Profile> users = CommunicationLayer.Instance.getUsers();
 
             FormLayer.Instance.setStatisticsView(users);
         }

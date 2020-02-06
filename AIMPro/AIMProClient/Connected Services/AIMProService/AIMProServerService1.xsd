@@ -90,7 +90,7 @@
   <xs:element name="getProfilesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getProfilesResult" nillable="true" type="q4:ArrayOfUser" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getProfilesResult" nillable="true" type="q4:ArrayOfProfile" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

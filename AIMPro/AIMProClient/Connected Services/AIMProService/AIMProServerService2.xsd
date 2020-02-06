@@ -210,12 +210,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="RoomState" nillable="true" type="tns:RoomState" />
-  <xs:complexType name="ArrayOfUser">
+  <xs:complexType name="ArrayOfProfile">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Profile" nillable="true" type="tns:Profile" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+  <xs:element name="ArrayOfProfile" nillable="true" type="tns:ArrayOfProfile" />
   <xs:complexType name="Profile">
     <xs:sequence>
       <xs:element minOccurs="0" name="Elo" type="xs:int" />
@@ -281,22 +281,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Target" nillable="true" type="tns:Target" />
-  <xs:complexType name="BoostTarget">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Target">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="BoostTarget" nillable="true" type="tns:BoostTarget" />
-  <xs:complexType name="ShieldedTarget">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Target">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="ShieldedTarget" nillable="true" type="tns:ShieldedTarget" />
   <xs:complexType name="ChildTargets">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Target">
@@ -305,6 +289,22 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="ChildTargets" nillable="true" type="tns:ChildTargets" />
+  <xs:complexType name="ShieldedTarget">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Target">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShieldedTarget" nillable="true" type="tns:ShieldedTarget" />
+  <xs:complexType name="BoostTarget">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Target">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BoostTarget" nillable="true" type="tns:BoostTarget" />
   <xs:complexType name="NegativeTargets">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Target">

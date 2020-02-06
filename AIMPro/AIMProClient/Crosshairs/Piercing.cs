@@ -8,9 +8,9 @@ using AIMProClient.Controllers;
 
 namespace AIMProClient.Crosshairs
 {
-    class Piercing:Crosshair
+    class Piercing : Crosshair
     {
-        public Piercing(GameController gc):base(gc)
+        public Piercing(GameController gc) : base(gc)
         {
 
         }
@@ -26,11 +26,11 @@ namespace AIMProClient.Crosshairs
             {
                 int targetRadius = (unitx <= unity) ? (int)(pointTarget.Item2.radius * unitx) : (int)(pointTarget.Item2.radius * unity);
 
-                if (base.isInCircle(x, y, (int)pointTarget.Item1.X, (int)pointTarget.Item1.Y, targetRadius))
+                if (base.isInCircle(x, y, (int)pointTarget.Item1.X, (int)pointTarget.Item1.Y, targetRadius,0))
                 {
                     if (pointTarget.Item2.type == TargetTypes.Shielded)
                     {
-                        countHits ++;
+                        countHits++;
                         hitsTargets.Add(pointTarget.Item2);
                         hitsTargets.Add(pointTarget.Item2);
 
@@ -43,9 +43,9 @@ namespace AIMProClient.Crosshairs
                 }
             }
 
-            if(countHits==0)
+            if (countHits == 0)
             {
-                base.submitHit( x, y);
+                base.submitHit(x, y);
             }
             else
             {

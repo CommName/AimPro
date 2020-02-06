@@ -39,7 +39,7 @@ namespace AIMProClient
             menuForm.setSubView(createRoomForm);
         }
 
-        public void setStatisticsView(List<User> users)
+        public void setStatisticsView(List<Profile> users)
         {
             statistics.users = users;
             statistics.ShowTable();

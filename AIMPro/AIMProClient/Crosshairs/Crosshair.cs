@@ -16,20 +16,20 @@ namespace AIMProClient.Crosshairs
 
         }
 
-        public Crosshair(GameController controller): this()
+        public Crosshair(GameController controller) : this()
         {
             gameController = controller;
         }
 
         virtual public void submitHit(int x, int y)
         {
-            
+
             sumbmitHitToConverse(x, y);
         }
 
-        public bool isInCircle(int x, int y, int x1, int y1, int radius)
+        public bool isInCircle(int x, int y, int x1, int y1, int radiusTarget, int radiusCrosshair)
         {
-            return (((x - x1) * (x -x1) + (y - y1) * (y - y1)) < radius * radius);
+            return ((Math.Pow((x - x1), 2.0) + Math.Pow((y - y1), 2.0)) <= Math.Pow((radiusCrosshair + radiusTarget), 2.0));
         }
 
 

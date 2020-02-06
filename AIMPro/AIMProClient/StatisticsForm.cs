@@ -15,10 +15,10 @@ namespace AIMProClient
     public partial class StatisticsForm : UserControl
     {
         MenuController controller;
-        public List<User> users;
+        public List<Profile> users;
 
 
-        public StatisticsForm( MenuController controller, List<User> users )
+        public StatisticsForm( MenuController controller, List<Profile> users )
         {
             InitializeComponent();
             this.controller = controller;
@@ -30,15 +30,15 @@ namespace AIMProClient
         {
             this.ShowTable(this.users);
         }
-        public void ShowTable(List<User> users)
+        public void ShowTable(List<Profile> users)
         {
             dataGridStatistics.Rows.Clear();
             int rank = 0;
             if (users != null)
             {
-                foreach (User user in users)
+                foreach (Profile user in users)
                 {
-                    dataGridStatistics.Rows.Add(++rank, user.Username, user.Elo, null, null);
+                    dataGridStatistics.Rows.Add(++rank, user.Username, user.Elo, user.HitRatio, user.TotalHits);
                 }
             }
         }

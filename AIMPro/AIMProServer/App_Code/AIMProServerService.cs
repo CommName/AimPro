@@ -77,7 +77,7 @@ public class AIMProServerService : IAIMProServerService
         return querry.registry(username, pass);
     }
 
-    public List<User> getProfiles()
+    public List<Profile> getProfiles()
     {
         Querry querry = new Querry();
         return querry.getUsers();

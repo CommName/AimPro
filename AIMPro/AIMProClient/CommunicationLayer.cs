@@ -51,7 +51,7 @@ namespace AIMProClient
         {
             return proxy.GetRooms();
         }
-        public List<User> getUsers()
+        public List<Profile> getUsers()
         {
             return proxy.getProfiles();
         }

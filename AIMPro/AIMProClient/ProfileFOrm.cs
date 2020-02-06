@@ -26,8 +26,8 @@ namespace AIMProClient
             this.matchHistory = matchHistory;
             korisnikLabel.Text = this.korisnik.Username;
             lblElo.Text = this.korisnik.Elo.ToString();
-            lblHitRatio.Text = (Convert.ToDouble(this.korisnik.TotalHits)/Convert.ToDouble(this.korisnik.TotalHits + this.korisnik.TotalMiss)).ToString();
-
+            // lblHitRatio.Text = (Convert.ToDouble(this.korisnik.TotalHits)/Convert.ToDouble(this.korisnik.TotalHits + this.korisnik.TotalMiss)).ToString();
+            lblHitRatio.Text = this.korisnik.HitRatio.ToString();
             lblTotalTargerHits.Text = this.korisnik.TotalHits.ToString();
 
             lblTotalTargetMiss.Text = this.korisnik.TotalMiss.ToString();

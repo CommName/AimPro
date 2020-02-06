@@ -23,6 +23,10 @@ public class DataBaseAPI
              .ForMember(dest => dest.NumberOfMiss, opt => opt.MapFrom(src => src.NumMiss))
              .ForMember(dest => dest.NumberOfPoints, opt => opt.MapFrom(src => src.Points));
 
+            cfg.CreateMap<User, Profile>()
+             .ForMember(dest => dest.Username, opt => opt.MapFrom(src => src.Username))
+             .ForMember(dest => dest.Elo, opt => opt.MapFrom(src => src.Elo));
+           
         });
        // configuration.AssertConfigurationIsValid();
         mapper = configuration.CreateMapper();
@@ -81,11 +85,11 @@ public class DataBaseAPI
            
             profile.TotalHits = db.UserMatch.Where(b => b.UserId == user.ID).Sum(i => i.NumHits).GetValueOrDefault(0); ;
             profile.TotalMiss = db.UserMatch.Where(b => b.UserId == user.ID).Sum(i => i.NumMiss).GetValueOrDefault(0);
-            if (profile.TotalMiss != 0)
-                profile.HitRatio = profile.TotalHits / (profile.TotalHits + profile.TotalMiss);
+            if (profile.TotalMiss != 0 | profile.TotalHits > 0)
+                profile.HitRatio = Convert.ToDouble(profile.TotalHits) / Convert.ToDouble(profile.TotalHits + profile.TotalMiss);
             else
                 profile.HitRatio = 0;
-         
+
             profile.NumberDuel = db.UserMatch.Join(db.Matches, um => um.MatchId, m => m.ID, (um, m) => new { umObj = um, mObj = m }).Where(u => u.mObj.TypeOfMatch == 1).Where(y=>y.umObj.UserId==user.ID).Count(i=>true);
 
             profile.NumberEndless = db.UserMatch.Join(db.Matches, um => um.MatchId, m => m.ID, (um, m) => new { umObj = um, mObj = m }).Where(u => u.mObj.TypeOfMatch == 16).Where(y => y.umObj.UserId == user.ID).Count(i => true);
@@ -114,11 +118,6 @@ public class DataBaseAPI
             foreach (UserMatch m in listUserHistory)
             {
 
-                // MatchStatistics match = new MatchStatistics();
-                //  match.MatchRank =(int) m.Rank;
-                // match.NumberOfHits = (int)m.NumHits;
-                // match.NumberOfMiss = (int)m.NumMiss;
-                // match.NumberOfPoints = (int)m.Points;
                 MatchStatistics match = mapper.Map<MatchStatistics>(m);
                 match.TypeOfGame = db.Matches.Where(n => n.ID == m.MatchId).Select(i => i.TypeOfMatch).FirstOrDefault();
                 matchStatistics.Add(match);
@@ -153,13 +152,29 @@ public class DataBaseAPI
         }
     }
 
-    public List<User> getUsers()
+    public List<Profile> getUsers()
     {
+        List<Profile> profiles = new List<Profile>();
         using (var db = new UserContext())
         {
-            return db.Users.Select(x=>x).OrderByDescending(x=>x.Elo).Take(100).ToList();
+            List<User> listUsers= db.Users.Select(x=>x).OrderByDescending(x=>x.Elo).Take(100).ToList();
+            foreach(User user in listUsers)
+            {
+                Profile profile= mapper.Map<Profile>(user);
+
+                profile.TotalHits = db.UserMatch.Where(b => b.UserId == user.ID).Sum(i => i.NumHits).GetValueOrDefault(0); ;
+                profile.TotalMiss = db.UserMatch.Where(b => b.UserId == user.ID).Sum(i => i.NumMiss).GetValueOrDefault(0);
+                if (profile.TotalMiss != 0 | profile.TotalHits>0)
+                   profile.HitRatio = Convert.ToDouble(profile.TotalHits) / Convert.ToDouble(profile.TotalHits + profile.TotalMiss);
+                else
+                   profile.HitRatio = 0;
+
+                profiles.Add(profile);
+                
+            }
 
         }
+        return profiles;
     }
 
 
